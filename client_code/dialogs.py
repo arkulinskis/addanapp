@@ -3,7 +3,7 @@ import anvil
 import anvil.users
 import anvil.server
 
-from . import ui
+from . import ui, legal
 from .ui import esc
 from .icons import LOGO
 
@@ -31,11 +31,12 @@ class _AuthBox(object):
         </div>
         <div class="f"><label>Work email</label><input type="email" name="email" autocomplete="email" placeholder="you@company.com"></div>
         <div class="f"><label>Password</label><input type="password" name="pw" autocomplete="current-password" placeholder="8+ characters"></div>
+        <div class="f-legal">{legal.consent_field()}</div>
         <button type="button" class="aa-btn block lg t-go" data-act="go"></button>
         <div class="switch"><span class="t-switch-text"></span> <button type="button" class="aa-link" data-act="switch"></button>
           <div class="f-forgot" style="margin-top:8px"><button type="button" class="aa-link" data-act="forgot">Forgot your password?</button></div>
         </div>
-        <p class="fine">Your workspace is private to you and your Addanapp engineer.<br>See our <a href="#privacy" data-act="privacy">privacy policy</a>.</p>
+        <p class="fine">Your workspace is private to you and your Addanapp engineer.<br>See our <a href="javascript:void(0)" data-lk-open="overview">Privacy &amp; Terms</a>.</p>
       </div>''', actions={
         'go': lambda a: self.submit(),
         'switch': lambda a: self.set_mode('login' if self.mode == 'signup' else 'signup'),
@@ -64,6 +65,7 @@ class _AuthBox(object):
     self._q('[data-act=switch]').textContent = 'Sign in' if signup else 'Create a workspace'
     self._q('[name=pw]').setAttribute('autocomplete', 'new-password' if signup else 'current-password')
     ui.show(self._q('.f-signup'), signup)
+    ui.show(self._q('.f-legal'), signup)
     ui.show(self._q('.f-forgot'), not signup)
     self.error(None)
 
@@ -88,6 +90,9 @@ class _AuthBox(object):
         if len(name) < 2:
           ui.busy(btn, False)
           return self.error("Please tell us your name.")
+        if not legal.consent_ok(ui.dom(self.component)):
+          ui.busy(btn, False)
+          return
         anvil.users.signup_with_email(email, pw, remember=True)
         anvil.server.call('update_me', {'name': name, 'company': v.get('company', '')})
       else:

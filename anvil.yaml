@@ -79,6 +79,18 @@ db_schema:
         width: 200
       name: last_seen
       type: datetime
+    - admin_ui:
+        width: 200
+      name: legal_version
+      type: string
+    - admin_ui:
+        width: 200
+      name: legal_accepted_at
+      type: datetime
+    - admin_ui:
+        width: 200
+      name: legal_source
+      type: string
     server: full
     title: Users
   requests:
@@ -263,6 +275,7 @@ metadata:
 name: Addanapp
 native_deps:
   head_html: |-
+    <script src="_/theme/legal-kit.js?v=c3ecb4da34"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">

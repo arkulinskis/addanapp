@@ -250,7 +250,7 @@ LEAD_FORM = f'''
     <div class="f"><label for="ld-kind">What do you need?</label><select id="ld-kind" name="kind">{_opts(LEAD_TYPES)}</select></div>
     <div class="f"><label for="ld-msg">The outcome you're after</label><textarea id="ld-msg" name="message" rows="4" placeholder="e.g. Our team tracks 400 orders a week in spreadsheets. We want a dashboard with roles, approvals and a weekly PDF report."></textarea></div>
     <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-    <label class="check" style="margin-bottom:18px"><input type="checkbox" name="consent"><span>I agree that Addanapp may contact me about this request. See our <a href="#privacy">privacy policy</a>.</span></label>
+    <label class="check" style="margin-bottom:18px"><input type="checkbox" name="consent"><span>I agree that Addanapp may contact me about this request. See our <a href="javascript:void(0)" data-lk-open="privacy">privacy policy</a>.</span></label>
     <button type="button" class="aa-btn accent block lg" data-act="lead">Send brief <span class="arr">&rarr;</span></button>
     <p class="tiny muted center" style="margin:14px 0 0">Prefer the full experience? <button type="button" class="aa-link" data-act="signup">Create a client workspace</button></p>
   </div>

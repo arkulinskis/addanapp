@@ -15,6 +15,7 @@ from ..RequestDetail import RequestDetail
 from ..Admin import Admin
 from ..Account import Account
 from ..Privacy import Privacy
+from .. import legal
 
 SEO_TITLE = "AI-Accelerated App Development in Montréal | Addanapp"
 SEO_DESC = ("Montréal software consultancy for web apps, admin panels, client portals and data platforms. "
@@ -83,7 +84,7 @@ SHELL = f'''
           <li><a href="#work">Work</a></li>
           <li><a href="#home/engage">Engagements</a></li>
           <li><a href="#home/faq">FAQ</a></li>
-          <li><a href="#privacy">Privacy</a></li></ul></div>
+          <li><a href="#privacy">Privacy &amp; Terms</a></li></ul></div>
         <div><h4>Clients</h4><ul>
           <li><a href="#home/contact">Start a project</a></li>
           <li><a href="#signup">Create a workspace</a></li>
@@ -92,7 +93,7 @@ SHELL = f'''
       </div>
       <div class="base">
         <span>&copy; <span class="js-year"></span> Addanapp · Custom software development, Montréal</span>
-        <span>AI-accelerated. Human-validated. <a href="#privacy">Privacy</a></span>
+        <span>AI-accelerated. Human-validated. <a href="javascript:void(0)" data-lk-open="overview">Privacy &amp; Terms</a></span>
       </div>
     </div>
   </footer>
@@ -239,6 +240,7 @@ class Main(MainTemplate):
   def _logout(self, e=None):
     anvil.users.logout()
     state.me = None
+    legal.signed_out()
     state.counts = {}
     self.timer.interval = 0
     self.menu.classList.remove('open')
@@ -299,7 +301,7 @@ class Main(MainTemplate):
                          "CityCrossers, BusyBun, DoremiRoad, PoundFighter, Parapeet, CAF Guide and Dilettante.")
     if head == 'privacy':
       self.set_page(Privacy(), public=True)
-      return ui.set_meta("Privacy policy | Addanapp", "How Addanapp collects, uses and protects personal information (Québec Law 25, PIPEDA).")
+      return ui.set_meta("Privacy & Terms | Addanapp", "How Addanapp collects, uses and protects personal information (Québec Law 25, PIPEDA, GDPR), and the terms of use.")
     if head in ('login', 'signup'):
       return self.open_auth(head)
 
