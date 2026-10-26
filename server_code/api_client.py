@@ -8,15 +8,18 @@ from anvil.tables import app_tables
 
 from . import serial
 from .common import (current_user, rid, by_id, clean, now, next_ref, add_note, touch, notify_admins,
-                     KINDS, PRIORITIES, OPEN_STATUSES)
+                     KINDS, PRIORITIES, OPEN_STATUSES, KIND_LABEL, PRIORITY_LABEL)
+from .i18n_server import set_user_lang
 
 
 # ---------------------------------------------------------------- profile
 
 @anvil.server.callable
-def get_me():
+def get_me(lang=None):
   u = current_user()
   touch(u)
+  if lang:
+    set_user_lang(u, lang)  # notification emails go out in this language
   return serial.me(u)
 
 
@@ -119,9 +122,12 @@ def create_request_row(client, data, created_by):
 def create_request(data):
   u = current_user()
   r = create_request_row(u, data, u)
-  notify_admins(f"New request {r['ref']}: {r['title']}", f"New request from {u['name']}",
-                [f"<b>{r['title']}</b>", (u['company'] or u['email']) + f" · {r['kind']} · {r['priority']} priority",
-                 r['description'][:600].replace('\n', '<br>')], 'r/' + rid(r))
+  notify_admins(lambda tr: (
+    tr("New request {ref}: {title}", ref=r['ref'], title=r['title']), tr("New request from {name}", name=u['name']),
+    [f"<b>{r['title']}</b>",
+     (u['company'] or u['email']) + ' · ' + tr(KIND_LABEL.get(r['kind'], 'Other')) + ' · ' +
+     tr('{level} priority', level=tr(PRIORITY_LABEL.get(r['priority'], 'Normal'))),
+     r['description'][:600].replace('\n', '<br>')]), 'r/' + rid(r))
   return rid(r)
 
 
@@ -162,22 +168,25 @@ def client_action(request_id, action, comment=''):
     add_note(r, u, 'comment', comment)
     r.update(last_activity=now(), admin_unread=not u['is_admin'], client_unread=bool(u['is_admin']))
     if not u['is_admin']:
-      notify_admins(f"{r['ref']}: new comment from {name}", f"{name} commented on {r['ref']}",
-                    [f"<b>{r['title']}</b>", comment[:800].replace('\n', '<br>')], path)
+      notify_admins(lambda tr: (
+        tr("{ref}: new comment from {name}", ref=r['ref'], name=name), tr("{name} commented on {ref}", name=name, ref=r['ref']),
+        [f"<b>{r['title']}</b>", comment[:800].replace('\n', '<br>')]), path)
   elif action == 'approve_quote':
     if r['status'] != 'quoted':
       raise Exception("There's no quote waiting for approval on this request.")
     _set_status(r, u, 'in_progress', f"Quote approved by {name}" + (f": {comment}" if comment else ''))
     r['admin_unread'] = True
-    notify_admins(f"{r['ref']}: quote approved", f"{name} approved the quote for {r['ref']}",
-                  [f"<b>{r['title']}</b>", "The request moved to In progress. Time to build."], path)
+    notify_admins(lambda tr: (
+      tr("{ref}: quote approved", ref=r['ref']), tr("{name} approved the quote for {ref}", name=name, ref=r['ref']),
+      [f"<b>{r['title']}</b>", tr("The request moved to In progress. Time to build.")]), path)
   elif action == 'accept':
     if r['status'] != 'review':
       raise Exception("This request isn't ready for review yet.")
     _set_status(r, u, 'delivered', f"Delivery accepted by {name}" + (f": {comment}" if comment else ''))
     r['admin_unread'] = True
-    notify_admins(f"{r['ref']}: delivery accepted", f"{name} accepted {r['ref']}",
-                  [f"<b>{r['title']}</b>", "Accepted. It can be invoiced now."], path)
+    notify_admins(lambda tr: (
+      tr("{ref}: delivery accepted", ref=r['ref']), tr("{name} accepted {ref}", name=name, ref=r['ref']),
+      [f"<b>{r['title']}</b>", tr("Accepted. It can be invoiced now.")]), path)
   elif action == 'request_changes':
     if r['status'] != 'review':
       raise Exception("This request isn't in review.")
@@ -186,14 +195,17 @@ def client_action(request_id, action, comment=''):
     _set_status(r, u, 'in_progress', "Changes requested")
     add_note(r, u, 'comment', comment)
     r['admin_unread'] = True
-    notify_admins(f"{r['ref']}: changes requested", f"{name} requested changes on {r['ref']}",
-                  [f"<b>{r['title']}</b>", comment[:800].replace('\n', '<br>')], path)
+    notify_admins(lambda tr: (
+      tr("{ref}: changes requested", ref=r['ref']), tr("{name} requested changes on {ref}", name=name, ref=r['ref']),
+      [f"<b>{r['title']}</b>", comment[:800].replace('\n', '<br>')]), path)
   elif action == 'withdraw':
     if r['status'] not in ('new', 'scoping', 'quoted', 'on_hold'):
       raise Exception("Work has already started on this request. Leave a comment and we'll sort it out together.")
     _set_status(r, u, 'declined', f"Withdrawn by {name}" + (f": {comment}" if comment else ''))
     r['admin_unread'] = True
-    notify_admins(f"{r['ref']}: withdrawn", f"{name} withdrew {r['ref']}", [f"<b>{r['title']}</b>", comment], path)
+    notify_admins(lambda tr: (
+      tr("{ref}: withdrawn", ref=r['ref']), tr("{name} withdrew {ref}", name=name, ref=r['ref']),
+      [f"<b>{r['title']}</b>", comment]), path)
   else:
     raise Exception("Unknown action.")
   return payload(r, u)

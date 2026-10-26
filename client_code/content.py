@@ -1,6 +1,8 @@
 """Landing page markup. Buttons use data-act (handled in the Landing form).
-Everything a search engine should read lives here, on the indexable home page."""
+Everything a search engine should read lives here, on the indexable home page.
+Visible text goes through t() so it can be shown in French, Russian or Latvian (see i18n.py)."""
 from .icons import icon
+from .i18n import t
 from . import portfolio
 
 CONTACT_EMAIL = 'hello@addanapp.com'
@@ -12,28 +14,28 @@ def _ev(cls, ico, title, text, when):
 
 
 HERO_MOCK = f'''
-<div class="lp-mock rv d2" role="img" aria-label="Example: a feature request tracked in the Addanapp client workspace, from fixed quote to AI draft, human validation and client review.">
+<div class="lp-mock rv d2" role="img" aria-label="{t('Example: a feature request tracked in the Addanapp client workspace, from fixed quote to AI draft, human validation and client review.')}">
   <div class="win">
     <div class="bar"><i></i><i></i><i></i><span class="url">addanapp.com · workspace</span></div>
     <div class="body">
       <div class="top">
-        <div><span class="chip mono">AA-1042</span> <span class="chip outline">Integration / API</span>
-          <h4>Deposits for large-party reservations</h4></div>
-        <span class="chip ai"><span class="d"></span>In progress</span>
+        <div><span class="chip mono">AA-1042</span> <span class="chip outline">{t('Integration / API')}</span>
+          <h4>{t('Deposits for large-party reservations')}</h4></div>
+        <span class="chip ai"><span class="d"></span>{t('In progress')}</span>
       </div>
       <div class="progress"><i style="width:72%"></i></div>
-      <div class="meta"><span>Fixed quote approved · ETA Nov 14</span><b style="color:var(--ink)">72%</b></div>
+      <div class="meta"><span>{t('Fixed quote approved · ETA Nov 14')}</span><b style="color:var(--ink)">72%</b></div>
       <div class="tl">
-        {_ev('slate', 'check', 'Scoped &amp; quoted', '6 acceptance criteria, fixed price approved.', 'Oct 21')}
-        {_ev('ai', 'sparkle', 'AI draft generated', 'Stripe flow, webhooks and 38 tests drafted.', 'Oct 22')}
-        {_ev('human', 'shield', 'Human-validated', 'Engineer review: 2 edge cases fixed, security checks passed.', 'Oct 23')}
-        {_ev('accent', 'eye', 'Ready for your review', 'Try it on staging, then accept or request changes.', 'Today')}
+        {_ev('slate', 'check', t('Scoped &amp; quoted'), t('6 acceptance criteria, fixed price approved.'), t('Oct 21'))}
+        {_ev('ai', 'sparkle', t('AI draft generated'), t('Stripe flow, webhooks and 38 tests drafted.'), t('Oct 22'))}
+        {_ev('human', 'shield', t('Human-validated'), t('Engineer review: 2 edge cases fixed, security checks passed.'), t('Oct 23'))}
+        {_ev('accent', 'eye', t('Ready for your review'), t('Try it on staging, then accept or request changes.'), t('Today'))}
       </div>
       <div class="cta-row"><span></span>
-        <span style="display:flex;gap:6px"><span class="aa-btn sm ghost" style="pointer-events:none">Request changes</span><span class="aa-btn sm green" style="pointer-events:none">Accept delivery</span></span></div>
+        <span style="display:flex;gap:6px"><span class="aa-btn sm ghost" style="pointer-events:none">{t('Request changes')}</span><span class="aa-btn sm green" style="pointer-events:none">{t('Accept delivery')}</span></span></div>
     </div>
   </div>
-  <div class="stamp"><div class="seal">{icon('shield')}</div><div><b>100% human-reviewed</b>Every AI draft is signed off by a senior engineer.</div></div>
+  <div class="stamp"><div class="seal">{icon('shield')}</div><div><b>{t('100% human-reviewed')}</b>{t('Every AI draft is signed off by a senior engineer.')}</div></div>
 </div>'''
 
 
@@ -46,13 +48,13 @@ def _proof():
 
 
 def _cmp(ico, title, text):
-  return f'<li>{icon(ico)}<span><b>{title}</b>{text}</span></li>'
+  return f'<li>{icon(ico)}<span><b>{t(title)}</b>{t(text)}</span></li>'
 
 
 COMPARE = f'''
 <div class="lp-compare rv">
   <div class="col them">
-    <h3><span class="chip outline">The usual agency</span></h3>
+    <h3><span class="chip outline">{t('The usual agency')}</span></h3>
     <ul>
       {_cmp('minus-circle', 'Billed by the hour', 'Estimates drift and the meter keeps running.')}
       {_cmp('minus-circle', 'Status when you chase it', "Updates live in someone's inbox, not in front of you.")}
@@ -76,8 +78,8 @@ COMPARE = f'''
 
 def _step(n, ico, who_cls, who, title, text, hl=False, d=0):
   return f'''<div class="lp-step rv d{d}{' hl' if hl else ''}">
-    <div class="num"><span>{n}</span><span class="who {who_cls}">{who}</span></div>
-    <div class="ico">{icon(ico)}</div><h3>{title}</h3><p>{text}</p></div>'''
+    <div class="num"><span>{n}</span><span class="who {who_cls}">{t(who)}</span></div>
+    <div class="ico">{icon(ico)}</div><h3>{t(title)}</h3><p>{t(text)}</p></div>'''
 
 
 STEPS = ''.join([
@@ -90,8 +92,8 @@ STEPS = ''.join([
 
 
 def _svc(ico, title, text, tags, d=0):
-  t = ''.join(f'<span>{x}</span>' for x in tags)
-  return f'<div class="s rv d{d}"><div class="ico">{icon(ico)}</div><h3>{title}</h3><p>{text}</p><div class="tags">{t}</div></div>'
+  tg = ''.join(f'<span>{t(x)}</span>' for x in tags)
+  return f'<div class="s rv d{d}"><div class="ico">{icon(ico)}</div><h3>{t(title)}</h3><p>{t(text)}</p><div class="tags">{tg}</div></div>'
 
 
 SERVICES = ''.join([
@@ -108,52 +110,52 @@ SERVICES = ''.join([
 
 
 def _pt(ico, title, text):
-  return f'<li><span class="i">{icon(ico)}</span><div><b>{title}</b><span>{text}</span></div></li>'
+  return f'<li><span class="i">{icon(ico)}</span><div><b>{t(title)}</b><span>{t(text)}</span></div></li>'
 
 
 WS_CLIENT = f'''
 <div class="mini-app">
-  <div class="hd"><b>Bistro Laurier · Workspace</b><span class="aa-btn sm" style="pointer-events:none">{icon('plus', 'width="14" height="14"')} New request</span></div>
+  <div class="hd"><b>{t('Bistro Laurier · Workspace')}</b><span class="aa-btn sm" style="pointer-events:none">{icon('plus', 'width="14" height="14"')} {t('New request')}</span></div>
   <div class="tiles">
-    <div class="tile"><div class="v">3</div><div class="l">Open</div></div>
-    <div class="tile" style="background:var(--accent-soft);border-color:#CBD6FF"><div class="v" style="color:var(--accent-d)">1</div><div class="l">Needs you</div></div>
-    <div class="tile"><div class="v">2</div><div class="l">In progress</div></div>
-    <div class="tile"><div class="v">14</div><div class="l">Delivered</div></div>
+    <div class="tile"><div class="v">3</div><div class="l">{t('Open')}</div></div>
+    <div class="tile" style="background:var(--accent-soft);border-color:#CBD6FF"><div class="v" style="color:var(--accent-d)">1</div><div class="l">{t('Needs you')}</div></div>
+    <div class="tile"><div class="v">2</div><div class="l">{t('In progress')}</div></div>
+    <div class="tile"><div class="v">14</div><div class="l">{t('Delivered')}</div></div>
   </div>
   <div class="rows">
-    <div class="row"><span class="ref">AA-1042</span><div><div class="ttl">Deposits for large parties</div><div class="progress"><i style="width:72%"></i></div></div><span class="chip ai"><span class="d"></span>In progress</span></div>
-    <div class="row"><span class="ref">AA-1047</span><div><div class="ttl">Gift card balance page</div><div class="sub">Fixed quote $2,400 · ETA 6 days</div></div><span class="chip accent"><span class="d"></span>Quote ready</span></div>
-    <div class="row"><span class="ref">AA-1039</span><div><div class="ttl">Weekly covers report (PDF)</div><div class="progress done"><i style="width:100%"></i></div></div><span class="chip human"><span class="d"></span>Delivered</span></div>
+    <div class="row"><span class="ref">AA-1042</span><div><div class="ttl">{t('Deposits for large parties')}</div><div class="progress"><i style="width:72%"></i></div></div><span class="chip ai"><span class="d"></span>{t('In progress')}</span></div>
+    <div class="row"><span class="ref">AA-1047</span><div><div class="ttl">{t('Gift card balance page')}</div><div class="sub">{t('Fixed quote $2,400 · ETA 6 days')}</div></div><span class="chip accent"><span class="d"></span>{t('Quote ready')}</span></div>
+    <div class="row"><span class="ref">AA-1039</span><div><div class="ttl">{t('Weekly covers report (PDF)')}</div><div class="progress done"><i style="width:100%"></i></div></div><span class="chip human"><span class="d"></span>{t('Delivered')}</span></div>
   </div>
 </div>'''
 
 WS_ADMIN = f'''
 <div class="mini-app">
-  <div class="hd"><b>Consultant console · Board</b><span class="chip accent">4 unread</span></div>
+  <div class="hd"><b>{t('Consultant console · Board')}</b><span class="chip accent">{t('4 unread')}</span></div>
   <div class="cols">
-    <div class="colk"><h5>Scoping <span>2</span></h5>
-      <div class="kc"><b>SSO with Google Workspace</b><span class="small muted">Northline Logistics</span></div>
-      <div class="kc"><b>Inventory CSV import</b><span class="small muted">Atelier Rossi</span></div></div>
-    <div class="colk"><h5>In progress <span>3</span></h5>
-      <div class="kc"><b>Deposits for large parties</b><div class="progress"><i style="width:72%"></i></div></div>
-      <div class="kc"><b>Driver mobile check-in</b><div class="progress"><i style="width:40%"></i></div></div></div>
-    <div class="colk"><h5>Review <span>1</span></h5>
-      <div class="kc"><b>Route optimisation v2</b><span class="chip human" style="margin-top:6px">Validated</span></div></div>
+    <div class="colk"><h5>{t('Scoping')} <span>2</span></h5>
+      <div class="kc"><b>{t('SSO with Google Workspace')}</b><span class="small muted">Northline Logistics</span></div>
+      <div class="kc"><b>{t('Inventory CSV import')}</b><span class="small muted">Atelier Rossi</span></div></div>
+    <div class="colk"><h5>{t('In progress')} <span>3</span></h5>
+      <div class="kc"><b>{t('Deposits for large parties')}</b><div class="progress"><i style="width:72%"></i></div></div>
+      <div class="kc"><b>{t('Driver mobile check-in')}</b><div class="progress"><i style="width:40%"></i></div></div></div>
+    <div class="colk"><h5>{t('Review')} <span>1</span></h5>
+      <div class="kc"><b>{t('Route optimisation v2')}</b><span class="chip human" style="margin-top:6px">{t('Validated')}</span></div></div>
   </div>
-  <div class="note-box"><div class="ph">Write a progress note for the client…</div>
+  <div class="note-box"><div class="ph">{t('Write a progress note for the client…')}</div>
     <div style="display:flex;gap:6px;flex-wrap:wrap;justify-content:space-between;align-items:center">
-      <span style="display:flex;gap:6px;flex-wrap:wrap"><span class="chip accent">Progress update</span><span class="chip human">{icon('shield', 'width="12" height="12"')}Human-validated</span></span>
-      <span class="aa-btn sm" style="pointer-events:none">Post note</span></div></div>
+      <span style="display:flex;gap:6px;flex-wrap:wrap"><span class="chip accent">{t('Progress update')}</span><span class="chip human">{icon('shield', 'width="12" height="12"')}{t('Human-validated')}</span></span>
+      <span class="aa-btn sm" style="pointer-events:none">{t('Post note')}</span></div></div>
 </div>'''
 
 
 def _eng(kind, title, price, text, items, cta, act, feat=False, badge=''):
-  li = ''.join(f'<li>{icon("check")}<span>{x}</span></li>' for x in items)
+  li = ''.join(f'<li>{icon("check")}<span>{t(x)}</span></li>' for x in items)
   btn = 'light' if feat else 'ghost'
-  b = f'<span class="badge chip accent">{badge}</span>' if badge else ''
-  return f'''<div class="e rv{' feat' if feat else ''}">{b}<div class="k">{kind}</div><h3>{title}</h3>
-    <div class="price">{price}</div><p>{text}</p><ul>{li}</ul>
-    <button type="button" class="aa-btn {btn} block" data-act="{act}">{cta} <span class="arr">&rarr;</span></button></div>'''
+  b = f'<span class="badge chip accent">{t(badge)}</span>' if badge else ''
+  return f'''<div class="e rv{' feat' if feat else ''}">{b}<div class="k">{t(kind)}</div><h3>{t(title)}</h3>
+    <div class="price">{t(price)}</div><p>{t(text)}</p><ul>{li}</ul>
+    <button type="button" class="aa-btn {btn} block" data-act="{act}">{t(cta)} <span class="arr">&rarr;</span></button></div>'''
 
 
 ENGAGEMENTS = ''.join([
@@ -173,7 +175,7 @@ ENGAGEMENTS = ''.join([
 
 
 def _commit(ico, title, text):
-  return f'<div class="c rv">{icon(ico)}<b>{title}</b><span>{text}</span></div>'
+  return f'<div class="c rv">{icon(ico)}<b>{t(title)}</b><span>{t(text)}</span></div>'
 
 
 COMMITMENTS = ''.join([
@@ -220,48 +222,52 @@ FAQ = [
 def _faq():
   out = ''
   for qn, ans in FAQ:
-    out += f'<details class="rv"><summary>{qn}</summary><p>{ans}</p></details>'
+    out += f'<details class="rv"><summary>{t(qn)}</summary><p>{t(ans)}</p></details>'
   return out
 
 
+# Lead form choices are saved in English (the value) and shown translated (the label).
 LEAD_TYPES = ['A new app or product', 'A feature for an existing app', 'An admin panel or internal tool', 'A client portal',
               'API or integration work', 'Taking over an existing app', 'Something else']
 LEAD_BUDGETS = ['Not sure yet', 'Under $10k', '$10k – $25k', '$25k – $75k', '$75k+']
 
 
 def _opts(items):
-  return ''.join(f'<option>{x}</option>' for x in items)
+  return ''.join(f'<option value="{x}">{t(x)}</option>' for x in items)
 
 
 LEAD_FORM = f'''
 <div class="lp-form rv d1" id="lead-form">
   <div class="form-body">
-    <h3 style="font-size:1.3rem;margin-bottom:4px">Send a project brief</h3>
-    <p class="small muted" style="margin-bottom:20px">Takes two minutes. An engineer replies within two business days.</p>
+    <h3 style="font-size:1.3rem;margin-bottom:4px">{t('Send a project brief')}</h3>
+    <p class="small muted" style="margin-bottom:20px">{t('Takes two minutes. An engineer replies within two business days.')}</p>
     <div class="aa-error hidden"></div>
     <div class="row2">
-      <div class="f"><label for="ld-name">Name</label><input id="ld-name" type="text" name="name" autocomplete="name" placeholder="Jane Tremblay"></div>
-      <div class="f"><label for="ld-email">Work email</label><input id="ld-email" type="email" name="email" autocomplete="email" placeholder="jane@company.com"></div>
+      <div class="f"><label for="ld-name">{t('Name')}</label><input id="ld-name" type="text" name="name" autocomplete="name" placeholder="{t('Jane Tremblay')}"></div>
+      <div class="f"><label for="ld-email">{t('Work email')}</label><input id="ld-email" type="email" name="email" autocomplete="email" placeholder="{t('jane@company.com')}"></div>
     </div>
     <div class="row2">
-      <div class="f"><label for="ld-company">Company <span class="opt">(optional)</span></label><input id="ld-company" type="text" name="company" autocomplete="organization" placeholder="Company Inc."></div>
-      <div class="f"><label for="ld-budget">Budget</label><select id="ld-budget" name="budget">{_opts(LEAD_BUDGETS)}</select></div>
+      <div class="f"><label for="ld-company">{t('Company')} <span class="opt">{t('(optional)')}</span></label><input id="ld-company" type="text" name="company" autocomplete="organization" placeholder="{t('Company Inc.')}"></div>
+      <div class="f"><label for="ld-budget">{t('Budget')}</label><select id="ld-budget" name="budget">{_opts(LEAD_BUDGETS)}</select></div>
     </div>
-    <div class="f"><label for="ld-kind">What do you need?</label><select id="ld-kind" name="kind">{_opts(LEAD_TYPES)}</select></div>
-    <div class="f"><label for="ld-msg">The outcome you're after</label><textarea id="ld-msg" name="message" rows="4" placeholder="e.g. Our team tracks 400 orders a week in spreadsheets. We want a dashboard with roles, approvals and a weekly PDF report."></textarea></div>
+    <div class="f"><label for="ld-kind">{t('What do you need?')}</label><select id="ld-kind" name="kind">{_opts(LEAD_TYPES)}</select></div>
+    <div class="f"><label for="ld-msg">{t("The outcome you're after")}</label><textarea id="ld-msg" name="message" rows="4" placeholder="{t('e.g. Our team tracks 400 orders a week in spreadsheets. We want a dashboard with roles, approvals and a weekly PDF report.')}"></textarea></div>
     <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
-    <label class="check" style="margin-bottom:18px"><input type="checkbox" name="consent"><span>I agree that Addanapp may contact me about this request. See our <a href="javascript:void(0)" data-lk-open="privacy">privacy policy</a>.</span></label>
-    <button type="button" class="aa-btn accent block lg" data-act="lead">Send brief <span class="arr">&rarr;</span></button>
-    <p class="tiny muted center" style="margin:14px 0 0">Prefer the full experience? <button type="button" class="aa-link" data-act="signup">Create a client workspace</button></p>
+    <label class="check" style="margin-bottom:18px"><input type="checkbox" name="consent"><span>{t('I agree that Addanapp may contact me about this request. See our <a href="javascript:void(0)" data-lk-open="privacy">privacy policy</a>.')}</span></label>
+    <button type="button" class="aa-btn accent block lg" data-act="lead">{t('Send brief')} <span class="arr">&rarr;</span></button>
+    <p class="tiny muted center" style="margin:14px 0 0">{t('Prefer the full experience?')} <button type="button" class="aa-link" data-act="signup">{t('Create a client workspace')}</button></p>
   </div>
   <div class="ok hidden">
     <div class="seal">{icon('check')}</div>
-    <h3 style="font-size:1.4rem">Brief received. Thank you.</h3>
-    <p class="muted">An engineer will reply within two business days. In the meantime, you can create a workspace and submit the request in full.</p>
-    <button type="button" class="aa-btn" data-act="signup">Create a workspace <span class="arr">&rarr;</span></button>
+    <h3 style="font-size:1.4rem">{t('Brief received. Thank you.')}</h3>
+    <p class="muted">{t('An engineer will reply within two business days. In the meantime, you can create a workspace and submit the request in full.')}</p>
+    <button type="button" class="aa-btn" data-act="signup">{t('Create a workspace')} <span class="arr">&rarr;</span></button>
   </div>
 </div>'''
 
+
+FAQ_CONTACT = t('Anything else? Write to {email} and an engineer will answer.',
+                email='<a href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a>')
 
 HTML = f'''
 <div class="lp">
@@ -270,26 +276,24 @@ HTML = f'''
 <section class="lp-hero" id="top" aria-labelledby="hero-title">
   <div class="aa-wrap grid">
     <div>
-      <div class="tag-loc rv"><b>Montréal</b>Custom software studio · EN / FR</div>
-      <h1 id="hero-title" class="rv d1">Apps built at AI speed. <em>Signed off by senior engineers.</em></h1>
-      <p class="sub rv d2">Addanapp designs and builds <b>web apps, admin panels, client portals and data-heavy platforms</b>.
-        AI accelerates every step, and an engineer reviews, tests and approves every line before it reaches you.
-        <b>You pay for accepted results, not hours.</b></p>
+      <div class="tag-loc rv"><b>Montréal</b>{t('Custom software studio · EN / FR')}</div>
+      <h1 id="hero-title" class="rv d1">{t('Apps built at AI speed. <em>Signed off by senior engineers.</em>')}</h1>
+      <p class="sub rv d2">{t('Addanapp designs and builds <b>web apps, admin panels, client portals and data-heavy platforms</b>. AI accelerates every step, and an engineer reviews, tests and approves every line before it reaches you. <b>You pay for accepted results, not hours.</b>')}</p>
       <div class="ctas rv d3">
-        <button type="button" class="aa-btn accent lg" data-act="contact">Start a project <span class="arr">&rarr;</span></button>
-        <a class="aa-btn ghost-light lg" href="#home/work">See work we've shipped</a>
+        <button type="button" class="aa-btn accent lg" data-act="contact">{t('Start a project')} <span class="arr">&rarr;</span></button>
+        <a class="aa-btn ghost-light lg" href="#home/work">{t("See work we've shipped")}</a>
       </div>
       <div class="assure rv d4">
-        <span>{icon('check')}Fixed quote before work starts</span>
-        <span>{icon('check')}Track every request live</span>
-        <span>{icon('check')}You own 100% of the code</span>
+        <span>{icon('check')}{t('Fixed quote before work starts')}</span>
+        <span>{icon('check')}{t('Track every request live')}</span>
+        <span>{icon('check')}{t('You own 100% of the code')}</span>
       </div>
     </div>
     {HERO_MOCK}
   </div>
   <div class="lp-proof">
     <div class="aa-wrap pin">
-      <span class="lbl">Built &amp; running</span>
+      <span class="lbl">{t('Built &amp; running')}</span>
       <div class="marquee">{_proof()}</div>
     </div>
   </div>
@@ -299,10 +303,9 @@ HTML = f'''
 <section class="lp-sec" id="approach" aria-labelledby="why-title">
   <div class="aa-wrap">
     <div class="lp-head rv">
-      <div class="eyebrow">Why Addanapp</div>
-      <h2 id="why-title">Most consultancies sell hours. <em>We sell outcomes.</em></h2>
-      <p class="lead">Hourly billing rewards slow work. We quote every request at a fixed price, build it with AI-accelerated
-        tooling and have a senior engineer validate everything before it ships. If you don't accept it, you don't pay for it.</p>
+      <div class="eyebrow">{t('Why Addanapp')}</div>
+      <h2 id="why-title">{t('Most consultancies sell hours. <em>We sell outcomes.</em>')}</h2>
+      <p class="lead">{t("Hourly billing rewards slow work. We quote every request at a fixed price, build it with AI-accelerated tooling and have a senior engineer validate everything before it ships. If you don't accept it, you don't pay for it.")}</p>
     </div>
     {COMPARE}
   </div>
@@ -312,17 +315,16 @@ HTML = f'''
 <section class="lp-sec on-dark" id="method" aria-labelledby="method-title">
   <div class="aa-wrap">
     <div class="lp-head rv">
-      <div class="eyebrow">The method</div>
-      <h2 id="method-title">AI does the heavy lifting. <em>A human signs every step.</em></h2>
-      <p class="lead">AI lets us explore, draft and test at a pace traditional teams can't match. Speed without judgment is a
-        liability, though, so every artifact passes through an engineer who is accountable for it.</p>
+      <div class="eyebrow">{t('The method')}</div>
+      <h2 id="method-title">{t('AI does the heavy lifting. <em>A human signs every step.</em>')}</h2>
+      <p class="lead">{t("AI lets us explore, draft and test at a pace traditional teams can't match. Speed without judgment is a liability, though, so every artifact passes through an engineer who is accountable for it.")}</p>
     </div>
     <div class="lp-steps">{STEPS}</div>
     <div class="lp-stats">
-      <div class="lp-stat rv"><div class="v">2<small>days</small></div><div class="l">to a fixed quote on most requests</div></div>
-      <div class="lp-stat rv d1"><div class="v">100<small>%</small></div><div class="l">of AI-generated code reviewed by a senior engineer</div></div>
-      <div class="lp-stat rv d2"><div class="v">0<small>hours</small></div><div class="l">billed. You pay per accepted result</div></div>
-      <div class="lp-stat rv d3"><div class="v">EN<small>/</small>FR</div><div class="l">bilingual service from Montréal</div></div>
+      <div class="lp-stat rv"><div class="v">2<small>{t('days')}</small></div><div class="l">{t('to a fixed quote on most requests')}</div></div>
+      <div class="lp-stat rv d1"><div class="v">100<small>%</small></div><div class="l">{t('of AI-generated code reviewed by a senior engineer')}</div></div>
+      <div class="lp-stat rv d2"><div class="v">0<small>{t('hours')}</small></div><div class="l">{t('billed. You pay per accepted result')}</div></div>
+      <div class="lp-stat rv d3"><div class="v">EN<small>/</small>FR</div><div class="l">{t('bilingual service from Montréal')}</div></div>
     </div>
   </div>
 </section>
@@ -331,10 +333,9 @@ HTML = f'''
 <section class="lp-sec" id="services" aria-labelledby="svc-title">
   <div class="aa-wrap">
     <div class="lp-head rv">
-      <div class="eyebrow">Capabilities</div>
-      <h2 id="svc-title">If it runs your business, <em>we can build it.</em></h2>
-      <p class="lead">From a single feature to a full platform. We specialise in software with real operational weight:
-        admin panels, deep configurability and high data throughput.</p>
+      <div class="eyebrow">{t('Capabilities')}</div>
+      <h2 id="svc-title">{t('If it runs your business, <em>we can build it.</em>')}</h2>
+      <p class="lead">{t('From a single feature to a full platform. We specialise in software with real operational weight: admin panels, deep configurability and high data throughput.')}</p>
     </div>
     <div class="lp-svc">{SERVICES}</div>
   </div>
@@ -344,14 +345,13 @@ HTML = f'''
 <section class="lp-sec lp-alt" id="work" aria-labelledby="work-title">
   <div class="aa-wrap">
     <div class="lp-head rv">
-      <div class="eyebrow">Selected work</div>
-      <h2 id="work-title">Shipped, live and <em>in daily use.</em></h2>
-      <p class="lead">A sample of products we've designed, built and run, from revenue-generating platforms to games people
-        can't put down. Every one is live, so click through and try it.</p>
+      <div class="eyebrow">{t('Selected work')}</div>
+      <h2 id="work-title">{t('Shipped, live and <em>in daily use.</em>')}</h2>
+      <p class="lead">{t("A sample of products we've designed, built and run, from revenue-generating platforms to games people can't put down. Every one is live, so click through and try it.")}</p>
     </div>
     {portfolio.filter_bar()}
     {portfolio.grid()}
-    <div class="center" style="margin-top:40px"><a class="aa-btn ghost" href="#work">Explore every project in detail <span class="arr">&rarr;</span></a></div>
+    <div class="center" style="margin-top:40px"><a class="aa-btn ghost" href="#work">{t('Explore every project in detail')} <span class="arr">&rarr;</span></a></div>
   </div>
 </section>
 
@@ -359,10 +359,9 @@ HTML = f'''
 <section class="lp-sec" id="workspace" aria-labelledby="ws-title">
   <div class="aa-wrap lp-ws">
     <div class="rv">
-      <div class="eyebrow">Client workspace</div>
-      <h2 id="ws-title">Your own space. <em>Every request, visible.</em></h2>
-      <p class="lead muted" style="font-size:1.1rem">No more chasing status updates by email. Every client gets a private workspace
-        to request features and follow them from quote to delivery, with progress notes written by the engineer doing the work.</p>
+      <div class="eyebrow">{t('Client workspace')}</div>
+      <h2 id="ws-title">{t('Your own space. <em>Every request, visible.</em>')}</h2>
+      <p class="lead muted" style="font-size:1.1rem">{t('No more chasing status updates by email. Every client gets a private workspace to request features and follow them from quote to delivery, with progress notes written by the engineer doing the work.')}</p>
       <ul class="pts">
         {_pt('plus', 'Request anything', 'New features, fixes, integrations or a whole new app, described in plain language.')}
         {_pt('receipt', 'Approve fixed quotes', 'See the price, scope and ETA before any work starts. Approve with one click.')}
@@ -370,13 +369,13 @@ HTML = f'''
         {_pt('badge', 'Accept, then pay', 'Review on staging. Accept the result or request changes.')}
       </ul>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
-        <button type="button" class="aa-btn" data-act="signup">Create your workspace <span class="arr">&rarr;</span></button>
-        <button type="button" class="aa-btn ghost" data-act="login">Client sign in</button>
+        <button type="button" class="aa-btn" data-act="signup">{t('Create your workspace')} <span class="arr">&rarr;</span></button>
+        <button type="button" class="aa-btn ghost" data-act="login">{t('Client sign in')}</button>
       </div>
     </div>
     <div class="rv d2">
-      <div class="tabs" role="tablist"><button type="button" class="on" data-act="wstab" data-arg="client" role="tab">Client view</button>
-        <button type="button" data-act="wstab" data-arg="admin" role="tab">Consultant view</button></div>
+      <div class="tabs" role="tablist"><button type="button" class="on" data-act="wstab" data-arg="client" role="tab">{t('Client view')}</button>
+        <button type="button" data-act="wstab" data-arg="admin" role="tab">{t('Consultant view')}</button></div>
       <div class="panel on" data-panel="client">{WS_CLIENT}</div>
       <div class="panel" data-panel="admin">{WS_ADMIN}</div>
     </div>
@@ -387,16 +386,16 @@ HTML = f'''
 <section class="lp-sec lp-alt" id="engage" aria-labelledby="eng-title">
   <div class="aa-wrap">
     <div class="lp-head center rv">
-      <div class="eyebrow">Engagements</div>
-      <h2 id="eng-title">Three ways to <em>work together.</em></h2>
-      <p class="lead">Every engagement runs through your workspace, with fixed quotes and acceptance-based billing.</p>
+      <div class="eyebrow">{t('Engagements')}</div>
+      <h2 id="eng-title">{t('Three ways to <em>work together.</em>')}</h2>
+      <p class="lead">{t('Every engagement runs through your workspace, with fixed quotes and acceptance-based billing.')}</p>
     </div>
     <div class="lp-eng">{ENGAGEMENTS}</div>
   </div>
 </section>
 
 <!-- ============================================================ commitments -->
-<section class="lp-sec tight" aria-label="Our commitments">
+<section class="lp-sec tight" aria-label="{t('Our commitments')}">
   <div class="aa-wrap"><div class="lp-commit">{COMMITMENTS}</div></div>
 </section>
 
@@ -404,12 +403,10 @@ HTML = f'''
 <section class="lp-sec tight" id="montreal" aria-labelledby="mtl-title" style="padding-top:0">
   <div class="aa-wrap lp-local">
     <div class="rv">
-      <div class="eyebrow">Based in Montréal</div>
-      <h2 id="mtl-title" class="sr-only">Custom software development in Montréal</h2>
-      <blockquote>Built in Montréal for teams everywhere. <em>Local accountability, global standards.</em></blockquote>
-      <p class="muted" style="margin-top:20px;max-width:560px">We meet Montréal businesses in person and work remotely with clients
-        across Canada, the United States and Europe, in your time zone and your language. From startups validating an MVP to
-        established companies replacing spreadsheets with real software.</p>
+      <div class="eyebrow">{t('Based in Montréal')}</div>
+      <h2 id="mtl-title" class="sr-only">{t('Custom software development in Montréal')}</h2>
+      <blockquote>{t('Built in Montréal for teams everywhere. <em>Local accountability, global standards.</em>')}</blockquote>
+      <p class="muted" style="margin-top:20px;max-width:560px">{t('We meet Montréal businesses in person and work remotely with clients across Canada, the United States and Europe, in your time zone and your language. From startups validating an MVP to established companies replacing spreadsheets with real software.')}</p>
     </div>
     <div class="fr rv d2" lang="fr-CA">
       <div class="eyebrow">En français</div>
@@ -426,9 +423,9 @@ HTML = f'''
 <section class="lp-sec lp-alt" id="faq" aria-labelledby="faq-title">
   <div class="aa-wrap lp-faq">
     <div class="rv">
-      <div class="eyebrow">FAQ</div>
-      <h2 id="faq-title">Questions, <em>answered.</em></h2>
-      <p class="muted">Anything else? Write to <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a> and an engineer will answer.</p>
+      <div class="eyebrow">{t('FAQ')}</div>
+      <h2 id="faq-title">{t('Questions, <em>answered.</em>')}</h2>
+      <p class="muted">{FAQ_CONTACT}</p>
     </div>
     <div>{_faq()}</div>
   </div>
@@ -438,14 +435,13 @@ HTML = f'''
 <section class="lp-sec on-dark" id="contact" aria-labelledby="contact-title">
   <div class="aa-wrap lp-contact">
     <div class="rv">
-      <div class="eyebrow">Start a project</div>
-      <h2 id="contact-title">Tell us what you need. <em>We'll tell you what it costs.</em></h2>
-      <p class="lead">Send a short brief. Within two business days you'll hear back from an engineer, not a salesperson, with
-        questions or a fixed quote.</p>
+      <div class="eyebrow">{t('Start a project')}</div>
+      <h2 id="contact-title">{t("Tell us what you need. <em>We'll tell you what it costs.</em>")}</h2>
+      <p class="lead">{t("Send a short brief. Within two business days you'll hear back from an engineer, not a salesperson, with questions or a fixed quote.")}</p>
       <div class="ways">
-        <div class="way"><span class="i">{icon('mail')}</span><div><b>Email</b><a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a></div></div>
-        <div class="way"><span class="i">{icon('pin')}</span><div><b>Studio</b>Montréal, Québec, Canada</div></div>
-        <div class="way"><span class="i">{icon('clock')}</span><div><b>Response time</b>Within two business days</div></div>
+        <div class="way"><span class="i">{icon('mail')}</span><div><b>{t('Email')}</b><a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a></div></div>
+        <div class="way"><span class="i">{icon('pin')}</span><div><b>{t('Studio')}</b>{t('Montréal, Québec, Canada')}</div></div>
+        <div class="way"><span class="i">{icon('clock')}</span><div><b>{t('Response time')}</b>{t('Within two business days')}</div></div>
       </div>
     </div>
     {LEAD_FORM}

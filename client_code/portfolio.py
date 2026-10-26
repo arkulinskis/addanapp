@@ -1,14 +1,16 @@
 """Portfolio: projects we've shipped, with illustrated previews (inline SVG, no screenshots needed)."""
 from .ui import esc
 from .icons import icon
+from .i18n import t
 
+# Project text below is English; card() translates it when the page is built.
 CATEGORIES = [
-  ('all', 'All work'),
-  ('business', 'Working businesses'),
-  ('tools', 'Useful tools'),
-  ('games', 'Engaging games'),
-  ('mobile', 'Mobile-style apps'),
-  ('sites', 'Websites'),
+  ('all', t('All work')),
+  ('business', t('Working businesses')),
+  ('tools', t('Useful tools')),
+  ('games', t('Engaging games')),
+  ('mobile', t('Mobile-style apps')),
+  ('sites', t('Websites')),
 ]
 CAT = dict(CATEGORIES)
 
@@ -480,17 +482,18 @@ def url(p):
 # ------------------------------------------------------------------ cards
 
 def card(p, detailed=False, reveal=''):
-  tags = ''.join(f'<span>{esc(t)}</span>' for t in p['tags'])
+  tags = ''.join(f'<span>{esc(t(tg))}</span>' for tg in p['tags'])
   built = ''
   if detailed:
-    built = ('<ul class="built">' + ''.join(f'<li>{icon("check")}<span>{esc(b)}</span></li>' for b in p['built']) + '</ul>')
+    built = ('<ul class="built">' + ''.join(f'<li>{icon("check")}<span>{esc(t(b))}</span></li>' for b in p['built']) + '</ul>')
+  label = t('{name}: {category}, opens {domain}', name=p['name'], category=CAT[p['cat']], domain=p['domain'])
   return f'''
-  <a class="wk {reveal}" data-cat="{p['cat']}" href="{url(p)}" target="_blank" rel="noopener" aria-label="{esc(p['name'])}: {esc(CAT[p['cat']])}, opens {esc(p['domain'])}">
+  <a class="wk {reveal}" data-cat="{p['cat']}" href="{url(p)}" target="_blank" rel="noopener" aria-label="{esc(label)}">
     <div class="shot" style="background:{p['bg']}">{art(p)}</div>
     <div class="info">
-      <div class="cat"><span>{esc(CAT[p['cat']])}</span><span class="live">Live</span></div>
+      <div class="cat"><span>{esc(CAT[p['cat']])}</span><span class="live">{t('Live')}</span></div>
       <h3>{esc(p['name'])}<span class="go">&#8599;</span></h3>
-      <p>{esc(p['blurb'])}</p>
+      <p>{esc(t(p['blurb']))}</p>
       {built}
       <div class="tags">{tags}</div>
       <div class="dom">{esc(p['domain'])}</div>
@@ -499,7 +502,7 @@ def card(p, detailed=False, reveal=''):
 
 
 def filter_bar():
-  out = '<div class="lp-filter" role="tablist" aria-label="Filter work by category">'
+  out = f'<div class="lp-filter" role="tablist" aria-label="{esc(t("Filter work by category"))}">'
   for key, label in CATEGORIES:
     n = len(PROJECTS) if key == 'all' else len([p for p in PROJECTS if p['cat'] == key])
     out += f'<button type="button" class="{"on" if key == "all" else ""}" data-act="filter" data-arg="{key}" role="tab">{esc(label)}<span class="n">{n}</span></button>'

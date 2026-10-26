@@ -40,7 +40,8 @@ def home_route():
 def refresh_me():
   global me
   from . import ui
-  res = ui.call('get_me', _quiet=True)
+  from . import i18n
+  res = ui.call('get_me', i18n.lang, _quiet=True)  # also tells the server which language to email in
   if res is not ui.FAIL:
     me = res
     if main is not None:

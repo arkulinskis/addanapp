@@ -2,18 +2,20 @@ from ._anvil_designer import PortalTemplate
 from anvil import *
 
 from .. import ui, state
+from ..i18n import t, tn
 from ..ui import esc
 from ..icons import icon
 
-FILTERS = [('active', 'Active'), ('action', 'Needs you'), ('delivered', 'Delivered'), ('closed', 'Closed'), ('all', 'All')]
+FILTERS = [('active', t('Active')), ('action', t('Needs you')), ('delivered', t('Delivered')), ('closed', t('Closed')),
+           ('all', t('All'))]
 
 
 def row_html(r, admin=False):
-  sub_bits = [r['kind_label']]
+  sub_bits = [ui.KIND.get(r['kind'], r.get('kind_label'))]
   if r['status'] == 'quoted' and r.get('quote_amount') is not None:
-    sub_bits.append('Fixed quote ' + ui.money(r['quote_amount']))
+    sub_bits.append(t('Fixed quote {amount}', amount=ui.money(r['quote_amount'])))
   if r.get('eta') and r['status'] in ('quoted', 'in_progress', 'review'):
-    sub_bits.append('ETA ' + ui.fmt_date(r['eta']))
+    sub_bits.append(t('ETA {date}', date=ui.fmt_date(r['eta'])))
   if admin:
     c = r.get('client') or {}
     sub_bits.insert(0, c.get('company') or c.get('name') or '')
@@ -60,28 +62,31 @@ class Portal(PortalTemplate):
     reqs = self.data['requests']
     root = ui.q(self, '.js-root')
     first = (me.get('name') or '').split(' ')[0]
-    company = me.get('company') or 'Your'
+    company = me.get('company')
+    eyebrow = t('{company} workspace', company=esc(company)) if company else t('Your workspace')
+    counts = t('{open} · {delivered} accepted', open=tn(st['open'], '{n} open request', '{n} open requests'),
+               delivered=tn(st['delivered'], '{n} delivery', '{n} deliveries'))
+    hello = t('{greeting}, {name}.', greeting=ui.greeting(), name=esc(first))
     head = f'''
       <div class="page-head">
-        <div><div class="eyebrow">{esc(company)} workspace</div>
-          <h1>{ui.greeting()}, {esc(first)}.</h1>
-          <p>{ui.plural(st["open"], "open request")} · {ui.plural(st["delivered"], "delivery", "deliveries")} accepted</p></div>
-        <div class="actions"><button type="button" class="aa-btn accent" data-act="new">{icon("plus", 'width="16" height="16"')} New request</button></div>
+        <div><div class="eyebrow">{eyebrow}</div>
+          <h1>{hello}</h1>
+          <p>{counts}</p></div>
+        <div class="actions"><button type="button" class="aa-btn accent" data-act="new">{icon("plus", 'width="16" height="16"')} {t('New request')}</button></div>
       </div>'''
     if not reqs:
       root.innerHTML = head + f'''
         <div class="empty">
           <div class="ico">{icon("rocket")}</div>
-          <h3>Your workspace is ready</h3>
-          <p>Submit your first request: a new feature, a fix, an integration or a whole new app. An engineer will scope it and
-            send you a fixed quote, usually within two business days.</p>
-          <button type="button" class="aa-btn accent lg" data-act="new">Submit your first request <span class="arr">&rarr;</span></button>
+          <h3>{t('Your workspace is ready')}</h3>
+          <p>{t('Submit your first request: a new feature, a fix, an integration or a whole new app. An engineer will scope it and send you a fixed quote, usually within two business days.')}</p>
+          <button type="button" class="aa-btn accent lg" data-act="new">{t('Submit your first request')} <span class="arr">&rarr;</span></button>
         </div>
         <div class="tiles" style="margin-top:28px">
-          <div class="tile"><div class="v">1</div><div class="l">Describe the outcome</div></div>
-          <div class="tile"><div class="v">2</div><div class="l">Approve a fixed quote</div></div>
-          <div class="tile"><div class="v">3</div><div class="l">Follow progress notes</div></div>
-          <div class="tile"><div class="v">4</div><div class="l">Accept, then pay</div></div>
+          <div class="tile"><div class="v">1</div><div class="l">{t('Describe the outcome')}</div></div>
+          <div class="tile"><div class="v">2</div><div class="l">{t('Approve a fixed quote')}</div></div>
+          <div class="tile"><div class="v">3</div><div class="l">{t('Follow progress notes')}</div></div>
+          <div class="tile"><div class="v">4</div><div class="l">{t('Accept, then pay')}</div></div>
         </div>'''
       return
     action = [r for r in reqs if r['status'] in ui.CLIENT_ACTION]
@@ -89,22 +94,23 @@ class Portal(PortalTemplate):
     if action:
       items = ''
       for r in action:
-        what = ('Approve quote · ' + ui.money(r.get('quote_amount'))) if r['status'] == 'quoted' else 'Review &amp; accept delivery'
+        what = (t('Approve quote · {amount}', amount=ui.money(r.get('quote_amount'))) if r['status'] == 'quoted'
+                else t('Review &amp; accept delivery'))
         items += f'<a href="#r/{r["id"]}"><span><span class="mono muted">{esc(r["ref"])}</span> &nbsp;<b>{esc(r["title"])}</b></span><span class="small" style="color:var(--accent-d);font-weight:600;white-space:nowrap">{what} &rarr;</span></a>'
-      attn = f'<div class="attn-box"><h4>Waiting on you</h4>{items}</div>'
+      attn = f'<div class="attn-box"><h4>{t("Waiting on you")}</h4>{items}</div>'
 
     def tile(key, v, label, color, cls=''):
       return (f'<button type="button" class="tile {cls}{" on" if self.filter == key else ""}" data-act="filter" data-arg="{key}">'
               f'<div class="v">{v}</div><div class="l"><span class="d" style="background:{color}"></span>{label}</div></button>')
-    tiles = ('<div class="tiles">' + tile('active', st['open'], 'Open', '#182031') +
-             tile('action', st['action'], 'Needs you', '#2F5BFF', 'attn' if st['action'] else '') +
-             tile('progress', st['in_progress'], 'In progress', '#7A5CFA') +
-             tile('delivered', st['delivered'], 'Delivered', '#0E9F6E') + '</div>')
+    tiles = ('<div class="tiles">' + tile('active', st['open'], t('Open'), '#182031') +
+             tile('action', st['action'], t('Needs you'), '#2F5BFF', 'attn' if st['action'] else '') +
+             tile('progress', st['in_progress'], t('In progress'), '#7A5CFA') +
+             tile('delivered', st['delivered'], t('Delivered'), '#0E9F6E') + '</div>')
     pills = ''.join(f'<button type="button" class="{"on" if self.filter == k else ""}" data-act="filter" data-arg="{k}">{lbl}</button>'
                     for k, lbl in FILTERS)
     root.innerHTML = head + attn + tiles + f'''
       <div class="toolbar"><div class="left"><div class="pills">{pills}</div></div>
-        <div class="right"><input type="search" class="js-search" placeholder="Search requests" aria-label="Search requests" value="{esc(self.search)}"></div></div>
+        <div class="right"><input type="search" class="js-search" placeholder="{t('Search requests')}" aria-label="{t('Search requests')}" value="{esc(self.search)}"></div></div>
       <div class="js-list"></div>'''
     search = root.querySelector('.js-search')
 
@@ -136,8 +142,8 @@ class Portal(PortalTemplate):
       reqs = [r for r in reqs if s in (r['title'] + ' ' + r['ref'] + ' ' + r['description']).lower()]
     box = ui.q(self, '.js-list')
     if not reqs:
-      box.innerHTML = ui.empty('inbox', 'Nothing here', 'No requests match this view.')
+      box.innerHTML = ui.empty('inbox', t('Nothing here'), t('No requests match this view.'))
       return
-    head = ('<div class="rq head"><span>Ref</span><span>Request</span><span>Status</span><span>Progress</span>'
-            '<span style="text-align:right">Updated</span></div>')
+    head = (f'<div class="rq head"><span>{t("Ref")}</span><span>{t("Request")}</span><span>{t("Status")}</span><span>{t("Progress")}</span>'
+            f'<span style="text-align:right">{t("Updated")}</span></div>')
     box.innerHTML = '<div class="rq-list">' + head + ''.join(row_html(r) for r in reqs) + '</div>'

@@ -1,7 +1,8 @@
 from ._anvil_designer import RequestDetailTemplate
 from anvil import *
 
-from .. import ui, state, dialogs
+from .. import ui, state, dialogs, i18n
+from ..i18n import t
 from ..ui import esc
 from ..icons import icon
 
@@ -33,8 +34,8 @@ class RequestDetail(RequestDetailTemplate):
   def load(self):
     res = ui.call('get_request', self.request_id)
     if res is ui.FAIL:
-      ui.q(self, '.js-root').innerHTML = ui.empty('inbox', "Request not available", "It may have been removed, or it belongs to another workspace.",
-                                                  '<a class="aa-btn" href="#portal">Back to dashboard</a>')
+      ui.q(self, '.js-root').innerHTML = ui.empty('inbox', t("Request not available"), t("It may have been removed, or it belongs to another workspace."),
+                                                  f'<a class="aa-btn" href="#portal">{t("Back to dashboard")}</a>')
       return
     self.apply(res)
 
@@ -53,7 +54,7 @@ class RequestDetail(RequestDetailTemplate):
     r = self.data['request']
     root = ui.q(self, '.js-root')
     back = '#admin' if self.admin else '#portal'
-    back_lbl = 'All requests' if self.admin else 'Dashboard'
+    back_lbl = t('All requests') if self.admin else t('Dashboard')
     root.innerHTML = f'''
       <div class="crumbs"><a href="{back}">&larr; {back_lbl}</a><span>/</span><span class="mono">{esc(r["ref"])}</span></div>
       <div class="rd-title"><span class="chip mono">{esc(r["ref"])}</span>{ui.kind_chip(r["kind"])}{ui.priority_chip(r["priority"])}
@@ -63,10 +64,10 @@ class RequestDetail(RequestDetailTemplate):
       {self._banner(r)}
       <div class="rd">
         <div>
-          <div class="sec-card"><h3>Request</h3><div class="prose">{esc(r["description"])}</div></div>
-          {('<div class="sec-card"><h3>Acceptance criteria</h3><div class="prose">' + esc(r["acceptance"]) + '</div></div>') if r.get("acceptance") else ''}
-          {('<div class="sec-card" style="border-color:#CBD6FF"><h3>Scope &amp; quote</h3><div class="prose">' + esc(r["quote_note"]) + '</div></div>') if r.get("quote_note") and r.get("quote_amount") is not None else ''}
-          <div class="sec-card"><h3>Activity</h3>
+          <div class="sec-card"><h3>{t('Request')}</h3><div class="prose">{esc(r["description"])}</div></div>
+          {('<div class="sec-card"><h3>' + t('Acceptance criteria') + '</h3><div class="prose">' + esc(r["acceptance"]) + '</div></div>') if r.get("acceptance") else ''}
+          {('<div class="sec-card" style="border-color:#CBD6FF"><h3>' + t('Scope &amp; quote') + '</h3><div class="prose">' + esc(r["quote_note"]) + '</div></div>') if r.get("quote_note") and r.get("quote_amount") is not None else ''}
+          <div class="sec-card"><h3>{t('Activity')}</h3>
             <div class="tl">{self._timeline()}</div>
             {self._composer()}
           </div>
@@ -88,7 +89,7 @@ class RequestDetail(RequestDetailTemplate):
       idx = -1
     else:
       idx = keys.index(st) if st in keys else 0
-    out = '<div class="stepper" aria-label="Request progress">'
+    out = f'<div class="stepper" aria-label="{t("Request progress")}">'
     for i, (k, label) in enumerate(ui.PIPELINE):
       cls = 'done' if (i < idx or (st == 'delivered' and i == idx)) else ('cur' if i == idx else '')
       out += f'<div class="s {cls}"><div class="b"></div><span>{label}</span></div>'
@@ -96,38 +97,44 @@ class RequestDetail(RequestDetailTemplate):
 
   def _banner(self, r):
     st = r['status']
-    eta = (' · ETA ' + ui.fmt_date(r['eta'])) if r.get('eta') else ''
+    eta = (' · ' + t('ETA {date}', date=ui.fmt_date(r['eta']))) if r.get('eta') else ''
+    amount = ui.money(r.get('quote_amount'))
+
+    def btn(cls, act, label, arg=None):
+      a = f' data-arg="{arg}"' if arg else ''
+      return f'<button type="button" class="aa-btn sm {cls}" data-act="{act}"{a}>{label}</button>'
     if self.admin:
       m = {
-        'new': ('accent', 'New request', 'Read it, ask questions in the thread, then start scoping.',
-                '<button type="button" class="aa-btn sm" data-act="status" data-arg="scoping">Start scoping</button>'),
-        'scoping': ('amber', 'Scoping', 'Set the fixed quote, scope summary and ETA in the panel, then send the quote.',
-                    '<button type="button" class="aa-btn sm" data-act="to-manage">Prepare quote</button>'),
-        'quoted': ('slate', 'Waiting for client approval', f'Quote sent: {ui.money(r.get("quote_amount"))}{eta}.', ''),
-        'in_progress': ('slate', 'In progress', 'Post progress notes as you go. Mark ready when it has been validated.',
-                        '<button type="button" class="aa-btn sm accent" data-act="status" data-arg="review">Mark ready for review</button>'),
-        'review': ('accent', 'Waiting for client acceptance', 'The client is testing the delivery.',
-                   '<button type="button" class="aa-btn sm ghost" data-act="status" data-arg="delivered">Mark delivered anyway</button>'),
-        'delivered': ('green', 'Delivered and accepted', ('Accepted ' + ui.fmt_date(r.get('accepted_at')) + '. Ready to invoice ' + ui.money(r.get('quote_amount')) + '.') if r.get('accepted_at') else 'Delivered.', ''),
-        'on_hold': ('amber', 'On hold', 'Resume by setting a new status in the panel.', ''),
-        'declined': ('slate', 'Closed', 'This request is closed.', ''),
+        'new': ('accent', t('New request'), t('Read it, ask questions in the thread, then start scoping.'),
+                btn('', 'status', t('Start scoping'), 'scoping')),
+        'scoping': ('amber', t('Scoping'), t('Set the fixed quote, scope summary and ETA in the panel, then send the quote.'),
+                    btn('', 'to-manage', t('Prepare quote'))),
+        'quoted': ('slate', t('Waiting for client approval'), t('Quote sent: {amount}{eta}.', amount=amount, eta=eta), ''),
+        'in_progress': ('slate', t('In progress'), t('Post progress notes as you go. Mark ready when it has been validated.'),
+                        btn('accent', 'status', t('Mark ready for review'), 'review')),
+        'review': ('accent', t('Waiting for client acceptance'), t('The client is testing the delivery.'),
+                   btn('ghost', 'status', t('Mark delivered anyway'), 'delivered')),
+        'delivered': ('green', t('Delivered and accepted'),
+                      t('Accepted {date}. Ready to invoice {amount}.', date=ui.fmt_date(r.get('accepted_at')), amount=amount)
+                      if r.get('accepted_at') else t('Delivered.'), ''),
+        'on_hold': ('amber', t('On hold'), t('Resume by setting a new status in the panel.'), ''),
+        'declined': ('slate', t('Closed'), t('This request is closed.'), ''),
       }
     else:
       m = {
-        'new': ('slate', "We've got it", 'An engineer will review your request and reply with a fixed quote, usually within two business days.',
-                '<button type="button" class="aa-btn sm ghost" data-act="withdraw">Withdraw</button>'),
-        'scoping': ('amber', 'Being scoped', 'Your engineer is defining scope and price. Watch the activity below for questions.', ''),
-        'quoted': ('accent', f'Your fixed quote is ready: {ui.money(r.get("quote_amount"))}',
-                   f'Fixed price for the agreed scope{eta}. Work starts as soon as you approve.',
-                   '<button type="button" class="aa-btn sm ghost" data-act="question">Ask a question</button>'
-                   '<button type="button" class="aa-btn sm green" data-act="approve">Approve quote</button>'),
-        'in_progress': ('slate', 'In progress', f'Being built and validated{eta}. Progress notes appear below.', ''),
-        'review': ('accent', 'Ready for your review', 'Test the delivery. Accept it if it meets the criteria, or tell us what should change.',
-                   '<button type="button" class="aa-btn sm ghost" data-act="changes">Request changes</button>'
-                   '<button type="button" class="aa-btn sm green" data-act="accept">Accept delivery</button>'),
-        'delivered': ('green', 'Delivered', ('You accepted this on ' + ui.fmt_date(r.get('accepted_at')) + '. Thank you!') if r.get('accepted_at') else 'Delivered. Thank you!', ''),
-        'on_hold': ('amber', 'On hold', 'This request is paused. See the latest note for details.', ''),
-        'declined': ('slate', 'Closed', 'This request is closed.', ''),
+        'new': ('slate', t("We've got it"), t('An engineer will review your request and reply with a fixed quote, usually within two business days.'),
+                btn('ghost', 'withdraw', t('Withdraw'))),
+        'scoping': ('amber', t('Being scoped'), t('Your engineer is defining scope and price. Watch the activity below for questions.'), ''),
+        'quoted': ('accent', t('Your fixed quote is ready: {amount}', amount=amount),
+                   t('Fixed price for the agreed scope{eta}. Work starts as soon as you approve.', eta=eta),
+                   btn('ghost', 'question', t('Ask a question')) + btn('green', 'approve', t('Approve quote'))),
+        'in_progress': ('slate', t('In progress'), t('Being built and validated{eta}. Progress notes appear below.', eta=eta), ''),
+        'review': ('accent', t('Ready for your review'), t('Test the delivery. Accept it if it meets the criteria, or tell us what should change.'),
+                   btn('ghost', 'changes', t('Request changes')) + btn('green', 'accept', t('Accept delivery'))),
+        'delivered': ('green', t('Delivered'), t('You accepted this on {date}. Thank you!', date=ui.fmt_date(r.get('accepted_at')))
+                      if r.get('accepted_at') else t('Delivered. Thank you!'), ''),
+        'on_hold': ('amber', t('On hold'), t('This request is paused. See the latest note for details.'), ''),
+        'declined': ('slate', t('Closed'), t('This request is closed.'), ''),
       }
     cls, title, text, acts = m.get(st, ('slate', ui.STATUS.get(st, (st,))[0], '', ''))
     return (f'<div class="banner {cls}"><div><h4>{esc(title)}</h4><p>{esc(text)}</p></div>'
@@ -139,11 +146,11 @@ class RequestDetail(RequestDetailTemplate):
       a = n.get('author') or {'name': 'Addanapp', 'initials': 'AA', 'is_admin': True}
       when = f'<time title="{esc(ui.fmt_dt(n["created"]))}">{esc(ui.ago(n["created"]))}</time>'
       if n['kind'] == 'status':
-        body = esc(n.get('body') or '')
+        body = esc(i18n.server_text(n.get('body') or ''))
         if n.get('status_from'):
-          txt = f'<b>{esc(a["name"])}</b> moved this to {ui.status_chip(n["status_to"])}' + (f' · {body}' if body else '')
+          txt = t('{name} moved this to {status}', name=f'<b>{esc(a["name"])}</b>', status=ui.status_chip(n["status_to"])) + (f' · {body}' if body else '')
         else:
-          txt = f'<b>{body or "Request submitted"}</b>'
+          txt = f'<b>{body or t("Request submitted")}</b>'
         out += f'<div class="n sys"><div class="ico"><i></i></div><div class="txt">{txt} · {when}</div></div>'
         continue
       cls = 'n'
@@ -155,55 +162,57 @@ class RequestDetail(RequestDetailTemplate):
       if n['kind'] in ui.NOTE_CHIP:
         label, ccls, ico = ui.NOTE_CHIP[n['kind']]
         tag = ui.chip(label, ccls, ico)
-      role = '<span class="chip outline">Engineer</span>' if a.get('is_admin') else ''
+      role = f'<span class="chip outline">{t("Engineer")}</span>' if a.get('is_admin') else ''
       out += (f'<div class="{cls}">{ui.avatar(a, 36)}<div><div class="who"><b>{esc(a["name"])}</b>{role}{tag}{when}</div>'
               f'<div class="bubble">{esc(n["body"])}</div></div></div>')
-    return out or '<p class="muted small">No activity yet.</p>'
+    return out or f'<p class="muted small">{t("No activity yet.")}</p>'
 
   def _composer(self):
     r = self.data['request']
     if self.admin:
+      cname = (r.get("client") or {}).get("name")
+      ph = t('Write a progress note for {name}…', name=cname) if cname else t('Write a progress note for the client…')
       return f'''
         <div class="composer js-composer">
-          <textarea name="note_body" placeholder="Write a progress note for {esc((r.get("client") or {}).get("name", "the client"))}…"></textarea>
+          <textarea name="note_body" placeholder="{esc(ph)}"></textarea>
           <div class="bar"><div class="opts">
-              <select name="note_kind" aria-label="Note type">{ui.options(ui.NOTE_KINDS, 'update')}</select>
+              <select name="note_kind" aria-label="{t('Note type')}">{ui.options(ui.NOTE_KINDS, 'update')}</select>
             </div>
-            <button type="button" class="aa-btn sm" data-act="post">Post note</button></div>
+            <button type="button" class="aa-btn sm" data-act="post">{t('Post note')}</button></div>
         </div>
-        <p class="tiny muted" style="margin:8px 2px 0">Client-visible notes are emailed to the client. Internal notes stay private to consultants.</p>'''
+        <p class="tiny muted" style="margin:8px 2px 0">{t('Client-visible notes are emailed to the client. Internal notes stay private to consultants.')}</p>'''
     if r['status'] == 'declined':
       return ''
-    return '''
+    return f'''
       <div class="composer js-composer">
-        <textarea name="note_body" placeholder="Ask a question or add details for your engineer…"></textarea>
-        <div class="bar"><span class="tiny muted">Your engineer is notified by email.</span>
-          <button type="button" class="aa-btn sm" data-act="post">Send</button></div>
+        <textarea name="note_body" placeholder="{t('Ask a question or add details for your engineer…')}"></textarea>
+        <div class="bar"><span class="tiny muted">{t('Your engineer is notified by email.')}</span>
+          <button type="button" class="aa-btn sm" data-act="post">{t('Send')}</button></div>
       </div>'''
 
   def _side(self, r):
     done = r['status'] == 'delivered'
     status_card = f'''
       <div class="sec-card">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px"><h3 style="margin:0;font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-family:var(--font-m)">Status</h3>{ui.status_chip(r["status"])}</div>
-        <div class="big-pct"><b>{r["progress"]}%</b><span class="small muted">complete</span></div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px"><h3 style="margin:0;font-size:.8rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);font-family:var(--font-m)">{t('Status')}</h3>{ui.status_chip(r["status"])}</div>
+        <div class="big-pct"><b>{r["progress"]}%</b><span class="small muted">{t('complete')}</span></div>
         {ui.progress_bar(r["progress"], done)}
       </div>'''
-    kv = [('Fixed quote', ui.money(r.get('quote_amount')) if r.get('quote_amount') is not None else 'Pending'),
-          ('ETA', ui.fmt_date(r.get('eta'), True) if r.get('eta') else '—'),
-          ('Requested by', ui.fmt_date(r.get('desired_date'), True) if r.get('desired_date') else 'Flexible'),
-          ('Priority', ui.PRIORITY.get(r.get('priority'), 'Normal')),
-          ('Type', r.get('kind_label')),
-          ('Budget', r.get('budget') or '—'),
-          ('Submitted', ui.fmt_date(r.get('created'), True))]
+    kv = [(t('Fixed quote'), ui.money(r.get('quote_amount')) if r.get('quote_amount') is not None else t('Pending')),
+          (t('ETA'), ui.fmt_date(r.get('eta'), True) if r.get('eta') else '—'),
+          (t('Requested by'), ui.fmt_date(r.get('desired_date'), True) if r.get('desired_date') else t('Flexible')),
+          (t('Priority'), ui.PRIORITY.get(r.get('priority'), t('Normal'))),
+          (t('Type'), ui.KIND.get(r.get('kind'), r.get('kind_label'))),
+          (t('Budget'), t(r.get('budget')) if r.get('budget') else '—'),
+          (t('Submitted'), ui.fmt_date(r.get('created'), True))]
     rows = ''.join(f'<div><span>{esc(k)}</span><span>{esc(v)}</span></div>' for k, v in kv)
-    details = f'<div class="sec-card"><h3>Details</h3><div class="kv">{rows}</div></div>'
+    details = f'<div class="sec-card"><h3>{t("Details")}</h3><div class="kv">{rows}</div></div>'
     if not self.admin:
-      return status_card + details + ('<div class="sec-card"><h3>How billing works</h3><p class="small muted" style="margin:0">'
-                                      'The fixed quote covers the agreed scope. You are invoiced only after you accept the delivery.</p></div>')
+      return status_card + details + (f'<div class="sec-card"><h3>{t("How billing works")}</h3><p class="small muted" style="margin:0">'
+                                      f'{t("The fixed quote covers the agreed scope. You are invoiced only after you accept the delivery.")}</p></div>')
     c = r.get('client') or {}
     client = f'''
-      <div class="sec-card"><h3>Client</h3>
+      <div class="sec-card"><h3>{t('Client')}</h3>
         <div style="display:flex;gap:12px;align-items:center">{ui.avatar(c, 40)}<div><b style="color:var(--ink)">{esc(c.get("name"))}</b>
           <div class="small muted">{esc(c.get("company"))}</div>
           <a class="small" href="mailto:{esc(c.get("email"))}">{esc(c.get("email"))}</a></div></div></div>'''
@@ -211,18 +220,18 @@ class RequestDetail(RequestDetailTemplate):
     qa = '' if r.get('quote_amount') is None else str(int(r['quote_amount']))
     status_opts = ui.options([(k, ui.STATUS[k][0]) for k in ui.STATUS_ORDER], r['status'])
     manage = f'''
-      <div class="sec-card manage js-manage" id="manage"><h3>Manage</h3>
-        <div class="f"><label>Status</label><select name="m_status">{status_opts}</select></div>
-        <div class="f"><label>Progress <span class="opt js-pct">{r["progress"]}%</span></label>
+      <div class="sec-card manage js-manage" id="manage"><h3>{t('Manage')}</h3>
+        <div class="f"><label>{t('Status')}</label><select name="m_status">{status_opts}</select></div>
+        <div class="f"><label>{t('Progress')} <span class="opt js-pct">{r["progress"]}%</span></label>
           <input class="range" type="range" min="0" max="100" step="5" name="m_progress" value="{r["progress"]}"></div>
         <div class="row2">
-          <div class="f"><label>Fixed quote ($)</label><input type="number" min="0" step="50" name="m_quote" value="{qa}" placeholder="e.g. 2400"></div>
-          <div class="f"><label>ETA</label><input type="date" name="m_eta" value="{eta}"></div>
+          <div class="f"><label>{t('Fixed quote ($)')}</label><input type="number" min="0" step="50" name="m_quote" value="{qa}" placeholder="{t('e.g. 2400')}"></div>
+          <div class="f"><label>{t('ETA')}</label><input type="date" name="m_eta" value="{eta}"></div>
         </div>
-        <div class="f"><label>Scope summary (shown with the quote)</label><textarea name="m_quote_note" rows="4" placeholder="What's included, assumptions, exclusions…">{esc(r.get("quote_note"))}</textarea></div>
-        <div class="f"><label>Priority</label><select name="m_priority">{ui.options(ui.PRIORITIES, r.get("priority"))}</select></div>
-        <button type="button" class="aa-btn block" data-act="save">Save &amp; notify client</button>
-        <button type="button" class="aa-btn danger block sm" style="margin-top:10px" data-act="delete">{icon("trash", 'width="14" height="14"')} Delete request</button>
+        <div class="f"><label>{t('Scope summary (shown with the quote)')}</label><textarea name="m_quote_note" rows="4" placeholder="{t("What's included, assumptions, exclusions…")}">{esc(r.get("quote_note"))}</textarea></div>
+        <div class="f"><label>{t('Priority')}</label><select name="m_priority">{ui.options(ui.PRIORITIES, r.get("priority"))}</select></div>
+        <button type="button" class="aa-btn block" data-act="save">{t('Save &amp; notify client')}</button>
+        <button type="button" class="aa-btn danger block sm" style="margin-top:10px" data-act="delete">{icon("trash", 'width="14" height="14"')} {t('Delete request')}</button>
       </div>'''
     html = status_card + client + manage + details
     return html
@@ -231,29 +240,29 @@ class RequestDetail(RequestDetailTemplate):
   def client_action(self, action, comment=''):
     if action == 'approve_quote':
       r = self.data['request']
-      if not ui.ask(f"Approve the fixed quote of {ui.money(r.get('quote_amount'))}? Work starts right away, and you're invoiced "
-                    "only after you accept the delivery.", title='Approve quote', yes='Approve quote'):
+      if not ui.ask(t("Approve the fixed quote of {amount}? Work starts right away, and you're invoiced only after you accept the delivery.",
+                      amount=ui.money(r.get('quote_amount'))), title=t('Approve quote'), yes=t('Approve quote')):
         return
     if action == 'accept':
-      if not ui.ask("Accept this delivery? This confirms it meets the agreed acceptance criteria.", title='Accept delivery',
-                    yes='Accept delivery'):
+      if not ui.ask(t("Accept this delivery? This confirms it meets the agreed acceptance criteria."), title=t('Accept delivery'),
+                    yes=t('Accept delivery')):
         return
     res = ui.call('client_action', self.request_id, action, comment)
     if res is not ui.FAIL:
       self.apply(res)
-      msgs = {'approve_quote': "Quote approved. The build starts now.", 'accept': "Accepted. Thank you!",
-              'request_changes': "Changes requested. Your engineer is on it.", 'withdraw': "Request withdrawn."}
+      msgs = {'approve_quote': t("Quote approved. The build starts now."), 'accept': t("Accepted. Thank you!"),
+              'request_changes': t("Changes requested. Your engineer is on it."), 'withdraw': t("Request withdrawn.")}
       if action in msgs:
         ui.toast(msgs[action])
 
   def ask_changes(self):
-    text = dialogs.prompt_text('Request changes', 'What should be different? Reference the acceptance criteria where you can.',
-                               'e.g. The refund email should go to the guest, not the manager.', ok='Send to engineer')
+    text = dialogs.prompt_text(t('Request changes'), t('What should be different? Reference the acceptance criteria where you can.'),
+                               t('e.g. The refund email should go to the guest, not the manager.'), ok=t('Send to engineer'))
     if text:
       self.client_action('request_changes', text)
 
   def withdraw(self):
-    if ui.ask("Withdraw this request? You can always submit it again later.", title='Withdraw request', yes='Withdraw'):
+    if ui.ask(t("Withdraw this request? You can always submit it again later."), title=t('Withdraw request'), yes=t('Withdraw')):
       self.client_action('withdraw')
 
   def focus_composer(self):
@@ -275,7 +284,7 @@ class RequestDetail(RequestDetailTemplate):
     v = ui.vals(box)
     body = v.get('note_body', '')
     if len(body) < 1:
-      return ui.toast("Write something first.", 'warning')
+      return ui.toast(t("Write something first."), 'warning')
     btn = box.querySelector('[data-act=post]')
     ui.busy(btn, True)
     if self.admin:
@@ -286,13 +295,13 @@ class RequestDetail(RequestDetailTemplate):
     ui.busy(btn, False)
     if res is not ui.FAIL:
       self.apply(res)
-      ui.toast("Posted.")
+      ui.toast(t("Posted."))
 
   def quick_status(self, status):
     res = ui.call('admin_update_request', self.request_id, {'status': status}, None)
     if res is not ui.FAIL:
       self.apply(res)
-      ui.toast(f"Status: {ui.STATUS[status][0]}")
+      ui.toast(t("Status: {status}", status=ui.STATUS[status][0]))
 
   def save_manage(self):
     box = ui.q(self, '.js-manage')
@@ -303,17 +312,17 @@ class RequestDetail(RequestDetailTemplate):
       'quote_note': v.get('m_quote_note', ''), 'eta': ui.parse_date(v.get('m_eta')), 'priority': v.get('m_priority'),
     }
     btn = box.querySelector('[data-act=save]')
-    ui.busy(btn, True, 'Saving…')
+    ui.busy(btn, True, t('Saving…'))
     res = ui.call('admin_update_request', self.request_id, changes, None)
     ui.busy(btn, False)
     if res is not ui.FAIL:
       self.apply(res)
-      ui.toast("Saved.")
+      ui.toast(t("Saved."))
 
   def delete(self):
     r = self.data['request']
-    if not ui.ask(f"Delete {r['ref']} and its whole history? This can't be undone.", title='Delete request', yes='Delete'):
+    if not ui.ask(t("Delete {ref} and its whole history? This can't be undone.", ref=r['ref']), title=t('Delete request'), yes=t('Delete')):
       return
     if ui.call('admin_delete_request', self.request_id) is not ui.FAIL:
-      ui.toast("Request deleted.")
+      ui.toast(t("Request deleted."))
       state.go('admin')

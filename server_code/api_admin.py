@@ -40,7 +40,7 @@ def admin_update_request(request_id, changes=None, note=None):
   changes = changes or {}
   t = now()
   ch = {}
-  client_visible = []
+  client_visible = []  # functions tr -> line, so the email is written in the client's language
 
   if 'priority' in changes and changes['priority'] in PRIORITIES and changes['priority'] != r['priority']:
     ch['priority'] = changes['priority']
@@ -48,7 +48,7 @@ def admin_update_request(request_id, changes=None, note=None):
     p = max(0, min(100, int(changes['progress'])))
     if p != (r['progress'] or 0):
       ch['progress'] = p
-      client_visible.append(f"Progress is now {p}%.")
+      client_visible.append(lambda tr, p=p: tr("Progress is now {p}%.", p=p))
   if 'quote_amount' in changes:
     qa = changes['quote_amount']
     qa = float(qa) if qa not in (None, '') else None
@@ -67,7 +67,7 @@ def admin_update_request(request_id, changes=None, note=None):
     if eta != r['eta']:
       ch['eta'] = eta
       if eta:
-        client_visible.append(f"Expected delivery: {eta.strftime('%b %d, %Y')}.")
+        client_visible.append(lambda tr, eta=eta: tr("Expected delivery: {date}.", date=tr.date(eta)))
 
   new_status = changes.get('status')
   if new_status and new_status not in STATUSES:
@@ -100,23 +100,28 @@ def admin_update_request(request_id, changes=None, note=None):
     internal = bool(note.get('internal')) or kind == 'internal'
     posted = add_note(r, u, kind, note.get('body'), internal=internal, progress=ch.get('progress'))
     if not internal:
-      client_visible.insert(0, clean(note.get('body'))[:900].replace('\n', '<br>'))
+      body_html = clean(note.get('body'))[:900].replace('\n', '<br>')
+      client_visible.insert(0, lambda tr, b=body_html: b)
 
   if status_changed or (posted is not None and not posted['internal']) or 'progress' in ch or 'eta' in ch:
     r.update(last_activity=t, client_unread=True)
     if status_changed:
-      lines = {
-        'scoping': ["An engineer is scoping your request now. Expect a fixed quote soon."],
-        'quoted': [f"Your fixed quote is ready: <b>{_money(r['quote_amount'])}</b>.", "Approve it in your workspace to start the build."],
-        'in_progress': ["The build is underway."],
-        'review': ["It's ready for your review. Test it, then accept the delivery or request changes."],
-        'delivered': ["Marked as delivered. Thank you!"],
-        'on_hold': ["This request is on hold for now. We'll explain in the notes."],
-        'declined': ["This request has been closed."],
-      }.get(new_status, [])
-      notify_client(r, f"{r['ref']}: {STATUS_LABEL[new_status]}", f"{r['title']}", lines + client_visible)
+      def build(tr):
+        lines = {
+          'scoping': [tr("An engineer is scoping your request now. Expect a fixed quote soon.")],
+          'quoted': [tr("Your fixed quote is ready: <b>{amount}</b>.", amount=tr.money(r['quote_amount'])),
+                     tr("Approve it in your workspace to start the build.")],
+          'in_progress': [tr("The build is underway.")],
+          'review': [tr("It's ready for your review. Test it, then accept the delivery or request changes.")],
+          'delivered': [tr("Marked as delivered. Thank you!")],
+          'on_hold': [tr("This request is on hold for now. We'll explain in the notes.")],
+          'declined': [tr("This request has been closed.")],
+        }.get(new_status, [])
+        return (f"{r['ref']}: {tr(STATUS_LABEL[new_status])}", f"{r['title']}", lines + [f(tr) for f in client_visible])
+      notify_client(r, build)
     elif client_visible:
-      notify_client(r, f"{r['ref']}: progress update", f"Update on {r['title']}", client_visible)
+      notify_client(r, lambda tr: (tr("{ref}: progress update", ref=r['ref']), tr("Update on {title}", title=r['title']),
+                                   [f(tr) for f in client_visible]))
   return payload(r, u)
 
 
@@ -127,8 +132,8 @@ def admin_create_request(client_id, data):
   if client is None:
     raise Exception("Pick a client.")
   r = create_request_row(client, data, u)
-  notify_client(r, f"{r['ref']}: new request logged", r['title'],
-                ["We logged this request in your workspace on your behalf. You can follow it there."])
+  notify_client(r, lambda tr: (tr("{ref}: new request logged", ref=r['ref']), r['title'],
+                               [tr("We logged this request in your workspace on your behalf. You can follow it there.")]))
   return rid(r)
 
 

@@ -2,28 +2,29 @@ from ._anvil_designer import NewRequestTemplate
 from anvil import *
 
 from .. import ui, state
+from ..i18n import t
 
 
 def request_form_html(budgets=True):
   return f'''
     <div class="aa-error hidden"></div>
-    <div class="f"><label for="nr-title">Title</label>
-      <input id="nr-title" type="text" name="title" maxlength="140" placeholder="e.g. Let customers pay a deposit when booking">
-      <div class="hint">One line that describes the outcome.</div></div>
-    <div class="f"><span class="lbl">Type of request</span>{ui.seg('kind', ui.KINDS, 'feature')}</div>
-    <div class="f"><label for="nr-desc">What do you need, and why?</label>
-      <textarea id="nr-desc" name="description" rows="6" placeholder="Describe the problem, who it's for and what should happen. Links and examples help."></textarea></div>
-    <div class="f"><label for="nr-acc">How will we know it's done? <span class="opt">(optional)</span></label>
-      <textarea id="nr-acc" name="acceptance" rows="4" placeholder="- Customers can pay a 20% deposit&#10;- Refunds happen automatically 48h before&#10;- Managers see deposits in the day view"></textarea>
-      <div class="hint">Your acceptance criteria. If you skip this, your engineer will propose them with the quote.</div></div>
-    <div class="f"><span class="lbl">Priority</span>{ui.seg('priority', ui.PRIORITIES, 'normal')}</div>
+    <div class="f"><label for="nr-title">{t('Title')}</label>
+      <input id="nr-title" type="text" name="title" maxlength="140" placeholder="{t('e.g. Let customers pay a deposit when booking')}">
+      <div class="hint">{t('One line that describes the outcome.')}</div></div>
+    <div class="f"><span class="lbl">{t('Type of request')}</span>{ui.seg('kind', ui.KINDS, 'feature')}</div>
+    <div class="f"><label for="nr-desc">{t('What do you need, and why?')}</label>
+      <textarea id="nr-desc" name="description" rows="6" placeholder="{t("Describe the problem, who it's for and what should happen. Links and examples help.")}"></textarea></div>
+    <div class="f"><label for="nr-acc">{t("How will we know it's done?")} <span class="opt">{t('(optional)')}</span></label>
+      <textarea id="nr-acc" name="acceptance" rows="4" placeholder="{t('- Customers can pay a 20% deposit&#10;- Refunds happen automatically 48h before&#10;- Managers see deposits in the day view')}"></textarea>
+      <div class="hint">{t('Your acceptance criteria. If you skip this, your engineer will propose them with the quote.')}</div></div>
+    <div class="f"><span class="lbl">{t('Priority')}</span>{ui.seg('priority', ui.PRIORITIES, 'normal')}</div>
     <div class="row2" style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
-      <div class="f"><label for="nr-proj">App or project <span class="opt">(optional)</span></label>
-        <input id="nr-proj" type="text" name="project" placeholder="e.g. Booking website"></div>
-      <div class="f"><label for="nr-date">Ideal delivery date <span class="opt">(optional)</span></label>
+      <div class="f"><label for="nr-proj">{t('App or project')} <span class="opt">{t('(optional)')}</span></label>
+        <input id="nr-proj" type="text" name="project" placeholder="{t('e.g. Booking website')}"></div>
+      <div class="f"><label for="nr-date">{t('Ideal delivery date')} <span class="opt">{t('(optional)')}</span></label>
         <input id="nr-date" type="date" name="desired_date"></div>
     </div>
-    {'<div class="f"><label for="nr-budget">Budget range <span class="opt">(optional)</span></label><select id="nr-budget" name="budget">' + ui.options(ui.BUDGETS) + '</select></div>' if budgets else ''}'''
+    {'<div class="f"><label for="nr-budget">' + t('Budget range') + ' <span class="opt">' + t('(optional)') + '</span></label><select id="nr-budget" name="budget">' + ui.options(ui.BUDGETS) + '</select></div>' if budgets else ''}'''
 
 
 def collect(component):
@@ -38,9 +39,9 @@ def collect(component):
 
 def validate(data):
   if len(data['title']) < 4:
-    return "Give your request a short title (4+ characters)."
+    return t("Give your request a short title (4+ characters).")
   if len(data['description']) < 10:
-    return "Describe what you need in a sentence or two."
+    return t("Describe what you need in a sentence or two.")
   return None
 
 
@@ -49,23 +50,23 @@ class NewRequest(NewRequestTemplate):
     self.init_components(**properties)
     self.html = f'''
     <div class="app-page"><div class="aa-wrap">
-      <div class="crumbs"><a href="#portal">Dashboard</a><span>/</span><span>New request</span></div>
-      <div class="page-head"><div><h1>New request</h1><p>Describe the outcome. We'll reply with scope, a fixed price and an ETA.</p></div></div>
+      <div class="crumbs"><a href="#portal">{t('Dashboard')}</a><span>/</span><span>{t('New request')}</span></div>
+      <div class="page-head"><div><h1>{t('New request')}</h1><p>{t("Describe the outcome. We'll reply with scope, a fixed price and an ETA.")}</p></div></div>
       <div class="nr">
         <div class="card card-pad js-form">
           {request_form_html()}
           <div style="display:flex;gap:10px;justify-content:flex-end;margin-top:8px;flex-wrap:wrap">
-            <a class="aa-btn ghost" href="#portal">Cancel</a>
-            <button type="button" class="aa-btn accent" data-act="submit">Submit request <span class="arr">&rarr;</span></button>
+            <a class="aa-btn ghost" href="#portal">{t('Cancel')}</a>
+            <button type="button" class="aa-btn accent" data-act="submit">{t('Submit request')} <span class="arr">&rarr;</span></button>
           </div>
         </div>
         <aside class="aside card card-pad">
-          <h3 style="margin-bottom:16px">What happens next</h3>
+          <h3 style="margin-bottom:16px">{t('What happens next')}</h3>
           <ol>
-            <li><div><b>Scoping</b>An engineer reads your request and may ask a question or two in the thread.</div></li>
-            <li><div><b>Fixed quote</b>You get the price, acceptance criteria and an ETA. Usually within 2 business days.</div></li>
-            <li><div><b>Build &amp; validate</b>AI-accelerated build, then human review and testing. Follow it live.</div></li>
-            <li><div><b>Accept, then pay</b>Test it on staging. You're invoiced only once you accept.</div></li>
+            <li><div><b>{t('Scoping')}</b>{t('An engineer reads your request and may ask a question or two in the thread.')}</div></li>
+            <li><div><b>{t('Fixed quote')}</b>{t('You get the price, acceptance criteria and an ETA. Usually within 2 business days.')}</div></li>
+            <li><div><b>{t('Build &amp; validate')}</b>{t('AI-accelerated build, then human review and testing. Follow it live.')}</div></li>
+            <li><div><b>{t('Accept, then pay')}</b>{t("Test it on staging. You're invoiced only once you accept.")}</div></li>
           </ol>
         </aside>
       </div>
@@ -84,10 +85,10 @@ class NewRequest(NewRequestTemplate):
       return
     ui.show(err, False)
     btn = form.querySelector('[data-act=submit]')
-    ui.busy(btn, True, 'Submitting…')
+    ui.busy(btn, True, t('Submitting…'))
     res = ui.call('create_request', data)
     ui.busy(btn, False)
     if res is ui.FAIL:
       return
-    ui.toast("Request submitted. An engineer will scope it shortly.")
+    ui.toast(t("Request submitted. An engineer will scope it shortly."))
     state.go('r/' + res)

@@ -8,46 +8,48 @@ import anvil.tz
 from anvil import HtmlTemplate, Notification, alert, confirm
 
 from .icons import icon
+from .i18n import t, tn
+from . import i18n
 
 FAIL = object()
 
 # ------------------------------------------------------------------ domain constants (mirror server)
 
 STATUS = {
-  'new': ('Submitted', '', '#8C94A3'),
-  'scoping': ('Scoping', 'amber', '#B7791F'),
-  'quoted': ('Quote ready', 'accent', '#2F5BFF'),
-  'in_progress': ('In progress', 'ai', '#7A5CFA'),
-  'review': ('Ready for review', 'accent', '#2F5BFF'),
-  'delivered': ('Delivered', 'human', '#0E9F6E'),
-  'on_hold': ('On hold', 'outline', '#8C94A3'),
-  'declined': ('Closed', 'outline', '#B4AEA0'),
+  'new': (t('Submitted'), '', '#8C94A3'),
+  'scoping': (t('Scoping'), 'amber', '#B7791F'),
+  'quoted': (t('Quote ready'), 'accent', '#2F5BFF'),
+  'in_progress': (t('In progress'), 'ai', '#7A5CFA'),
+  'review': (t('Ready for review'), 'accent', '#2F5BFF'),
+  'delivered': (t('Delivered'), 'human', '#0E9F6E'),
+  'on_hold': (t('On hold'), 'outline', '#8C94A3'),
+  'declined': (t('Closed'), 'outline', '#B4AEA0'),
 }
 STATUS_ORDER = ['new', 'scoping', 'quoted', 'in_progress', 'review', 'delivered', 'on_hold', 'declined']
-PIPELINE = [('new', 'Submitted'), ('scoping', 'Scoping'), ('quoted', 'Quote'), ('in_progress', 'Build'),
-            ('review', 'Review'), ('delivered', 'Delivered')]
+PIPELINE = [('new', t('Submitted')), ('scoping', t('Scoping')), ('quoted', t('Quote')), ('in_progress', t('Build')),
+            ('review', t('Review')), ('delivered', t('Delivered'))]
 OPEN_STATUSES = ['new', 'scoping', 'quoted', 'in_progress', 'review', 'on_hold']
 CLIENT_ACTION = ['quoted', 'review']
 
-KINDS = [('feature', 'New feature'), ('change', 'Improvement'), ('bug', 'Bug fix'), ('new_app', 'New app'),
-         ('integration', 'Integration / API'), ('data', 'Data & reporting'), ('other', 'Other')]
+KINDS = [('feature', t('New feature')), ('change', t('Improvement')), ('bug', t('Bug fix')), ('new_app', t('New app')),
+         ('integration', t('Integration / API')), ('data', t('Data & reporting')), ('other', t('Other'))]
 KIND = dict(KINDS)
-PRIORITIES = [('low', 'Low'), ('normal', 'Normal'), ('high', 'High'), ('urgent', 'Urgent')]
+PRIORITIES = [('low', t('Low')), ('normal', t('Normal')), ('high', t('High')), ('urgent', t('Urgent'))]
 PRIORITY = dict(PRIORITIES)
 PRIORITY_CLS = {'low': 'outline', 'normal': '', 'high': 'amber', 'urgent': 'red'}
-BUDGETS = ['Not sure yet', 'Under $2,500', '$2,500 – $10,000', '$10,000 – $25,000', '$25,000 – $75,000', '$75,000+']
-NOTE_KINDS = [('update', 'Progress update'), ('milestone', 'Milestone reached'), ('validated', 'Human-validated delivery'),
-              ('question', 'Question for client'), ('internal', 'Internal note (hidden from client)')]
+# Budgets are saved in English (the value) and shown translated (the label).
+BUDGETS = [(b, t(b)) for b in ['Not sure yet', 'Under $2,500', '$2,500 – $10,000', '$10,000 – $25,000',
+                               '$25,000 – $75,000', '$75,000+']]
+NOTE_KINDS = [('update', t('Progress update')), ('milestone', t('Milestone reached')),
+              ('validated', t('Human-validated delivery')), ('question', t('Question for client')),
+              ('internal', t('Internal note (hidden from client)'))]
 NOTE_CHIP = {
-  'update': ('Update', 'accent', 'activity'),
-  'milestone': ('Milestone', 'ink', 'flag'),
-  'validated': ('AI-built · human-validated', 'human', 'shield'),
-  'question': ('Question', 'amber', 'help'),
-  'internal': ('Internal', 'amber', 'lock'),
+  'update': (t('Update'), 'accent', 'activity'),
+  'milestone': (t('Milestone'), 'ink', 'flag'),
+  'validated': (t('AI-built · human-validated'), 'human', 'shield'),
+  'question': (t('Question'), 'amber', 'help'),
+  'internal': (t('Internal'), 'amber', 'lock'),
 }
-
-DAYS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
 
 
 # ------------------------------------------------------------------ html basics
@@ -120,13 +122,13 @@ def status_chip(status):
 
 
 def kind_chip(kind):
-  return chip(KIND.get(kind, kind or 'Request'), 'outline')
+  return chip(KIND.get(kind, kind or t('Request')), 'outline')
 
 
 def priority_chip(p):
   if not p or p == 'normal':
     return ''
-  return chip(PRIORITY.get(p, p) + ' priority', PRIORITY_CLS.get(p, ''))
+  return chip(t('{level} priority', level=PRIORITY.get(p, p)), PRIORITY_CLS.get(p, ''))
 
 
 def progress_bar(pct, done=False):
@@ -234,10 +236,7 @@ def fmt_date(d, year=None):
   if d is None:
     return ''
   d = local(d)
-  s = f"{MONTHS[d.month - 1]} {d.day}"
-  if year or (year is None and d.year != now_local().year):
-    s += f", {d.year}"
-  return s
+  return i18n.date_text(d, year or (year is None and d.year != now_local().year))
 
 
 def fmt_dt(d):
@@ -255,28 +254,21 @@ def ago(d):
   except Exception:
     return fmt_date(d)
   if secs < 60:
-    return 'just now'
+    return t('just now')
   if secs < 3600:
-    return f'{int(secs // 60)} min ago'
+    return t('{n} min ago', n=int(secs // 60))
   if secs < 86400:
-    return f'{int(secs // 3600)} h ago'
+    return t('{n} h ago', n=int(secs // 3600))
   if secs < 86400 * 7:
     n = int(secs // 86400)
-    return 'yesterday' if n == 1 else f'{n} days ago'
+    return t('yesterday') if n == 1 else tn(n, '{n} day ago', '{n} days ago')
   return fmt_date(d)
 
 
 def money(v):
   if v is None or v == '':
     return '—'
-  n = int(round(float(v)))
-  s = str(abs(n))
-  parts = []
-  while len(s) > 3:
-    parts.insert(0, s[-3:])
-    s = s[:-3]
-  parts.insert(0, s)
-  return ('-' if n < 0 else '') + '$' + ','.join(parts)
+  return i18n.money(int(round(float(v))))
 
 
 def date_iso(d):
@@ -295,17 +287,13 @@ def parse_date(s):
     return None
 
 
-def plural(n, word, many=None):
-  return f"{n} {word if n == 1 else (many or word + 's')}"
-
-
 def greeting():
   h = now_local().hour
   if h < 12:
-    return 'Good morning'
+    return t('Good morning')
   if h < 18:
-    return 'Good afternoon'
-  return 'Good evening'
+    return t('Good afternoon')
+  return t('Good evening')
 
 
 # ------------------------------------------------------------------ feedback
@@ -325,8 +313,8 @@ def close_modal(component, value=None):
   component.raise_event('x-close-alert', value=value)
 
 
-def ask(text, title=None, yes='Confirm', no='Cancel'):
-  return confirm(text, title=title, buttons=[(no, False), (yes, True)])
+def ask(text, title=None, yes=None, no=None):
+  return confirm(text, title=title, buttons=[(no or t('Cancel'), False), (yes or t('Confirm'), True)])
 
 
 def set_meta(title, description=None, private=False):
@@ -368,5 +356,5 @@ def call(fn_name, *args, **kwargs):
       if msg.startswith(prefix):
         msg = msg[len(prefix):]
     if not quiet:
-      toast(msg or "Something went wrong. Please try again.", 'danger', 5)
+      toast(i18n.server_text(msg) or t("Something went wrong. Please try again."), 'danger', 5)
     return FAIL

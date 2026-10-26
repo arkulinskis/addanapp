@@ -29,10 +29,12 @@ def submit_lead(data):
   app_tables.leads.add_row(name=name, email=email, company=clean(data.get('company'), 120), kind=clean(data.get('kind'), 80),
                            budget=clean(data.get('budget'), 40), message=message, status='new', created=now(),
                            source='website')
-  notify_admins(f"New project brief from {name}", "New project brief",
-                [f"<b>{name}</b> · {email} · {clean(data.get('company')) or 'no company'}",
-                 f"{clean(data.get('kind'))} · Budget: {clean(data.get('budget'))}",
-                 message[:1500].replace('\n', '<br>')], 'admin/leads')
+  company, kind, budget = clean(data.get('company')), clean(data.get('kind')), clean(data.get('budget'))
+  notify_admins(lambda tr: (
+    tr("New project brief from {name}", name=name), tr("New project brief"),
+    [f"<b>{name}</b> · {email} · {company or tr('no company')}",
+     f"{tr(kind)} · " + tr("Budget: {budget}", budget=tr(budget)),
+     message[:1500].replace('\n', '<br>')]), 'admin/leads')
   return True
 
 

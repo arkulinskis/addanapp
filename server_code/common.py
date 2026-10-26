@@ -8,6 +8,8 @@ import anvil.email
 import anvil.tz
 from anvil.tables import app_tables
 
+from .i18n_server import Tr, user_lang
+
 # Anyone signing up with one of these emails becomes a consultant (admin) automatically.
 ADMIN_EMAILS = {"arkulinskis@gmail.com"}
 
@@ -24,6 +26,7 @@ KINDS = ['feature', 'change', 'bug', 'new_app', 'integration', 'data', 'other']
 KIND_LABEL = {'feature': 'New feature', 'change': 'Improvement', 'bug': 'Bug fix', 'new_app': 'New app',
               'integration': 'Integration / API', 'data': 'Data & reporting', 'other': 'Other'}
 PRIORITIES = ['low', 'normal', 'high', 'urgent']
+PRIORITY_LABEL = {'low': 'Low', 'normal': 'Normal', 'high': 'High', 'urgent': 'Urgent'}
 ADMIN_NOTE_KINDS = ['update', 'milestone', 'validated', 'question', 'internal']
 LEAD_STATUSES = ['new', 'contacted', 'won', 'lost', 'archived']
 
@@ -139,7 +142,8 @@ def add_note(request, author, kind, body='', internal=False, status_from=None, s
 
 # ---------------------------------------------------------------- email
 
-def _email_html(title, lines, cta_text=None, cta_url=None):
+def _email_html(title, lines, cta_text=None, cta_url=None, tr=None):
+  tr = tr or Tr()
   body = ''.join(f'<p style="margin:0 0 12px;color:#3A4457;font-size:15px;line-height:1.6">{l}</p>' for l in lines)
   cta = ''
   if cta_text and cta_url:
@@ -149,28 +153,34 @@ def _email_html(title, lines, cta_text=None, cta_url=None):
   <div style="max-width:560px;margin:0 auto;background:#fff;border:1px solid #E6E3DA;border-radius:16px;padding:28px">
     <div style="font-weight:700;color:#0B1220;font-size:16px;margin-bottom:18px">add<span style="color:#8C94A3">an</span>app</div>
     <h1 style="font-size:20px;color:#0B1220;margin:0 0 14px">{title}</h1>{body}{cta}
-    <p style="margin:26px 0 0;color:#8C94A3;font-size:12px">Addanapp · Custom software, Montréal · AI-accelerated, human-validated.</p>
+    <p style="margin:26px 0 0;color:#8C94A3;font-size:12px">{tr('Addanapp · Custom software, Montréal · AI-accelerated, human-validated.')}</p>
   </div></div>'''
 
 
-def send_email(to, subject, title, lines, cta_text=None, path=''):
+def send_email(to, subject, title, lines, cta_text=None, path='', tr=None):
   if not to:
     return
   try:
     anvil.email.send(to=to, from_name=SITE_NAME, subject=subject,
-                     html=_email_html(title, lines, cta_text, SITE_URL + '/#' + path if cta_text else None))
+                     html=_email_html(title, lines, cta_text, SITE_URL + '/#' + path if cta_text else None, tr))
   except Exception as e:
     print("Email failed:", e)
 
 
-def notify_admins(subject, title, lines, path=''):
+# build(tr) returns (subject, title, lines) written with tr(), so each person gets the email in their language.
+
+def notify_admins(build, path=''):
   for a in admins():
     if a['email_notifications'] is not False:
-      send_email(a['email'], subject, title, lines, 'Open in console', path)
+      tr = Tr(user_lang(a))
+      subject, title, lines = build(tr)
+      send_email(a['email'], subject, title, lines, tr('Open in console'), path, tr)
 
 
-def notify_client(request, subject, title, lines):
+def notify_client(request, build):
   c = request['client']
   if c is None or c['is_demo'] or c['email_notifications'] is False:
     return
-  send_email(c['email'], subject, title, lines, 'Open your workspace', 'r/' + rid(request))
+  tr = Tr(user_lang(c))
+  subject, title, lines = build(tr)
+  send_email(c['email'], subject, title, lines, tr('Open your workspace'), 'r/' + rid(request), tr)

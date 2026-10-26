@@ -212,6 +212,48 @@ img, svg { max-width: 100%; }
 .nav-open .aa-burger span::before { top: 0; transform: rotate(45deg); }
 .nav-open .aa-burger span::after { top: 0; transform: rotate(-45deg); }
 
+/* language switcher (header) */
+.aa-lang { position: relative; }
+.aa-lang-btn {
+  display: inline-flex; align-items: center; gap: 6px; height: 36px; padding: 0 11px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--line-2); background: #fff; color: var(--ink); font: 600 .8rem var(--font-m); letter-spacing: .04em;
+}
+.aa-lang-btn svg { opacity: .75; flex-shrink: 0; }
+.aa-lang-btn:hover { border-color: var(--ink); }
+.mode-public .aa-lang-btn { background: rgba(255, 255, 255, .08); border-color: rgba(255, 255, 255, .16); color: #fff; }
+.mode-public .aa-lang-btn:hover { border-color: rgba(255, 255, 255, .45); }
+.aa-lang-menu { min-width: 200px; }
+.aa-lang.open .aa-menu { display: block; animation: aa-pop .14s ease-out; }
+.aa-lang-menu button { display: flex; justify-content: space-between; align-items: center; gap: 12px; }
+.aa-lang-menu button .code { font: 500 .72rem var(--font-m); color: var(--faint); letter-spacing: .06em; }
+.aa-lang-menu button.on { color: var(--ink); font-weight: 650; background: var(--paper-2); }
+.aa-lang-menu button.on .code { color: var(--accent); }
+.aa-footer .aa-lang-links { display: flex; flex-wrap: wrap; align-items: center; gap: 4px 12px; margin: 16px 0 0; }
+.aa-footer .aa-lang-links svg { opacity: .7; }
+.aa-footer .aa-lang-links a.on { color: #fff; font-weight: 600; text-decoration: underline; text-underline-offset: 3px; }
+
+/* Russian: Instrument Serif has no Cyrillic, so headlines use PT Serif (loaded by the head script only for Russian). */
+html[lang="ru"] { --font-d: 'PT Serif', 'Iowan Old Style', Georgia, serif; }
+html[lang="ru"] h1 { font-size: clamp(2.2rem, 5.2vw, 4.1rem); letter-spacing: -0.02em; }
+html[lang="ru"] h2 { font-size: clamp(1.8rem, 3.8vw, 2.9rem); letter-spacing: -0.02em; }
+html[lang="fr"] h1, html[lang="lv"] h1 { font-size: clamp(2.4rem, 5.8vw, 4.6rem); }
+
+/* Translated nav labels are longer: switch to the burger menu a little earlier. */
+@media (max-width: 1240px) {
+  html[lang="fr"] .aa-burger, html[lang="ru"] .aa-burger, html[lang="lv"] .aa-burger { display: inline-block; }
+  html[lang="fr"] .aa-nav, html[lang="ru"] .aa-nav, html[lang="lv"] .aa-nav {
+    display: none !important; position: fixed; left: 0; right: 0; top: var(--header-h); bottom: 0;
+    flex-direction: column; align-items: stretch; gap: 4px; padding: 18px var(--gutter) 40px; overflow-y: auto;
+    background: var(--paper); border-top: 1px solid var(--line);
+  }
+  html[lang="fr"] .mode-public .aa-nav, html[lang="ru"] .mode-public .aa-nav, html[lang="lv"] .mode-public .aa-nav { background: var(--ink); border-top-color: rgba(255, 255, 255, .08); }
+  html[lang="fr"] .aa-nav a, html[lang="ru"] .aa-nav a, html[lang="lv"] .aa-nav a { font-size: 1.05rem; padding: 14px 14px; border-radius: 12px; }
+  html[lang="fr"] .mode-public.nav-open .aa-nav-public, html[lang="ru"] .mode-public.nav-open .aa-nav-public, html[lang="lv"] .mode-public.nav-open .aa-nav-public,
+  html[lang="fr"] .mode-app.nav-open .aa-nav-app, html[lang="ru"] .mode-app.nav-open .aa-nav-app, html[lang="lv"] .mode-app.nav-open .aa-nav-app { display: flex !important; animation: aa-pop .16s ease-out; }
+  html[lang="fr"] .aa-nav a.sm-only, html[lang="ru"] .aa-nav a.sm-only, html[lang="lv"] .aa-nav a.sm-only { display: flex !important; }
+  html[lang="fr"] .aa-nav a.sm-only.hidden, html[lang="ru"] .aa-nav a.sm-only.hidden, html[lang="lv"] .aa-nav a.sm-only.hidden { display: none !important; }
+}
+
 @media (max-width: 1020px) {
   .aa-burger { display: inline-block; }
   .aa-nav {
@@ -230,6 +272,14 @@ img, svg { max-width: 100%; }
   .aa-header-actions .aa-btn.sm { padding: 8px 12px; font-size: .84rem; }
   .aa-me-btn .nm, .aa-me-btn .chev { display: none; }
   .aa-me-btn { padding: 3px; }
+  .aa-header-inner { gap: 12px; }
+  .aa-header-actions { gap: 6px; }
+  .aa-header-actions .when-in, .aa-header-actions .when-out { gap: 6px; }
+  .aa-lang-btn { padding: 0 9px; gap: 4px; }
+  .aa-lang-btn svg { display: none; }
+}
+@media (max-width: 400px) {
+  .aa-header .aa-brand .word { display: none; }
 }
 
 /* footer */

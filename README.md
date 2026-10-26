@@ -23,11 +23,22 @@ Other routes: `#work` (full portfolio), `#r/<id>` (one request), `#new`, `#accou
 ## Getting it running in Anvil
 
 1. In the Anvil editor, pull `master` from GitHub (or clone the repo as a new app).
-2. Accept the **data table schema** from `anvil.yaml` (4 tables: `users`, `requests`, `notes`, `leads`).
+2. Accept the **data table schema** from `anvil.yaml` (4 tables: `users`, `requests`, `notes`, `leads`). The `users.lang` column stores each person's language for emails.
 3. Run the app and create a workspace with **arkulinskis@gmail.com**. Emails listed in `ADMIN_EMAILS` (`server_code/common.py`) become consultants automatically. Other consultants can be promoted from **Console → Clients**.
 4. Optional: **Console → Tools → Load demo data** adds 3 fictional clients and 8 requests at every stage. Demo clients can't sign in and never get email.
 
 Services used: Data Tables, Users (email + password, sign-up on, no email confirmation), Email.
+
+## Languages
+
+The whole site and app are available in **English, French, Russian and Latvian**. Pick one from the globe button in the header (or the footer, or **Account → Language**).
+
+- English is built into the code and loads with no extra download. Every visible string goes through `t("English text")` (`client_code/i18n.py`).
+- The other languages are packs in `theme/assets/lang-fr.json`, `lang-ru.json` and `lang-lv.json`, keyed by the English text. A pack is only downloaded when the visitor chose that language: the choice is saved in the browser (`localStorage` key `aa.lang`), and a small script at the top of `anvil.yaml → native_deps.head_html` starts the download while the app boots. Switching language reloads the page.
+- Notification emails go out in each person's language. The app saves it on the user row (`users.lang`) when they open the app; email texts are in `server_code/email_text.py`.
+- Status notes and server messages are stored in English and translated when shown, so consultants and clients can use different languages.
+- **Editing a translation:** change the value in the `lang-*.json` file (and in `email_text.py` for email wording), then bump `VERSION` in `i18n.py` and `?v=` in the head script so browsers fetch the new pack. A string with no translation falls back to English.
+- The Privacy & Terms documents come from the shared LegalKit, which has English and French. Russian and Latvian visitors see them in English.
 
 ## SEO
 
@@ -52,6 +63,7 @@ client_code/
   RequestDetail/   one request: stepper, client actions, timeline, consultant manage panel
   Admin/           consultant console: requests (list/board), clients, leads, tools
   Account/ Privacy/
+  i18n.py          translations: t(), plurals, dates and money per language, language switching
   content.py       landing page copy and markup
   portfolio.py     portfolio projects + illustrated SVG previews
   ui.py            constants, HTML helpers, formatting, form reading, server-call wrapper
@@ -60,12 +72,13 @@ client_code/
   state.py         signed-in user, unread counts, navigation
 server_code/
   common.py        users, ids, statuses, notes, email templates
+  i18n_server.py   email language per user; email_text.py holds the French, Russian and Latvian email texts
   serial.py        rows → client-safe dicts (clients never see internal notes or other clients)
   api_client.py    profile, my requests, create, comment / approve / accept / request changes / withdraw
   api_admin.py     overview, update request + notes, clients, leads
   api_public.py    project-brief form, sitemap
   seed.py          demo data
-theme/assets/      theme.css (design system), aa.js (scroll reveal, page meta), logo, icons, og-image
+theme/assets/      theme.css (design system), aa.js (scroll reveal, page meta), lang-fr/ru/lv.json, logo, icons, og-image
 ```
 
 ## Design

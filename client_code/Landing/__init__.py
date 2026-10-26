@@ -2,6 +2,7 @@ from ._anvil_designer import LandingTemplate
 from anvil import *
 
 from .. import ui, state, portfolio
+from ..i18n import t
 from ..content import HTML
 
 
@@ -46,16 +47,16 @@ class Landing(LandingTemplate):
       ui.show(err)
 
     if len(v.get('name', '')) < 2:
-      return fail("Please tell us your name.")
+      return fail(t("Please tell us your name."))
     if '@' not in v.get('email', '') or '.' not in v.get('email', ''):
-      return fail("Please enter a valid email address.")
+      return fail(t("Please enter a valid email address."))
     if len(v.get('message', '')) < 10:
-      return fail("A sentence or two about the outcome you're after helps us reply with something useful.")
+      return fail(t("A sentence or two about the outcome you're after helps us reply with something useful."))
     if not v.get('consent'):
-      return fail("Please confirm we may contact you about this request.")
+      return fail(t("Please confirm we may contact you about this request."))
     ui.show(err, False)
     btn = form.querySelector('[data-act=lead]')
-    ui.busy(btn, True, 'Sending…')
+    ui.busy(btn, True, t('Sending…'))
     res = ui.call('submit_lead', v)
     ui.busy(btn, False)
     if res is ui.FAIL:
