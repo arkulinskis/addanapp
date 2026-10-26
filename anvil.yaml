@@ -3,35 +3,739 @@ db_schema:
   users:
     client: none
     columns:
-    - admin_ui: {order: 0, width: 200}
-      client_hidden: false
+    - admin_ui:
+        width: 200
       name: email
       type: string
-    - admin_ui: {order: 1, width: 200}
-      client_hidden: true
+    - admin_ui:
+        width: 200
       name: enabled
       type: bool
-    - admin_ui: {order: 2, width: 200}
-      client_hidden: true
+    - admin_ui:
+        width: 200
       name: last_login
       type: datetime
-    - admin_ui: {order: 3, width: 200}
-      client_hidden: true
+    - admin_ui:
+        width: 200
       name: password_hash
       type: string
-    - admin_ui: {order: 4, width: 200}
-      client_hidden: true
+    - admin_ui:
+        width: 200
       name: n_password_failures
       type: number
-    - admin_ui: {order: 5, width: 200}
-      client_hidden: true
+    - admin_ui:
+        width: 200
       name: confirmed_email
       type: bool
-    indexes: []
+    - admin_ui:
+        width: 200
+      name: remembered_logins
+      type: simpleObject
+    - admin_ui:
+        width: 200
+      name: signed_up
+      type: datetime
+    - admin_ui:
+        width: 200
+      name: email_confirmation_key
+      type: string
+    - admin_ui:
+        width: 200
+      name: name
+      type: string
+    - admin_ui:
+        width: 200
+      name: company
+      type: string
+    - admin_ui:
+        width: 200
+      name: phone
+      type: string
+    - admin_ui:
+        width: 200
+      name: color
+      type: string
+    - admin_ui:
+        width: 200
+      name: role
+      type: string
+    - admin_ui:
+        width: 200
+      name: is_admin
+      type: bool
+    - admin_ui:
+        width: 200
+      name: is_demo
+      type: bool
+    - admin_ui:
+        width: 200
+      name: email_notifications
+      type: bool
+    - admin_ui:
+        width: 200
+      name: created
+      type: datetime
+    - admin_ui:
+        width: 200
+      name: last_seen
+      type: datetime
     server: full
     title: Users
-metadata: {title: Addanapp - quick turnaround consulting}
+  requests:
+    client: none
+    columns:
+    - admin_ui:
+        width: 200
+      name: ref
+      type: string
+    - admin_ui:
+        width: 200
+      name: client
+      type: link_single
+      target: users
+    - admin_ui:
+        width: 200
+      name: title
+      type: string
+    - admin_ui:
+        width: 200
+      name: kind
+      type: string
+    - admin_ui:
+        width: 200
+      name: priority
+      type: string
+    - admin_ui:
+        width: 200
+      name: description
+      type: string
+    - admin_ui:
+        width: 200
+      name: acceptance
+      type: string
+    - admin_ui:
+        width: 200
+      name: project
+      type: string
+    - admin_ui:
+        width: 200
+      name: budget
+      type: string
+    - admin_ui:
+        width: 200
+      name: desired_date
+      type: date
+    - admin_ui:
+        width: 200
+      name: status
+      type: string
+    - admin_ui:
+        width: 200
+      name: progress
+      type: number
+    - admin_ui:
+        width: 200
+      name: quote_amount
+      type: number
+    - admin_ui:
+        width: 200
+      name: quote_note
+      type: string
+    - admin_ui:
+        width: 200
+      name: eta
+      type: date
+    - admin_ui:
+        width: 200
+      name: created
+      type: datetime
+    - admin_ui:
+        width: 200
+      name: updated
+      type: datetime
+    - admin_ui:
+        width: 200
+      name: last_activity
+      type: datetime
+    - admin_ui:
+        width: 200
+      name: accepted_at
+      type: datetime
+    - admin_ui:
+        width: 200
+      name: admin_unread
+      type: bool
+    - admin_ui:
+        width: 200
+      name: client_unread
+      type: bool
+    server: full
+    title: Requests
+  notes:
+    client: none
+    columns:
+    - admin_ui:
+        width: 200
+      name: request
+      type: link_single
+      target: requests
+    - admin_ui:
+        width: 200
+      name: author
+      type: link_single
+      target: users
+    - admin_ui:
+        width: 200
+      name: kind
+      type: string
+    - admin_ui:
+        width: 200
+      name: body
+      type: string
+    - admin_ui:
+        width: 200
+      name: internal
+      type: bool
+    - admin_ui:
+        width: 200
+      name: status_from
+      type: string
+    - admin_ui:
+        width: 200
+      name: status_to
+      type: string
+    - admin_ui:
+        width: 200
+      name: progress
+      type: number
+    - admin_ui:
+        width: 200
+      name: created
+      type: datetime
+    server: full
+    title: Notes
+  leads:
+    client: none
+    columns:
+    - admin_ui:
+        width: 200
+      name: name
+      type: string
+    - admin_ui:
+        width: 200
+      name: email
+      type: string
+    - admin_ui:
+        width: 200
+      name: company
+      type: string
+    - admin_ui:
+        width: 200
+      name: kind
+      type: string
+    - admin_ui:
+        width: 200
+      name: budget
+      type: string
+    - admin_ui:
+        width: 200
+      name: message
+      type: string
+    - admin_ui:
+        width: 200
+      name: status
+      type: string
+    - admin_ui:
+        width: 200
+      name: source
+      type: string
+    - admin_ui:
+        width: 200
+      name: created
+      type: datetime
+    server: full
+    title: Leads
+dependencies: []
+metadata:
+  title: AI-Accelerated App Development in Montréal | Addanapp
+  description: Montréal software consultancy for web apps, admin panels, client portals and data platforms. AI-accelerated, human-validated, fixed quotes. Pay for results.
+  logo_img: asset:apple-touch-icon.png
 name: Addanapp
+native_deps:
+  head_html: |-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <script src="_/theme/aa.js"></script>
+    <link rel="icon" type="image/svg+xml" href="_/theme/logo.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="_/theme/favicon-32.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="_/theme/apple-touch-icon.png">
+    <meta name="theme-color" content="#0B1220">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <link rel="canonical" href="https://addanapp.com/">
+    <meta name="keywords" content="custom app development Montreal, web application development Montreal, software development company Montreal, développement d&#x27;applications sur mesure Montréal, agence de développement web Montréal, AI-assisted software development, admin panel development, client portal development, internal tools, MVP development Montreal, fixed price app development, API integration, SaaS development, mobile-first web apps, PWA development, Québec, Canada">
+    <meta name="author" content="Addanapp">
+    <meta name="geo.region" content="CA-QC">
+    <meta name="geo.placename" content="Montréal">
+    <meta name="geo.position" content="45.5019;-73.5674">
+    <meta name="ICBM" content="45.5019, -73.5674">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Addanapp">
+    <meta property="og:url" content="https://addanapp.com/">
+    <meta property="og:title" content="Addanapp: apps built at AI speed, signed off by senior engineers">
+    <meta property="og:description" content="Custom web apps, admin panels, client portals and data platforms from Montréal. Fixed quotes, a live client workspace and every AI draft validated by a human. You pay for accepted results, not hours.">
+    <meta property="og:image" content="https://addanapp.com/_/theme/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Addanapp: apps built at AI speed, signed off by senior engineers. Montréal.">
+    <meta property="og:locale" content="en_CA">
+    <meta property="og:locale:alternate" content="fr_CA">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Addanapp: apps built at AI speed, signed off by senior engineers">
+    <meta name="twitter:description" content="Custom web apps, admin panels, client portals and data platforms from Montréal. Fixed quotes, a live client workspace and every AI draft validated by a human. You pay for accepted results, not hours.">
+    <meta name="twitter:image" content="https://addanapp.com/_/theme/og-image.png">
+    <script type="application/ld+json">
+    {
+     "@context": "https://schema.org",
+     "@graph": [
+      {
+       "@type": [
+        "ProfessionalService",
+        "Organization"
+       ],
+       "@id": "https://addanapp.com/#org",
+       "name": "Addanapp",
+       "alternateName": "Add an App",
+       "url": "https://addanapp.com/",
+       "logo": "https://addanapp.com/_/theme/logo-512.png",
+       "image": "https://addanapp.com/_/theme/og-image.png",
+       "description": "Montréal software consultancy for web apps, admin panels, client portals and data platforms. AI-accelerated, human-validated, fixed quotes. Pay for results.",
+       "slogan": "Apps built at AI speed. Signed off by senior engineers.",
+       "email": "hello@addanapp.com",
+       "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Montréal",
+        "addressRegion": "QC",
+        "addressCountry": "CA"
+       },
+       "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 45.5019,
+        "longitude": -73.5674
+       },
+       "areaServed": [
+        {
+         "@type": "City",
+         "name": "Montréal"
+        },
+        {
+         "@type": "AdministrativeArea",
+         "name": "Québec"
+        },
+        {
+         "@type": "Country",
+         "name": "Canada"
+        },
+        {
+         "@type": "Country",
+         "name": "United States"
+        },
+        "Europe"
+       ],
+       "knowsLanguage": [
+        "en",
+        "fr"
+       ],
+       "priceRange": "$$",
+       "knowsAbout": [
+        "Custom software development",
+        "Web application development",
+        "Admin panels",
+        "Client portals",
+        "API integration",
+        "AI-assisted software engineering",
+        "Human-in-the-loop AI",
+        "Progressive web apps",
+        "Data engineering",
+        "SaaS",
+        "Québec Law 25 privacy compliance"
+       ],
+       "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Software development services",
+        "itemListElement": [
+         {
+          "@type": "Offer",
+          "itemOffered": {
+           "@type": "Service",
+           "name": "Custom web application development",
+           "provider": {
+            "@id": "https://addanapp.com/#org"
+           },
+           "areaServed": "Worldwide"
+          }
+         },
+         {
+          "@type": "Offer",
+          "itemOffered": {
+           "@type": "Service",
+           "name": "Admin panel and back-office development",
+           "provider": {
+            "@id": "https://addanapp.com/#org"
+           },
+           "areaServed": "Worldwide"
+          }
+         },
+         {
+          "@type": "Offer",
+          "itemOffered": {
+           "@type": "Service",
+           "name": "Client and partner portal development",
+           "provider": {
+            "@id": "https://addanapp.com/#org"
+           },
+           "areaServed": "Worldwide"
+          }
+         },
+         {
+          "@type": "Offer",
+          "itemOffered": {
+           "@type": "Service",
+           "name": "API development and integrations",
+           "provider": {
+            "@id": "https://addanapp.com/#org"
+           },
+           "areaServed": "Worldwide"
+          }
+         },
+         {
+          "@type": "Offer",
+          "itemOffered": {
+           "@type": "Service",
+           "name": "Data pipelines and reporting dashboards",
+           "provider": {
+            "@id": "https://addanapp.com/#org"
+           },
+           "areaServed": "Worldwide"
+          }
+         },
+         {
+          "@type": "Offer",
+          "itemOffered": {
+           "@type": "Service",
+           "name": "Configurable multi-tenant SaaS development",
+           "provider": {
+            "@id": "https://addanapp.com/#org"
+           },
+           "areaServed": "Worldwide"
+          }
+         },
+         {
+          "@type": "Offer",
+          "itemOffered": {
+           "@type": "Service",
+           "name": "Mobile-first progressive web apps",
+           "provider": {
+            "@id": "https://addanapp.com/#org"
+           },
+           "areaServed": "Worldwide"
+          }
+         },
+         {
+          "@type": "Offer",
+          "itemOffered": {
+           "@type": "Service",
+           "name": "AI feature development with human review",
+           "provider": {
+            "@id": "https://addanapp.com/#org"
+           },
+           "areaServed": "Worldwide"
+          }
+         },
+         {
+          "@type": "Offer",
+          "itemOffered": {
+           "@type": "Service",
+           "name": "Game and gamification development",
+           "provider": {
+            "@id": "https://addanapp.com/#org"
+           },
+           "areaServed": "Worldwide"
+          }
+         },
+         {
+          "@type": "Offer",
+          "itemOffered": {
+           "@type": "Service",
+           "name": "Website development with booking and content API integration",
+           "provider": {
+            "@id": "https://addanapp.com/#org"
+           },
+           "areaServed": "Worldwide"
+          }
+         }
+        ]
+       }
+      },
+      {
+       "@type": "WebSite",
+       "@id": "https://addanapp.com/#website",
+       "url": "https://addanapp.com/",
+       "name": "Addanapp",
+       "description": "Montréal software consultancy for web apps, admin panels, client portals and data platforms. AI-accelerated, human-validated, fixed quotes. Pay for results.",
+       "inLanguage": [
+        "en-CA",
+        "fr-CA"
+       ],
+       "publisher": {
+        "@id": "https://addanapp.com/#org"
+       }
+      },
+      {
+       "@type": "WebPage",
+       "@id": "https://addanapp.com/#webpage",
+       "url": "https://addanapp.com/",
+       "name": "AI-Accelerated App Development in Montréal | Addanapp",
+       "description": "Montréal software consultancy for web apps, admin panels, client portals and data platforms. AI-accelerated, human-validated, fixed quotes. Pay for results.",
+       "isPartOf": {
+        "@id": "https://addanapp.com/#website"
+       },
+       "about": {
+        "@id": "https://addanapp.com/#org"
+       },
+       "inLanguage": "en-CA",
+       "primaryImageOfPage": "https://addanapp.com/_/theme/og-image.png"
+      },
+      {
+       "@type": "FAQPage",
+       "@id": "https://addanapp.com/#faq",
+       "mainEntity": [
+        {
+         "@type": "Question",
+         "name": "How exactly do you use AI?",
+         "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "AI tools help us draft code, tests, data migrations and documentation, and explore alternatives quickly. An engineer directs that work, reviews every change line by line, runs the tests and checks security before anything reaches you. AI makes us faster. It never makes the decisions."
+         }
+        },
+        {
+         "@type": "Question",
+         "name": "What does “you pay for results” mean?",
+         "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Each request gets a fixed price before work starts. When it's ready, you test it on a staging version. If it meets the acceptance criteria you agreed to, you accept it and we invoice. If not, we fix it at no extra cost. There are no timesheets."
+         }
+        },
+        {
+         "@type": "Question",
+         "name": "What kinds of apps can you build?",
+         "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Business software with real operational weight: admin panels and back-offices, client portals, configurable SaaS, APIs and integrations, data pipelines and reporting, mobile-first web apps, and even games. If it needs logins, roles, data and an admin side, it's our specialty."
+         }
+        },
+        {
+         "@type": "Question",
+         "name": "Do I own the code?",
+         "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. You own the code, the data and the accounts from day one. We can host and maintain the app for you, or hand everything over to your team or your infrastructure."
+         }
+        },
+        {
+         "@type": "Question",
+         "name": "How fast can you deliver?",
+         "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most feature requests get a fixed quote within two business days and ship within one to three weeks. New products are planned in milestones, and the first usable version typically lands in four to eight weeks."
+         }
+        },
+        {
+         "@type": "Question",
+         "name": "Can you take over an existing app?",
+         "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Often, yes. We start with a short, fixed-price audit of the codebase, document the risks, then quote improvements request by request, like any other work."
+         }
+        },
+        {
+         "@type": "Question",
+         "name": "Do you only work with Montréal companies?",
+         "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. We're based in Montréal and happy to meet in person locally, but we work with clients across Canada, the United States and Europe. Service is available in English and French."
+         }
+        },
+        {
+         "@type": "Question",
+         "name": "Is my data safe?",
+         "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Workspaces are private, connections are encrypted and access follows least privilege. Apps are built with Québec's Law 25 and PIPEDA in mind, and we can host in Canada when required."
+         }
+        },
+        {
+         "@type": "Question",
+         "name": "What technology do you use?",
+         "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Mostly full-stack Python with modern web front ends, managed databases and cloud hosting, plus JavaScript where the browser demands it (audio, MIDI, maps, offline). We choose proven technology for the parts that must not break."
+         }
+        }
+       ]
+      },
+      {
+       "@type": "ItemList",
+       "@id": "https://addanapp.com/#work",
+       "name": "Selected work by Addanapp",
+       "itemListElement": [
+        {
+         "@type": "ListItem",
+         "position": 1,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "PlanPlate",
+          "url": "https://planplate.com",
+          "description": "A restaurant reservation and content API platform. Managers run bookings for every location from one portal, and guests book straight from the restaurant's own website.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "SaaS, Public API, Admin portal, Working businesses",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web"
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 2,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "Varnote",
+          "url": "https://varnote-offline.web.app",
+          "description": "A faster note-taking app built around inline tagging. Type #tags as you write, then slice thousands of notes down to the ones you need in a keystroke.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Productivity, Offline-first, PWA, Useful tools",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Web"
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 3,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "Adorable Science",
+          "url": "https://adorablescience.com",
+          "description": "A multi-user science blog with a real editorial workflow. Writers draft, editors review and nothing is published until it has been approved.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "CMS, Roles & moderation, Publishing, Useful tools",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Web"
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 4,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "CityCrossers",
+          "url": "https://citycrossers.com",
+          "description": "Tinder for walking groups. Swipe on group walks, plan routes with snack stops on a live map, and meet people who would rather stroll 20 km than sprint 5.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Social, Maps, Gamification, Useful tools",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Web"
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 5,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "BusyBun",
+          "url": "https://busybun.com",
+          "description": "A gamified, slightly obsessive hunt for steamed-dumpling ingredients. Run errands, clear pests and fill your bun across 18 hand-built levels.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Game, Level editor, Canvas, Engaging games",
+          "applicationCategory": "GameApplication",
+          "operatingSystem": "Web"
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 6,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "DoremiRoad",
+          "url": "https://doremiroad.com",
+          "description": "A game for the musically inclined: learn theory by conquering a map. Play with a MIDI keyboard, your computer keys or touch.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "EdTech, Web MIDI, Game, Engaging games",
+          "applicationCategory": "GameApplication",
+          "operatingSystem": "Web"
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 7,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "PoundFighter",
+          "url": "https://poundfighter.com",
+          "description": "A quick exercise motivator. Micro-workouts become monster fights, and the microphone counts your reps: grunt, clap or shout \"HUP!\".",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Mobile-first, Voice, Fitness, Mobile-style apps",
+          "applicationCategory": "LifestyleApplication",
+          "operatingSystem": "Web"
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 8,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "Parapeet",
+          "url": "https://parapeet.com",
+          "description": "A French learning app built around real-life situations, from ordering at a café to small talk with neighbours. Short, playful and mobile-first.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Mobile-first, Language learning, EdTech, Mobile-style apps",
+          "applicationCategory": "LifestyleApplication",
+          "operatingSystem": "Web"
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 9,
+         "item": {
+          "@type": "WebSite",
+          "name": "Dilettante",
+          "url": "https://dilettante.com",
+          "description": "A classic restaurant website with live PlanPlate reservations built in. Guests can browse the menu and book a table without leaving the page.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Website, API integration, Hospitality, Websites"
+         }
+        }
+       ]
+      }
+     ]
+    }
+    </script>
 package_name: Addanapp
 runtime_options:
   client_version: '3'
@@ -39,10 +743,24 @@ runtime_options:
   server_version: python3-full
   version: 2
 services:
+- client_config:
+    enable_v2: true
+  server_config:
+    auto_create_missing_columns: true
+  source: /runtime/services/tables.yml
+- client_config:
+    allow_remember_me: true
+    allow_signup: true
+    confirm_email: false
+    enable_automatically: true
+    remember_me_days: 30
+    require_secure_passwords: true
+    use_email: true
+    use_google: false
+  server_config:
+    user_table: users
+  source: /runtime/services/anvil/users.yml
 - client_config: {}
   server_config: {}
-  source: /runtime/services/tables.yml
-- client_config: {allow_signup: false, confirm_email: true, enable_automatically: true, use_email: true}
-  server_config: {user_table: users}
-  source: /runtime/services/anvil/users.yml
-startup_form: Form1
+  source: /runtime/services/anvil/email.yml
+startup_form: Main
