@@ -17,7 +17,7 @@ from ..Account import Account
 from ..Privacy import Privacy
 from .. import legal
 
-SEO_TITLE = "AI-Accelerated App Development in Montréal | Addanapp"
+SEO_TITLE = "AddAnApp - triple A software delivery service"
 SEO_DESC = ("Montréal software consultancy for web apps, admin panels, client portals and data platforms. "
         "AI-accelerated, human-validated, fixed quotes. Pay for results.")
 

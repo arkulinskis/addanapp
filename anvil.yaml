@@ -269,7 +269,7 @@ db_schema:
     title: Leads
 dependencies: []
 metadata:
-  title: AI-Accelerated App Development in Montréal | Addanapp
+  title: AddAnApp - triple A software delivery service
   description: Montréal software consultancy for web apps, admin panels, client portals and data platforms. AI-accelerated, human-validated, fixed quotes. Pay for results.
   logo_img: asset:apple-touch-icon.png
 name: Addanapp
