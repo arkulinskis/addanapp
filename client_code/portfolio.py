@@ -27,6 +27,20 @@ PROJECTS = [
     'tags': ['Marketplace', 'Maps', 'Two-sided'], 'color': '#1668C7', 'bg': '#E2EDFA', 'art': 'monshop',
   },
   {
+    'key': 'adorablescience', 'name': 'Adorable Science', 'domain': 'adorablescience.com', 'cat': 'business',
+    'blurb': 'A multi-user science blog with a real editorial workflow. Writers draft, editors review and nothing is published until it has been approved.',
+    'built': ['Writer accounts and an editorial review queue', 'Citation meter and reviewer checklists',
+              'Approve, or send back with notes'],
+    'tags': ['CMS', 'Roles & moderation', 'Publishing'], 'color': '#D9487A', 'bg': '#FDECF2', 'art': 'blog',
+  },
+  {
+    'key': 'citycrossers', 'name': 'CityCrossers', 'domain': 'citycrossers.com', 'cat': 'business',
+    'blurb': 'Tinder for walking groups. Swipe on group walks, plan routes with snack stops on a live map, and meet people who would rather stroll 20 km than sprint 5.',
+    'built': ['Swipe deck ranked by match score', 'Map route planner with break estimates',
+              'Points, perks and a moderation admin'],
+    'tags': ['Social', 'Maps', 'Gamification'], 'color': '#17A673', 'bg': '#E2F5EC', 'art': 'map',
+  },
+  {
     'key': 'varnote', 'name': 'Varnote', 'domain': 'varnote-offline.web.app', 'cat': 'tools',
     'blurb': 'A faster note-taking app built around inline tagging. Type #tags as you write, then slice thousands of notes down to the ones you need in a keystroke.',
     'built': ['Inline #tags while you type', 'Instant multi-tag filtering', 'Offline-first and installable'],
@@ -37,20 +51,6 @@ PROJECTS = [
     'blurb': 'A family to-do list where chores earn brownie points. Parents set the tasks, kids tick them off, and everyone can see who is ahead this week.',
     'built': ['Shared family boards and roles', 'Brownie points for completed tasks', 'Weekly leaderboard and rewards'],
     'tags': ['Family', 'Gamification', 'Productivity'], 'color': '#A0582A', 'bg': '#F8EADD', 'art': 'family',
-  },
-  {
-    'key': 'adorablescience', 'name': 'Adorable Science', 'domain': 'adorablescience.com', 'cat': 'tools',
-    'blurb': 'A multi-user science blog with a real editorial workflow. Writers draft, editors review and nothing is published until it has been approved.',
-    'built': ['Writer accounts and an editorial review queue', 'Citation meter and reviewer checklists',
-              'Approve, or send back with notes'],
-    'tags': ['CMS', 'Roles & moderation', 'Publishing'], 'color': '#D9487A', 'bg': '#FDECF2', 'art': 'blog',
-  },
-  {
-    'key': 'citycrossers', 'name': 'CityCrossers', 'domain': 'citycrossers.com', 'cat': 'tools',
-    'blurb': 'Tinder for walking groups. Swipe on group walks, plan routes with snack stops on a live map, and meet people who would rather stroll 20 km than sprint 5.',
-    'built': ['Swipe deck ranked by match score', 'Map route planner with break estimates',
-              'Points, perks and a moderation admin'],
-    'tags': ['Social', 'Maps', 'Gamification'], 'color': '#17A673', 'bg': '#E2F5EC', 'art': 'map',
   },
   {
     'key': 'busybun', 'name': 'BusyBun', 'domain': 'busybun.com', 'cat': 'games',
