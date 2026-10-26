@@ -21,10 +21,22 @@ PROJECTS = [
     'tags': ['SaaS', 'Public API', 'Admin portal'], 'color': '#1F6B63', 'bg': '#DCE7E8', 'art': 'planplate',
   },
   {
+    'key': 'monshop', 'name': 'MonShop', 'domain': 'monshop.ca', 'cat': 'business',
+    'blurb': 'A two-way local marketplace. Vendors post their latest arrivals, specials and updates, and shoppers discover them on a live map of their neighbourhood.',
+    'built': ['Separate vendor and shopper experiences', 'Live map of vendor updates', 'Posting, moderation and vendor profiles'],
+    'tags': ['Marketplace', 'Maps', 'Two-sided'], 'color': '#1668C7', 'bg': '#E2EDFA', 'art': 'monshop',
+  },
+  {
     'key': 'varnote', 'name': 'Varnote', 'domain': 'varnote-offline.web.app', 'cat': 'tools',
     'blurb': 'A faster note-taking app built around inline tagging. Type #tags as you write, then slice thousands of notes down to the ones you need in a keystroke.',
     'built': ['Inline #tags while you type', 'Instant multi-tag filtering', 'Offline-first and installable'],
     'tags': ['Productivity', 'Offline-first', 'PWA'], 'color': '#3446D8', 'bg': '#E8EBFF', 'art': 'varnote',
+  },
+  {
+    'key': 'funtoplan', 'name': 'FunToPlan', 'domain': 'funtoplan.com', 'cat': 'tools',
+    'blurb': 'A family to-do list where chores earn brownie points. Parents set the tasks, kids tick them off, and everyone can see who is ahead this week.',
+    'built': ['Shared family boards and roles', 'Brownie points for completed tasks', 'Weekly leaderboard and rewards'],
+    'tags': ['Family', 'Gamification', 'Productivity'], 'color': '#A0582A', 'bg': '#F8EADD', 'art': 'family',
   },
   {
     'key': 'adorablescience', 'name': 'Adorable Science', 'domain': 'adorablescience.com', 'cat': 'tools',
@@ -63,6 +75,12 @@ PROJECTS = [
     'blurb': 'A French learning app built around real-life situations, from ordering at a café to small talk with neighbours. Short, playful and mobile-first.',
     'built': ['Lessons built around real situations', 'Bite-sized, mobile-first sessions', 'Story-driven, playful design'],
     'tags': ['Mobile-first', 'Language learning', 'EdTech'], 'color': '#3F9A35', 'bg': '#E4F2DD', 'art': 'parrot',
+  },
+  {
+    'key': 'cafguide', 'name': 'CAF Guide', 'domain': 'caf-guide.anvil.app', 'cat': 'mobile',
+    'blurb': 'A mobile-friendly learning app about the Canadian Armed Forces: ranks, structure, history and culture, in short quizzes you can do anywhere.',
+    'built': ['Bite-sized lessons and quizzes', 'Works on any phone, no install needed', 'Progress tracking by topic'],
+    'tags': ['Mobile-first', 'EdTech', 'Quizzes'], 'color': '#5B6B2F', 'bg': '#ECEEDF', 'art': 'caf',
   },
   {
     'key': 'dilettante', 'name': 'Dilettante', 'domain': 'dilettante.com', 'cat': 'sites',
@@ -323,7 +341,131 @@ def art_resto(p):
   return _browser(inner, 'dilettante.com', p['bg'])
 
 
-ARTS = {'planplate': art_planplate, 'varnote': art_varnote, 'blog': art_blog, 'map': art_map, 'bun': art_bun,
+def _pin(x, y, color, big=False):
+  s = 1.3 if big else 1
+  return (f'<g transform="translate({x} {y}) scale({s})"><path d="M0 0c-6-8-9-12-9-16a9 9 0 0 1 18 0c0 4-3 8-9 16z" fill="{color}"/>'
+          f'<circle cx="0" cy="-16" r="3.4" fill="#fff"/></g>')
+
+
+def art_monshop(p):
+  c = p['color']
+  pins = (_pin(80, 120, '#E8A33D') + _pin(118, 196, '#0E9F6E') + _pin(196, 210, '#D9487A') + _pin(228, 128, '#7A5CFA') +
+          _pin(70, 214, c) + _pin(150, 140, c, True))
+  feed = ''
+  items = [('#E8A33D', 'Boulangerie', 58, '2 min'), ('#0E9F6E', 'Fruiterie', 46, '9 min'), ('#D9487A', 'Fleuriste', 52, '1 h')]
+  for i, (col, name, w, t) in enumerate(items):
+    y = 78 + i * 52
+    feed += (f'<rect x="262" y="{y}" width="100" height="44" rx="8" fill="#fff" stroke="#E4EAF2"/>'
+             f'<rect x="270" y="{y + 8}" width="14" height="14" rx="4" fill="{col}"/>'
+             f'<text x="289" y="{y + 18}" font-size="6.5" font-weight="700" fill="#182031" {FONT}>{name}</text>'
+             f'<text x="354" y="{y + 18}" text-anchor="end" font-size="5.5" fill="#8C94A3" {FONT}>{t}</text>'
+             f'<rect x="270" y="{y + 28}" width="{w + 20}" height="4.5" rx="2.25" fill="#C5C9D3"/>'
+             f'<rect x="270" y="{y + 36}" width="{w}" height="4.5" rx="2.25" fill="#DDE1E8"/>')
+  inner = f'''<rect x="28" y="42" width="226" height="216" fill="#EEF2F6"/>
+  <g stroke="#fff" stroke-width="8" stroke-linecap="round" fill="none"><path d="M20 150 L260 120"/><path d="M90 40 L120 260"/><path d="M190 40 L176 260"/></g>
+  <g stroke="#fff" stroke-width="3.5" stroke-linecap="round" fill="none"><path d="M20 210 L260 196"/><path d="M20 90 L260 70"/><path d="M140 40 L150 260"/></g>
+  <path d="M28 246 C 80 226, 130 250, 254 222" stroke="#C6DDF4" stroke-width="12" fill="none"/>
+  <ellipse cx="60" cy="168" rx="22" ry="13" fill="#D5EBDD"/>
+  {pins}
+  <g transform="translate(150 92)"><rect x="-58" y="-26" width="116" height="34" rx="9" fill="#fff" stroke="#DCE5F0"/>
+    <path d="M-6 8 L0 15 L6 8z" fill="#fff"/>
+    <text x="-48" y="-12" font-size="6.8" font-weight="700" fill="#182031" {FONT}>Fresh croissants, out now!</text>
+    <text x="-48" y="-2" font-size="5.8" fill="#8C94A3" {FONT}>Boulangerie du Coin · 120 m</text></g>
+  <g transform="translate(40 232)"><rect width="104" height="16" rx="8" fill="#fff" stroke="#DCE5F0"/>
+    <rect x="2" y="2" width="52" height="12" rx="6" fill="{c}"/>
+    <text x="28" y="10.4" text-anchor="middle" font-size="6" font-weight="700" fill="#fff" {FONT}>Shoppers</text>
+    <text x="79" y="10.4" text-anchor="middle" font-size="6" font-weight="600" fill="#5D6778" {FONT}>Vendors</text></g>
+  <text x="262" y="64" font-size="7" font-weight="800" fill="#182031" {FONT}>Latest updates</text>
+  <circle cx="356" cy="61.5" r="3" fill="#0E9F6E"/>
+  {feed}'''
+  return _browser(inner, 'monshop.ca', p['bg'])
+
+
+def _brownie(x, y, s=1.0):
+  return (f'<g transform="translate({x} {y}) scale({s})"><rect x="-6" y="-5" width="12" height="10" rx="2" fill="#6B3A1F"/>'
+          f'<rect x="-6" y="-5" width="12" height="3.4" rx="1.6" fill="#8A4F2B"/>'
+          f'<circle cx="-2" cy="1.5" r=".9" fill="#C08A5B"/><circle cx="2.6" cy="2.4" r=".9" fill="#C08A5B"/></g>')
+
+
+def art_family(p):
+  c = p['color']
+  people = [('M', '#D9487A'), ('D', '#2F5BFF'), ('L', '#0E9F6E'), ('S', '#E8A33D')]
+  avs = ''
+  for i, (ini, col) in enumerate(people):
+    x = 60 + i * 26
+    avs += (f'<circle cx="{x}" cy="88" r="10" fill="{col}"/>'
+            f'<text x="{x}" y="91" text-anchor="middle" font-size="8" font-weight="700" fill="#fff" {FONT}>{ini}</text>')
+  tasks = [('Empty the dishwasher', 1, '#0E9F6E', 20), ('Walk the dog', 1, '#E8A33D', 15),
+           ('Homework: fractions', 0, '#0E9F6E', 30), ('Tidy bedroom', 0, '#2F5BFF', 25)]
+  rows = ''
+  for i, (t, done, col, pts) in enumerate(tasks):
+    y = 110 + i * 32
+    box = (f'<rect x="56" y="{y + 7}" width="12" height="12" rx="3.5" fill="{c}"/><path d="M59 {y + 13} l2.4 2.4 4.2-4.6" stroke="#fff" stroke-width="1.5" fill="none"/>'
+           if done else f'<rect x="56" y="{y + 7}" width="12" height="12" rx="3.5" fill="#fff" stroke="#D4C7BA" stroke-width="1.3"/>')
+    rows += (f'<rect x="46" y="{y}" width="196" height="26" rx="7" fill="#fff" stroke="#EFE5DA"/>{box}'
+             f'<text x="76" y="{y + 16.5}" font-size="7" fill="{"#8C94A3" if done else "#182031"}" {FONT}>{t}</text>'
+             f'<circle cx="208" cy="{y + 13}" r="5.5" fill="{col}"/>'
+             f'<rect x="216" y="{y + 7}" width="22" height="12" rx="6" fill="#FBF1E6"/>'
+             f'<text x="227" y="{y + 15.4}" text-anchor="middle" font-size="6" font-weight="700" fill="{c}" {FONT}>+{pts}</text>')
+  board = ''
+  for i, (ini, col, w, n) in enumerate([('L', '#0E9F6E', 70, 6), ('S', '#E8A33D', 54, 4), ('D', '#2F5BFF', 36, 3), ('M', '#D9487A', 22, 2)]):
+    y = 104 + i * 26
+    board += (f'<circle cx="270" cy="{y}" r="7" fill="{col}"/><text x="270" y="{y + 2.4}" text-anchor="middle" font-size="6.5" font-weight="700" fill="#fff" {FONT}>{ini}</text>'
+              f'<rect x="282" y="{y - 4}" width="{w}" height="8" rx="4" fill="{col}" opacity=".85"/>')
+  inner = f'''<rect x="28" y="42" width="344" height="216" fill="#FFFCF8"/>
+  <text x="46" y="68" font-size="10" font-weight="800" fill="#182031" {FONT}>Family board</text>
+  <g transform="translate(150 57)"><rect width="88" height="16" rx="8" fill="{c}"/>{_brownie(12, 8, .8)}
+    <text x="52" y="11" text-anchor="middle" font-size="7" font-weight="800" fill="#fff" {FONT}>340 brownie pts</text></g>
+  {avs}
+  <rect x="160" y="80" width="82" height="16" rx="8" fill="#fff" stroke="#EFE5DA"/>
+  <text x="201" y="90.6" text-anchor="middle" font-size="6.5" font-weight="600" fill="#5D6778" {FONT}>+ Add a task</text>
+  {rows}
+  <rect x="256" y="56" width="104" height="186" rx="10" fill="#fff" stroke="#EFE5DA"/>
+  <text x="266" y="76" font-size="7.5" font-weight="800" fill="#182031" {FONT}>This week</text>
+  {_brownie(346, 73, .9)}
+  {board}
+  <rect x="266" y="210" width="84" height="20" rx="10" fill="{p['bg']}"/>
+  <text x="308" y="222.6" text-anchor="middle" font-size="6.5" font-weight="700" fill="{c}" {FONT}>Reward: movie night</text>'''
+  return _browser(inner, 'funtoplan.com', p['bg'])
+
+
+LEAF = ('M0,-20 L4,-12 L9,-14 L7,-4 L15,-8 L13,-2 L19,0 L10,6 L12,10 L2,8 L1,18 L-1,18 L-2,8 L-12,10 L-10,6 '
+        'L-19,0 L-13,-2 L-15,-8 L-7,-4 L-9,-14 L-4,-12 Z')
+
+
+def art_caf(p):
+  c = p['color']
+  opts = ''
+  for i, (label, state) in enumerate([('Corporal', ''), ('Sergeant', 'ok'), ('Master Corporal', '')]):
+    y = 158 + i * 22
+    if state == 'ok':
+      opts += (f'<rect x="152" y="{y}" width="96" height="17" rx="8.5" fill="#E2F5EC" stroke="#0E9F6E" stroke-width="1.3"/>'
+               f'<circle cx="238" cy="{y + 8.5}" r="5" fill="#0E9F6E"/><path d="M235.6 {y + 8.7} l1.7 1.7 3-3.3" stroke="#fff" stroke-width="1.3" fill="none"/>')
+    else:
+      opts += f'<rect x="152" y="{y}" width="96" height="17" rx="8.5" fill="#fff" stroke="#E2E5DA"/>'
+    opts += f'<text x="161" y="{y + 11.4}" font-size="6.8" font-weight="{"700" if state else "500"}" fill="#182031" {FONT}>{label}</text>'
+  chevrons = ''.join(f'<path d="M-16 {j * 9} L0 {j * 9 + 10} L16 {j * 9}" stroke="#1F2A16" stroke-width="5" fill="none" stroke-linejoin="round"/>'
+                     for j in range(3))
+  inner = f'''<rect x="144" y="40" width="112" height="20" fill="#fff"/>
+  <text x="152" y="53" font-size="7" font-weight="800" fill="#182031" {FONT}>Ranks &amp; insignia</text>
+  <text x="248" y="53" text-anchor="end" font-size="6" font-weight="600" fill="#8C94A3" {FONT}>4/10</text>
+  <rect x="152" y="60" width="96" height="4" rx="2" fill="#E9EBE0"/><rect x="152" y="60" width="38" height="4" rx="2" fill="{c}"/>
+  <rect x="152" y="72" width="96" height="62" rx="10" fill="{p['bg']}"/>
+  <g transform="translate(200 90)">{chevrons}</g>
+  <text x="152" y="148" font-size="7.2" font-weight="700" fill="#182031" {FONT}>Which rank wears this?</text>
+  {opts}
+  <rect x="152" y="230" width="96" height="18" rx="9" fill="{c}"/>
+  <text x="200" y="241.8" text-anchor="middle" font-size="7" font-weight="700" fill="#fff" {FONT}>Next question</text>'''
+  extra = (f'<g transform="translate(78 78) scale(1.9) rotate(-12)"><path d="{LEAF}" fill="#C8202F" opacity=".16"/></g>'
+           f'<g transform="translate(330 176) scale(2.4) rotate(10)"><path d="{LEAF}" fill="#C8202F" opacity=".13"/></g>'
+           f'<g transform="translate(300 64)"><rect width="76" height="28" rx="14" fill="#fff"/>'
+           f'<text x="38" y="18" text-anchor="middle" font-size="8" font-weight="800" fill="{c}" {FONT}>Streak: 5 days</text></g>'
+           f'<g transform="translate(26 172)"><rect width="88" height="28" rx="14" fill="#fff"/>'
+           f'<text x="44" y="18" text-anchor="middle" font-size="8" font-weight="700" fill="#182031" {FONT}>History · 80%</text></g>')
+  return _phone(inner, p['bg'], extra)
+
+
+ARTS = {'monshop': art_monshop, 'family': art_family, 'caf': art_caf, 'planplate': art_planplate,'varnote': art_varnote, 'blog': art_blog, 'map': art_map, 'bun': art_bun,
         'piano': art_piano, 'pound': art_pound, 'parrot': art_parrot, 'resto': art_resto}
 
 

@@ -610,6 +610,22 @@ native_deps:
          "position": 2,
          "item": {
           "@type": "SoftwareApplication",
+          "name": "MonShop",
+          "url": "https://monshop.ca",
+          "description": "A two-way local marketplace. Vendors post their latest arrivals, specials and updates, and shoppers discover them on a live map of their neighbourhood.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Marketplace, Maps, Two-sided, Working businesses",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web"
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 3,
+         "item": {
+          "@type": "SoftwareApplication",
           "name": "Varnote",
           "url": "https://varnote-offline.web.app",
           "description": "A faster note-taking app built around inline tagging. Type #tags as you write, then slice thousands of notes down to the ones you need in a keystroke.",
@@ -623,7 +639,23 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 3,
+         "position": 4,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "FunToPlan",
+          "url": "https://funtoplan.com",
+          "description": "A family to-do list where chores earn brownie points. Parents set the tasks, kids tick them off, and everyone can see who is ahead this week.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Family, Gamification, Productivity, Useful tools",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Web"
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 5,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Adorable Science",
@@ -639,7 +671,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 4,
+         "position": 6,
          "item": {
           "@type": "SoftwareApplication",
           "name": "CityCrossers",
@@ -655,7 +687,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 5,
+         "position": 7,
          "item": {
           "@type": "SoftwareApplication",
           "name": "BusyBun",
@@ -671,7 +703,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 6,
+         "position": 8,
          "item": {
           "@type": "SoftwareApplication",
           "name": "DoremiRoad",
@@ -687,7 +719,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 7,
+         "position": 9,
          "item": {
           "@type": "SoftwareApplication",
           "name": "PoundFighter",
@@ -703,7 +735,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 8,
+         "position": 10,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Parapeet",
@@ -719,7 +751,23 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 9,
+         "position": 11,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "CAF Guide",
+          "url": "https://caf-guide.anvil.app",
+          "description": "A mobile-friendly learning app about the Canadian Armed Forces: ranks, structure, history and culture, in short quizzes you can do anywhere.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Mobile-first, EdTech, Quizzes, Mobile-style apps",
+          "applicationCategory": "LifestyleApplication",
+          "operatingSystem": "Web"
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 12,
          "item": {
           "@type": "WebSite",
           "name": "Dilettante",

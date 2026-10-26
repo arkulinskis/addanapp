@@ -72,4 +72,4 @@ theme/assets/      theme.css (design system), aa.js (scroll reveal, page meta), 
 
 Ink navy and warm paper, editorial serif headlines (Instrument Serif), Inter for reading and JetBrains Mono for labels.
 Violet means *AI draft* and green means *human-validated*, and that pairing runs through the site and the app.
-Portfolio previews are hand-drawn SVG mini-UIs in each product's own colours, so they stay crisp and need no screenshots.
+Portfolio previews (12 live projects) are hand-drawn SVG mini-UIs in each product's own colours, so they stay crisp and need no screenshots.

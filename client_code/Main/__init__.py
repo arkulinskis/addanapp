@@ -295,8 +295,8 @@ class Main(MainTemplate):
     if head == 'work':
       self.set_page(Work(), public=True, nav='work')
       return ui.set_meta("Work | Apps, platforms and games built by Addanapp, Montréal",
-                         "Live products built by Addanapp: PlanPlate reservations API, Varnote, Adorable Science, "
-                         "CityCrossers, BusyBun, DoremiRoad, PoundFighter, Parapeet and Dilettante.")
+                         "Live products built by Addanapp: PlanPlate, MonShop, Varnote, FunToPlan, Adorable Science, "
+                         "CityCrossers, BusyBun, DoremiRoad, PoundFighter, Parapeet, CAF Guide and Dilettante.")
     if head == 'privacy':
       self.set_page(Privacy(), public=True)
       return ui.set_meta("Privacy policy | Addanapp", "How Addanapp collects, uses and protects personal information (Québec Law 25, PIPEDA).")
