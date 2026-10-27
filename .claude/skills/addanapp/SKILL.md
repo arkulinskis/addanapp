@@ -57,6 +57,7 @@ theme/assets/            theme.css, aa.js (scroll reveal, page meta), lang-fr/ru
 - Russian and Latvian visitors see the Privacy & Terms page in English (the legal kit has EN/FR only).
 - Placeholder business facts to confirm with the user before relying on them: hello@addanapp.com, 2-day quotes, 1–3 week features, 24-month lead retention.
 - `python -I` hides PyYAML: run gitapp_check/gitapp_test without `-I`.
+- The header's frosted glass lives on `.aa-header::before`, not on `.aa-header`: a `backdrop-filter` (or filter/transform) on the header traps the full-screen burger menu (`position: fixed`) inside the 60px bar. Fixed 2026-10-26.
 
 ## Privacy & Terms (legal kit)
 
