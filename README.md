@@ -85,4 +85,4 @@ theme/assets/      theme.css (design system), aa.js (scroll reveal, page meta), 
 
 Ink navy and warm paper, editorial serif headlines (Instrument Serif), Inter for reading and JetBrains Mono for labels.
 Violet means *AI draft* and green means *human-validated*, and that pairing runs through the site and the app.
-Portfolio previews (14 projects: 13 live, Yabanana launching soon) are hand-drawn SVG mini-UIs in each product's own colours, so they stay crisp and need no screenshots. Recent work (OScreenplay, Yabanana) carries a **New** badge; a project with no `domain` yet shows **Launching soon** and isn't a link.
+Portfolio previews (16 projects: 13 live; Yabanana, Logsteps and RoboIntern launching soon) are hand-drawn SVG mini-UIs in each product's own colours, so they stay crisp and need no screenshots. Recent work (OScreenplay, Yabanana, Logsteps, RoboIntern) carries a **New** badge; a project with no `domain` yet shows **Launching soon** and isn't a link.

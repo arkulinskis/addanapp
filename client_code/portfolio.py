@@ -38,6 +38,20 @@ PROJECTS = [
     'tags': ['Community', 'Web Audio', 'Gamification'], 'color': '#E8A317', 'bg': '#FFF3CC', 'art': 'lyrics',
   },
   {
+    'key': 'logsteps', 'name': 'Logsteps', 'domain': '', 'cat': 'mobile', 'new': True,
+    'blurb': 'Walk slowly around a room with your phone and get a 3D model of it. Step back inside, replay your walk, measure walls, pin notes and share the room with a link.',
+    'built': ['Guided phone camera walk, video upload or 3D file import', 'GPU scan station that turns frames into a 3D room',
+              '3D viewer with walk mode, measuring, pins and a desktop studio'],
+    'tags': ['Mobile-first', '3D', 'GPU pipeline'], 'color': '#0E7C86', 'bg': '#DDF1F2', 'art': 'rooms',
+  },
+  {
+    'key': 'robointern', 'name': 'RoboIntern', 'domain': '', 'cat': 'tools', 'new': True,
+    'blurb': 'A field guide to machine-learning models, with the Python included. Paste your column headers, mark what you want to predict, and get the models that fit, ranked and explained, plus ready-to-run training code.',
+    'built': ['Atlas of 43 models with the maths explained', 'Visible scoring that ranks the models for your data',
+              'Writes train.py, predict.py and a Jupyter notebook'],
+    'tags': ['Machine learning', 'Code generator', 'Reference'], 'color': '#2B4C9B', 'bg': '#E9ECF5', 'art': 'models',
+  },
+  {
     'key': 'monshop', 'name': 'MonShop', 'domain': 'monshop.ca', 'cat': 'business',
     'blurb': 'A two-way local marketplace. Vendors post their latest arrivals, specials and updates, and shoppers discover them on a live map of their neighbourhood.',
     'built': ['Separate vendor and shopper experiences', 'Live map of vendor updates', 'Posting, moderation and vendor profiles'],
@@ -593,9 +607,108 @@ def art_lyrics(p):
   return _browser(inner, 'yabanana · studio', p['bg'])
 
 
+def art_rooms(p):
+  c, ink = p['color'], '#0B2A2E'
+
+  def fl(u, v, h=0):
+    # Isometric room: floor corners left (154,116), back (200,92), front (200,140); walls 40 high.
+    return round(154 + u * 46 + v * 46, 1), round(116 - u * 24 + v * 24 - h * 40, 1)
+  dots = ''
+  for i in range(70):
+    a, b = (i * 37 % 97) / 97, (i * 61 % 89) / 89
+    if i % 3 == 0:
+      x, y = fl(a, 0, b)   # left wall
+    elif i % 3 == 1:
+      x, y = fl(1, a, b)   # right wall
+    else:
+      x, y = fl(a, b)      # floor
+    col = ['#7FB8BD', '#C9A27A', '#5E8F94', '#E0C9A6'][i % 4]
+    dots += f'<circle cx="{x}" cy="{y}" r="1.5" fill="{col}"/>'
+  path = ' '.join('%s,%s' % fl(u, v) for u, v in [(.15, .2), (.35, .3), (.55, .25), (.75, .45), (.7, .7), (.45, .8)])
+  ex, ey = fl(.45, .8)
+  chips = ''
+  for i, name in enumerate(['Orbit', 'Walk', 'Plan']):
+    x = 150 + i * 36
+    on = name == 'Walk'
+    chips += (f'<rect x="{x}" y="160" width="32" height="13" rx="6.5" fill="{c if on else "#EEF5F5"}"/>'
+              f'<text x="{x + 16}" y="168.8" text-anchor="middle" font-size="6" font-weight="700" fill="{"#fff" if on else ink}" {FONT}>{name}</text>')
+  extra = f"""<rect x="34" y="70" width="92" height="62" rx="10" fill="#fff" stroke="#C6E2E4"/>
+  <text x="44" y="86" font-size="6.8" font-weight="800" fill="{ink}" {FONT}>New scan</text>
+  <text x="44" y="98" font-size="5.8" fill="#5B7478" {FONT}>1,240 frames · Balanced</text>
+  <rect x="44" y="106" width="72" height="5" rx="2.5" fill="#E2EEEF"/><rect x="44" y="106" width="60" height="5" rx="2.5" fill="{c}"/>
+  <text x="44" y="122" font-size="5.8" font-weight="700" fill="{c}" {FONT}>Building the room · 84%</text>
+  <rect x="276" y="120" width="92" height="56" rx="10" fill="#fff" stroke="#C6E2E4"/>
+  <circle cx="290" cy="136" r="5" fill="#E8833A"/><circle cx="290" cy="136" r="2" fill="#fff"/>
+  <text x="300" y="138.5" font-size="6.8" font-weight="800" fill="{ink}" {FONT}>Sofa</text>
+  <text x="286" y="152" font-size="5.8" fill="#5B7478" {FONT}>2.1 m wide, fits</text>
+  <text x="286" y="164" font-size="5.8" fill="#5B7478" {FONT}>under the window</text>"""
+  inner = f"""<text x="152" y="48" font-size="7.4" font-weight="800" fill="{ink}" {FONT}>Living room</text>
+  <text x="248" y="48" text-anchor="end" font-size="5.8" font-weight="700" fill="{c}" {FONT}>3D</text>
+  <rect x="148" y="54" width="104" height="98" rx="8" fill="#F2F8F8"/>
+  <polygon points="154,116 200,92 200,52 154,76" fill="#E4EFEF"/>
+  <polygon points="200,92 246,116 246,76 200,52" fill="#D8E8E9"/>
+  <polygon points="154,116 200,92 246,116 200,140" fill="#EAF3F3"/>
+  {dots}
+  <polyline points="{path}" fill="none" stroke="{c}" stroke-width="1.6" stroke-dasharray="3 2.5" stroke-linecap="round"/>
+  <circle cx="{ex}" cy="{ey}" r="3.6" fill="{c}" stroke="#fff" stroke-width="1.2"/>
+  <circle cx="214" cy="84" r="3.4" fill="#E8833A" stroke="#fff" stroke-width="1"/>
+  {chips}
+  <rect x="150" y="180" width="100" height="34" rx="7" fill="#F2F8F8"/>
+  <text x="156" y="193" font-size="6" font-weight="700" fill="{ink}" {FONT}>4.2 × 3.6 × 2.5 m</text>
+  <text x="156" y="205" font-size="5.6" fill="#5B7478" {FONT}>Floor area 15.1 m²</text>
+  <rect x="150" y="222" width="100" height="18" rx="9" fill="{c}"/>
+  <text x="200" y="233.5" text-anchor="middle" font-size="6.6" font-weight="800" fill="#fff" {FONT}>Share room</text>"""
+  return _phone(inner, p['bg'], extra)
+
+
+def art_models(p):
+  c, ink, paper = p['color'], '#141B2D', '#FBFAF6'
+  roles = {'t': '#8A5CC9', 'g': '#C2852B', 'x': '#2F8A63', 'y': '#C8463D'}
+  rows = ''
+  for i, (name, role, star) in enumerate([('date', 't', 0), ('store_id', 'g', 0), ('promo', 'x', 1),
+                                          ('price', 'x', 0), ('sales', 'y', 0)]):
+    y = 84 + i * 22
+    rows += (f'<rect x="44" y="{y - 10}" width="118" height="17" rx="4" fill="#fff" stroke="#E3E0D6"/>'
+             f'<text x="51" y="{y + 1.5}" font-size="6.6" fill="{ink}" {MONO}>{name}</text>'
+             + (f'<text x="126" y="{y + 2}" font-size="7" fill="#D9A21B" {FONT}>★</text>' if star else '')
+             + f'<rect x="138" y="{y - 6}" width="18" height="10" rx="3" fill="{roles[role]}"/>'
+             f'<text x="147" y="{y + 1.2}" text-anchor="middle" font-size="6.2" font-weight="800" fill="#fff" {FONT}>{role}</text>')
+  bars = ''
+  for i, (name, score) in enumerate([('LightGBM', 87), ('Prophet', 74), ('Ridge', 61), ('ARIMA', 58)]):
+    y = 88 + i * 15
+    top = i == 0
+    bars += (f'<text x="186" y="{y}" font-size="6.2" font-weight="{"800" if top else "500"}" fill="{ink}" {FONT}>{i + 1}. {name}</text>'
+             f'<rect x="246" y="{y - 5}" width="90" height="5" rx="2.5" fill="#E8E6DE"/>'
+             f'<rect x="246" y="{y - 5}" width="{round(score * .9, 1)}" height="5" rx="2.5" fill="{c if top else "#A9B4CF"}"/>'
+             f'<text x="356" y="{y}" text-anchor="end" font-size="6" font-weight="700" fill="{c if top else "#6B7280"}" {FONT}>{score}</text>')
+  code = ''
+  lines = [('model = LGBMRegressor(', '#E6E9F2'), ('    n_estimators=400,', '#9FD0B4'),
+           ('    learning_rate=0.05)', '#9FD0B4'), ('model.fit(X_train, y_train)', '#E6E9F2')]
+  for i, (txt, col) in enumerate(lines):
+    code += f'<text x="190" y="{204 + i * 10}" font-size="6" fill="{col}" xml:space="preserve" {MONO}>{txt}</text>'
+  inner = f"""<rect x="28" y="42" width="344" height="216" fill="{paper}"/>
+  <text x="44" y="62" font-size="7" font-weight="800" fill="{ink}" {FONT}>§1 Your columns</text>
+  <text x="44" y="71" font-size="5.6" fill="#6B7280" {FONT}>Forecast · weekly · 8 ahead</text>
+  {rows}
+  <text x="44" y="210" font-size="6" fill="#4B5563" {FONT}>D = (t, g, x) → y</text>
+  <text x="44" y="222" font-size="5.6" fill="#6B7280" {FONT}>12,400 rows · 40 series</text>
+  <rect x="178" y="52" width="184" height="112" rx="8" fill="#fff" stroke="#E3E0D6"/>
+  <text x="186" y="66" font-size="7" font-weight="800" fill="{ink}" {FONT}>§4 Ranking</text>
+  <text x="354" y="66" text-anchor="end" font-size="5.6" fill="#6B7280" {FONT}>S(m) = 20·wᵀ(p,q,r) + Σδ</text>
+  {bars}
+  <text x="186" y="154" font-size="5.6" fill="#6B7280" {FONT}>+4 known-ahead promo  ·  −3 short history</text>
+  <rect x="178" y="174" width="184" height="76" rx="8" fill="{ink}"/>
+  <text x="188" y="188" font-size="6.2" font-weight="800" fill="#fff" {MONO}>train.py</text>
+  <text x="236" y="188" font-size="6" fill="#7C869C" {MONO}>predict.py</text>
+  <text x="290" y="188" font-size="6" fill="#7C869C" {MONO}>.ipynb</text>
+  <rect x="188" y="192" width="38" height="1.4" fill="{c}"/>
+  {code}"""
+  return _browser(inner, 'robointern · the lab', p['bg'])
+
+
 ARTS = {'monshop': art_monshop, 'family': art_family, 'caf': art_caf, 'planplate': art_planplate,'varnote': art_varnote, 'blog': art_blog, 'map': art_map, 'bun': art_bun,
         'piano': art_piano, 'pound': art_pound, 'parrot': art_parrot, 'resto': art_resto,
-        'screenplay': art_screenplay, 'lyrics': art_lyrics}
+        'screenplay': art_screenplay, 'lyrics': art_lyrics, 'rooms': art_rooms, 'models': art_models}
 
 
 def art(p):

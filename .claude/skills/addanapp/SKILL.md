@@ -49,7 +49,7 @@ theme/assets/            theme.css, aa.js (scroll reveal, page meta), lang-fr/ru
 ## Recipes
 
 - **Any visible text:** wrap it in `t("English text")` and add the translation to `theme/assets/lang-fr.json`, `lang-ru.json`, `lang-lv.json` (keyed by the English text). Then bump `VERSION` in `client_code/i18n.py` **and** `?v=` in the head script in anvil.yaml so browsers fetch the new packs. Email wording: `server_code/email_text.py` too.
-- **Recent / not-yet-live projects:** `'new': True` shows a "New" badge (OScreenplay and Yabanana, added 2026-10-26, sit right after PlanPlate). `'domain': ''` shows "Launching soon" with no link: when Yabanana goes live, set its domain, add it to the JSON-LD ItemList, and later drop the `new` flags.
+- **Recent / not-yet-live projects:** `'new': True` shows a "New" badge (OScreenplay and Yabanana, added 2026-10-26, then Logsteps and RoboIntern, added 2026-10-27, sit right after PlanPlate). `'domain': ''` shows "Launching soon" with no link: when one of them (Yabanana, Logsteps, RoboIntern) goes live, set its domain, add it to the JSON-LD ItemList, and later drop the `new` flags.
 - **New portfolio project:** an entry in portfolio.py (category, url, description) + an `art_<name>()` SVG mini-UI in its own colours; keep the JSON-LD ItemList in the head in step. The user's apps and their live URLs are in `APP_MAKER/apps.json`.
 - **SEO:** title/meta/OG/JSON-LD live in `anvil.yaml → native_deps.head_html` and `metadata`; each route sets its own `<title>`; private pages are `noindex`.
 

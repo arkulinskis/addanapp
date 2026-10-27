@@ -732,5 +732,18 @@
 "Rule engine": "Noteikumu dzinējs",
 "Community": "Kopiena",
 "Web Audio": "Web Audio",
-"Launching soon": "Drīzumā"
+"Launching soon": "Drīzumā",
+"Walk slowly around a room with your phone and get a 3D model of it. Step back inside, replay your walk, measure walls, pin notes and share the room with a link.": "Lēnām apejiet istabai apkārt ar telefonu un iegūstiet tās 3D modeli. Ieejiet tajā atkal, atkārtojiet savu gājienu, izmēriet sienas, piespraudiet piezīmes un dalieties ar istabu caur saiti.",
+"Guided phone camera walk, video upload or 3D file import": "Vadīts gājiens ar telefona kameru, video augšupielāde vai 3D faila imports",
+"GPU scan station that turns frames into a 3D room": "GPU skenēšanas stacija, kas kadrus pārvērš 3D istabā",
+"3D viewer with walk mode, measuring, pins and a desktop studio": "3D skatītājs ar staigāšanas režīmu, mērījumiem, spraudītēm un datora studiju",
+"A field guide to machine-learning models, with the Python included. Paste your column headers, mark what you want to predict, and get the models that fit, ranked and explained, plus ready-to-run training code.": "Lauka ceļvedis mašīnmācīšanās modeļos, ar Python kodu komplektā. Ielīmējiet kolonnu virsrakstus, atzīmējiet, ko vēlaties prognozēt, un saņemiet piemērotos modeļus sarindotus un izskaidrotus, kopā ar gatavu apmācības kodu.",
+"Atlas of 43 models with the maths explained": "43 modeļu atlants ar izskaidrotu matemātiku",
+"Visible scoring that ranks the models for your data": "Pārskatāma vērtēšana, kas sarindo modeļus jūsu datiem",
+"Writes train.py, predict.py and a Jupyter notebook": "Uzraksta train.py, predict.py un Jupyter piezīmju grāmatiņu",
+"3D": "3D",
+"GPU pipeline": "GPU apstrāde",
+"Machine learning": "Mašīnmācīšanās",
+"Code generator": "Koda ģenerators",
+"Reference": "Uzziņas"
 }

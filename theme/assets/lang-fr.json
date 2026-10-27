@@ -734,5 +734,18 @@
 "Rule engine": "Moteur de règles",
 "Community": "Communauté",
 "Web Audio": "Web Audio",
-"Launching soon": "Bientôt en ligne"
+"Launching soon": "Bientôt en ligne",
+"Walk slowly around a room with your phone and get a 3D model of it. Step back inside, replay your walk, measure walls, pin notes and share the room with a link.": "Faites lentement le tour d'une pièce avec votre téléphone et obtenez-en un modèle 3D. Revenez à l'intérieur, rejouez votre parcours, mesurez les murs, épinglez des notes et partagez la pièce avec un lien.",
+"Guided phone camera walk, video upload or 3D file import": "Parcours guidé avec la caméra du téléphone, envoi d'une vidéo ou import d'un fichier 3D",
+"GPU scan station that turns frames into a 3D room": "Station de scan GPU qui transforme les images en pièce 3D",
+"3D viewer with walk mode, measuring, pins and a desktop studio": "Visionneuse 3D avec mode marche, mesures, épingles et un studio sur ordinateur",
+"A field guide to machine-learning models, with the Python included. Paste your column headers, mark what you want to predict, and get the models that fit, ranked and explained, plus ready-to-run training code.": "Un guide de terrain des modèles d'apprentissage automatique, avec le Python inclus. Collez vos en-têtes de colonnes, indiquez ce que vous voulez prédire, et obtenez les modèles adaptés, classés et expliqués, avec un code d'entraînement prêt à lancer.",
+"Atlas of 43 models with the maths explained": "Atlas de 43 modèles, mathématiques expliquées",
+"Visible scoring that ranks the models for your data": "Un score transparent qui classe les modèles pour vos données",
+"Writes train.py, predict.py and a Jupyter notebook": "Écrit train.py, predict.py et un notebook Jupyter",
+"3D": "3D",
+"GPU pipeline": "Traitement GPU",
+"Machine learning": "Apprentissage automatique",
+"Code generator": "Générateur de code",
+"Reference": "Référence"
 }

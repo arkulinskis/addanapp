@@ -737,5 +737,18 @@
 "Rule engine": "Движок правил",
 "Community": "Сообщество",
 "Web Audio": "Web Audio",
-"Launching soon": "Скоро запуск"
+"Launching soon": "Скоро запуск",
+"Walk slowly around a room with your phone and get a 3D model of it. Step back inside, replay your walk, measure walls, pin notes and share the room with a link.": "Медленно обойдите комнату с телефоном и получите её 3D-модель. Вернитесь внутрь, повторите свой маршрут, измерьте стены, прикрепите заметки и поделитесь комнатой по ссылке.",
+"Guided phone camera walk, video upload or 3D file import": "Съёмка с подсказками на камеру телефона, загрузка видео или импорт 3D-файла",
+"GPU scan station that turns frames into a 3D room": "Станция сканирования на GPU, которая превращает кадры в 3D-комнату",
+"3D viewer with walk mode, measuring, pins and a desktop studio": "3D-просмотр с режимом прогулки, измерениями, метками и студией для компьютера",
+"A field guide to machine-learning models, with the Python included. Paste your column headers, mark what you want to predict, and get the models that fit, ranked and explained, plus ready-to-run training code.": "Полевой справочник по моделям машинного обучения, с готовым Python. Вставьте заголовки столбцов, отметьте, что нужно предсказать, и получите подходящие модели, ранжированные и объяснённые, вместе с готовым кодом обучения.",
+"Atlas of 43 models with the maths explained": "Атлас из 43 моделей с объяснением математики",
+"Visible scoring that ranks the models for your data": "Прозрачная оценка, которая ранжирует модели под ваши данные",
+"Writes train.py, predict.py and a Jupyter notebook": "Пишет train.py, predict.py и блокнот Jupyter",
+"3D": "3D",
+"GPU pipeline": "Обработка на GPU",
+"Machine learning": "Машинное обучение",
+"Code generator": "Генератор кода",
+"Reference": "Справочник"
 }
