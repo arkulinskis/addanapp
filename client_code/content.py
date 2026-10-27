@@ -5,7 +5,8 @@ from .icons import icon
 from .i18n import t
 from . import portfolio
 
-CONTACT_EMAIL = 'hello@addanapp.com'
+# Blank until the official address is ready; every spot that shows it hides itself while empty.
+CONTACT_EMAIL = ''
 
 
 def _ev(cls, ico, title, text, when):
@@ -266,8 +267,11 @@ LEAD_FORM = f'''
 </div>'''
 
 
-FAQ_CONTACT = t('Anything else? Write to {email} and an engineer will answer.',
-                email='<a href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a>')
+FAQ_CONTACT = ('<p class="muted">' + t('Anything else? Write to {email} and an engineer will answer.',
+                 email='<a href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a>') + '</p>'
+               if CONTACT_EMAIL else '')
+EMAIL_WAY = (f'<div class="way"><span class="i">{icon("mail")}</span><div><b>{t("Email")}</b>'
+             f'<a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a></div></div>' if CONTACT_EMAIL else '')
 
 HTML = f'''
 <div class="lp">
@@ -370,7 +374,7 @@ HTML = f'''
       </ul>
       <div style="display:flex;gap:10px;flex-wrap:wrap">
         <button type="button" class="aa-btn" data-act="signup">{t('Create your workspace')} <span class="arr">&rarr;</span></button>
-        <button type="button" class="aa-btn ghost" data-act="login">{t('Client sign in')}</button>
+        <button type="button" class="aa-btn ghost" data-act="login">{t('Sign in')}</button>
       </div>
     </div>
     <div class="rv d2">
@@ -425,7 +429,7 @@ HTML = f'''
     <div class="rv">
       <div class="eyebrow">{t('FAQ')}</div>
       <h2 id="faq-title">{t('Questions, <em>answered.</em>')}</h2>
-      <p class="muted">{FAQ_CONTACT}</p>
+      {FAQ_CONTACT}
     </div>
     <div>{_faq()}</div>
   </div>
@@ -439,7 +443,7 @@ HTML = f'''
       <h2 id="contact-title">{t("Tell us what you need. <em>We'll tell you what it costs.</em>")}</h2>
       <p class="lead">{t("Send a short brief. Within two business days you'll hear back from an engineer, not a salesperson, with questions or a fixed quote.")}</p>
       <div class="ways">
-        <div class="way"><span class="i">{icon('mail')}</span><div><b>{t('Email')}</b><a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a></div></div>
+        {EMAIL_WAY}
         <div class="way"><span class="i">{icon('pin')}</span><div><b>{t('Studio')}</b>{t('Montréal, Québec, Canada')}</div></div>
         <div class="way"><span class="i">{icon('clock')}</span><div><b>{t('Response time')}</b>{t('Within two business days')}</div></div>
       </div>

@@ -51,13 +51,13 @@ SHELL = f'''
         <a href="#home/workspace" data-nav="workspace">{t('Client workspace')}</a>
         <a href="#home/engage" data-nav="engage">{t('Engagements')}</a>
         <a href="#home/faq" data-nav="faq">{t('FAQ')}</a>
-        <a href="#login" class="sm-only js-out-only">{t('Client sign in')}</a>
+        <a href="#login" class="sm-only js-out-only">{t('Sign in')}</a>
       </nav>
       <nav class="aa-nav aa-nav-app js-appnav" aria-label="{t('Workspace')}"></nav>
       <div class="aa-header-actions">
         {_lang_switch()}
         <span class="when-out">
-          <button type="button" class="aa-text-btn hide-sm js-login">{t('Client sign in')}</button>
+          <button type="button" class="aa-text-btn hide-sm js-login">{t('Sign in')}</button>
           <a class="aa-btn accent sm" href="#home/contact">{t('Start a project')}</a>
         </span>
         <span class="when-in">
@@ -89,7 +89,7 @@ SHELL = f'''
         <div>
           <a class="aa-brand" href="#home">{LOGO}{WORDMARK}</a>
           <p style="max-width:340px">{t('Custom software, AI-accelerated and human-validated. Web apps, admin panels, client portals and data platforms, built in Montréal.')}</p>
-          <address>{t('Montréal, Québec, Canada')}<br><a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a></address>
+          <address>{t('Montréal, Québec, Canada')}{('<br><a href="mailto:' + CONTACT_EMAIL + '">' + CONTACT_EMAIL + '</a>') if CONTACT_EMAIL else ''}</address>
           <p class="aa-lang-links" aria-label="{t('Language')}">{icon('globe', 'width=15 height=15')}{_lang_links()}</p>
         </div>
         <div><h4>{t('Services')}</h4><ul>
@@ -107,7 +107,7 @@ SHELL = f'''
         <div><h4>{t('Clients')}</h4><ul>
           <li><a href="#home/contact">{t('Start a project')}</a></li>
           <li><a href="#signup">{t('Create a workspace')}</a></li>
-          <li><a href="#login">{t('Client sign in')}</a></li>
+          <li><a href="#login">{t('Sign in')}</a></li>
           <li><a href="#home/montreal" lang="fr-CA">En français</a></li></ul></div>
       </div>
       <div class="base">

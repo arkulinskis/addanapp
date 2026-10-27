@@ -352,7 +352,6 @@ native_deps:
        "image": "https://addanapp.com/_/theme/og-image.png",
        "description": "Montréal software consultancy for web apps, admin panels, client portals and data platforms. AI-accelerated, human-validated, fixed quotes. Pay for results.",
        "slogan": "Apps built at AI speed. Signed off by senior engineers.",
-       "email": "hello@addanapp.com",
        "address": {
         "@type": "PostalAddress",
         "addressLocality": "Montréal",
