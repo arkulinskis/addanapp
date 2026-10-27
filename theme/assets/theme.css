@@ -543,6 +543,11 @@ html[lang="fr"] h1, html[lang="lv"] h1 { font-size: clamp(2.4rem, 5.8vw, 4.6rem)
 .wk .cat { font-family: var(--font-m); font-size: .7rem; text-transform: uppercase; letter-spacing: .12em; color: var(--muted); margin-bottom: 8px; display: flex; justify-content: space-between; gap: 10px; }
 .wk .cat .live { color: var(--human-d); display: inline-flex; align-items: center; gap: 6px; }
 .wk .cat .live::before { content: ''; width: 6px; height: 6px; background: var(--human); border-radius: 50%; box-shadow: 0 0 0 3px rgba(14, 159, 110, .18); }
+.wk .cat .new { margin-left: 8px; background: var(--accent); color: #fff; font-weight: 600; letter-spacing: .08em; padding: 2px 8px; border-radius: 999px; }
+.wk .cat .soon-tag { color: var(--amber); display: inline-flex; align-items: center; gap: 6px; }
+.wk .cat .soon-tag::before { content: ''; width: 6px; height: 6px; background: var(--amber); border-radius: 50%; box-shadow: 0 0 0 3px rgba(183, 121, 31, .18); }
+.wk.soon { cursor: default; }
+.wk.soon:hover { transform: none; box-shadow: none; border-color: var(--line); }
 .wk h3 { font-size: 1.16rem; margin-bottom: 6px; display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .wk h3 .go { font-size: .95rem; color: var(--faint); transition: transform .15s, color .15s; }
 .wk:hover h3 .go { transform: translate(3px, -3px); color: var(--accent); }

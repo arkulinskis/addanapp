@@ -723,5 +723,19 @@
 "{n} открытых заявок"
 ],
 "{open} across {clients} · {unread} unread": "{open} · {clients} · непрочитанных: {unread}",
-"{open} · {delivered} accepted": "{open} · {delivered}"
+"{open} · {delivered} accepted": "{open} · {delivered}",
+"A screenwriting studio that takes you from a half-formed idea to properly formatted pages. Pull a story spark, build characters who react like real people, then write while a script doctor flags what is missing.": "Студия для сценаристов: от полуготовой идеи до правильно оформленных страниц. Вытяните искру сюжета, создайте персонажей, которые реагируют как живые люди, и пишите, пока «script doctor» подсказывает, чего не хватает.",
+"Story-spark machine with 780 hand-built ideas": "Генератор сюжетных искр: 780 идей, собранных вручную",
+"Character web and two timelines: what happened vs. how we tell it": "Сеть персонажей и две линии времени: что произошло и как мы это рассказываем",
+"Real screenplay editor with Fountain and PDF export": "Полноценный редактор сценария с экспортом в Fountain и PDF",
+"A song-writing community for rappers, poets and pop writers. Write lyrics over twelve beats with rhymes, similes and metaphors one click away, then share them to a stage where others upvote, review and remix.": "Сообщество для рэперов, поэтов и авторов поп-песен. Пишите тексты под двенадцать битов, с рифмами, сравнениями и метафорами в один клик, а потом выкладывайте их на сцену, где другие голосуют, пишут отзывы и делают ремиксы.",
+"Lyric editor with a live rhyme map and syllable counts": "Редактор текстов с живой картой рифм и подсчётом слогов",
+"Twelve beats, from boom bap to iambic pentameter": "Двенадцать битов: от бум-бэпа до пятистопного ямба",
+"Upvotes, reviews, weekly charts and remixes": "Голоса, отзывы, недельные чарты и ремиксы",
+"Creative tools": "Творческие инструменты",
+"Rich editor": "Продвинутый редактор",
+"Rule engine": "Движок правил",
+"Community": "Сообщество",
+"Web Audio": "Web Audio",
+"Launching soon": "Скоро запуск"
 }

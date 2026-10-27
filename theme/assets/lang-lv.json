@@ -718,5 +718,19 @@
 "{n} atvērti pieprasījumi"
 ],
 "{open} across {clients} · {unread} unread": "{open} · {clients} · nelasīti: {unread}",
-"{open} · {delivered} accepted": "{open} · {delivered}"
+"{open} · {delivered} accepted": "{open} · {delivered}",
+"A screenwriting studio that takes you from a half-formed idea to properly formatted pages. Pull a story spark, build characters who react like real people, then write while a script doctor flags what is missing.": "Scenāriju rakstīšanas studija, kas ved no pusgatavas idejas līdz pareizi noformētām lappusēm. Izvelc stāsta dzirksteli, veido tēlus, kas reaģē kā īsti cilvēki, un raksti, kamēr scenārija ārsts norāda, kas trūkst.",
+"Story-spark machine with 780 hand-built ideas": "Stāstu dzirksteļu automāts ar 780 ar roku veidotām idejām",
+"Character web and two timelines: what happened vs. how we tell it": "Tēlu tīkls un divas laika līnijas: kas notika un kā mēs to stāstām",
+"Real screenplay editor with Fountain and PDF export": "Īsts scenārija redaktors ar Fountain un PDF eksportu",
+"A song-writing community for rappers, poets and pop writers. Write lyrics over twelve beats with rhymes, similes and metaphors one click away, then share them to a stage where others upvote, review and remix.": "Dziesmu rakstīšanas kopiena reperiem, dzejniekiem un popmūzikas autoriem. Raksti tekstus divpadsmit ritmos ar atskaņām, salīdzinājumiem un metaforām viena klikšķa attālumā, tad dalies ar tiem uz skatuves, kur citi balso, vērtē un remiksē.",
+"Lyric editor with a live rhyme map and syllable counts": "Dziesmu tekstu redaktors ar dzīvu atskaņu karti un zilbju skaitu",
+"Twelve beats, from boom bap to iambic pentameter": "Divpadsmit ritmi, no boom bap līdz jambiskajam pentametram",
+"Upvotes, reviews, weekly charts and remixes": "Balsojumi, atsauksmes, nedēļas topi un remiksi",
+"Creative tools": "Radošie rīki",
+"Rich editor": "Bagātīgs redaktors",
+"Rule engine": "Noteikumu dzinējs",
+"Community": "Kopiena",
+"Web Audio": "Web Audio",
+"Launching soon": "Drīzumā"
 }

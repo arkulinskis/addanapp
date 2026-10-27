@@ -720,5 +720,19 @@
 "{n} demandes ouvertes"
 ],
 "{open} across {clients} · {unread} unread": "{open} · {clients} · non lues : {unread}",
-"{open} · {delivered} accepted": "{open} · {delivered}"
+"{open} · {delivered} accepted": "{open} · {delivered}",
+"A screenwriting studio that takes you from a half-formed idea to properly formatted pages. Pull a story spark, build characters who react like real people, then write while a script doctor flags what is missing.": "Un studio d'écriture de scénarios qui vous mène d'une idée à moitié formée à des pages correctement mises en forme. Tirez une étincelle d'histoire, créez des personnages qui réagissent comme de vraies personnes, puis écrivez pendant qu'un script doctor signale ce qui manque.",
+"Story-spark machine with 780 hand-built ideas": "Machine à étincelles d'histoire avec 780 idées faites à la main",
+"Character web and two timelines: what happened vs. how we tell it": "Réseau de personnages et deux chronologies : ce qui s'est passé et comment on le raconte",
+"Real screenplay editor with Fountain and PDF export": "Un vrai éditeur de scénario, avec export Fountain et PDF",
+"A song-writing community for rappers, poets and pop writers. Write lyrics over twelve beats with rhymes, similes and metaphors one click away, then share them to a stage where others upvote, review and remix.": "Une communauté d'écriture de chansons pour les rappeurs, les poètes et les auteurs pop. Écrivez des paroles sur douze rythmes avec rimes, comparaisons et métaphores à portée de clic, puis partagez-les sur une scène où les autres votent, commentent et remixent.",
+"Lyric editor with a live rhyme map and syllable counts": "Éditeur de paroles avec carte des rimes en direct et décompte des syllabes",
+"Twelve beats, from boom bap to iambic pentameter": "Douze rythmes, du boom bap au pentamètre iambique",
+"Upvotes, reviews, weekly charts and remixes": "Votes, critiques, palmarès de la semaine et remix",
+"Creative tools": "Outils créatifs",
+"Rich editor": "Éditeur avancé",
+"Rule engine": "Moteur de règles",
+"Community": "Communauté",
+"Web Audio": "Web Audio",
+"Launching soon": "Bientôt en ligne"
 }

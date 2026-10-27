@@ -287,7 +287,7 @@ native_deps:
       try { l = localStorage.getItem('aa.lang'); } catch (e) {}
       if (l === 'fr' || l === 'ru' || l === 'lv') {
         document.documentElement.lang = l;
-        window.aaLangPack = fetch('_/theme/lang-' + l + '.json?v=1').then(function (r) {
+        window.aaLangPack = fetch('_/theme/lang-' + l + '.json?v=2').then(function (r) {
           if (!r.ok) throw new Error('lang ' + r.status);
           return r.text();
         });
@@ -818,6 +818,22 @@ native_deps:
            "@id": "https://addanapp.com/#org"
           },
           "keywords": "Website, API integration, Hospitality, Websites"
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 13,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "OScreenplay",
+          "url": "https://oscreenplay.com",
+          "description": "A screenwriting studio that takes you from a half-formed idea to properly formatted pages. Pull a story spark, build characters who react like real people, then write while a script doctor flags what is missing.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Creative tools, Rich editor, Rule engine, Useful tools",
+          "applicationCategory": "DesignApplication",
+          "operatingSystem": "Web"
          }
         }
        ]

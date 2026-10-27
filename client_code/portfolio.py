@@ -22,6 +22,21 @@ PROJECTS = [
               'Opening-hour rules, special days and auto-approval', 'Public reservation and content API'],
     'tags': ['SaaS', 'Public API', 'Admin portal'], 'color': '#1F6B63', 'bg': '#DCE7E8', 'art': 'planplate',
   },
+  # Recently shipped ('new' shows a badge). A project without a 'domain' shows "Launching soon" and isn't a link.
+  {
+    'key': 'oscreenplay', 'name': 'OScreenplay', 'domain': 'oscreenplay.com', 'cat': 'tools', 'new': True,
+    'blurb': 'A screenwriting studio that takes you from a half-formed idea to properly formatted pages. Pull a story spark, build characters who react like real people, then write while a script doctor flags what is missing.',
+    'built': ['Story-spark machine with 780 hand-built ideas', 'Character web and two timelines: what happened vs. how we tell it',
+              'Real screenplay editor with Fountain and PDF export'],
+    'tags': ['Creative tools', 'Rich editor', 'Rule engine'], 'color': '#C8102E', 'bg': '#F3EEE4', 'art': 'screenplay',
+  },
+  {
+    'key': 'yabanana', 'name': 'Yabanana', 'domain': '', 'cat': 'tools', 'new': True,
+    'blurb': 'A song-writing community for rappers, poets and pop writers. Write lyrics over twelve beats with rhymes, similes and metaphors one click away, then share them to a stage where others upvote, review and remix.',
+    'built': ['Lyric editor with a live rhyme map and syllable counts', 'Twelve beats, from boom bap to iambic pentameter',
+              'Upvotes, reviews, weekly charts and remixes'],
+    'tags': ['Community', 'Web Audio', 'Gamification'], 'color': '#E8A317', 'bg': '#FFF3CC', 'art': 'lyrics',
+  },
   {
     'key': 'monshop', 'name': 'MonShop', 'domain': 'monshop.ca', 'cat': 'business',
     'blurb': 'A two-way local marketplace. Vendors post their latest arrivals, specials and updates, and shoppers discover them on a live map of their neighbourhood.',
@@ -467,8 +482,120 @@ def art_caf(p):
   return _phone(inner, p['bg'], extra)
 
 
+MONO = "font-family=\"'Courier Prime', 'Courier New', Courier, monospace\""
+
+
+def art_screenplay(p):
+  c, gold, night = p['color'], '#B7811A', '#17140F'
+  tabs = ''
+  for i, name in enumerate(['Overview', 'Cast', 'Web', 'Chronology', 'Storyline', 'Pages']):
+    y = 80 + i * 22
+    on = name == 'Pages'
+    if on:
+      tabs += f'<rect x="36" y="{y - 11}" width="64" height="16" rx="5" fill="{c}"/>'
+    tabs += f'<text x="44" y="{y}" font-size="6.6" font-weight="{"700" if on else "500"}" fill="{"#fff" if on else "#AEA493"}" {FONT}>{name}</text>'
+  bars = ''.join(f'<rect x="{x}" y="{y}" width="{w}" height="4" rx="2" fill="#C9C1B2"/>'
+                 for x, y, w in [(132, 80, 118), (132, 88, 110), (132, 96, 64),
+                                 (156, 142, 70), (162, 150, 58), (132, 166, 116), (132, 174, 92)])
+  # The 8-step Story Circle: spoke ends and step dots on a radius-30 circle around (317, 108).
+  spokes = ''.join(f'<line x1="317" y1="108" x2="{x}" y2="{y}" stroke="#DDD4C3" stroke-width="1"/>'
+                   for x, y in [(317, 78), (338.2, 86.8), (347, 108), (338.2, 129.2),
+                                (317, 138), (295.8, 129.2), (287, 108), (295.8, 86.8)])
+  dots = ''
+  for i, (x, y) in enumerate([(328.5, 80.3), (344.7, 96.5), (344.7, 119.5), (328.5, 135.7),
+                              (305.5, 135.7), (289.3, 119.5), (289.3, 96.5), (305.5, 80.3)]):
+    here = i == 4
+    dots += (f'<circle cx="{x}" cy="{y}" r="{4.2 if here else 3}" '
+             f'fill="{c if here else (night if i < 4 else "#fff")}" stroke="{night}" stroke-width="1"/>')
+  inner = f'''<rect x="28" y="42" width="80" height="216" fill="{night}"/>
+  <rect x="38" y="51" width="12" height="12" rx="3" fill="#EFE8DA"/><circle cx="44" cy="57" r="2.4" fill="{c}"/>
+  <text x="55" y="60" font-size="6.8" font-weight="800" fill="#EFE8DA" {FONT}>Salt Debt</text>
+  {tabs}
+  <rect x="120" y="50" width="142" height="208" fill="#FFFDF6" stroke="#E6DECF"/>
+  <text x="132" y="70" font-size="6.2" font-weight="700" fill="#1B1813" {MONO}>INT. PROJECTION BOOTH - NIGHT</text>
+  <text x="191" y="116" text-anchor="middle" font-size="6.4" font-weight="700" fill="#1B1813" {MONO}>MARA</text>
+  <text x="191" y="125" text-anchor="middle" font-size="5.6" fill="#5F574A" {MONO}>(barely a whisper)</text>
+  <text x="191" y="135" text-anchor="middle" font-size="6.2" fill="#1B1813" {MONO}>The reel is still warm.</text>
+  {bars}
+  <text x="250" y="194" text-anchor="end" font-size="6.2" font-weight="700" fill="#1B1813" {MONO}>CUT TO:</text>
+  <rect x="132" y="206" width="1.6" height="9" fill="{c}"/>
+  <text x="317" y="64" text-anchor="middle" font-size="6.8" font-weight="800" fill="{night}" {FONT}>Story Circle</text>
+  <circle cx="317" cy="108" r="30" fill="#F3EEE4" stroke="{night}" stroke-width="1.4"/>
+  {spokes}{dots}
+  <circle cx="317" cy="108" r="16" fill="#F3EEE4"/>
+  <text x="317" y="107" text-anchor="middle" font-size="6" font-weight="700" fill="{c}" {FONT}>5 · Find</text>
+  <text x="317" y="115" text-anchor="middle" font-size="5.4" fill="#5F574A" {FONT}>14 scenes</text>
+  <rect x="272" y="152" width="90" height="94" rx="8" fill="#fff" stroke="#E6DECF"/>
+  <text x="280" y="166" font-size="6.8" font-weight="800" fill="{night}" {FONT}>Script doctor</text>
+  <text x="354" y="166" text-anchor="end" font-size="6" font-weight="700" fill="{gold}" {FONT}>82%</text>
+  <rect x="280" y="172" width="74" height="4" rx="2" fill="#EBE4D6"/><rect x="280" y="172" width="61" height="4" rx="2" fill="{gold}"/>
+  <rect x="280" y="184" width="74" height="22" rx="5" fill="#F8DFE1"/>
+  <text x="285" y="194" font-size="5.6" font-weight="700" fill="{c}" {FONT}>No midpoint yet</text>
+  <text x="285" y="201.5" font-size="5.2" fill="#5F574A" {FONT}>Act 2 needs a turn</text>
+  <rect x="280" y="212" width="74" height="22" rx="5" fill="#E1EFE3"/>
+  <text x="285" y="222" font-size="5.6" font-weight="700" fill="#2F7A4F" {FONT}>Setup paid off</text>
+  <text x="285" y="229.5" font-size="5.2" fill="#5F574A" {FONT}>The key, scene 12</text>'''
+  return _browser(inner, 'oscreenplay.com', p['bg'])
+
+
+BANANA = 'M45 15C49 35 36 51 13 47C11.5 46.7 11.5 45 13 44.5C28 40 39 31 40.5 16Z'
+
+
+def art_lyrics(p):
+  ink, yel, pink, blue = '#1D1830', '#FFC21A', '#FF3D7F', '#3E5BD8'
+  steps = ''
+  for i in range(16):
+    on = i in (0, 3, 4, 8, 10, 11, 14)
+    steps += f'<rect x="{150 + i * 13}" y="60" width="10" height="14" rx="2.5" fill="{pink if i == 8 else (yel if on else "#3A3352")}"/>'
+  lines = ''
+  for i, (head, end, letter, col, syl) in enumerate([
+      ('Late night ink on a paper ', 'plane', 'A', pink, 8),
+      ('Every word is a drop of ', 'rain', 'A', pink, 8),
+      ('Bass so low that the city ', 'knows', 'B', blue, 8),
+      ('Bananas up when the chorus ', 'grows', 'B', blue, 9)]):
+    y = 136 + i * 25
+    ok = syl == 8
+    lines += (f'<circle cx="58" cy="{y - 2.5}" r="6" fill="{col}"/>'
+              f'<text x="58" y="{y}" text-anchor="middle" font-size="6.4" font-weight="800" fill="#fff" {FONT}>{letter}</text>'
+              f'<text x="70" y="{y}" font-size="7.2" fill="{ink}" {FONT}>{head}<tspan font-weight="800" fill="{col}">{end}</tspan></text>'
+              f'<text x="240" y="{y}" text-anchor="end" font-size="6.4" font-weight="700" fill="{"#1F8A5B" if ok else "#A86400"}" {FONT}>{syl}</text>'
+              f'<rect x="70" y="{y + 6}" width="{140 if ok else 156}" height="2.5" rx="1.25" fill="{"#BFE6D0" if ok else "#F4D9A6"}"/>')
+  chips = ''
+  x, y = 270, 128
+  for w in ['plane', 'chain', 'lane', 'again', 'champagne', 'remain']:
+    cw = 12 + len(w) * 4.3
+    if x + cw > 352:
+      x, y = 270, y + 16
+    chips += (f'<rect x="{round(x, 1)}" y="{y}" width="{round(cw, 1)}" height="12" rx="6" fill="#fff" stroke="{ink}" stroke-width="1"/>'
+              f'<text x="{round(x + cw / 2, 1)}" y="{round(y + 8.3, 1)}" text-anchor="middle" font-size="6" font-weight="600" fill="{ink}" {FONT}>{w}</text>')
+    x += cw + 4
+  inner = f'''<rect x="40" y="52" width="320" height="30" rx="9" fill="{ink}"/>
+  <circle cx="58" cy="67" r="9" fill="{yel}"/><path d="M55.5 62.5 L62.5 67 L55.5 71.5Z" fill="{ink}"/>
+  <text x="74" y="65" font-size="7" font-weight="800" fill="#fff" {FONT}>Boom bap</text>
+  <text x="74" y="74" font-size="6" fill="#B9B3CC" {FONT}>90 BPM · 8 a line</text>
+  {steps}
+  <rect x="42" y="94" width="210" height="152" rx="10" fill="{ink}"/>
+  <rect x="40" y="92" width="210" height="152" rx="10" fill="#fff" stroke="{ink}" stroke-width="1.5"/>
+  <rect x="52" y="102" width="42" height="13" rx="6.5" fill="{yel}" stroke="{ink}" stroke-width="1"/>
+  <text x="73" y="111" text-anchor="middle" font-size="6" font-weight="800" fill="{ink}" {FONT}>VERSE 1</text>
+  <text x="240" y="111" text-anchor="end" font-size="6" font-weight="600" fill="#958FA6" {FONT}>syllables</text>
+  {lines}
+  <rect x="262" y="94" width="98" height="104" rx="10" fill="{ink}"/>
+  <rect x="260" y="92" width="98" height="104" rx="10" fill="#FFE9A6" stroke="{ink}" stroke-width="1.5"/>
+  <text x="270" y="107" font-size="6.8" font-weight="800" fill="{ink}" {FONT}>Rhymes for <tspan fill="#C81D5C">rain</tspan></text>
+  <text x="270" y="119" font-size="5.6" fill="#5E5872" {FONT}>Tap one to drop it in</text>
+  {chips}
+  <rect x="262" y="210" width="98" height="36" rx="18" fill="{ink}"/>
+  <rect x="260" y="208" width="98" height="36" rx="18" fill="#fff" stroke="{ink}" stroke-width="1.5"/>
+  <g transform="translate(268 211) scale(.55)"><path d="{BANANA}" fill="{yel}" stroke="{ink}" stroke-width="2.4"/></g>
+  <text x="298" y="224" font-size="8.5" font-weight="800" fill="{ink}" {FONT}>128</text>
+  <text x="298" y="233" font-size="5.8" fill="#5E5872" {FONT}>bananas</text>'''
+  return _browser(inner, 'yabanana · studio', p['bg'])
+
+
 ARTS = {'monshop': art_monshop, 'family': art_family, 'caf': art_caf, 'planplate': art_planplate,'varnote': art_varnote, 'blog': art_blog, 'map': art_map, 'bun': art_bun,
-        'piano': art_piano, 'pound': art_pound, 'parrot': art_parrot, 'resto': art_resto}
+        'piano': art_piano, 'pound': art_pound, 'parrot': art_parrot, 'resto': art_resto,
+        'screenplay': art_screenplay, 'lyrics': art_lyrics}
 
 
 def art(p):
@@ -476,7 +603,8 @@ def art(p):
 
 
 def url(p):
-  return 'https://' + p['domain']
+  """Live address, or the Work page while a project is still launching."""
+  return 'https://' + p['domain'] if p.get('domain') else '#work'
 
 
 # ------------------------------------------------------------------ cards
@@ -486,19 +614,26 @@ def card(p, detailed=False, reveal=''):
   built = ''
   if detailed:
     built = ('<ul class="built">' + ''.join(f'<li>{icon("check")}<span>{esc(t(b))}</span></li>' for b in p['built']) + '</ul>')
-  label = t('{name}: {category}, opens {domain}', name=p['name'], category=CAT[p['cat']], domain=p['domain'])
+  new = f'<span class="new">{esc(t("New"))}</span>' if p.get('new') else ''
+  if p.get('domain'):
+    label = t('{name}: {category}, opens {domain}', name=p['name'], category=CAT[p['cat']], domain=p['domain'])
+    start = f'<a class="wk {reveal}" data-cat="{p["cat"]}" href="{url(p)}" target="_blank" rel="noopener" aria-label="{esc(label)}">'
+    end, status, go, dom = '</a>', f'<span class="live">{t("Live")}</span>', '<span class="go">&#8599;</span>', p['domain']
+  else:
+    start = f'<div class="wk soon {reveal}" data-cat="{p["cat"]}">'
+    end, status, go, dom = '</div>', f'<span class="soon-tag">{t("Launching soon")}</span>', '', ''
   return f'''
-  <a class="wk {reveal}" data-cat="{p['cat']}" href="{url(p)}" target="_blank" rel="noopener" aria-label="{esc(label)}">
+  {start}
     <div class="shot" style="background:{p['bg']}">{art(p)}</div>
     <div class="info">
-      <div class="cat"><span>{esc(CAT[p['cat']])}</span><span class="live">{t('Live')}</span></div>
-      <h3>{esc(p['name'])}<span class="go">&#8599;</span></h3>
+      <div class="cat"><span>{esc(CAT[p['cat']])}{new}</span>{status}</div>
+      <h3>{esc(p['name'])}{go}</h3>
       <p>{esc(t(p['blurb']))}</p>
       {built}
       <div class="tags">{tags}</div>
-      <div class="dom">{esc(p['domain'])}</div>
+      <div class="dom"{'' if dom else ' aria-hidden="true"'}>{esc(dom) if dom else '&nbsp;'}</div>
     </div>
-  </a>'''
+  {end}'''
 
 
 def filter_bar():
