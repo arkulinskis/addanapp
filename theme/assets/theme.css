@@ -130,12 +130,18 @@ img, svg { max-width: 100%; }
 .aa-header {
   position: sticky; top: 0; z-index: 50;
   height: var(--header-h);
+  border-bottom: 1px solid var(--line);
+}
+/* The frosted glass sits on a layer behind the header: a backdrop-filter on the header itself
+   would trap the full-screen mobile menu (position: fixed) inside the header bar. */
+.aa-header::before {
+  content: ''; position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: -1; pointer-events: none;
   background: rgba(250, 249, 245, .86);
   backdrop-filter: saturate(160%) blur(14px);
   -webkit-backdrop-filter: saturate(160%) blur(14px);
-  border-bottom: 1px solid var(--line);
 }
-.mode-public .aa-header { background: rgba(11, 18, 32, .82); border-bottom-color: rgba(255, 255, 255, .07); }
+.mode-public .aa-header { border-bottom-color: rgba(255, 255, 255, .07); }
+.mode-public .aa-header::before { background: rgba(11, 18, 32, .82); }
 .aa-header-inner { height: 100%; display: flex; align-items: center; gap: 28px; }
 .aa-brand { display: inline-flex; align-items: center; gap: 10px; color: var(--ink); font-weight: 650; font-size: 1.12rem; letter-spacing: -0.02em; flex-shrink: 0; }
 .aa-brand:hover { color: var(--ink); }
