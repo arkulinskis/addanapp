@@ -107,7 +107,7 @@ def current_user(required=True):
       raise Exception("Please sign in first.")
     return None
   if u['enabled'] is False:
-    raise Exception("This account is disabled. Contact hello@addanapp.com.")
+    raise Exception("This account is disabled. Please write to us through the contact form on addanapp.com.")
   ensure_defaults(u)
   return u
 
