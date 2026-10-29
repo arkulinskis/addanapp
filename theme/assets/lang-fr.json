@@ -787,5 +787,11 @@
 "Services, selected work and writing pages": "Pages services, réalisations et articles",
 "Fast static pages in light and dark themes": "Pages statiques rapides, en thème clair et sombre",
 "Personal brand": "Image personnelle",
-"Consulting": "Conseil"
+"Consulting": "Conseil",
+"Robots that watch every website you run, around the clock. They check uptime, certificates, domains and security headers with no code on the site, a tiny optional beacon adds real visitors and JavaScript errors, and playbooks email, ping Slack or recheck the moment something breaks.": "Des robots qui surveillent chacun de vos sites web, jour et nuit. Ils vérifient la disponibilité, les certificats, les domaines et les en-têtes de sécurité sans aucun code sur le site, une petite balise facultative ajoute les vrais visiteurs et les erreurs JavaScript, et des scénarios envoient un courriel, préviennent Slack ou revérifient dès que quelque chose casse.",
+"Uptime, certificate, domain and security-header robots": "Robots de disponibilité, certificats, domaines et en-têtes de sécurité",
+"Visitor beacon under 1 KB, with no cookies": "Balise de visites de moins de 1 Ko, sans témoins",
+"Incident playbooks, cron heartbeats and public status pages": "Scénarios d'incident, pulsations cron et pages d'état publiques",
+"Monitoring": "Surveillance",
+"Automation": "Automatisation"
 }

@@ -32,6 +32,13 @@ PROJECTS = [
     'tags': ['SaaS', 'Embeddable widget', 'Rule engine'], 'color': '#2B59FF', 'bg': '#EBF0FF', 'art': 'feedback',
   },
   {
+    'key': 'vitalrpa', 'name': 'VitalRPA', 'domain': 'vitalrpa.com', 'cat': 'business', 'new': True,
+    'blurb': 'Robots that watch every website you run, around the clock. They check uptime, certificates, domains and security headers with no code on the site, a tiny optional beacon adds real visitors and JavaScript errors, and playbooks email, ping Slack or recheck the moment something breaks.',
+    'built': ['Uptime, certificate, domain and security-header robots', 'Visitor beacon under 1 KB, with no cookies',
+              'Incident playbooks, cron heartbeats and public status pages'],
+    'tags': ['SaaS', 'Monitoring', 'Automation'], 'color': '#0A5CE6', 'bg': '#E6EEF8', 'art': 'monitor',
+  },
+  {
     'key': 'subsudo', 'name': 'Subsudo', 'domain': 'subsudo.com', 'cat': 'games', 'new': True, 'featured': 3,
     'blurb': 'A virtual fight club. Shadow-box one round with your phone in your fist or in front of your laptop camera, send it as a sealed call-out to anyone in the world, and three automatic judges score the bout.',
     'built': ['Punch detection from phone motion sensors', 'In-browser hand tracking, the video never leaves the device',
@@ -1010,11 +1017,74 @@ def art_personal(p):
   return _browser(inner, 'arkvital.com', p['bg'])
 
 
+def art_monitor(p):
+  c, ink, muted, line = p['color'], '#14181F', '#566170', '#DDE2E8'
+  good, warn, bad, pulse = '#11803A', '#B86E00', '#CF2330', '#00A46A'
+  code = "font-family=\"'JetBrains Mono', 'IBM Plex Mono', ui-monospace, monospace\""
+  nav = ''.join(f'<text x="{x}" y="53.4" font-size="5.6" font-weight="{600 if on else 500}" fill="{ink if on else muted}" {FONT}>{name}</text>'
+                for x, name, on in [(104, 'Console', 1), (138, 'Incidents', 0), (178, 'Robots', 0), (210, 'Status page', 0)])
+  kpis = ''
+  for i, (label, value, col) in enumerate([('SITES UP', '7/8', good), ('OPEN INCIDENTS', '1', bad),
+                                           ('AVG RESPONSE', '212 ms', ink), ('CERTS EXPIRING', '1', warn)]):
+    x = 38 + i * 82
+    kpis += (f'<rect x="{x}" y="64" width="76" height="25" rx="4" fill="#fff" stroke="{line}"/>'
+             f'<text x="{x + 6}" y="72.6" font-size="4.4" fill="{muted}" letter-spacing=".4" {code}>{label}</text>'
+             f'<text x="{x + 6}" y="84.4" font-size="9" font-weight="700" fill="{col}" {code}>{value}</text>')
+  sites = [('northwind.example', good, 'g' * 24, '184 ms', '100%'),
+           ('shop.example', bad, 'g' * 22 + 'bb', '503', '99.2%'),
+           ('blog.example', warn, 'g' * 13 + 'wwww' + 'g' * 7, '1.9 s', '99.9%'),
+           ('docs.example', good, 'g' * 24, '96 ms', '100%')]
+  fills = {'g': '#3FBF6F', 'w': '#E9A63A', 'b': bad}
+  rows = ''
+  for i, (name, led, cells, ms, up) in enumerate(sites):
+    y = 104 + i * 18
+    if led == bad:
+      rows += f'<rect x="38" y="{y}" width="324" height="18" fill="#FFF1F1"/>'
+    rows += (f'<circle cx="45" cy="{y + 9}" r="2.6" fill="{led}"/>'
+             f'<text x="52" y="{y + 11.2}" font-size="6.2" font-weight="600" fill="{ink}" {FONT}>{name}</text>'
+             + ''.join(f'<rect x="{round(146 + k * 6, 1)}" y="{y + 4.5}" width="4.8" height="9" rx="1" fill="{fills[ch]}"/>'
+                       for k, ch in enumerate(cells))
+             + f'<text x="318" y="{y + 11}" text-anchor="end" font-size="5.6" fill="{bad if led == bad else muted}" {code}>{ms}</text>'
+             f'<text x="358" y="{y + 11}" text-anchor="end" font-size="5.6" font-weight="700" fill="{ink}" {code}>{up}</text>'
+             f'<rect x="38" y="{y + 17.5}" width="324" height=".6" fill="{line}"/>')
+  log = ''
+  for i, (stamp, txt, col) in enumerate([('14:05', '&#10007; shop.example 503 &#183; incident opened', bad),
+                                         ('14:05', '&#8594; playbook: email + Slack webhook', c),
+                                         ('14:07', '&#8635; second robot recheck &#183; still down', warn),
+                                         ('06:00', '&#10003; certificate inspector &#183; 8 sites checked', good)]):
+    y = 203.5 + i * 9.6
+    log += (f'<text x="46" y="{y}" font-size="5.4" fill="#8A94A1" {code}>{stamp}</text>'
+            f'<text x="70" y="{y}" font-size="5.4" fill="{col}" {code}>{txt}</text>')
+  inner = f'''<rect x="28" y="42" width="344" height="216" fill="#F4F6F8"/>
+  <rect x="28" y="42" width="344" height="16" fill="#fff"/><rect x="28" y="57.4" width="344" height=".6" fill="{line}"/>
+  <g transform="translate(37 44.5) scale(.17)"><rect width="64" height="64" rx="15" fill="#10161D"/>
+    <path d="M9 35h11l4.5-10 7 21 7.5-30 5 19H55" fill="none" stroke="#2BD38A" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="51" cy="13" r="5" fill="#5C9DFF"/></g>
+  <text x="52" y="53.6" font-size="7" font-weight="700" fill="{ink}" {FONT}>VitalRPA</text>
+  {nav}<rect x="104" y="56" width="22" height="1.6" fill="{c}"/>
+  <circle cx="167.5" cy="47.6" r="2.6" fill="{bad}"/><text x="167.5" y="48.8" text-anchor="middle" font-size="3.4" font-weight="700" fill="#fff" {FONT}>1</text>
+  <circle cx="318" cy="50" r="1.8" fill="{pulse}"/>
+  <text x="362" y="52" text-anchor="end" font-size="5.4" fill="{muted}" {code}>14:07 UTC</text>
+  {kpis}
+  <rect x="38" y="93" width="324" height="11" fill="#fff"/>
+  <text x="44" y="100.4" font-size="4.4" fill="{muted}" letter-spacing=".4" {code}>SITE</text>
+  <text x="146" y="100.4" font-size="4.4" fill="{muted}" letter-spacing=".4" {code}>LAST 24 HOURS</text>
+  <text x="318" y="100.4" text-anchor="end" font-size="4.4" fill="{muted}" letter-spacing=".4" {code}>RESP</text>
+  <text x="358" y="100.4" text-anchor="end" font-size="4.4" fill="{muted}" letter-spacing=".4" {code}>30 D</text>
+  <rect x="38" y="104" width="324" height="72" fill="#fff"/>{rows}
+  <rect x="38" y="93" width="324" height="83" fill="none" stroke="{line}"/>
+  <rect x="38" y="182" width="324" height="56" rx="4" fill="#fff" stroke="{line}"/>
+  <text x="46" y="192" font-size="4.4" fill="{muted}" letter-spacing=".4" {code}>ROBOT LOG</text>
+  <circle cx="354" cy="190.4" r="1.8" fill="{pulse}"/>
+  {log}'''
+  return _browser(inner, 'vitalrpa.com', p['bg'])
+
+
 ARTS = {'monshop': art_monshop, 'family': art_family, 'caf': art_caf, 'planplate': art_planplate,'varnote': art_varnote, 'blog': art_blog, 'map': art_map, 'bun': art_bun,
         'piano': art_piano, 'pound': art_pound, 'parrot': art_parrot, 'resto': art_resto,
         'screenplay': art_screenplay, 'lyrics': art_lyrics, 'rooms': art_rooms, 'models': art_models,
         'feedback': art_feedback, 'boxing': art_boxing, 'cubes': art_cubes, 'party': art_party, 'pan': art_pan,
-        'personal': art_personal}
+        'personal': art_personal, 'monitor': art_monitor}
 
 
 def art(p):

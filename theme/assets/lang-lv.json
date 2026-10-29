@@ -785,5 +785,11 @@
 "Services, selected work and writing pages": "Pakalpojumu, darbu un rakstu lapas",
 "Fast static pages in light and dark themes": "Ātras statiskas lapas gaišā un tumšā tēmā",
 "Personal brand": "Personīgais zīmols",
-"Consulting": "Konsultācijas"
+"Consulting": "Konsultācijas",
+"Robots that watch every website you run, around the clock. They check uptime, certificates, domains and security headers with no code on the site, a tiny optional beacon adds real visitors and JavaScript errors, and playbooks email, ping Slack or recheck the moment something breaks.": "Roboti, kas diennakti uzrauga katru jūsu vietni. Tie pārbauda pieejamību, sertifikātus, domēnus un drošības galvenes bez neviena koda vietnē, sīka neobligāta bāka pievieno īstos apmeklētājus un JavaScript kļūdas, bet scenāriji nosūta e-pastu, paziņo Slack vai pārbauda vēlreiz, tiklīdz kaut kas salūzt.",
+"Uptime, certificate, domain and security-header robots": "Pieejamības, sertifikātu, domēnu un drošības galveņu roboti",
+"Visitor beacon under 1 KB, with no cookies": "Apmeklējumu bāka, mazāka par 1 KB, bez sīkdatnēm",
+"Incident playbooks, cron heartbeats and public status pages": "Incidentu scenāriji, cron sirdspuksti un publiskas statusa lapas",
+"Monitoring": "Uzraudzība",
+"Automation": "Automatizācija"
 }
