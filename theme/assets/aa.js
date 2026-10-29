@@ -61,5 +61,22 @@ window.aa = (function () {
     return ok;
   }
 
-  return { reveal: reveal, scrollTo: scrollTo, setMeta: setMeta, copy: copy };
+  // Portfolio index (home page): hovering or focusing a project row shows its preview in the sticky panel.
+  function pfShow(index, key) {
+    if (!index || !key) return;
+    index.querySelectorAll('.pf-pv').forEach(function (el) { el.classList.toggle('on', el.getAttribute('data-pv') === key); });
+    index.querySelectorAll('.pf-row[data-pf]').forEach(function (el) { el.classList.toggle('hot', el.getAttribute('data-pf') === key); });
+  }
+
+  function pfHover(e) {
+    var row = e.target && e.target.closest ? e.target.closest('.pf-row[data-pf]') : null;
+    if (!row || row.classList.contains('hot')) return;
+    var index = row.closest('.pf-index');
+    if (index && index.querySelector('.pf-pv')) pfShow(index, row.getAttribute('data-pf'));
+  }
+
+  document.addEventListener('mouseover', pfHover);
+  document.addEventListener('focusin', pfHover);
+
+  return { reveal: reveal, scrollTo: scrollTo, setMeta: setMeta, copy: copy, pfShow: pfShow };
 })();

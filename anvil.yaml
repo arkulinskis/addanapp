@@ -287,7 +287,7 @@ native_deps:
       try { l = localStorage.getItem('aa.lang'); } catch (e) {}
       if (l === 'fr' || l === 'ru' || l === 'lv') {
         document.documentElement.lang = l;
-        window.aaLangPack = fetch('_/theme/lang-' + l + '.json?v=2').then(function (r) {
+        window.aaLangPack = fetch('_/theme/lang-' + l + '.json?v=3').then(function (r) {
           if (!r.ok) throw new Error('lang ' + r.status);
           return r.text();
         });
@@ -307,7 +307,7 @@ native_deps:
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-    <script src="_/theme/aa.js"></script>
+    <script src="_/theme/aa.js?v=3"></script>
     <link rel="icon" type="image/svg+xml" href="_/theme/logo.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="_/theme/favicon-32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="_/theme/apple-touch-icon.png">
@@ -650,6 +650,22 @@ native_deps:
          "position": 2,
          "item": {
           "@type": "SoftwareApplication",
+          "name": "Prepsto",
+          "url": "https://prepsto.com",
+          "description": "A feedback inbox that turns what users say into user stories. Drop one script tag on any site, triage everything on a board, then export ready-to-build stories to Jira, Gherkin or an AI-ready bundle.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "SaaS, Embeddable widget, Rule engine, Working businesses",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web"
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 3,
+         "item": {
+          "@type": "SoftwareApplication",
           "name": "MonShop",
           "url": "https://monshop.ca",
           "description": "A two-way local marketplace. Vendors post their latest arrivals, specials and updates, and shoppers discover them on a live map of their neighbourhood.",
@@ -663,7 +679,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 3,
+         "position": 4,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Adorable Science",
@@ -679,7 +695,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 4,
+         "position": 5,
          "item": {
           "@type": "SoftwareApplication",
           "name": "CityCrossers",
@@ -695,7 +711,71 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 5,
+         "position": 6,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "Plan Friday",
+          "url": "https://planfriday.com",
+          "description": "The easy way to plan a weekend dinner with any group of friends. Send one link: friends pick the slots that suit them and say what they are bringing, with no account, and the host locks in the best night.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Social, Group planning, No account needed, Useful tools",
+          "applicationCategory": "LifestyleApplication",
+          "operatingSystem": "Web"
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 7,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "OScreenplay",
+          "url": "https://oscreenplay.com",
+          "description": "A screenwriting studio that takes you from a half-formed idea to properly formatted pages. Pull a story spark, build characters who react like real people, then write while a script doctor flags what is missing.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Creative tools, Rich editor, Rule engine, Useful tools",
+          "applicationCategory": "DesignApplication",
+          "operatingSystem": "Web"
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 8,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "Yabanana",
+          "url": "https://yabanana.com",
+          "description": "A song-writing community for rappers, poets and pop writers. Write lyrics over twelve beats with rhymes, similes and metaphors one click away, then share them to a stage where others upvote, review and remix.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Community, Web Audio, Gamification, Useful tools",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Web"
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 9,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "RoboIntern",
+          "url": "https://robointern.com",
+          "description": "A field guide to machine-learning models, with the Python included. Paste your column headers, mark what you want to predict, and get the models that fit, ranked and explained, plus ready-to-run training code.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Machine learning, Code generator, Reference, Useful tools",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Web"
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 10,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Varnote",
@@ -711,7 +791,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 6,
+         "position": 11,
          "item": {
           "@type": "SoftwareApplication",
           "name": "FunToPlan",
@@ -727,7 +807,39 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 7,
+         "position": 12,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "Subsudo",
+          "url": "https://subsudo.com",
+          "description": "A virtual fight club. Shadow-box one round with your phone in your fist or in front of your laptop camera, send it as a sealed call-out to anyone in the world, and three automatic judges score the bout.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Game, Motion sensors, Computer vision, Engaging games",
+          "applicationCategory": "GameApplication",
+          "operatingSystem": "Web"
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 13,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "QuickyBricks",
+          "url": "https://quickybricks.com",
+          "description": "A silly 3D game for kids and their grown-ups. Every character is a squishy cube that does something different on each of its six sides, and cubes that hold hands in the shared World grow a family.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "3D, Multiplayer, Kids, Engaging games",
+          "applicationCategory": "GameApplication",
+          "operatingSystem": "Web"
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 14,
          "item": {
           "@type": "SoftwareApplication",
           "name": "BusyBun",
@@ -743,7 +855,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 8,
+         "position": 15,
          "item": {
           "@type": "SoftwareApplication",
           "name": "DoremiRoad",
@@ -759,7 +871,39 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 9,
+         "position": 16,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "Topameal",
+          "url": "https://topameal.com",
+          "description": "A shop-and-cook planner built around one fancy sauce over the rice, pasta and potatoes you already have. It writes one merged shopping list, orders the week so nothing spoils, and counts the dishes you will wash.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Mobile-first, Meal planning, Shared lists, Mobile-style apps",
+          "applicationCategory": "LifestyleApplication",
+          "operatingSystem": "Web"
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 17,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "Logsteps",
+          "url": "https://logsteps.com",
+          "description": "Walk slowly around a room with your phone and get a 3D model of it. Step back inside, replay your walk, measure walls, pin notes and share the room with a link.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Mobile-first, 3D, GPU pipeline, Mobile-style apps",
+          "applicationCategory": "LifestyleApplication",
+          "operatingSystem": "Web"
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 18,
          "item": {
           "@type": "SoftwareApplication",
           "name": "PoundFighter",
@@ -775,7 +919,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 10,
+         "position": 19,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Parapeet",
@@ -791,7 +935,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 11,
+         "position": 20,
          "item": {
           "@type": "SoftwareApplication",
           "name": "CAF Guide",
@@ -807,31 +951,17 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 12,
+         "position": 21,
          "item": {
-          "@type": "WebSite",
+          "@type": "SoftwareApplication",
           "name": "Dilettante",
           "url": "https://dilettante.com",
           "description": "A classic restaurant website with live PlanPlate reservations built in. Guests can browse the menu and book a table without leaving the page.",
           "creator": {
            "@id": "https://addanapp.com/#org"
           },
-          "keywords": "Website, API integration, Hospitality, Websites"
-         }
-        },
-        {
-         "@type": "ListItem",
-         "position": 13,
-         "item": {
-          "@type": "SoftwareApplication",
-          "name": "OScreenplay",
-          "url": "https://oscreenplay.com",
-          "description": "A screenwriting studio that takes you from a half-formed idea to properly formatted pages. Pull a story spark, build characters who react like real people, then write while a script doctor flags what is missing.",
-          "creator": {
-           "@id": "https://addanapp.com/#org"
-          },
-          "keywords": "Creative tools, Rich editor, Rule engine, Useful tools",
-          "applicationCategory": "DesignApplication",
+          "keywords": "Website, API integration, Hospitality, Websites",
+          "applicationCategory": "BusinessApplication",
           "operatingSystem": "Web"
          }
         }

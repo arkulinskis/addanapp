@@ -6,7 +6,7 @@ Addanapp is the website and client platform for a Montréal software consultancy
 
 | Area | What it does |
 | --- | --- |
-| **Landing page** (`#home`) | The marketing site: hero with a live request mock, "hours vs outcomes" comparison, the 5-step AI + human method, capabilities, portfolio with category filters, client workspace preview, engagement models, commitments, a bilingual Montréal section, FAQ and a project-brief form. |
+| **Landing page** (`#home`) | The marketing site: hero with a live request mock, "hours vs outcomes" comparison, the 5-step AI + human method, capabilities, portfolio (featured case studies + a full project index with filters), client workspace preview, engagement models, commitments, a bilingual Montréal section, FAQ and a project-brief form. |
 | **Client workspace** (`#portal`) | Clients sign up and submit requests (feature, fix, integration, new app…), approve fixed quotes, follow progress notes, accept deliveries or request changes. |
 | **Consultant console** (`#admin`) | Every request across clients as a list or Kanban board. Post progress notes (update, milestone, human-validated, question, internal), set status, progress %, fixed quote, scope summary and ETA. Also manage clients, website leads and demo data. |
 
@@ -85,4 +85,4 @@ theme/assets/      theme.css (design system), aa.js (scroll reveal, page meta), 
 
 Ink navy and warm paper, editorial serif headlines (Instrument Serif), Inter for reading and JetBrains Mono for labels.
 Violet means *AI draft* and green means *human-validated*, and that pairing runs through the site and the app.
-Portfolio previews (16 projects: 13 live; Yabanana, Logsteps and RoboIntern launching soon) are hand-drawn SVG mini-UIs in each product's own colours, so they stay crisp and need no screenshots. Recent work (OScreenplay, Yabanana, Logsteps, RoboIntern) carries a **New** badge; a project with no `domain` yet shows **Launching soon** and isn't a link.
+The portfolio (21 projects, all live) has two parts, on both the home page and `#work`: **case studies** (the projects with a `featured` number, now PlanPlate, Prepsto and Subsudo) as large split panels, then **the full index**, every project as a compact row grouped by category with filter chips. On the home page each row links to the live product and hovering it shows its preview in a sticky side panel (desktop); on `#work` each row opens in place to show the preview and what we built. The previews are hand-drawn SVG mini-UIs in each product's own colours, so they stay crisp and need no screenshots. The newest work carries a **New** badge; a project with no `domain` yet shows **Launching soon** and isn't a link.

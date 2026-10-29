@@ -353,8 +353,8 @@ HTML = f'''
       <h2 id="work-title">{t('Shipped, live and <em>in daily use.</em>')}</h2>
       <p class="lead">{t("A sample of products we've designed, built and run, from revenue-generating platforms to games people can't put down. Every one is live, so click through and try it.")}</p>
     </div>
-    {portfolio.filter_bar()}
-    {portfolio.grid()}
+    {portfolio.showcase()}
+    {portfolio.index()}
     <div class="center" style="margin-top:40px"><a class="aa-btn ghost" href="#work">{t('Explore every project in detail')} <span class="arr">&rarr;</span></a></div>
   </div>
 </section>

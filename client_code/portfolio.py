@@ -1,7 +1,7 @@
 """Portfolio: projects we've shipped, with illustrated previews (inline SVG, no screenshots needed)."""
 from .ui import esc
 from .icons import icon
-from .i18n import t
+from .i18n import t, tn
 
 # Project text below is English; card() translates it when the page is built.
 CATEGORIES = [
@@ -16,36 +16,72 @@ CAT = dict(CATEGORIES)
 
 PROJECTS = [
   {
-    'key': 'planplate', 'name': 'PlanPlate', 'domain': 'planplate.com', 'cat': 'business',
+    'key': 'planplate', 'name': 'PlanPlate', 'domain': 'planplate.com', 'cat': 'business', 'featured': 1,
     'blurb': 'A restaurant reservation and content API platform. Managers run bookings for every location from one portal, and guests book straight from the restaurant\'s own website.',
     'built': ['Multi-restaurant manager portal', 'Drag-and-drop floor plans and table joins',
               'Opening-hour rules, special days and auto-approval', 'Public reservation and content API'],
     'tags': ['SaaS', 'Public API', 'Admin portal'], 'color': '#1F6B63', 'bg': '#DCE7E8', 'art': 'planplate',
   },
-  # Recently shipped ('new' shows a badge). A project without a 'domain' shows "Launching soon" and isn't a link.
+  # 'new' shows a badge (the five added 2026-10-29). 'featured' (1-3) puts a project in the case studies above the index.
+  # A project without a 'domain' shows "Launching soon" and isn't a link. The index groups projects by category.
   {
-    'key': 'oscreenplay', 'name': 'OScreenplay', 'domain': 'oscreenplay.com', 'cat': 'tools', 'new': True,
+    'key': 'prepsto', 'name': 'Prepsto', 'domain': 'prepsto.com', 'cat': 'business', 'new': True, 'featured': 2,
+    'blurb': 'A feedback inbox that turns what users say into user stories. Drop one script tag on any site, triage everything on a board, then export ready-to-build stories to Jira, Gherkin or an AI-ready bundle.',
+    'built': ['Embeddable feedback widget, one script tag', 'Inbox and drag-and-drop board with sentiment and themes',
+              'Story editor with exports to Jira, Gherkin, CSV and JSON'],
+    'tags': ['SaaS', 'Embeddable widget', 'Rule engine'], 'color': '#2B59FF', 'bg': '#EBF0FF', 'art': 'feedback',
+  },
+  {
+    'key': 'subsudo', 'name': 'Subsudo', 'domain': 'subsudo.com', 'cat': 'games', 'new': True, 'featured': 3,
+    'blurb': 'A virtual fight club. Shadow-box one round with your phone in your fist or in front of your laptop camera, send it as a sealed call-out to anyone in the world, and three automatic judges score the bout.',
+    'built': ['Punch detection from phone motion sensors', 'In-browser hand tracking, the video never leaves the device',
+              "Elo rankings by city and world, belts and judges' cards"],
+    'tags': ['Game', 'Motion sensors', 'Computer vision'], 'color': '#8E1B1B', 'bg': '#EFE9DF', 'art': 'boxing',
+  },
+  {
+    'key': 'quickybricks', 'name': 'QuickyBricks', 'domain': 'quickybricks.com', 'cat': 'games', 'new': True,
+    'blurb': 'A silly 3D game for kids and their grown-ups. Every character is a squishy cube that does something different on each of its six sides, and cubes that hold hands in the shared World grow a family.',
+    'built': ['Real-time 3D cubes built with three.js', 'Cube maker with colours, faces and a doodle pad',
+              'Shared World where families grow across players'],
+    'tags': ['3D', 'Multiplayer', 'Kids'], 'color': '#F0428C', 'bg': '#FFF4E0', 'art': 'cubes',
+  },
+  {
+    'key': 'planfriday', 'name': 'Plan Friday', 'domain': 'planfriday.com', 'cat': 'tools', 'new': True,
+    'blurb': 'The easy way to plan a weekend dinner with any group of friends. Send one link: friends pick the slots that suit them and say what they are bringing, with no account, and the host locks in the best night.',
+    'built': ['Party pages guests open without an account', 'Who-is-free grid with a best-day pick',
+              'Potluck menu with diet warnings and a printable sheet'],
+    'tags': ['Social', 'Group planning', 'No account needed'], 'color': '#C62A1F', 'bg': '#F2E8D3', 'art': 'party',
+  },
+  {
+    'key': 'topameal', 'name': 'Topameal', 'domain': 'topameal.com', 'cat': 'mobile', 'new': True,
+    'blurb': 'A shop-and-cook planner built around one fancy sauce over the rice, pasta and potatoes you already have. It writes one merged shopping list, orders the week so nothing spoils, and counts the dishes you will wash.',
+    'built': ['A week of one-pan toppers, picked for you', 'One merged shopping list in walking order',
+              'Shared household lists that tick off live'],
+    'tags': ['Mobile-first', 'Meal planning', 'Shared lists'], 'color': '#C4533A', 'bg': '#FBF3E6', 'art': 'pan',
+  },
+  {
+    'key': 'oscreenplay', 'name': 'OScreenplay', 'domain': 'oscreenplay.com', 'cat': 'tools',
     'blurb': 'A screenwriting studio that takes you from a half-formed idea to properly formatted pages. Pull a story spark, build characters who react like real people, then write while a script doctor flags what is missing.',
     'built': ['Story-spark machine with 780 hand-built ideas', 'Character web and two timelines: what happened vs. how we tell it',
               'Real screenplay editor with Fountain and PDF export'],
     'tags': ['Creative tools', 'Rich editor', 'Rule engine'], 'color': '#C8102E', 'bg': '#F3EEE4', 'art': 'screenplay',
   },
   {
-    'key': 'yabanana', 'name': 'Yabanana', 'domain': 'yabanana.com', 'cat': 'tools', 'new': True,
+    'key': 'yabanana', 'name': 'Yabanana', 'domain': 'yabanana.com', 'cat': 'tools',
     'blurb': 'A song-writing community for rappers, poets and pop writers. Write lyrics over twelve beats with rhymes, similes and metaphors one click away, then share them to a stage where others upvote, review and remix.',
     'built': ['Lyric editor with a live rhyme map and syllable counts', 'Twelve beats, from boom bap to iambic pentameter',
               'Upvotes, reviews, weekly charts and remixes'],
     'tags': ['Community', 'Web Audio', 'Gamification'], 'color': '#E8A317', 'bg': '#FFF3CC', 'art': 'lyrics',
   },
   {
-    'key': 'logsteps', 'name': 'Logsteps', 'domain': 'logsteps.com', 'cat': 'mobile', 'new': True,
+    'key': 'logsteps', 'name': 'Logsteps', 'domain': 'logsteps.com', 'cat': 'mobile',
     'blurb': 'Walk slowly around a room with your phone and get a 3D model of it. Step back inside, replay your walk, measure walls, pin notes and share the room with a link.',
     'built': ['Guided phone camera walk, video upload or 3D file import', 'GPU scan station that turns frames into a 3D room',
               '3D viewer with walk mode, measuring, pins and a desktop studio'],
     'tags': ['Mobile-first', '3D', 'GPU pipeline'], 'color': '#0E7C86', 'bg': '#DDF1F2', 'art': 'rooms',
   },
   {
-    'key': 'robointern', 'name': 'RoboIntern', 'domain': 'robointern.com', 'cat': 'tools', 'new': True,
+    'key': 'robointern', 'name': 'RoboIntern', 'domain': 'robointern.com', 'cat': 'tools',
     'blurb': 'A field guide to machine-learning models, with the Python included. Paste your column headers, mark what you want to predict, and get the models that fit, ranked and explained, plus ready-to-run training code.',
     'built': ['Atlas of 43 models with the maths explained', 'Visible scoring that ranks the models for your data',
               'Writes train.py, predict.py and a Jupyter notebook'],
@@ -706,9 +742,236 @@ def art_models(p):
   return _browser(inner, 'robointern · the lab', p['bg'])
 
 
+def art_feedback(p):
+  c, ink, orange = p['color'], '#0C0E14', '#FF5A1F'
+  kinds = [('Bug', '#D0342C', '#FDE8E6', 4, 92), ('Idea', c, p['bg'], 5, 118), ('Praise', '#0F8A5F', '#E3F5ED', 5, 80),
+           ('Question', '#565D6D', '#F4F5F8', 3, 104)]
+  rows = ''
+  for i, (kind, col, soft, stars, w) in enumerate(kinds):
+    y = 76 + i * 37
+    on = i == 1
+    kw = 10 + len(kind) * 4.2
+    rows += (f'<rect x="40" y="{y}" width="190" height="31" rx="7" fill="#fff" stroke="{c if on else "#E3E6EC"}" stroke-width="{1.4 if on else 1}"/>'
+             f'<rect x="48" y="{y + 7}" width="{kw}" height="9" rx="4.5" fill="{soft}"/>'
+             f'<text x="{48 + kw / 2}" y="{y + 13.6}" text-anchor="middle" font-size="5.6" font-weight="700" fill="{col}" {FONT}>{kind}</text>'
+             f'<text x="222" y="{y + 14}" text-anchor="end" font-size="6.4" fill="#E8A33D" letter-spacing=".5" {FONT}>{"★" * stars}{"☆" * (5 - stars)}</text>'
+             f'<rect x="48" y="{y + 21}" width="{w}" height="4.5" rx="2.25" fill="#C5C9D3"/>')
+    if i == 0:
+      rows += f'<circle cx="{58 + kw}" cy="{y + 11.5}" r="2.6" fill="{orange}"/>'
+  crit = ''.join(f'<circle cx="257" cy="{y}" r="3.6" fill="#0F8A5F"/><path d="M255.3 {y} l1.2 1.2 2.2-2.4" stroke="#fff" stroke-width="1" fill="none"/>'
+                 f'<rect x="265" y="{y - 2}" width="{w}" height="4" rx="2" fill="#C5C9D3"/>'
+                 for y, w in [(146, 74), (157, 62), (168, 80)])
+  chips = ''
+  x = 252
+  for name in ['Jira', 'Gherkin', 'JSON']:
+    cw = 10 + len(name) * 4.2
+    chips += (f'<rect x="{x}" y="210" width="{cw}" height="11" rx="5.5" fill="#F4F5F8" stroke="#E3E6EC"/>'
+              f'<text x="{x + cw / 2}" y="217.6" text-anchor="middle" font-size="5.6" font-weight="600" fill="{ink}" {FONT}>{name}</text>')
+    x += cw + 4
+  tabs = ''
+  x = 98
+  for name, n, on in [('Open', 24, 1), ('Planned', 6, 0), ('Done', 41, 0)]:
+    tw = 18 + len(name) * 4.2
+    tabs += (f'<rect x="{x}" y="52" width="{tw}" height="13" rx="6.5" fill="{c if on else "#fff"}" stroke="{c if on else "#E3E6EC"}"/>'
+             f'<text x="{x + 6}" y="60.6" font-size="6" font-weight="600" fill="{"#fff" if on else "#565D6D"}" {FONT}>{name} {n}</text>')
+    x += tw + 4
+  inner = f'''<rect x="28" y="42" width="344" height="216" fill="#F7F8FB"/>
+  <text x="42" y="62" font-size="9" font-weight="800" fill="{ink}" {FONT}>Inbox</text>
+  {tabs}{rows}
+  <g transform="translate(150 226)"><rect x="1" y="2" width="72" height="20" rx="10" fill="{ink}" opacity=".15"/>
+    <rect width="72" height="20" rx="10" fill="{orange}"/>
+    <path d="M12 7h10a2 2 0 0 1 2 2v4a2 2 0 0 1-2 2h-6l-3 2.5V15h-1a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2z" fill="#fff"/>
+    <text x="30" y="13.2" font-size="6.8" font-weight="700" fill="#fff" {FONT}>Feedback</text></g>
+  <rect x="242" y="52" width="120" height="196" rx="9" fill="#fff" stroke="#E3E6EC"/>
+  <text x="252" y="66" font-size="5.6" font-weight="700" fill="#8D93A1" letter-spacing=".8" {FONT}>USER STORY · 7 COMMENTS</text>
+  <text x="252" y="80" font-size="7.6" font-weight="800" fill="{ink}" {FONT}>Save my cart for later</text>
+  <text x="252" y="96" font-size="6" font-weight="700" fill="{c}" {FONT}>As a</text><rect x="276" y="92" width="58" height="4.5" rx="2.25" fill="#C5C9D3"/>
+  <text x="252" y="108" font-size="6" font-weight="700" fill="{c}" {FONT}>I want</text><rect x="276" y="104" width="76" height="4.5" rx="2.25" fill="#C5C9D3"/>
+  <text x="252" y="120" font-size="6" font-weight="700" fill="{c}" {FONT}>So that</text><rect x="280" y="116" width="66" height="4.5" rx="2.25" fill="#C5C9D3"/>
+  <text x="252" y="136" font-size="5.6" font-weight="700" fill="#8D93A1" letter-spacing=".8" {FONT}>ACCEPTANCE</text>
+  {crit}
+  <rect x="252" y="178" width="100" height="22" rx="6" fill="{p['bg']}"/>
+  <text x="257" y="190" font-size="12" font-weight="800" fill="{c}" font-family="Georgia, serif">&#8220;</text>
+  <rect x="268" y="184" width="76" height="4" rx="2" fill="{c}" opacity=".35"/><rect x="268" y="192" width="52" height="4" rx="2" fill="{c}" opacity=".35"/>
+  {chips}
+  <rect x="252" y="228" width="100" height="14" rx="7" fill="{c}"/>
+  <text x="302" y="237.4" text-anchor="middle" font-size="6.4" font-weight="700" fill="#fff" {FONT}>Export story</text>'''
+  return _browser(inner, 'app.prepsto.com', p['bg'])
+
+
+def art_boxing(p):
+  c, gold, ink, cream = p['color'], '#B07A1F', '#1C1A18', '#F3ECE0'
+  arc = 2 * 3.1416 * 28
+  inner = f'''<rect x="144" y="22" width="112" height="240" rx="17" fill="{ink}"/>
+  <text x="152" y="54" font-size="7" font-weight="800" fill="{cream}" letter-spacing=".8" {FONT}>ROUND 1</text>
+  <text x="248" y="54" text-anchor="end" font-size="6.4" font-weight="700" fill="{gold}" {FONT}>60 s</text>
+  <circle cx="200" cy="100" r="28" fill="none" stroke="#3A332C" stroke-width="6"/>
+  <circle cx="200" cy="100" r="28" fill="none" stroke="{c}" stroke-width="6" stroke-linecap="round"
+    stroke-dasharray="{round(arc * .7, 1)} {round(arc, 1)}" transform="rotate(-90 200 100)"/>
+  <text x="200" y="103" text-anchor="middle" font-size="13" font-weight="800" fill="{cream}" {FONT}>0:42</text>
+  <text x="200" y="113" text-anchor="middle" font-size="5.4" fill="#A89B88" {FONT}>left</text>
+  <text x="200" y="158" text-anchor="middle" font-size="22" font-weight="800" fill="#fff" {FONT}>38</text>
+  <text x="200" y="168" text-anchor="middle" font-size="5.6" font-weight="700" fill="#A89B88" letter-spacing="1" {FONT}>PUNCHES</text>
+  <rect x="158" y="176" width="84" height="16" rx="8" fill="{c}"/>
+  <text x="200" y="186.6" text-anchor="middle" font-size="6.4" font-weight="700" fill="#fff" {FONT}>Hook · 7.2 m/s</text>
+  <text x="152" y="208" font-size="6" font-weight="800" fill="{cream}" {FONT}>L</text>
+  <rect x="161" y="203" width="86" height="6" rx="3" fill="#3A332C"/><rect x="161" y="203" width="40" height="6" rx="3" fill="{gold}"/>
+  <text x="152" y="222" font-size="6" font-weight="800" fill="{cream}" {FONT}>R</text>
+  <rect x="161" y="217" width="86" height="6" rx="3" fill="#3A332C"/><rect x="161" y="217" width="58" height="6" rx="3" fill="{c}"/>
+  <text x="200" y="242" text-anchor="middle" font-size="5.6" fill="#A89B88" {FONT}>Blocks 6 · Combos 4</text>'''
+  judges = ''.join(f'<text x="10" y="{y}" font-size="6.2" fill="#5E564C" {FONT}>{name}</text>'
+                   f'<text x="84" y="{y}" text-anchor="end" font-size="6.4" font-weight="800" fill="{ink}" {FONT}>{score}</text>'
+                   for y, name, score in [(30, 'Power', '10-9'), (42, 'Volume', '10-9'), (54, 'Ring craft', '10-10')])
+  extra = f'''<path d="M60 250 q30 -70 100 -96" stroke="{c}" stroke-width="10" fill="none" opacity=".08" stroke-linecap="round"/>
+  <path d="M396 40 q-50 20 -120 70" stroke="{c}" stroke-width="10" fill="none" opacity=".08" stroke-linecap="round"/>
+  <g transform="translate(26 60)"><rect width="94" height="86" rx="10" fill="#FBF8F2" stroke="#D6CCBC"/>
+    <text x="10" y="16" font-size="5.8" font-weight="800" fill="{c}" letter-spacing="1" {FONT}>JUDGES' CARDS</text>{judges}
+    <g transform="rotate(-6 30 70)"><rect x="10" y="63" width="40" height="15" rx="3" fill="#FBF8F2" stroke="{c}" stroke-width="1.4"/>
+    <text x="30" y="73.5" text-anchor="middle" font-size="6.4" font-weight="800" fill="{c}" letter-spacing=".8" {FONT}>WIN</text></g></g>
+  <g transform="translate(280 146)"><rect width="92" height="58" rx="10" fill="#FBF8F2" stroke="#D6CCBC"/>
+    <text x="10" y="16" font-size="5.8" font-weight="700" fill="#5E564C" {FONT}>World rating</text>
+    <text x="10" y="36" font-size="15" font-weight="800" fill="{ink}" {FONT}>1,184</text>
+    <text x="10" y="49" font-size="5.8" font-weight="700" fill="#2F7A3E" {FONT}>&#9650; +24 · #3 in Montréal</text></g>'''
+  return _phone(inner, p['bg'], extra)
+
+
+def _cube(x, y, s, col, face=True):
+  """A rounded cube in two-point view: front face at (x, y), size s."""
+  d = s * .32
+  top = f'{x},{y} {x + d},{y - d} {x + s + d},{y - d} {x + s},{y}'
+  side = f'{x + s},{y} {x + s + d},{y - d} {x + s + d},{y + s - d} {x + s},{y + s}'
+  out = (f'<polygon points="{top}" fill="{col}" stroke="#3B2A5A" stroke-width="1.6" stroke-linejoin="round"/>'
+         f'<polygon points="{top}" fill="#fff" opacity=".35"/>'
+         f'<polygon points="{side}" fill="{col}" stroke="#3B2A5A" stroke-width="1.6" stroke-linejoin="round"/>'
+         f'<polygon points="{side}" fill="#3B2A5A" opacity=".16"/>'
+         f'<rect x="{x}" y="{y}" width="{s}" height="{s}" rx="{s * .16}" fill="{col}" stroke="#3B2A5A" stroke-width="1.6"/>')
+  if face:
+    e, r = s * .18, s * .09
+    out += (f'<circle cx="{x + s * .32}" cy="{y + s * .4}" r="{r * 1.6}" fill="#fff"/><circle cx="{x + s * .68}" cy="{y + s * .4}" r="{r * 1.6}" fill="#fff"/>'
+            f'<circle cx="{x + s * .34}" cy="{y + s * .42}" r="{r}" fill="#3B2A5A"/><circle cx="{x + s * .7}" cy="{y + s * .42}" r="{r}" fill="#3B2A5A"/>'
+            f'<path d="M{x + s * .36} {y + s * .64} q{s * .14} {e} {s * .28} 0" stroke="#3B2A5A" stroke-width="{max(1.2, s * .05)}" fill="none" stroke-linecap="round"/>'
+            f'<circle cx="{x + s * .18}" cy="{y + s * .62}" r="{r}" fill="#FF9EC6" opacity=".8"/><circle cx="{x + s * .82}" cy="{y + s * .62}" r="{r}" fill="#FF9EC6" opacity=".8"/>')
+  return out
+
+
+def art_cubes(p):
+  c, teal, lemon, sky, ink = p['color'], '#19BFAE', '#FFD23F', '#6CC6FF', '#3B2A5A'
+  inner = f'''<rect x="28" y="42" width="344" height="216" fill="#E4F5FF"/>
+  <circle cx="330" cy="70" r="12" fill="{lemon}" opacity=".9"/>
+  <ellipse cx="110" cy="74" rx="26" ry="9" fill="#fff"/><ellipse cx="128" cy="69" rx="16" ry="8" fill="#fff"/>
+  <path d="M10 268 Q60 150 200 146 T392 268Z" fill="#C9F2E8" stroke="{ink}" stroke-width="1.6"/>
+  <path d="M60 200 q8 -6 16 0 M290 190 q8 -6 16 0 M200 236 q8 -6 16 0" stroke="#9BDCCB" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <ellipse cx="312" cy="222" rx="34" ry="11" fill="#B9E7FF" stroke="{ink}" stroke-width="1.4"/>
+  <line x1="70" y1="196" x2="70" y2="150" stroke="{ink}" stroke-width="2.4"/>
+  <circle cx="70" cy="140" r="15" fill="{c}" stroke="{ink}" stroke-width="1.6"/>
+  <path d="M70 140 m-9 0 a9 9 0 1 1 9 9 a5 5 0 1 1 -5 -5" stroke="#fff" stroke-width="2" fill="none" opacity=".8"/>
+  {_cube(288, 128, 24, sky)}
+  <path d="M168 178 q14 -10 30 0" stroke="{ink}" stroke-width="2.4" fill="none" stroke-linecap="round"/>
+  {_cube(116, 150, 48, c)}{_cube(196, 158, 42, teal)}
+  <path d="M182 136 c-3 -5 -10 -2 -7 3 l7 6 l7 -6 c3 -5 -4 -8 -7 -3z" fill="{c}" stroke="{ink}" stroke-width="1.2"/>
+  {_cube(170, 214, 20, lemon)}
+  <g transform="translate(40 52)"><rect width="66" height="16" rx="8" fill="#fff" stroke="{ink}" stroke-width="1.4"/>
+    <text x="9" y="11" font-size="7" font-weight="800" fill="{ink}" {FONT}>&#10024; 1,240</text></g>
+  <g transform="translate(112 52)"><rect width="74" height="16" rx="8" fill="#fff" stroke="{ink}" stroke-width="1.4"/>
+    <path d="M10 6.5 c-1.6 -2.6 -5.6 -1 -3.8 1.8 l3.8 3.3 l3.8 -3.3 c1.8 -2.8 -2.2 -4.4 -3.8 -1.8z" fill="{c}"/>
+    <rect x="18" y="5.5" width="48" height="5" rx="2.5" fill="#FFE0EE"/><rect x="18" y="5.5" width="40" height="5" rx="2.5" fill="{c}"/></g>
+  <g transform="translate(258 94) rotate(-6)"><polygon points="0,-16 5,-7 16,-9 10,0 16,9 5,8 0,17 -5,8 -16,9 -10,0 -16,-9 -5,-7" fill="{lemon}" stroke="{ink}" stroke-width=".7" stroke-linejoin="round" transform="scale(2.3)"/>
+    <text x="0" y="0" text-anchor="middle" font-size="8" font-weight="900" fill="{ink}" {FONT}>BOING!</text>
+    <text x="0" y="9" text-anchor="middle" font-size="6.4" font-weight="900" fill="{ink}" {FONT}>+3 &#10024;</text></g>'''
+  return _browser(inner, 'quickybricks.com · the world', p['bg'])
+
+
+def art_party(p):
+  c, mustard, navy, ink, paper = p['color'], '#E3A21A', '#23416D', '#1F1A14', '#FBF6EA'
+  people = [('A', c), ('T', navy), ('M', mustard), ('J', '#2C7A3B')]
+  slots = ''
+  for i, (name, n, best) in enumerate([('Fri dinner', 4, True), ('Sat brunch', 2, False), ('Sun dinner', 1, False)]):
+    y = 84 + i * 22
+    slots += (f'<rect x="212" y="{y - 10}" width="148" height="18" rx="3" fill="#fff" stroke="#CDBD9C"/>'
+              f'<text x="219" y="{y + 2}" font-size="6.6" font-weight="{"800" if best else "500"}" fill="{ink}" {FONT}>{name}</text>')
+    for j in range(n):
+      ini, col = people[j]
+      slots += (f'<circle cx="{274 + j * 12}" cy="{y - 1}" r="5.4" fill="{col}"/>'
+                f'<text x="{274 + j * 12}" y="{y + 1.4}" text-anchor="middle" font-size="5.6" font-weight="800" fill="#fff" {FONT}>{ini}</text>')
+  ticks = ''.join(f'<rect x="{212 + i * 11}" y="170" width="8" height="8" rx="1.5" fill="{c if i < 6 else "#fff"}" stroke="{ink}" stroke-width=".9"/>'
+                  for i in range(10))
+  dishes = ''
+  for i, (dish, who) in enumerate([('Soup', 'Ana'), ('Bread', 'Tom'), ('Dessert', '?')]):
+    y = 196 + i * 13
+    want = who == '?'
+    dishes += (f'<text x="212" y="{y}" font-size="6.4" fill="{ink}" {FONT}>{dish}</text>'
+               f'<line x1="{214 + len(dish) * 4}" y1="{y - 1}" x2="340" y2="{y - 1}" stroke="#8F816C" stroke-width=".9" stroke-dasharray="1 2"/>'
+               f'<text x="360" y="{y}" text-anchor="end" font-size="6.4" font-weight="700" fill="{c if want else navy}" {FONT}>{"Still wanted" if want else who}</text>')
+  inner = f'''<rect x="28" y="42" width="344" height="216" fill="{p['bg']}"/>
+  <rect x="38" y="52" width="160" height="196" fill="{paper}" stroke="{ink}" stroke-width="1.2"/>
+  <rect x="42" y="56" width="152" height="188" fill="none" stroke="{ink}" stroke-width=".6"/>
+  <text x="52" y="72" font-size="6.2" font-weight="700" fill="{c}" letter-spacing="1.2" font-family="'Courier New', monospace">ITEM No. 07</text>
+  <text x="52" y="94" font-size="19" font-style="italic" font-weight="700" fill="{ink}" font-family="Georgia, serif">Soup Night</text>
+  <text x="52" y="108" font-size="9" font-style="italic" fill="{navy}" font-family="Georgia, serif">Supper for eight</text>
+  <ellipse cx="118" cy="186" rx="54" ry="9" fill="{mustard}" opacity=".35"/>
+  <path d="M82 152 h72 v22 a12 12 0 0 1 -12 12 h-48 a12 12 0 0 1 -12 -12z" fill="{c}" stroke="{ink}" stroke-width="1.4"/>
+  <rect x="76" y="146" width="84" height="8" rx="4" fill="{navy}" stroke="{ink}" stroke-width="1.4"/>
+  <path d="M100 140 q-5 -6 0 -11 q5 -5 0 -10 M118 140 q-5 -6 0 -11 q5 -5 0 -10 M136 140 q-5 -6 0 -11 q5 -5 0 -10" stroke="{navy}" stroke-width="1.6" fill="none" opacity=".55"/>
+  <line x1="52" y1="200" x2="186" y2="200" stroke="{ink}" stroke-width=".6"/>
+  <text x="52" y="214" font-size="6.2" fill="{ink}" {FONT}>Serves 8 · Easy · Cosy</text>
+  <text x="52" y="230" font-size="6.2" fill="{ink}" {FONT}>Hosted by Mira · 6 seats left</text>
+  <text x="212" y="64" font-size="8" font-weight="800" fill="{ink}" {FONT}>When are you free?</text>
+  {slots}
+  <g transform="translate(344 58) rotate(12)"><circle r="13" fill="{mustard}" stroke="{ink}" stroke-width="1.2"/>
+    <text y="-1" text-anchor="middle" font-size="5.4" font-weight="900" fill="{ink}" {FONT}>BEST</text>
+    <text y="6" text-anchor="middle" font-size="5.4" font-weight="900" fill="{ink}" {FONT}>BET</text></g>
+  <text x="212" y="162" font-size="8" font-weight="800" fill="{ink}" {FONT}>The menu</text>
+  <text x="360" y="162" text-anchor="end" font-size="6" font-weight="700" fill="#5F5446" {FONT}>6 of 10 filled</text>
+  {ticks}{dishes}
+  <rect x="212" y="232" width="148" height="16" rx="8" fill="{c}"/>
+  <text x="286" y="242.6" text-anchor="middle" font-size="7" font-weight="800" fill="#FFF8EC" {FONT}>Count me in</text>'''
+  return _browser(inner, 'planfriday.com/p/soup-night', p['bg'])
+
+
+def art_pan(p):
+  c, gold, ink, green = p['color'], '#E3A33B', '#3D2B22', '#4F7F4E'
+  rows = ''
+  for i, (name, base, mins, tier, keeps, col) in enumerate([('Creamy mushroom', 'rice', 25, '$$', 2, '#C9A27A'),
+                                                            ('Chicken & peppers', 'pasta', 30, '$$', 3, gold),
+                                                            ('Tomato beef ragù', 'potatoes', 35, '$', 4, c)]):
+    y = 98 + i * 34
+    rows += (f'<rect x="150" y="{y}" width="100" height="29" rx="8" fill="#FFFAF2" stroke="#ECDCC6"/>'
+             f'<circle cx="163" cy="{y + 14.5}" r="7" fill="{col}" stroke="{ink}" stroke-width="1"/>'
+             f'<text x="175" y="{y + 12}" font-size="6.2" font-weight="800" fill="{ink}" {FONT}>{name}</text>'
+             f'<text x="175" y="{y + 22}" font-size="5.2" fill="#7B6152" {FONT}>over {base} · {mins} min · {tier}</text>')
+    if i == 0:
+      rows += (f'<rect x="216" y="{y - 5}" width="30" height="10" rx="5" fill="#E3EEDB"/>'
+               f'<text x="231" y="{y + 1.8}" text-anchor="middle" font-size="5" font-weight="700" fill="{green}" {FONT}>Tonight</text>')
+  inner = f'''<rect x="144" y="22" width="112" height="240" rx="17" fill="#FBF3E6"/>
+  <rect x="182" y="27" width="36" height="8" rx="4" fill="#111827"/>
+  <text x="152" y="52" font-size="7.6" font-weight="800" fill="{ink}" {FONT}>This week</text>
+  <text x="248" y="52" text-anchor="end" font-size="5.8" fill="#7B6152" {FONT}>for 2</text>
+  <g transform="rotate(-2 200 74)"><rect x="152" y="58" width="96" height="30" rx="3" fill="#FFF4D6" stroke="#ECDCC6"/>
+    <text x="158" y="71" font-size="7" font-style="italic" fill="{ink}" font-family="Georgia, serif">You've got rice.</text>
+    <text x="158" y="82" font-size="7" font-style="italic" fill="{ink}" font-family="Georgia, serif">I've got the rest. <tspan fill="{c}">&#9829;</tspan></text></g>
+  {rows}
+  <rect x="150" y="206" width="100" height="17" rx="8.5" fill="{c}"/>
+  <text x="200" y="217.2" text-anchor="middle" font-size="6.6" font-weight="800" fill="#fff" {FONT}>Let's cook</text>
+  <rect x="150" y="228" width="100" height="17" rx="8.5" fill="#fff" stroke="#ECDCC6"/>
+  <text x="200" y="239.2" text-anchor="middle" font-size="6.4" font-weight="700" fill="{ink}" {FONT}>Too tired tonight</text>'''
+  items = ''.join(f'<rect x="10" y="{y - 6}" width="7" height="7" rx="1.5" fill="{green if done else "#fff"}" stroke="{ink}" stroke-width=".9"/>'
+                  + (f'<path d="M11.5 {y - 2.5} l1.6 1.6 2.6-2.9" stroke="#fff" stroke-width="1" fill="none"/>' if done else '')
+                  + f'<text x="22" y="{y}" font-size="6.2" fill="{"#A8907E" if done else ink}" {FONT}>{name}</text>'
+                  for y, name, done in [(34, 'Mushrooms', 1), (48, 'Cream', 1), (62, 'Peppers', 0), (76, 'Beef mince', 0), (90, 'Parmesan', 0)])
+  extra = f'''<g transform="translate(70 134)"><rect x="-74" y="-5" width="40" height="10" rx="5" fill="{ink}" transform="rotate(-18)"/>
+    <circle r="44" fill="{ink}"/><circle r="37" fill="#5A463B"/>
+    <circle r="31" fill="{c}"/><circle cx="-10" cy="-8" r="6" fill="#E9C9A0"/><circle cx="12" cy="-4" r="5" fill="#E9C9A0"/>
+    <circle cx="2" cy="12" r="6" fill="#E9C9A0"/><circle cx="-14" cy="12" r="3" fill="{green}"/><circle cx="16" cy="14" r="3" fill="{green}"/>
+    <path d="M-18 -30 q-6 -10 0 -18 M0 -32 q-6 -10 0 -18 M18 -30 q-6 -10 0 -18" stroke="{ink}" stroke-width="1.6" fill="none" opacity=".25"/></g>
+  <g transform="translate(280 70) rotate(4)"><rect width="94" height="104" rx="4" fill="#FFFAF2" stroke="#ECDCC6"/>
+    <text x="10" y="18" font-size="7.4" font-weight="800" fill="{ink}" {FONT}>Shopping</text>{items}</g>'''
+  return _phone(inner, p['bg'], extra)
+
+
 ARTS = {'monshop': art_monshop, 'family': art_family, 'caf': art_caf, 'planplate': art_planplate,'varnote': art_varnote, 'blog': art_blog, 'map': art_map, 'bun': art_bun,
         'piano': art_piano, 'pound': art_pound, 'parrot': art_parrot, 'resto': art_resto,
-        'screenplay': art_screenplay, 'lyrics': art_lyrics, 'rooms': art_rooms, 'models': art_models}
+        'screenplay': art_screenplay, 'lyrics': art_lyrics, 'rooms': art_rooms, 'models': art_models,
+        'feedback': art_feedback, 'boxing': art_boxing, 'cubes': art_cubes, 'party': art_party, 'pan': art_pan}
 
 
 def art(p):
@@ -720,51 +983,175 @@ def url(p):
   return 'https://' + p['domain'] if p.get('domain') else '#work'
 
 
-# ------------------------------------------------------------------ cards
+# ------------------------------------------------------------------ case studies + index
 
-def card(p, detailed=False, reveal=''):
-  tags = ''.join(f'<span>{esc(t(tg))}</span>' for tg in p['tags'])
-  built = ''
-  if detailed:
-    built = ('<ul class="built">' + ''.join(f'<li>{icon("check")}<span>{esc(t(b))}</span></li>' for b in p['built']) + '</ul>')
-  new = f'<span class="new">{esc(t("New"))}</span>' if p.get('new') else ''
-  if p.get('domain'):
-    label = t('{name}: {category}, opens {domain}', name=p['name'], category=CAT[p['cat']], domain=p['domain'])
-    start = f'<a class="wk {reveal}" data-cat="{p["cat"]}" href="{url(p)}" target="_blank" rel="noopener" aria-label="{esc(label)}">'
-    end, status, go, dom = '</a>', f'<span class="live">{t("Live")}</span>', '<span class="go">&#8599;</span>', p['domain']
-  else:
-    start = f'<div class="wk soon {reveal}" data-cat="{p["cat"]}">'
-    end, status, go, dom = '</div>', f'<span class="soon-tag">{t("Launching soon")}</span>', '', ''
-  return f'''
-  {start}
-    <div class="shot" style="background:{p['bg']}">{art(p)}</div>
-    <div class="info">
-      <div class="cat"><span>{esc(CAT[p['cat']])}{new}</span>{status}</div>
-      <h3>{esc(p['name'])}{go}</h3>
-      <p>{esc(t(p['blurb']))}</p>
-      {built}
-      <div class="tags">{tags}</div>
-      <div class="dom"{'' if dom else ' aria-hidden="true"'}>{esc(dom) if dom else '&nbsp;'}</div>
+def split_blurb(text):
+  """(first sentence, the rest). The first sentence doubles as the one-line summary in the index."""
+  for i in range(len(text) - 1):
+    if text[i] in '.!?' and text[i + 1] == ' ':
+      return text[:i + 1], text[i + 2:]
+  return text, ''
+
+
+def featured():
+  return sorted([p for p in PROJECTS if p.get('featured')], key=lambda p: p['featured'])
+
+
+def in_category(key):
+  return [p for p in PROJECTS if p['cat'] == key]
+
+
+def live_count():
+  return len([p for p in PROJECTS if p.get('domain')])
+
+
+def _new(p):
+  return f'<span class="new">{esc(t("New"))}</span>' if p.get('new') else ''
+
+
+def _tags(p):
+  return '<div class="tags">' + ''.join(f'<span>{esc(t(tg))}</span>' for tg in p['tags']) + '</div>'
+
+
+def _built(p):
+  return ('<ul class="pf-built">' + ''.join(f'<li>{icon("check")}<span>{esc(t(b))}</span></li>' for b in p['built']) + '</ul>')
+
+
+def _visit(p):
+  if not p.get('domain'):
+    return f'<span class="pf-soon">{esc(t("Launching soon"))}</span>'
+  return (f'<a class="aa-btn ghost sm pf-visit" href="{url(p)}" target="_blank" rel="noopener">'
+          f'{esc(t("Visit {domain}", domain=p["domain"]))} <span class="arr">&#8599;</span></a>')
+
+
+def _shot(p):
+  return f'<div class="shot" style="background:{p["bg"]}">{art(p)}</div>'
+
+
+def showcase():
+  """The featured projects as large case-study panels, alternating sides."""
+  out = ''
+  for i, p in enumerate(featured()):
+    hook, rest = split_blurb(t(p['blurb']))
+    rest_p = '<p>' + esc(rest) + '</p>' if rest else ''
+    out += f'''
+    <article class="pf-spot rv{' flip' if i % 2 else ''}">
+      {_shot(p)}
+      <div class="txt">
+        <div class="pf-cat"><span>{'%02d' % (i + 1)} &middot; {esc(CAT[p['cat']])}</span>{_new(p)}</div>
+        <h3>{esc(p['name'])}</h3>
+        <p class="hook">{esc(hook)}</p>
+        {rest_p}
+        {_built(p)}
+        <div class="foot">{_tags(p)}{_visit(p)}</div>
+      </div>
+    </article>'''
+  return f'<div class="pf-spots">{out}</div>'
+
+
+def _row(p, tag, attrs, end):
+  live = p.get('domain')
+  dom = (f'<span class="dm live">{esc(p["domain"])}</span>' if live
+         else f'<span class="dm soon">{esc(t("Launching soon"))}</span>')
+  return f'''<{tag} class="pf-row" data-pf="{p['key']}" {attrs}>
+      <span class="ic" style="background:{p['color']}" aria-hidden="true">{esc(p['name'][0])}</span>
+      <span class="nm"><b>{esc(p['name'])}</b>{_new(p)}</span>
+      <span class="ln">{esc(split_blurb(t(p['blurb']))[0])}</span>
+      <span class="tg">{esc(' · '.join(t(x) for x in p['tags'][:2]))}</span>
+      {dom}{end}
+    </{tag}>'''
+
+
+def _link_row(p):
+  if not p.get('domain'):
+    return _row(p, 'div', f'data-cat="{p["cat"]}"', '<span class="go"></span>')
+  label = t('{name}: {category}, opens {domain}', name=p['name'], category=CAT[p['cat']], domain=p['domain'])
+  attrs = f'data-cat="{p["cat"]}" href="{url(p)}" target="_blank" rel="noopener" aria-label="{esc(label)}"'
+  return _row(p, 'a', attrs, '<span class="go" aria-hidden="true">&#8599;</span>')
+
+
+def _detail_row(p):
+  """A row that opens in place (native <details>) to show the preview, what we built and the link."""
+  rest = split_blurb(t(p['blurb']))[1]
+  rest_p = '<p>' + esc(rest) + '</p>' if rest else ''
+  return f'''<details class="pf-item" data-cat="{p['cat']}">
+    {_row(p, 'summary', '', '<span class="go plus" aria-hidden="true"></span>')}
+    <div class="pf-body">
+      {_shot(p)}
+      <div class="txt">
+        {rest_p}
+        <div class="lbl">{esc(t('What we built'))}</div>
+        {_built(p)}
+        <div class="foot">{_tags(p)}{_visit(p)}</div>
+      </div>
     </div>
-  {end}'''
+  </details>'''
+
+
+def _preview(p, on):
+  rest = split_blurb(t(p['blurb']))[1]
+  status = (f'<span class="live">{esc(p["domain"])}</span>' if p.get('domain')
+            else f'<span class="pf-soon">{esc(t("Launching soon"))}</span>')
+  return f'''<div class="pf-pv{' on' if on else ''}" data-pv="{p['key']}">
+    {_shot(p)}
+    <div class="pv-txt">
+      <div class="pf-cat"><span>{esc(CAT[p['cat']])}</span>{status}</div>
+      <h3>{esc(p['name'])}</h3>
+      <p>{esc(rest or t(p['blurb']))}</p>
+      {_built(p)}
+      {_tags(p)}
+    </div>
+  </div>'''
 
 
 def filter_bar():
   out = f'<div class="lp-filter" role="tablist" aria-label="{esc(t("Filter work by category"))}">'
   for key, label in CATEGORIES:
-    n = len(PROJECTS) if key == 'all' else len([p for p in PROJECTS if p['cat'] == key])
+    n = len(PROJECTS) if key == 'all' else len(in_category(key))
     out += f'<button type="button" class="{"on" if key == "all" else ""}" data-act="filter" data-arg="{key}" role="tab">{esc(label)}<span class="n">{n}</span></button>'
   return out + '</div>'
 
 
-def grid(detailed=False, feature_first=False):
-  cls = 'lp-work feature-first' if feature_first else 'lp-work'
-  cards = ''.join(card(p, detailed, 'rv d%d' % (i % 3)) for i, p in enumerate(PROJECTS))
-  return f'<div class="{cls}">{cards}</div>'
+def index(detailed=False):
+  """Every project as a compact row, grouped by category.
+  Home page: rows link to the live product, and hovering one shows its preview in a sticky panel (desktop).
+  Work page (detailed): rows open in place to show the preview and what we built."""
+  rows, previews = '', ''
+  for key, label in CATEGORIES[1:]:
+    group = in_category(key)
+    if not group:
+      continue
+    rows += f'<div class="pf-group" data-cat="{key}"><span>{esc(label)}</span><span class="n">{"%02d" % len(group)}</span></div>'
+    for p in group:
+      rows += _detail_row(p) if detailed else _link_row(p)
+      if not detailed:
+        previews += _preview(p, not previews)
+  count = tn(len(PROJECTS), '{n} product', '{n} products') + ' &middot; ' + esc(t('{n} live', n=live_count()))
+  head = f'''<div class="pf-head">
+    <h3>{esc(t('The full index'))}</h3><span class="pf-count">{count}</span>
+  </div>{filter_bar()}'''
+  if detailed:
+    return f'<div class="pf-index detailed">{head}<div class="pf-list">{rows}</div></div>'
+  return f'''<div class="pf-index">{head}
+    <div class="pf-cols">
+      <div class="pf-list">{rows}</div>
+      <aside class="pf-preview" aria-hidden="true"><div class="pf-stack">{previews}</div></aside>
+    </div>
+  </div>'''
+
+
+def _show_preview(index_el, key):
+  pvs = index_el.querySelectorAll('.pf-pv')
+  for i in range(pvs.length):
+    el = pvs.item(i)
+    if el.getAttribute('data-pv') == key:
+      el.classList.add('on')
+    else:
+      el.classList.remove('on')
 
 
 def apply_filter(root_node, key):
-  """Show cards of a category (DOM only)."""
+  """Show one category of the index (DOM only); the preview panel jumps to the first project shown."""
   btns = root_node.querySelectorAll('.lp-filter button')
   for i in range(btns.length):
     b = btns.item(i)
@@ -772,17 +1159,17 @@ def apply_filter(root_node, key):
       b.classList.add('on')
     else:
       b.classList.remove('on')
-  grid_el = root_node.querySelector('.lp-work')
-  if grid_el is not None:
-    if key == 'all':
-      grid_el.classList.add('feature-first')
+  first = None
+  els = root_node.querySelectorAll('.pf-index [data-cat]')
+  for i in range(els.length):
+    el = els.item(i)
+    if key == 'all' or el.getAttribute('data-cat') == key:
+      el.classList.remove('gone')
+      pf = el.getAttribute('data-pf')
+      if first is None and pf:
+        first = pf
     else:
-      grid_el.classList.remove('feature-first')
-  cards = root_node.querySelectorAll('.wk')
-  for i in range(cards.length):
-    c = cards.item(i)
-    c.classList.add('in')
-    if key == 'all' or c.getAttribute('data-cat') == key:
-      c.classList.remove('gone')
-    else:
-      c.classList.add('gone')
+      el.classList.add('gone')
+  index_el = root_node.querySelector('.pf-index')
+  if index_el is not None and first:
+    _show_preview(index_el, first)

@@ -21,8 +21,8 @@ class Work(WorkTemplate):
       </section>
       <section class="lp-sec" style="padding-top:56px">
         <div class="aa-wrap">
-          {portfolio.filter_bar()}
-          {portfolio.grid(detailed=True, feature_first=False)}
+          {portfolio.showcase()}
+          {portfolio.index(detailed=True)}
         </div>
       </section>
       <section class="lp-sec tight lp-alt">
