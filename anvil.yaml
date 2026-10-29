@@ -287,7 +287,7 @@ native_deps:
       try { l = localStorage.getItem('aa.lang'); } catch (e) {}
       if (l === 'fr' || l === 'ru' || l === 'lv') {
         document.documentElement.lang = l;
-        window.aaLangPack = fetch('_/theme/lang-' + l + '.json?v=3').then(function (r) {
+        window.aaLangPack = fetch('_/theme/lang-' + l + '.json?v=4').then(function (r) {
           if (!r.ok) throw new Error('lang ' + r.status);
           return r.text();
         });
@@ -961,6 +961,22 @@ native_deps:
            "@id": "https://addanapp.com/#org"
           },
           "keywords": "Website, API integration, Hospitality, Websites",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web"
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 22,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "Arkvital",
+          "url": "https://arkvital.com",
+          "description": "A personal website for an engineer turned leadership coach. A bold editorial home page, four clear ways to work together and selected work, all built to turn a visit into a first call.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Website, Personal brand, Consulting, Websites",
           "applicationCategory": "BusinessApplication",
           "operatingSystem": "Web"
          }

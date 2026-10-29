@@ -50,7 +50,7 @@ theme/assets/            theme.css, aa.js (scroll reveal, page meta), lang-fr/ru
 ## Recipes
 
 - **Any visible text:** wrap it in `t("English text")` and add the translation to `theme/assets/lang-fr.json`, `lang-ru.json`, `lang-lv.json` (keyed by the English text). Then bump `VERSION` in `client_code/i18n.py` **and** `?v=` in the head script in anvil.yaml so browsers fetch the new packs. Email wording: `server_code/email_text.py` too.
-- **Recent / not-yet-live projects:** `'new': True` shows a "New" badge (now on the five added 2026-10-29: Prepsto, Subsudo, QuickyBricks, Plan Friday, Topameal; drop the flags when newer work arrives). `'domain': ''` shows "Launching soon" with no link.
+- **Recent / not-yet-live projects:** `'new': True` shows a "New" badge (now on the six added 2026-10-29: Prepsto, Subsudo, QuickyBricks, Plan Friday, Topameal, and Arkvital under Websites; drop the flags when newer work arrives). `'domain': ''` shows "Launching soon" with no link.
 - **Featured case studies:** `'featured': 1..3` on a project puts it in the big panels above the index (PlanPlate, Prepsto, Subsudo). Keep it to three. The panel's headline is the blurb's **first sentence**, and the index row uses it as the one-line summary, so write every blurb (and its translations) as a short punchy first sentence followed by the detail.
 - **New portfolio project:** an entry in portfolio.py (category, domain, blurb, built, tags, color, bg) + an `art_<name>()` SVG mini-UI in its own colours (register it in `ARTS`); translate blurb, built and new tags in the three packs; keep the JSON-LD ItemList in the head in step (all live projects, in index order). The index groups by `cat`, so order inside a category is the order in PROJECTS. The user's apps and their live URLs are in `APP_MAKER/apps.json`.
 - **SEO:** title/meta/OG/JSON-LD live in `anvil.yaml → native_deps.head_html` and `metadata`; each route sets its own `<title>`; private pages are `noindex`.
@@ -58,6 +58,7 @@ theme/assets/            theme.css, aa.js (scroll reveal, page meta), lang-fr/ru
 ## Gotchas
 
 - Portfolio previews: SVG on a 400×250 canvas; `_phone()` content goes past the bottom edge, so keep phone UI above y≈248, and a coloured phone screen needs `rx="17"` from y=22 (redraw the notch). Check new art large before shipping: text easily spills out of shapes.
+- **Arkvital** (arkvital.com, Websites) is the user's personal site. Never say on Addanapp that the same person runs both: describe it neutrally as a client-style project.
 - Russian `New` is "Новые" because the admin lead filter uses the same string; the portfolio badge shares it.
 
 - Russian and Latvian visitors see the Privacy & Terms page in English (the legal kit has EN/FR only).

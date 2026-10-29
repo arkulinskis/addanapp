@@ -779,5 +779,11 @@
 "{n} product": ["{n} produkts", "{n} produkti"],
 "{n} live": "{n} darbojas",
 "Visit {domain}": "Apmeklēt {domain}",
-"What we built": "Ko mēs izveidojām"
+"What we built": "Ko mēs izveidojām",
+"A personal website for an engineer turned leadership coach. A bold editorial home page, four clear ways to work together and selected work, all built to turn a visit into a first call.": "Personīga vietne inženierim, kurš kļuvis par līderības koučū. Drosmīga redakcionāla sākumlapa, četri skaidri sadarbības veidi un atlasīti darbi, viss veidots, lai apmeklējums pārtaptu pirmajā sarunā.",
+"Editorial home page with a portrait hero": "Redakcionāla sākumlapa ar portretu",
+"Services, selected work and writing pages": "Pakalpojumu, darbu un rakstu lapas",
+"Fast static pages in light and dark themes": "Ātras statiskas lapas gaišā un tumšā tēmā",
+"Personal brand": "Personīgais zīmols",
+"Consulting": "Konsultācijas"
 }

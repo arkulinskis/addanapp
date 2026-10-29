@@ -784,5 +784,11 @@
 "{n} product": ["{n} продукт", "{n} продукта", "{n} продуктов"],
 "{n} live": "в работе: {n}",
 "Visit {domain}": "Открыть {domain}",
-"What we built": "Что мы сделали"
+"What we built": "Что мы сделали",
+"A personal website for an engineer turned leadership coach. A bold editorial home page, four clear ways to work together and selected work, all built to turn a visit into a first call.": "Личный сайт инженера, ставшего коучем руководителей. Смелая редакционная главная страница, четыре понятных формата работы и избранные проекты: всё, чтобы визит превратился в первый звонок.",
+"Editorial home page with a portrait hero": "Редакционная главная страница с портретом",
+"Services, selected work and writing pages": "Страницы услуг, проектов и статей",
+"Fast static pages in light and dark themes": "Быстрые статические страницы в светлой и тёмной теме",
+"Personal brand": "Личный бренд",
+"Consulting": "Консалтинг"
 }

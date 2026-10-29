@@ -155,6 +155,13 @@ PROJECTS = [
     'built': ['Classic, fast restaurant website', 'Live PlanPlate reservation widget', 'Menus and events from the content API'],
     'tags': ['Website', 'API integration', 'Hospitality'], 'color': '#7C2D2D', 'bg': '#F3EAE1', 'art': 'resto',
   },
+  {
+    'key': 'arkvital', 'name': 'Arkvital', 'domain': 'arkvital.com', 'cat': 'sites', 'new': True,
+    'blurb': 'A personal website for an engineer turned leadership coach. A bold editorial home page, four clear ways to work together and selected work, all built to turn a visit into a first call.',
+    'built': ['Editorial home page with a portrait hero', 'Services, selected work and writing pages',
+              'Fast static pages in light and dark themes'],
+    'tags': ['Website', 'Personal brand', 'Consulting'], 'color': '#0B6F94', 'bg': '#F7F3EE', 'art': 'personal',
+  },
 ]
 
 # ------------------------------------------------------------------ illustrations
@@ -968,10 +975,46 @@ def art_pan(p):
   return _phone(inner, p['bg'], extra)
 
 
+def art_personal(p):
+  c, ink, night, yel, brown = p['color'], '#1C1A18', '#2F2C29', '#F4BC4C', '#8A5A1E'
+  nav = ''.join(f'<rect x="{x}" y="50" width="{w}" height="4" rx="2" fill="#E9E2D8" opacity="{.95 if i == 0 else .6}"/>'
+                for i, (x, w) in enumerate([(206, 20), (234, 26), (268, 30), (306, 20)]))
+  curtain = ''.join(f'<rect x="{x}" y="62" width="5" height="196" fill="#fff" opacity="{.5 if i % 2 else .28}"/>'
+                    for i, x in enumerate(range(232, 372, 9)))
+  inner = f'''<rect x="28" y="42" width="344" height="216" fill="{p['bg']}"/>
+  <rect x="228" y="62" width="144" height="196" fill="#EFE6DA"/>{curtain}
+  <rect x="28" y="42" width="344" height="20" fill="{night}"/>
+  <circle cx="44" cy="52" r="5" fill="#fff"/><path d="M44 47 l-4 6 h4 v4 l4 -6 h-4z" fill="{c}"/>
+  <rect x="54" y="48" width="40" height="4" rx="2" fill="#F3ECE0"/><rect x="54" y="55" width="30" height="2.6" rx="1.3" fill="#A89B88"/>
+  {nav}
+  <rect x="332" y="46" width="32" height="12" rx="2.5" fill="{yel}"/>
+  <text x="348" y="54.2" text-anchor="middle" font-size="5.4" font-weight="700" fill="{ink}" {FONT}>Talk &#8599;</text>
+  <text x="48" y="90" font-size="5.2" font-weight="700" fill="{brown}" letter-spacing="1" {FONT}>PEOPLE AND TECHNOLOGY</text>
+  <text x="48" y="106" font-size="10" fill="#4A4540" {FONT}>Let&#8217;s talk about</text>
+  <text x="46" y="134" font-size="27" font-weight="800" fill="{ink}" letter-spacing="-1.4" {FONT}>Choosing the</text>
+  <text x="46" y="162" font-size="27" font-weight="800" fill="{ink}" letter-spacing="-1.4" {FONT}>right tools</text>
+  <rect x="48" y="176" width="130" height="4.5" rx="2.25" fill="#B9AFA3"/><rect x="48" y="185" width="84" height="4.5" rx="2.25" fill="#B9AFA3"/>
+  <rect x="48" y="198" width="70" height="17" rx="2.5" fill="{yel}"/>
+  <text x="83" y="209" text-anchor="middle" font-size="6.2" font-weight="700" fill="{ink}" {FONT}>Set up a call &#8599;</text>
+  <rect x="124" y="198" width="66" height="17" rx="2.5" fill="none" stroke="#B9AFA3"/>
+  <text x="157" y="209" text-anchor="middle" font-size="6.2" font-weight="600" fill="{ink}" {FONT}>Explore work &#8594;</text>
+  <circle cx="51" cy="231" r="2.2" fill="{brown}"/><rect x="58" y="229.5" width="110" height="3.4" rx="1.7" fill="#C9C0B4"/>
+  <rect x="236" y="196" width="136" height="44" rx="10" fill="#F6F1EA"/><rect x="236" y="232" width="136" height="26" fill="#EDE5DA"/>
+  <path d="M270 258 L274 200 Q276 184 296 180 L304 178 L320 178 L328 180 Q348 184 350 200 L354 258 Z" fill="{night}"/>
+  <path d="M304 178 L312 206 L320 178 Z" fill="#FBF8F3"/>
+  <path d="M304 178 L312 206 L306 214 L298 182 Z M320 178 L312 206 L318 214 L326 182 Z" fill="#24211E"/>
+  <rect x="306" y="166" width="12" height="14" rx="4" fill="#E2BE9C"/>
+  <ellipse cx="312" cy="152" rx="15" ry="18" fill="#EAC9A7"/>
+  <path d="M296 150 Q294 128 312 128 Q331 128 329 148 Q324 138 312 139 Q301 139 296 150 Z" fill="#5A3B26"/>
+  <path d="M286 236 Q300 224 312 230 Q324 224 338 236" stroke="#3D3934" stroke-width="7" fill="none" stroke-linecap="round"/>'''
+  return _browser(inner, 'arkvital.com', p['bg'])
+
+
 ARTS = {'monshop': art_monshop, 'family': art_family, 'caf': art_caf, 'planplate': art_planplate,'varnote': art_varnote, 'blog': art_blog, 'map': art_map, 'bun': art_bun,
         'piano': art_piano, 'pound': art_pound, 'parrot': art_parrot, 'resto': art_resto,
         'screenplay': art_screenplay, 'lyrics': art_lyrics, 'rooms': art_rooms, 'models': art_models,
-        'feedback': art_feedback, 'boxing': art_boxing, 'cubes': art_cubes, 'party': art_party, 'pan': art_pan}
+        'feedback': art_feedback, 'boxing': art_boxing, 'cubes': art_cubes, 'party': art_party, 'pan': art_pan,
+        'personal': art_personal}
 
 
 def art(p):

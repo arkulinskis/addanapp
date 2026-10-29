@@ -781,5 +781,11 @@
 "{n} product": ["{n} produit", "{n} produits"],
 "{n} live": "{n} en ligne",
 "Visit {domain}": "Visiter {domain}",
-"What we built": "Ce que nous avons construit"
+"What we built": "Ce que nous avons construit",
+"A personal website for an engineer turned leadership coach. A bold editorial home page, four clear ways to work together and selected work, all built to turn a visit into a first call.": "Un site personnel pour un ingénieur devenu coach en leadership. Une page d'accueil éditoriale affirmée, quatre façons claires de travailler ensemble et une sélection de réalisations, le tout pensé pour transformer une visite en premier appel.",
+"Editorial home page with a portrait hero": "Page d'accueil éditoriale avec un portrait en vedette",
+"Services, selected work and writing pages": "Pages services, réalisations et articles",
+"Fast static pages in light and dark themes": "Pages statiques rapides, en thème clair et sombre",
+"Personal brand": "Image personnelle",
+"Consulting": "Conseil"
 }
