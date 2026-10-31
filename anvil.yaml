@@ -287,7 +287,7 @@ native_deps:
       try { l = localStorage.getItem('aa.lang'); } catch (e) {}
       if (l === 'fr' || l === 'ru' || l === 'lv') {
         document.documentElement.lang = l;
-        window.aaLangPack = fetch('_/theme/lang-' + l + '.json?v=5').then(function (r) {
+        window.aaLangPack = fetch('_/theme/lang-' + l + '.json?v=6').then(function (r) {
           if (!r.ok) throw new Error('lang ' + r.status);
           return r.text();
         });
@@ -682,6 +682,22 @@ native_deps:
          "position": 4,
          "item": {
           "@type": "SoftwareApplication",
+          "name": "ArviStay",
+          "url": "https://arvistay.com",
+          "description": "Hotel websites that sell the stay, not just the room. An owner types the address, and ArviStay maps the neighbourhood, drafts the texts and builds a phone-first site with rooms, 360° tours, a 3D map and an hour-by-hour stay plan for each kind of guest.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "SaaS, Website builder, 3D maps, Working businesses",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web"
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 5,
+         "item": {
+          "@type": "SoftwareApplication",
           "name": "MonShop",
           "url": "https://monshop.ca",
           "description": "A two-way local marketplace. Vendors post their latest arrivals, specials and updates, and shoppers discover them on a live map of their neighbourhood.",
@@ -695,7 +711,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 5,
+         "position": 6,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Adorable Science",
@@ -711,7 +727,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 6,
+         "position": 7,
          "item": {
           "@type": "SoftwareApplication",
           "name": "CityCrossers",
@@ -727,7 +743,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 7,
+         "position": 8,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Plan Friday",
@@ -743,7 +759,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 8,
+         "position": 9,
          "item": {
           "@type": "SoftwareApplication",
           "name": "OScreenplay",
@@ -759,7 +775,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 9,
+         "position": 10,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Yabanana",
@@ -775,7 +791,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 10,
+         "position": 11,
          "item": {
           "@type": "SoftwareApplication",
           "name": "RoboIntern",
@@ -791,7 +807,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 11,
+         "position": 12,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Varnote",
@@ -807,7 +823,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 12,
+         "position": 13,
          "item": {
           "@type": "SoftwareApplication",
           "name": "FunToPlan",
@@ -823,7 +839,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 13,
+         "position": 14,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Subsudo",
@@ -839,7 +855,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 14,
+         "position": 15,
          "item": {
           "@type": "SoftwareApplication",
           "name": "QuickyBricks",
@@ -855,7 +871,23 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 15,
+         "position": 16,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "ToonyLoony",
+          "url": "https://toonyloony.com",
+          "description": "A cartoon studio for kids, right in the browser. Build characters from parts on joints and sticks, animate them with keyframes, then hold and drag them across the stage to record a movie with voices, sound effects and music.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Kids, Animation, Creative tools, Engaging games",
+          "applicationCategory": "GameApplication",
+          "operatingSystem": "Web"
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 17,
          "item": {
           "@type": "SoftwareApplication",
           "name": "BusyBun",
@@ -871,7 +903,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 16,
+         "position": 18,
          "item": {
           "@type": "SoftwareApplication",
           "name": "DoremiRoad",
@@ -887,7 +919,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 17,
+         "position": 19,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Topameal",
@@ -903,7 +935,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 18,
+         "position": 20,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Logsteps",
@@ -919,7 +951,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 19,
+         "position": 21,
          "item": {
           "@type": "SoftwareApplication",
           "name": "PoundFighter",
@@ -935,7 +967,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 20,
+         "position": 22,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Parapeet",
@@ -951,23 +983,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 21,
-         "item": {
-          "@type": "SoftwareApplication",
-          "name": "CAF Guide",
-          "url": "https://caf-guide.anvil.app",
-          "description": "A mobile-friendly learning app about the Canadian Armed Forces: ranks, structure, history and culture, in short quizzes you can do anywhere.",
-          "creator": {
-           "@id": "https://addanapp.com/#org"
-          },
-          "keywords": "Mobile-first, EdTech, Quizzes, Mobile-style apps",
-          "applicationCategory": "LifestyleApplication",
-          "operatingSystem": "Web"
-         }
-        },
-        {
-         "@type": "ListItem",
-         "position": 22,
+         "position": 23,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Dilettante",
@@ -983,7 +999,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 23,
+         "position": 24,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Arkvital",

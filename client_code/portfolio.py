@@ -22,45 +22,59 @@ PROJECTS = [
               'Opening-hour rules, special days and auto-approval', 'Public reservation and content API'],
     'tags': ['SaaS', 'Public API', 'Admin portal'], 'color': '#1F6B63', 'bg': '#DCE7E8', 'art': 'planplate',
   },
-  # 'new' shows a badge (the five added 2026-10-29). 'featured' (1-3) puts a project in the case studies above the index.
+  # 'new' shows a badge (ArviStay and ToonyLoony, added 2026-10-31). 'featured' (1-3) puts a project in the case studies above the index.
   # A project without a 'domain' shows "Launching soon" and isn't a link. The index groups projects by category.
   {
-    'key': 'prepsto', 'name': 'Prepsto', 'domain': 'prepsto.com', 'cat': 'business', 'new': True, 'featured': 2,
+    'key': 'prepsto', 'name': 'Prepsto', 'domain': 'prepsto.com', 'cat': 'business', 'featured': 2,
     'blurb': 'A feedback inbox that turns what users say into user stories. Drop one script tag on any site, triage everything on a board, then export ready-to-build stories to Jira, Gherkin or an AI-ready bundle.',
     'built': ['Embeddable feedback widget, one script tag', 'Inbox and drag-and-drop board with sentiment and themes',
               'Story editor with exports to Jira, Gherkin, CSV and JSON'],
     'tags': ['SaaS', 'Embeddable widget', 'Rule engine'], 'color': '#2B59FF', 'bg': '#EBF0FF', 'art': 'feedback',
   },
   {
-    'key': 'vitalrpa', 'name': 'VitalRPA', 'domain': 'vitalrpa.com', 'cat': 'business', 'new': True,
+    'key': 'vitalrpa', 'name': 'VitalRPA', 'domain': 'vitalrpa.com', 'cat': 'business',
     'blurb': 'Robots that watch every website you run, around the clock. They check uptime, certificates, domains and security headers with no code on the site, a tiny optional beacon adds real visitors and JavaScript errors, and playbooks email, ping Slack or recheck the moment something breaks.',
     'built': ['Uptime, certificate, domain and security-header robots', 'Visitor beacon under 1 KB, with no cookies',
               'Incident playbooks, cron heartbeats and public status pages'],
     'tags': ['SaaS', 'Monitoring', 'Automation'], 'color': '#0A5CE6', 'bg': '#E6EEF8', 'art': 'monitor',
   },
   {
-    'key': 'subsudo', 'name': 'Subsudo', 'domain': 'subsudo.com', 'cat': 'games', 'new': True, 'featured': 3,
+    'key': 'arvistay', 'name': 'ArviStay', 'domain': 'arvistay.com', 'cat': 'business', 'new': True,
+    'blurb': 'Hotel websites that sell the stay, not just the room. An owner types the address, and ArviStay maps the neighbourhood, drafts the texts and builds a phone-first site with rooms, 360° tours, a 3D map and an hour-by-hour stay plan for each kind of guest.',
+    'built': ['Neighbourhood scan from OpenStreetMap and Wikipedia', '3D neighbourhood map, 360° room tours and galleries',
+              'Hour-by-hour stay plans for 30 kinds of guest'],
+    'tags': ['SaaS', 'Website builder', '3D maps'], 'color': '#1F5C55', 'bg': '#F4EDE0', 'art': 'hotel',
+  },
+  {
+    'key': 'subsudo', 'name': 'Subsudo', 'domain': 'subsudo.com', 'cat': 'games', 'featured': 3,
     'blurb': 'A virtual fight club. Shadow-box one round with your phone in your fist or in front of your laptop camera, send it as a sealed call-out to anyone in the world, and three automatic judges score the bout.',
     'built': ['Punch detection from phone motion sensors', 'In-browser hand tracking, the video never leaves the device',
               "Elo rankings by city and world, belts and judges' cards"],
     'tags': ['Game', 'Motion sensors', 'Computer vision'], 'color': '#8E1B1B', 'bg': '#EFE9DF', 'art': 'boxing',
   },
   {
-    'key': 'quickybricks', 'name': 'QuickyBricks', 'domain': 'quickybricks.com', 'cat': 'games', 'new': True,
+    'key': 'quickybricks', 'name': 'QuickyBricks', 'domain': 'quickybricks.com', 'cat': 'games',
     'blurb': 'A silly 3D game for kids and their grown-ups. Every character is a squishy cube that does something different on each of its six sides, and cubes that hold hands in the shared World grow a family.',
     'built': ['Real-time 3D cubes built with three.js', 'Cube maker with colours, faces and a doodle pad',
               'Shared World where families grow across players'],
     'tags': ['3D', 'Multiplayer', 'Kids'], 'color': '#F0428C', 'bg': '#FFF4E0', 'art': 'cubes',
   },
   {
-    'key': 'planfriday', 'name': 'Plan Friday', 'domain': 'planfriday.com', 'cat': 'tools', 'new': True,
+    'key': 'toonyloony', 'name': 'ToonyLoony', 'domain': 'toonyloony.com', 'cat': 'games', 'new': True,
+    'blurb': 'A cartoon studio for kids, right in the browser. Build characters from parts on joints and sticks, animate them with keyframes, then hold and drag them across the stage to record a movie with voices, sound effects and music.',
+    'built': ['Character builder on joints-and-sticks rigs', 'Keyframe animator with a library of moves',
+              'Hold-to-record studio with voices, lip-sync and video export'],
+    'tags': ['Kids', 'Animation', 'Creative tools'], 'color': '#4757FF', 'bg': '#EEF1FF', 'art': 'toon',
+  },
+  {
+    'key': 'planfriday', 'name': 'Plan Friday', 'domain': 'planfriday.com', 'cat': 'tools',
     'blurb': 'The easy way to plan a weekend dinner with any group of friends. Send one link: friends pick the slots that suit them and say what they are bringing, with no account, and the host locks in the best night.',
     'built': ['Party pages guests open without an account', 'Who-is-free grid with a best-day pick',
               'Potluck menu with diet warnings and a printable sheet'],
     'tags': ['Social', 'Group planning', 'No account needed'], 'color': '#C62A1F', 'bg': '#F2E8D3', 'art': 'party',
   },
   {
-    'key': 'topameal', 'name': 'Topameal', 'domain': 'topameal.com', 'cat': 'mobile', 'new': True,
+    'key': 'topameal', 'name': 'Topameal', 'domain': 'topameal.com', 'cat': 'mobile',
     'blurb': 'A shop-and-cook planner built around one fancy sauce over the rice, pasta and potatoes you already have. It writes one merged shopping list, orders the week so nothing spoils, and counts the dishes you will wash.',
     'built': ['A week of one-pan toppers, picked for you', 'One merged shopping list in walking order',
               'Shared household lists that tick off live'],
@@ -151,19 +165,13 @@ PROJECTS = [
     'tags': ['Mobile-first', 'Language learning', 'EdTech'], 'color': '#3F9A35', 'bg': '#E4F2DD', 'art': 'parrot',
   },
   {
-    'key': 'cafguide', 'name': 'CAF Guide', 'domain': 'caf-guide.anvil.app', 'cat': 'mobile',
-    'blurb': 'A mobile-friendly learning app about the Canadian Armed Forces: ranks, structure, history and culture, in short quizzes you can do anywhere.',
-    'built': ['Bite-sized lessons and quizzes', 'Works on any phone, no install needed', 'Progress tracking by topic'],
-    'tags': ['Mobile-first', 'EdTech', 'Quizzes'], 'color': '#5B6B2F', 'bg': '#ECEEDF', 'art': 'caf',
-  },
-  {
     'key': 'dilettante', 'name': 'Dilettante', 'domain': 'dilettante.com', 'cat': 'sites',
     'blurb': 'A classic restaurant website with live PlanPlate reservations built in. Guests can browse the menu and book a table without leaving the page.',
     'built': ['Classic, fast restaurant website', 'Live PlanPlate reservation widget', 'Menus and events from the content API'],
     'tags': ['Website', 'API integration', 'Hospitality'], 'color': '#7C2D2D', 'bg': '#F3EAE1', 'art': 'resto',
   },
   {
-    'key': 'arkvital', 'name': 'Arkvital', 'domain': 'arkvital.com', 'cat': 'sites', 'new': True,
+    'key': 'arkvital', 'name': 'Arkvital', 'domain': 'arkvital.com', 'cat': 'sites',
     'blurb': 'A personal website for an engineer turned leadership coach. A bold editorial home page, four clear ways to work together and selected work, all built to turn a visit into a first call.',
     'built': ['Editorial home page with a portrait hero', 'Services, selected work and writing pages',
               'Fast static pages in light and dark themes'],
@@ -508,42 +516,6 @@ def art_family(p):
   <rect x="266" y="210" width="84" height="20" rx="10" fill="{p['bg']}"/>
   <text x="308" y="222.6" text-anchor="middle" font-size="6.5" font-weight="700" fill="{c}" {FONT}>Reward: movie night</text>'''
   return _browser(inner, 'funtoplan.com', p['bg'])
-
-
-LEAF = ('M0,-20 L4,-12 L9,-14 L7,-4 L15,-8 L13,-2 L19,0 L10,6 L12,10 L2,8 L1,18 L-1,18 L-2,8 L-12,10 L-10,6 '
-        'L-19,0 L-13,-2 L-15,-8 L-7,-4 L-9,-14 L-4,-12 Z')
-
-
-def art_caf(p):
-  c = p['color']
-  opts = ''
-  for i, (label, state) in enumerate([('Corporal', ''), ('Sergeant', 'ok'), ('Master Corporal', '')]):
-    y = 158 + i * 22
-    if state == 'ok':
-      opts += (f'<rect x="152" y="{y}" width="96" height="17" rx="8.5" fill="#E2F5EC" stroke="#0E9F6E" stroke-width="1.3"/>'
-               f'<circle cx="238" cy="{y + 8.5}" r="5" fill="#0E9F6E"/><path d="M235.6 {y + 8.7} l1.7 1.7 3-3.3" stroke="#fff" stroke-width="1.3" fill="none"/>')
-    else:
-      opts += f'<rect x="152" y="{y}" width="96" height="17" rx="8.5" fill="#fff" stroke="#E2E5DA"/>'
-    opts += f'<text x="161" y="{y + 11.4}" font-size="6.8" font-weight="{"700" if state else "500"}" fill="#182031" {FONT}>{label}</text>'
-  chevrons = ''.join(f'<path d="M-16 {j * 9} L0 {j * 9 + 10} L16 {j * 9}" stroke="#1F2A16" stroke-width="5" fill="none" stroke-linejoin="round"/>'
-                     for j in range(3))
-  inner = f'''<rect x="144" y="40" width="112" height="20" fill="#fff"/>
-  <text x="152" y="53" font-size="7" font-weight="800" fill="#182031" {FONT}>Ranks &amp; insignia</text>
-  <text x="248" y="53" text-anchor="end" font-size="6" font-weight="600" fill="#8C94A3" {FONT}>4/10</text>
-  <rect x="152" y="60" width="96" height="4" rx="2" fill="#E9EBE0"/><rect x="152" y="60" width="38" height="4" rx="2" fill="{c}"/>
-  <rect x="152" y="72" width="96" height="62" rx="10" fill="{p['bg']}"/>
-  <g transform="translate(200 90)">{chevrons}</g>
-  <text x="152" y="148" font-size="7.2" font-weight="700" fill="#182031" {FONT}>Which rank wears this?</text>
-  {opts}
-  <rect x="152" y="230" width="96" height="18" rx="9" fill="{c}"/>
-  <text x="200" y="241.8" text-anchor="middle" font-size="7" font-weight="700" fill="#fff" {FONT}>Next question</text>'''
-  extra = (f'<g transform="translate(78 78) scale(1.9) rotate(-12)"><path d="{LEAF}" fill="#C8202F" opacity=".16"/></g>'
-           f'<g transform="translate(330 176) scale(2.4) rotate(10)"><path d="{LEAF}" fill="#C8202F" opacity=".13"/></g>'
-           f'<g transform="translate(300 64)"><rect width="76" height="28" rx="14" fill="#fff"/>'
-           f'<text x="38" y="18" text-anchor="middle" font-size="8" font-weight="800" fill="{c}" {FONT}>Streak: 5 days</text></g>'
-           f'<g transform="translate(26 172)"><rect width="88" height="28" rx="14" fill="#fff"/>'
-           f'<text x="44" y="18" text-anchor="middle" font-size="8" font-weight="700" fill="#182031" {FONT}>History · 80%</text></g>')
-  return _phone(inner, p['bg'], extra)
 
 
 MONO = "font-family=\"'Courier Prime', 'Courier New', Courier, monospace\""
@@ -1080,11 +1052,153 @@ def art_monitor(p):
   return _browser(inner, 'vitalrpa.com', p['bg'])
 
 
-ARTS = {'monshop': art_monshop, 'family': art_family, 'caf': art_caf, 'planplate': art_planplate,'varnote': art_varnote, 'blog': art_blog, 'map': art_map, 'bun': art_bun,
+def art_hotel(p):
+  """A hotel site: arched-window hero, 'who is coming?' chips and the hour-by-hour stay plan."""
+  c, gilt, ink, paper, muted = p['color'], '#B4832C', '#1D2B28', '#FBF6EC', '#6B6F66'
+  serif = "font-family=\"'Cormorant Garamond', 'Instrument Serif', Georgia, serif\""
+  nav = ''.join(f'<text x="{x}" y="53.6" font-size="5.2" font-weight="500" fill="{ink}" letter-spacing=".8" {FONT}>{name}</text>'
+                for x, name in [(250, 'ROOMS'), (278, 'STAY'), (302, 'MAP')])
+  chips, x = '', 166
+  for name, on in [('Foodie', 1), ('Couple', 0), ('Art lover', 0), ('Family', 0)]:
+    w = round(len(name) * 3.5 + 14, 1)
+    chips += (f'<rect x="{x}" y="80" width="{w}" height="14" rx="7" fill="{c if on else paper}" stroke="{c}" stroke-width=".9"/>'
+              f'<text x="{round(x + w / 2, 1)}" y="89.2" text-anchor="middle" font-size="6" font-weight="{600 if on else 500}" '
+              f'fill="{paper if on else c}" {FONT}>{name}</text>')
+    x = round(x + w + 5, 1)
+  plan = ''
+  for i, (time, what, walk) in enumerate([('15:00', 'Check-in and a welcome tea', ''),
+                                         ('16:30', 'Art Nouveau facades walk', '6 min'),
+                                         ('19:30', 'Dinner at the market hall', '9 min'),
+                                         ('22:00', 'Nightcap with a rooftop view', '2 min')]):
+    y = 136 + i * 19
+    plan += (f'<circle cx="172" cy="{y - 2}" r="3" fill="{paper}" stroke="{gilt}" stroke-width="1.3"/>'
+             f'<text x="181" y="{y}" font-size="5.8" font-weight="700" fill="{gilt}" {FONT}>{time}</text>'
+             f'<text x="202" y="{y}" font-size="6.4" fill="{ink}" {FONT}>{what}</text>')
+    if walk:
+      plan += f'<text x="360" y="{y}" text-anchor="end" font-size="5.4" fill="{muted}" {FONT}>{walk} on foot</text>'
+  arch = 'M40 250 V122 A56 56 0 0 1 152 122 V250 Z'
+  roofs = ('M40 250 V178 L50 172 V164 L60 156 L70 164 V176 H80 V152 L90 140 L100 152 V170 H110 V160 '
+           'Q118 144 126 160 V176 H136 V166 L144 160 L152 164 V250 Z')
+  windows = ''.join(f'<rect x="{wx}" y="{wy}" width="3" height="5" rx="1.5" fill="{gilt}" opacity=".85"/>'
+                    for wx, wy in [(56, 182), (64, 182), (86, 160), (94, 160), (86, 176), (116, 178), (124, 186), (140, 180)])
+  inner = f'''<rect x="28" y="42" width="344" height="216" fill="{p['bg']}"/>
+  <rect x="28" y="42" width="344" height="18" fill="{paper}"/><rect x="28" y="59.6" width="344" height=".6" fill="{gilt}"/>
+  <text x="40" y="54" font-size="7.2" font-weight="600" fill="{c}" letter-spacing="1.8" {serif}>HOTEL AURELIA</text>
+  {nav}
+  <rect x="326" y="46.5" width="36" height="10.5" rx="5.25" fill="{c}"/>
+  <text x="344" y="53.7" text-anchor="middle" font-size="5.4" font-weight="600" fill="{paper}" {FONT}>Book</text>
+  <path d="{arch}" fill="#E9D6B4"/>
+  <circle cx="118" cy="104" r="10" fill="#F2C46B"/>
+  <path d="M62 112 q8 -5 16 0 q6 -4 12 0" stroke="#fff" stroke-width="3" fill="none" stroke-linecap="round" opacity=".8"/>
+  <path d="{roofs}" fill="{c}"/><line x1="90" y1="140" x2="90" y2="128" stroke="{c}" stroke-width="1.6"/>
+  {windows}
+  <path d="{arch}" fill="none" stroke="{gilt}" stroke-width="1.6"/>
+  <path d="M46 250 V123 A50 50 0 0 1 146 123 V250" fill="none" stroke="{gilt}" stroke-width=".6"/>
+  <rect x="58" y="224" width="76" height="16" rx="8" fill="{paper}"/>
+  <text x="96" y="234.6" text-anchor="middle" font-size="6" font-weight="600" fill="{ink}" {FONT}>&#9733; 9.4 &#183; Superb</text>
+  <text x="166" y="74" font-size="5.2" font-weight="600" fill="{gilt}" letter-spacing="1.2" {FONT}>WHO IS COMING?</text>
+  {chips}
+  <text x="166" y="116" font-size="13" font-style="italic" fill="{ink}" {serif}>Your stay, hour by hour</text>
+  <path d="M166 123 q10 -5 20 0 t20 0 t20 0" stroke="{gilt}" stroke-width=".9" fill="none"/>
+  <line x1="172" y1="134" x2="172" y2="191" stroke="{gilt}" stroke-width=".8" stroke-dasharray="2 2"/>
+  {plan}
+  <rect x="166" y="210" width="108" height="18" rx="9" fill="{c}"/>
+  <text x="220" y="221.4" text-anchor="middle" font-size="6.2" font-weight="600" fill="{paper}" {FONT}>Check dates on Booking</text>
+  <rect x="280" y="210" width="82" height="18" rx="9" fill="none" stroke="{c}"/>
+  <text x="321" y="221.4" text-anchor="middle" font-size="6.2" font-weight="600" fill="{c}" {FONT}>Walk it on the map</text>
+  <text x="166" y="244" font-size="5.6" fill="{muted}" {FONT}>Booking and payment, explained in three steps</text>'''
+  return _browser(inner, 'arvistay.com/s/aurelia', p['bg'])
+
+
+def _toon(x, y, col, ink, wave=False):
+  """A joints-and-sticks cartoon kid with its head at (x, y)."""
+  hand = (x + 16, y - 4) if wave else (x + 14, y + 27)
+  bones = [((x, y + 11), (x, y + 34)), ((x, y + 17), (x - 14, y + 28)), ((x, y + 17), hand),
+           ((x, y + 34), (x - 9, y + 51)), ((x, y + 34), (x + 9, y + 51))]
+  out = ''.join(f'<line x1="{a[0]}" y1="{a[1]}" x2="{b[0]}" y2="{b[1]}" stroke="{ink}" stroke-width="6.5" stroke-linecap="round"/>'
+                for a, b in bones)
+  out += ''.join(f'<line x1="{a[0]}" y1="{a[1]}" x2="{b[0]}" y2="{b[1]}" stroke="{col}" stroke-width="3.2" stroke-linecap="round"/>'
+                 for a, b in bones)
+  out += ''.join(f'<circle cx="{jx}" cy="{jy}" r="2.3" fill="#fff" stroke="{ink}" stroke-width="1.1"/>'
+                 for jx, jy in [(x, y + 17), (x, y + 34)])
+  out += (f'<circle cx="{x}" cy="{y}" r="11" fill="{col}" stroke="{ink}" stroke-width="2"/>'
+          f'<circle cx="{x - 4}" cy="{y - 1}" r="2.8" fill="#fff"/><circle cx="{x + 4}" cy="{y - 1}" r="2.8" fill="#fff"/>'
+          f'<circle cx="{x - 3.4}" cy="{y - .6}" r="1.4" fill="{ink}"/><circle cx="{x + 4.6}" cy="{y - .6}" r="1.4" fill="{ink}"/>'
+          f'<path d="M{x - 4} {y + 4} q4 3.6 8 0" stroke="{ink}" stroke-width="1.4" fill="none" stroke-linecap="round"/>')
+  return out
+
+
+def art_toon(p):
+  """The ToonyLoony studio: hold an actor and drag it to record its path while the clock runs."""
+  c, ink, yel, pink, green, red = p['color'], '#1A1D3A', '#FFC532', '#FF4FA3', '#1FBF63', '#FF3048'
+
+  def block(x, y, w, h, fill, r=6):
+    return (f'<rect x="{x}" y="{y + 3}" width="{w}" height="{h}" rx="{r}" fill="{ink}"/>'
+            f'<rect x="{x}" y="{y}" width="{w}" height="{h}" rx="{r}" fill="{fill}" stroke="{ink}" stroke-width="1.6"/>')
+
+  studs = ''.join(f'<circle cx="{sx}" cy="{sy}" r="1.3" fill="#D6DBFF"/>' for sx in range(36, 372, 16) for sy in range(66, 258, 16))
+  tabs = ''
+  for x, name, on in [(150, 'Cast', 0), (178, 'Animate', 0), (218, 'Studio', 1)]:
+    w = len(name) * 4 + 10
+    if on:
+      tabs += f'<rect x="{x - 5}" y="45.5" width="{w}" height="11" rx="3" fill="{yel}" stroke="{ink}" stroke-width="1.2"/>'
+    tabs += f'<text x="{x}" y="53.6" font-size="6.2" font-weight="800" fill="{ink}" {FONT}>{name}</text>'
+  moves = ''
+  for i, (name, on) in enumerate([('Wave', 0), ('Jump', 1), ('Spin', 0), ('Dance', 0)]):
+    y = 88 + i * 19
+    moves += (f'<rect x="306" y="{y}" width="48" height="14" rx="4" fill="{yel if on else "#fff"}" stroke="{ink}" stroke-width="1.2"/>'
+              f'<text x="313" y="{y + 9.6}" font-size="6.2" font-weight="{800 if on else 600}" fill="{ink}" {FONT}>{name}</text>')
+  keys = ''.join(f'<rect x="{kx - 3}" y="{ky - 3}" width="6" height="6" fill="{col}" stroke="{ink}" stroke-width="1" transform="rotate(45 {kx} {ky})"/>'
+                 for kx, ky, col in [(84, 214, pink), (128, 214, pink), (196, 214, pink), (110, 228, c), (176, 228, c)])
+  wave = ''.join(f'<rect x="{62 + i * 5}" y="{242 - h / 2}" width="2.6" height="{h}" rx="1.3" fill="{green}"/>'
+                 for i, h in enumerate([3, 5, 7, 4, 6, 8, 5, 3, 6, 7, 4, 5, 8, 6, 3, 5, 7, 4, 6, 5, 3, 6, 8, 5, 4, 6, 7, 3, 5, 6,
+                                        4, 7, 5, 3, 6, 8, 4, 5, 6, 3, 7, 5, 4, 6, 3, 5, 7, 6, 4, 5, 3, 6, 8, 5, 4, 6]))
+  inner = f'''<rect x="28" y="42" width="344" height="216" fill="{p['bg']}"/>{studs}
+  <rect x="28" y="42" width="344" height="18" fill="#fff"/><rect x="28" y="59.4" width="344" height="1" fill="{ink}"/>
+  <text x="38" y="55" font-size="9.5" font-weight="900" fill="{c}" letter-spacing="-.2" {FONT}>ToonyLoony</text>
+  {tabs}
+  <rect x="326" y="45.5" width="36" height="11" rx="3" fill="{c}" stroke="{ink}" stroke-width="1.2"/>
+  <text x="344" y="53.6" text-anchor="middle" font-size="6" font-weight="800" fill="#fff" {FONT}>Share</text>
+  {block(38, 68, 252, 126, '#BFE6FF', 8)}
+  <circle cx="262" cy="92" r="10" fill="{yel}" stroke="{ink}" stroke-width="1.4"/>
+  <ellipse cx="140" cy="84" rx="14" ry="5" fill="#fff"/><ellipse cx="148" cy="80" rx="8" ry="4.5" fill="#fff"/>
+  <path d="M39 170 Q100 146 166 164 T289 154 V186 Q289 193 282 193 H45 Q39 193 39 186 Z" fill="{green}"/>
+  <rect x="38" y="68" width="252" height="126" rx="8" fill="none" stroke="{ink}" stroke-width="1.6"/>
+  <path d="M136 182 C156 192 172 158 196 146 S210 134 212 134" stroke="{red}" stroke-width="2" fill="none" stroke-dasharray="3 3" stroke-linecap="round"/>
+  {_toon(92, 110, pink, ink)}{_toon(212, 104, c, ink, wave=True)}
+  <circle cx="212" cy="128" r="8" fill="none" stroke="{red}" stroke-width="1.6"/><circle cx="212" cy="128" r="3.2" fill="{red}" opacity=".6"/>
+  <g transform="translate(228 122)"><rect width="52" height="13" rx="6.5" fill="#fff" stroke="{ink}" stroke-width="1.2"/>
+    <text x="26" y="9" text-anchor="middle" font-size="5.8" font-weight="800" fill="{ink}" {FONT}>Hold &amp; drag</text></g>
+  <rect x="52" y="74" width="50" height="16" rx="8" fill="#fff" stroke="{ink}" stroke-width="1.2"/>
+  <path d="M80 89.4 L86 97 L88 89.4" fill="#fff" stroke="{ink}" stroke-width="1.2" stroke-linejoin="round"/>
+  <rect x="80.6" y="88" width="7" height="2" fill="#fff"/>
+  <text x="77" y="84.6" text-anchor="middle" font-size="6" font-weight="800" fill="{ink}" {FONT}>Watch this!</text>
+  <g transform="translate(176 73)"><rect width="56" height="14" rx="7" fill="{red}" stroke="{ink}" stroke-width="1.2"/>
+    <circle cx="9" cy="7" r="2.6" fill="#fff"/><text x="15" y="9.8" font-size="6.4" font-weight="900" fill="#fff" {FONT}>REC 0:07</text></g>
+  {block(298, 68, 64, 126, '#fff')}
+  <text x="306" y="81" font-size="6.8" font-weight="900" fill="{ink}" {FONT}>Moves</text>
+  {moves}
+  <text x="306" y="173" font-size="5.6" font-weight="700" fill="#5A5F86" {FONT}>Speed</text>
+  <rect x="306" y="178" width="48" height="4" rx="2" fill="#E2E6FF"/><rect x="306" y="178" width="30" height="4" rx="2" fill="{c}"/>
+  <circle cx="336" cy="180" r="4" fill="{yel}" stroke="{ink}" stroke-width="1.2"/>
+  {block(38, 202, 324, 48, '#fff')}
+  <circle cx="50" cy="214" r="4.6" fill="{pink}" stroke="{ink}" stroke-width="1.1"/>
+  <rect x="62" y="210.5" width="190" height="7" rx="3.5" fill="#FFD3E8"/>
+  <circle cx="50" cy="228" r="4.6" fill="{c}" stroke="{ink}" stroke-width="1.1"/>
+  <rect x="62" y="224.5" width="150" height="7" rx="3.5" fill="#D9DCFF"/><rect x="150" y="224.5" width="62" height="7" rx="3.5" fill="{red}" opacity=".55"/>
+  <path d="M48 240 v4 l3 -2 z M53 239.6 v5" stroke="{green}" stroke-width="1.2" fill="{green}"/>
+  {wave}{keys}
+  <line x1="212" y1="207" x2="212" y2="248" stroke="{red}" stroke-width="1.4"/>
+  <path d="M207.5 205 h9 l-4.5 5 z" fill="{red}"/>
+  <text x="356" y="216" text-anchor="end" font-size="5.6" font-weight="800" fill="{ink}" {FONT}>0:07</text>'''
+  return _browser(inner, 'toonyloony.com · studio', p['bg'])
+
+
+ARTS = {'monshop': art_monshop, 'family': art_family, 'planplate': art_planplate,'varnote': art_varnote, 'blog': art_blog, 'map': art_map, 'bun': art_bun,
         'piano': art_piano, 'pound': art_pound, 'parrot': art_parrot, 'resto': art_resto,
         'screenplay': art_screenplay, 'lyrics': art_lyrics, 'rooms': art_rooms, 'models': art_models,
         'feedback': art_feedback, 'boxing': art_boxing, 'cubes': art_cubes, 'party': art_party, 'pan': art_pan,
-        'personal': art_personal, 'monitor': art_monitor}
+        'personal': art_personal, 'monitor': art_monitor, 'hotel': art_hotel, 'toon': art_toon}
 
 
 def art(p):
