@@ -279,6 +279,8 @@ metadata:
 name: Addanapp
 native_deps:
   head_html: |-
+    <!-- Prepsto feedback panel: the footer's Suggest an idea link (data-prepsto-open) opens it -->
+    <script src="https://prepsto.com/_/theme/widget.js" data-prepsto="e4xsnwm" data-button="false" data-label="Suggest an idea" async></script>
     <script>
     /* Language: English is built in. Only if the visitor picked another language (client_code/i18n.py)
        start downloading its pack now, in parallel with the app. Bump ?v= together with i18n.VERSION. */
@@ -287,7 +289,7 @@ native_deps:
       try { l = localStorage.getItem('aa.lang'); } catch (e) {}
       if (l === 'fr' || l === 'ru' || l === 'lv') {
         document.documentElement.lang = l;
-        window.aaLangPack = fetch('_/theme/lang-' + l + '.json?v=6').then(function (r) {
+        window.aaLangPack = fetch('_/theme/lang-' + l + '.json?v=7').then(function (r) {
           if (!r.ok) throw new Error('lang ' + r.status);
           return r.text();
         });

@@ -46,6 +46,7 @@
 "AI tools help us draft code, tests, data migrations and documentation, and explore alternatives quickly. An engineer directs that work, reviews every change line by line, runs the tests and checks security before anything reaches you. AI makes us faster. It never makes the decisions.": "Les outils d'IA nous aident à rédiger le code, les tests, les migrations de données et la documentation, et à explorer rapidement des solutions. Un ingénieur dirige ce travail, revoit chaque changement ligne par ligne, exécute les tests et vérifie la sécurité avant que quoi que ce soit ne vous parvienne. L'IA nous rend plus rapides. Elle ne prend jamais les décisions.",
 "AI used quietly, or not at all": "L'IA utilisée en douce, ou pas du tout",
 "AI-accelerated build, then human review and testing. Follow it live.": "Développement accéléré par l'IA, puis revue et tests par un humain. Suivez tout en direct.",
+"Suggest an idea": "Suggérer une idée",
 "AI-accelerated. Human-validated.": "Accéléré par l'IA. Validé par des humains.",
 "AI-built · human-validated": "Créé par l'IA · validé par un humain",
 "API integration": "Intégration d'API",

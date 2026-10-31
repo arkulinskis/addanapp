@@ -46,6 +46,7 @@
 "AI tools help us draft code, tests, data migrations and documentation, and explore alternatives quickly. An engineer directs that work, reviews every change line by line, runs the tests and checks security before anything reaches you. AI makes us faster. It never makes the decisions.": "ИИ-инструменты помогают нам писать код, тесты, миграции данных и документацию и быстро перебирать варианты. Инженер руководит этой работой, построчно проверяет каждое изменение, запускает тесты и проверяет безопасность, прежде чем что-либо попадёт к вам. ИИ делает нас быстрее. Решения он не принимает никогда.",
 "AI used quietly, or not at all": "ИИ используют тайком или не используют вовсе",
 "AI-accelerated build, then human review and testing. Follow it live.": "Разработка с ускорением от ИИ, затем проверка и тестирование человеком. Следите в реальном времени.",
+"Suggest an idea": "Предложить идею",
 "AI-accelerated. Human-validated.": "Ускорено ИИ. Проверено людьми.",
 "AI-built · human-validated": "Создано ИИ · проверено человеком",
 "API integration": "Интеграция API",
