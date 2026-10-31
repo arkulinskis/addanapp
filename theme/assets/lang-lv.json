@@ -46,6 +46,7 @@
 "AI tools help us draft code, tests, data migrations and documentation, and explore alternatives quickly. An engineer directs that work, reviews every change line by line, runs the tests and checks security before anything reaches you. AI makes us faster. It never makes the decisions.": "MI rīki palīdz mums sagatavot kodu, testus, datu migrācijas un dokumentāciju, kā arī ātri izpētīt alternatīvas. Inženieris vada šo darbu, pārskata katru izmaiņu rindu pa rindai, palaiž testus un pārbauda drošību, pirms kaut kas nonāk pie jums. MI padara mūs ātrākus. Lēmumus tas nepieņem nekad.",
 "AI used quietly, or not at all": "MI izmanto klusām vai neizmanto nemaz",
 "AI-accelerated build, then human review and testing. Follow it live.": "MI paātrināta izstrāde, tad cilvēka pārskatīšana un testēšana. Sekojiet tiešsaistē.",
+"Suggest an idea": "Ieteikt ideju",
 "AI-accelerated. Human-validated.": "MI paātrināts. Cilvēka apstiprināts.",
 "AI-built · human-validated": "MI veidots · cilvēka apstiprināts",
 "API integration": "API integrācija",

@@ -112,7 +112,7 @@ SHELL = f'''
       </div>
       <div class="base">
         <span>&copy; <span class="js-year"></span> {t('Addanapp · Custom software development, Montréal')}</span>
-        <span>{t('AI-accelerated. Human-validated.')} <a href="javascript:void(0)" data-lk-open="overview">{t('Privacy &amp; Terms')}</a></span>
+        <span>{t('AI-accelerated. Human-validated.')} <a href="https://prepsto.com/#f/e4xsnwm" target="_blank" rel="noopener" data-prepsto-open>{t('Suggest an idea')}</a> · <a href="javascript:void(0)" data-lk-open="overview">{t('Privacy &amp; Terms')}</a></span>
       </div>
     </div>
   </footer>
