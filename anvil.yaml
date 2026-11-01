@@ -289,7 +289,7 @@ native_deps:
       try { l = localStorage.getItem('aa.lang'); } catch (e) {}
       if (l === 'fr' || l === 'ru' || l === 'lv') {
         document.documentElement.lang = l;
-        window.aaLangPack = fetch('_/theme/lang-' + l + '.json?v=8').then(function (r) {
+        window.aaLangPack = fetch('_/theme/lang-' + l + '.json?v=9').then(function (r) {
           if (!r.ok) throw new Error('lang ' + r.status);
           return r.text();
         });
@@ -924,6 +924,54 @@ native_deps:
          "position": 19,
          "item": {
           "@type": "SoftwareApplication",
+          "name": "Snackpuncher",
+          "url": "https://snackpuncher.anvil.app",
+          "description": "A VR boxing quest against an army of googly-eyed fast food. Punch, duck and block your way across ten lands in a Meta Quest headset, free 41 villagers and collect 100 treasures, while a workout log counts every muscle you used.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "VR, Fitness, Game, VR & mixed reality",
+          "applicationCategory": "GameApplication",
+          "operatingSystem": "Web"
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 20,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "WallTracer",
+          "url": "https://walltracer.anvil.app",
+          "description": "A virtual projector for tracing pictures onto real walls. Pin a picture to your wall at its true size in a Meta Quest headset, lock it in place and trace it with a pencil, then pinch your free hand to hide it and check your lines.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Mixed reality, DIY, Image processing, VR & mixed reality",
+          "applicationCategory": "DesignApplication",
+          "operatingSystem": "Web"
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 21,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "MrBigStage",
+          "url": "https://mrbigstage.anvil.app",
+          "description": "Rehearse your talk in front of a 3D audience that reacts to you. Speak in VR or on a screen and get coached on pace, pauses, filler words, projection and eye contact, all blended into one confidence score.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "VR, Voice analysis, Coaching, VR & mixed reality",
+          "applicationCategory": "EducationalApplication",
+          "operatingSystem": "Web"
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 22,
+         "item": {
+          "@type": "SoftwareApplication",
           "name": "Topameal",
           "url": "https://topameal.com",
           "description": "A shop-and-cook planner built around one fancy sauce over the rice, pasta and potatoes you already have. It writes one merged shopping list, orders the week so nothing spoils, and counts the dishes you will wash.",
@@ -937,7 +985,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 20,
+         "position": 23,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Logsteps",
@@ -953,7 +1001,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 21,
+         "position": 24,
          "item": {
           "@type": "SoftwareApplication",
           "name": "PoundFighter",
@@ -969,7 +1017,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 22,
+         "position": 25,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Parapeet",
@@ -985,7 +1033,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 23,
+         "position": 26,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Dilettante",
@@ -1001,7 +1049,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 24,
+         "position": 27,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Arkvital",

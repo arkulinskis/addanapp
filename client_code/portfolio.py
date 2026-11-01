@@ -9,6 +9,7 @@ CATEGORIES = [
   ('business', t('Working businesses')),
   ('tools', t('Useful tools')),
   ('games', t('Engaging games')),
+  ('vr', t('VR & mixed reality')),
   ('mobile', t('Mobile-style apps')),
   ('sites', t('Websites')),
 ]
@@ -22,7 +23,7 @@ PROJECTS = [
               'Opening-hour rules, special days and auto-approval', 'Public reservation and content API'],
     'tags': ['SaaS', 'Public API', 'Admin portal'], 'color': '#1F6B63', 'bg': '#DCE7E8', 'art': 'planplate',
   },
-  # 'new' shows a badge (ArviStay and ToonyLoony, added 2026-10-31). 'featured' (1-3) puts a project in the case studies above the index.
+  # 'new' shows a badge (the VR apps Snackpuncher, WallTracer and MrBigStage, added 2026-11-01). 'featured' (1-3) puts a project in the case studies above the index.
   # A project without a 'domain' shows "Launching soon" and isn't a link. The index groups projects by category.
   {
     'key': 'prepsto', 'name': 'Prepsto', 'domain': 'prepsto.com', 'cat': 'business', 'featured': 2,
@@ -39,7 +40,7 @@ PROJECTS = [
     'tags': ['SaaS', 'Monitoring', 'Automation'], 'color': '#0A5CE6', 'bg': '#E6EEF8', 'art': 'monitor',
   },
   {
-    'key': 'arvistay', 'name': 'ArviStay', 'domain': 'arvistay.com', 'cat': 'business', 'new': True,
+    'key': 'arvistay', 'name': 'ArviStay', 'domain': 'arvistay.com', 'cat': 'business',
     'blurb': 'Hotel websites that sell the stay, not just the room. An owner types the address, and ArviStay maps the neighbourhood, drafts the texts and builds a phone-first site with rooms, 360° tours, a 3D map and an hour-by-hour stay plan for each kind of guest.',
     'built': ['Neighbourhood scan from OpenStreetMap and Wikipedia', '3D neighbourhood map, 360° room tours and galleries',
               'Hour-by-hour stay plans for 30 kinds of guest'],
@@ -60,7 +61,7 @@ PROJECTS = [
     'tags': ['3D', 'Multiplayer', 'Kids'], 'color': '#F0428C', 'bg': '#FFF4E0', 'art': 'cubes',
   },
   {
-    'key': 'toonyloony', 'name': 'ToonyLoony', 'domain': 'toonyloony.com', 'cat': 'games', 'new': True,
+    'key': 'toonyloony', 'name': 'ToonyLoony', 'domain': 'toonyloony.com', 'cat': 'games',
     'blurb': 'A cartoon studio for kids, right in the browser. Build characters from parts on joints and sticks, animate them with keyframes, then hold and drag them across the stage to record a movie with voices, sound effects and music.',
     'built': ['Character builder on joints-and-sticks rigs', 'Keyframe animator with a library of moves',
               'Hold-to-record studio with voices, lip-sync and video export'],
@@ -151,6 +152,28 @@ PROJECTS = [
     'blurb': 'A game for the musically inclined: learn theory by conquering a map. Play with a MIDI keyboard, your computer keys or touch.',
     'built': ['Web MIDI, keyboard and touch input', 'Lessons, notes, chords and ear training', 'Level editor for teachers'],
     'tags': ['EdTech', 'Web MIDI', 'Game'], 'color': '#6A4BF0', 'bg': '#ECE8FF', 'art': 'piano',
+  },
+  # VR & mixed reality: WebXR apps for Meta Quest (and any WebXR headset), each with a flat-screen mode too.
+  {
+    'key': 'snackpuncher', 'name': 'Snackpuncher', 'domain': 'snackpuncher.anvil.app', 'cat': 'vr', 'new': True,
+    'blurb': 'A VR boxing quest against an army of googly-eyed fast food. Punch, duck and block your way across ten lands in a Meta Quest headset, free 41 villagers and collect 100 treasures, while a workout log counts every muscle you used.',
+    'built': ['WebXR battles with jabs, hooks, uppercuts, ducks and blocks', 'Ten story lands, a growing village and 100 treasures',
+              'Passthrough mode, flat-screen play and a workout log'],
+    'tags': ['VR', 'Fitness', 'Game'], 'color': '#2F6D3A', 'bg': '#F6ECD6', 'art': 'snacks',
+  },
+  {
+    'key': 'walltracer', 'name': 'WallTracer', 'domain': 'walltracer.anvil.app', 'cat': 'vr', 'new': True,
+    'blurb': 'A virtual projector for tracing pictures onto real walls. Pin a picture to your wall at its true size in a Meta Quest headset, lock it in place and trace it with a pencil, then pinch your free hand to hide it and check your lines.',
+    'built': ['Passthrough placing with hit-testing and saved anchors', 'Picture editor with line, outline and tone looks, real size and a grid',
+              'Stencil library, lettering maker and a showcase of finished walls'],
+    'tags': ['Mixed reality', 'DIY', 'Image processing'], 'color': '#C4552D', 'bg': '#EFE9E1', 'art': 'wall',
+  },
+  {
+    'key': 'mrbigstage', 'name': 'MrBigStage', 'domain': 'mrbigstage.anvil.app', 'cat': 'vr', 'new': True,
+    'blurb': 'Rehearse your talk in front of a 3D audience that reacts to you. Speak in VR or on a screen and get coached on pace, pauses, filler words, projection and eye contact, all blended into one confidence score.',
+    'built': ['Seven rooms, from a boardroom to a 5,000-seat arena', 'Voice analysis in the browser: pace, pauses, fillers and pitch',
+              'An audience that leans in or checks its phones, plus Q&A and drills'],
+    'tags': ['VR', 'Voice analysis', 'Coaching'], 'color': '#E0261B', 'bg': '#F5F2EC', 'art': 'stage',
   },
   {
     'key': 'poundfighter', 'name': 'PoundFighter', 'domain': 'poundfighter.com', 'cat': 'mobile',
@@ -1194,11 +1217,173 @@ def art_toon(p):
   return _browser(inner, 'toonyloony.com · studio', p['bg'])
 
 
+# ---- VR & mixed reality: the scene is seen through a headset visor (nose cut-out at the bottom).
+VISOR = ('M64 34h272a32 32 0 0 1 32 32v116a32 32 0 0 1 -32 32h-80q-14 0 -21 -12l-6 -10q-7 -12 -29 -12'
+         't-29 12l-6 10q-7 12 -21 12h-80a32 32 0 0 1 -32 -32v-116a32 32 0 0 1 32 -32z')
+
+
+def _visor(inner, bg, cid, extra=''):
+  """inner is drawn in 400x250 space and clipped to the visor (x 32-368, y 34-214)."""
+  return f'''<svg viewBox="0 0 400 250" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid meet">
+  <rect width="400" height="250" fill="{bg}"/>{extra}
+  <defs><clipPath id="{cid}"><path d="{VISOR}"/></clipPath></defs>
+  <path d="{VISOR}" fill="#0B1220" opacity=".12" transform="translate(4 7)"/>
+  <g clip-path="url(#{cid})">{inner}</g>
+  <path d="{VISOR}" fill="none" stroke="#111827" stroke-width="7" stroke-linejoin="round"/>
+  <path d="M50 70 q2 -18 18 -22" stroke="#fff" stroke-width="3" fill="none" opacity=".45" stroke-linecap="round"/></svg>'''
+
+
+def _chip(x, y, w, text, fill, ink, size=6.4, anchor_end=False):
+  """A rounded HUD label; x is the left edge (or the right edge with anchor_end)."""
+  x0 = x - w if anchor_end else x
+  return (f'<rect x="{x0}" y="{y}" width="{w}" height="15" rx="7.5" fill="{fill}"/>'
+          f'<text x="{x0 + w / 2}" y="{y + 10.2}" text-anchor="middle" font-size="{size}" font-weight="800" fill="{ink}" {FONT}>{text}</text>')
+
+
+def _googly(x, y, r, ink):
+  """Two googly eyes looking different ways."""
+  return (f'<circle cx="{x - r * 1.05}" cy="{y}" r="{r}" fill="#fff" stroke="{ink}" stroke-width=".9"/>'
+          f'<circle cx="{x + r * 1.05}" cy="{y}" r="{r}" fill="#fff" stroke="{ink}" stroke-width=".9"/>'
+          f'<circle cx="{x - r * .75}" cy="{y + r * .35}" r="{r * .5}" fill="{ink}"/>'
+          f'<circle cx="{x + r * .8}" cy="{y - r * .3}" r="{r * .5}" fill="{ink}"/>')
+
+
+def _burger(x, y, s, ink):
+  h = s / 2
+  return (f'<path d="M{x - h} {y - s * .45} a{h} {s * .42} 0 0 1 {s} 0z" fill="#E2A04A" stroke="{ink}" stroke-width="1.2"/>'
+          f'<rect x="{x - h - 2}" y="{y - s * .48}" width="{s + 4}" height="{s * .1}" rx="{s * .05}" fill="#6DB24A" stroke="{ink}" stroke-width=".8"/>'
+          f'<rect x="{x - h}" y="{y - s * .38}" width="{s}" height="{s * .17}" rx="{s * .08}" fill="#7A4424" stroke="{ink}" stroke-width="1"/>'
+          f'<rect x="{x - h}" y="{y - s * .22}" width="{s}" height="{s * .22}" rx="{s * .1}" fill="#E2A04A" stroke="{ink}" stroke-width="1.2"/>'
+          + _googly(x, y - s * .66, s * .12, ink))
+
+
+def _fries(x, y, s, red, ink):
+  sticks = ''.join(f'<rect x="{x + dx * s - s * .05}" y="{y - s * (.98 - abs(dx) * .3)}" width="{s * .1}" height="{s * .5}" rx="{s * .03}" fill="#F2C53D" stroke="{ink}" stroke-width=".8"/>'
+                   for dx in (-.26, -.13, 0, .13, .26))
+  return (sticks + f'<polygon points="{x - s * .4},{y - s * .62} {x + s * .4},{y - s * .62} {x + s * .32},{y} {x - s * .32},{y}" fill="{red}" stroke="{ink}" stroke-width="1.2" stroke-linejoin="round"/>'
+          + _googly(x, y - s * .36, s * .11, ink))
+
+
+def _soda(x, y, s, red, ink):
+  return (f'<line x1="{x + s * .06}" y1="{y - s * .88}" x2="{x + s * .2}" y2="{y - s * 1.15}" stroke="{ink}" stroke-width="2.2" stroke-linecap="round"/>'
+          f'<polygon points="{x - s * .3},{y - s * .84} {x + s * .3},{y - s * .84} {x + s * .24},{y} {x - s * .24},{y}" fill="#FFFAF0" stroke="{ink}" stroke-width="1.2" stroke-linejoin="round"/>'
+          f'<polygon points="{x - s * .28},{y - s * .62} {x + s * .28},{y - s * .62} {x + s * .26},{y - s * .4} {x - s * .26},{y - s * .4}" fill="{red}"/>'
+          f'<rect x="{x - s * .34}" y="{y - s * .92}" width="{s * .68}" height="{s * .1}" rx="{s * .05}" fill="{red}" stroke="{ink}" stroke-width="1"/>'
+          + _googly(x, y - s * .26, s * .1, ink))
+
+
+def _glove(x, y, col, ink, flip=1):
+  return f'''<g transform="translate({x} {y}) scale({flip} 1)">
+    <rect x="-20" y="14" width="40" height="22" rx="4" fill="#FFFAF0" stroke="{ink}" stroke-width="1.6"/>
+    <rect x="-27" y="-24" width="54" height="42" rx="19" fill="{col}" stroke="{ink}" stroke-width="1.6"/>
+    <path d="M-27 -2 q-11 -3 -9 -15 q3 -9 13 -6" fill="{col}" stroke="{ink}" stroke-width="1.6"/>
+    <path d="M-14 -15 q9 -6 21 -2" stroke="#fff" stroke-width="3" fill="none" opacity=".35" stroke-linecap="round"/></g>'''
+
+
+def art_snacks(p):
+  c, red, gold, ink, cream = p['color'], '#D23A2A', '#B9862A', '#2B1D12', '#FFFAF0'
+  inner = f'''<rect width="400" height="250" fill="#CFE6F2"/>
+  <circle cx="262" cy="74" r="14" fill="#FFE08A"/>
+  <ellipse cx="160" cy="76" rx="24" ry="8" fill="#fff"/><ellipse cx="176" cy="71" rx="14" ry="7" fill="#fff"/>
+  <path d="M0 128 Q90 100 190 118 T400 108 V250 H0Z" fill="#B7D894"/>
+  <path d="M0 150 Q120 128 210 140 T400 136 V250 H0Z" fill="#9CC779"/>
+  <path d="M58 112 l7 -16 l7 16z M300 108 l8 -18 l8 18z M330 114 l6 -13 l6 13z" fill="{c}"/>
+  <polygon points="192,118 208,118 300,250 100,250" fill="#E7C98E"/>
+  <path d="M200 124 V140 M200 152 V176 M200 192 V230" stroke="#F6E3B4" stroke-width="3" stroke-dasharray="6 7"/>
+  {_burger(200, 136, 18, ink)}
+  {_soda(232, 170, 30, red, ink)}
+  <circle cx="232" cy="156" r="25" fill="none" stroke="{red}" stroke-width="3"/>
+  {_fries(164, 178, 34, red, ink)}
+  <circle cx="164" cy="162" r="27" fill="none" stroke="{c}" stroke-width="3"/>
+  <g transform="translate(118 136) rotate(-10)"><polygon points="0,-12 4,-5 12,-7 7,0 12,7 4,6 0,13 -4,6 -12,7 -7,0 -12,-7 -4,-5" fill="{gold}" stroke="{ink}" stroke-width=".6" stroke-linejoin="round" transform="scale(1.9)"/>
+    <text x="0" y="3" text-anchor="middle" font-size="8" font-weight="900" fill="{ink}" {FONT}>POW!</text></g>
+  {_glove(88, 192, c, ink, -1)}{_glove(312, 192, red, ink)}
+  {_chip(56, 50, 62, '12,480', ink, cream, 7)}
+  {_chip(344, 50, 64, 'COMBO x4', gold, ink, 6.4, True)}
+  <rect x="56" y="70" width="62" height="5" rx="2.5" fill="{ink}" opacity=".25"/><rect x="56" y="70" width="44" height="5" rx="2.5" fill="{c}"/>'''
+  return _visor(inner, p['bg'], 'vz-snacks')
+
+
+def art_wall(p):
+  c, teal, ink, neon = p['color'], '#2F8F83', '#2A2522', '#26E3CF'
+  # The projected picture: a monstera leaf in neon lines; the left half is already traced in pencil.
+  leaf = 'M210 64 C168 70 150 112 160 150 C166 170 186 178 210 176 C236 178 256 166 262 146 C272 110 252 70 210 64Z'
+  veins = 'M210 176 L210 74 M210 150 L176 130 M210 128 L170 104 M210 108 L180 84 M210 150 L246 128 M210 128 L250 104 M210 108 L240 84'
+  cuts = 'M163 120 q14 2 22 -6 M166 146 q14 -2 22 -12 M257 120 q-14 2 -22 -6 M254 146 q-14 -2 -22 -12'
+  crosses = ''.join(f'<path d="M{x - 6} {y} h12 M{x} {y - 6} v12" stroke="{neon}" stroke-width="1.6"/>'
+                    for x, y in ((142, 56), (278, 56), (142, 186), (278, 186)))
+  inner = f'''<rect width="400" height="250" fill="#E8DCC9"/>
+  <rect x="44" y="40" width="58" height="80" fill="#D6E6EE" stroke="#BCA88C" stroke-width="5"/>
+  <path d="M73 40 V120 M44 80 H102" stroke="#BCA88C" stroke-width="3"/>
+  <rect x="0" y="196" width="400" height="60" fill="#C7AE8C"/><rect x="0" y="190" width="400" height="7" fill="#F4ECDF"/>
+  <rect x="320" y="166" width="26" height="30" rx="3" fill="#7E9CB5" stroke="{ink}" stroke-width="1.2"/>
+  <ellipse cx="333" cy="166" rx="13" ry="3.5" fill="#AFC6D8" stroke="{ink}" stroke-width="1.2"/>
+  <rect x="142" y="56" width="136" height="130" fill="none" stroke="{neon}" stroke-width="1" stroke-dasharray="4 4" opacity=".7"/>
+  {crosses}
+  <path d="{leaf}" fill="{neon}" opacity=".08"/>
+  <g fill="none" stroke="{neon}" stroke-width="2.2" stroke-linecap="round" opacity=".95"><path d="{leaf}"/><path d="{veins}"/><path d="{cuts}"/></g>
+  <g clip-path="url(#vz-wall-half)"><g fill="none" stroke="#4A4440" stroke-width="1.3" stroke-linecap="round"><path d="{leaf}"/><path d="{veins}"/><path d="{cuts}"/></g></g>
+  <defs><clipPath id="vz-wall-half"><rect x="140" y="60" width="72" height="120"/></clipPath></defs>
+  <g transform="translate(212 118) rotate(-34)">
+    <rect x="-4" y="12" width="8" height="74" fill="#F2B33D" stroke="{ink}" stroke-width="1.1"/>
+    <path d="M-4 12 L0 0 L4 12Z" fill="#F3D9B5" stroke="{ink}" stroke-width="1.1" stroke-linejoin="round"/>
+    <path d="M-1.4 4 L0 0 L1.4 4Z" fill="{ink}"/>
+    <rect x="-15" y="50" width="30" height="40" rx="12" fill="#E9B48F" stroke="{ink}" stroke-width="1.3"/>
+    <path d="M-15 60 h10 M-15 70 h11 M-15 80 h10" stroke="{ink}" stroke-width="1" stroke-linecap="round" opacity=".55"/>
+    <path d="M6 54 q8 2 7 12" stroke="{ink}" stroke-width="1" fill="none" stroke-linecap="round" opacity=".55"/>
+    <rect x="-11" y="88" width="22" height="30" fill="#5B6B7A" stroke="{ink}" stroke-width="1.3"/></g>
+  {_chip(50, 170, 96, '&#128274; Locked · 120 × 115 cm', c, '#FFFAF4', 6)}
+  {_chip(348, 50, 66, 'Square B3 · 7/12', '#FAF7F2', ink, 6, True)}
+  {_chip(348, 70, 66, 'A/X or pinch: hide', teal, '#fff', 5.6, True)}'''
+  return _visor(inner, p['bg'], 'vz-wall')
+
+
+def art_stage(p):
+  c, amber, dark, cream = p['color'], '#C27400', '#0B0B0D', '#F3EFE8'
+  heads = ''
+  for row, (y, r, gap) in enumerate(((104, 4.2, 14), (122, 5.4, 17), (143, 6.8, 21), (168, 8.6, 26))):
+    x, i = 22 + (row % 2) * gap / 2, 0
+    while x < 380:
+      bright = (i * 7 + row * 3) % 5
+      tone = '#3A3640' if bright else '#6A5E52'
+      heads += (f'<rect x="{x - r * 1.25}" y="{y + r * .6}" width="{r * 2.5}" height="{r * 2.2}" rx="{r}" fill="{tone}"/>'
+                f'<circle cx="{x}" cy="{y}" r="{r}" fill="{tone}"/>')
+      if (i + row) % 9 == 4:
+        heads += f'<rect x="{x + r * .3}" y="{y + r * 1.2}" width="{r * .9}" height="{r * 1.3}" rx="1" fill="#9FD3FF"/>'
+      x, i = x + gap, i + 1
+  arc = 2 * 3.1416 * 14
+  inner = f'''<rect width="400" height="250" fill="{dark}"/>
+  <polygon points="168,34 232,34 330,214 70,214" fill="#FFF3D6" opacity=".07"/>
+  <rect x="138" y="46" width="124" height="40" rx="3" fill="#17161A" stroke="#2C2A30"/>
+  <text x="200" y="64" text-anchor="middle" font-size="9" font-weight="800" fill="{c}" letter-spacing=".4" {FONT}>WHY SMALL</text>
+  <text x="200" y="77" text-anchor="middle" font-size="9" font-weight="800" fill="{c}" letter-spacing=".4" {FONT}>TEAMS WIN</text>
+  {heads}
+  <ellipse cx="200" cy="222" rx="120" ry="30" fill="{c}"/>
+  <ellipse cx="200" cy="222" rx="120" ry="30" fill="none" stroke="#FF6A5C" stroke-width="1.4" opacity=".6"/>
+  <g transform="translate(62 160) rotate(-8)"><rect width="62" height="40" rx="4" fill="{cream}" stroke="#C9C1B4"/>
+    <text x="7" y="12" font-size="5.2" font-weight="800" fill="{amber}" letter-spacing=".6" {FONT}>CARD 3 / 8</text>
+    <rect x="7" y="18" width="46" height="3.4" rx="1.7" fill="#9B958D"/><rect x="7" y="25" width="38" height="3.4" rx="1.7" fill="#9B958D"/>
+    <rect x="7" y="32" width="28" height="3.4" rx="1.7" fill="#9B958D"/></g>
+  <g transform="translate(56 48)"><rect width="66" height="40" rx="8" fill="#17161A" stroke="#2C2A30"/>
+    <text x="8" y="12" font-size="5" font-weight="800" fill="#9B958D" letter-spacing=".8" {FONT}>PACE</text>
+    <path d="M14 33 a19 19 0 0 1 38 0" fill="none" stroke="#2C2A30" stroke-width="4"/>
+    <path d="M14 33 a19 19 0 0 1 30 -15" fill="none" stroke="#18845A" stroke-width="4"/>
+    <line x1="33" y1="33" x2="42" y2="19" stroke="{cream}" stroke-width="1.6" stroke-linecap="round"/>
+    <text x="62" y="12" text-anchor="end" font-size="5.6" font-weight="800" fill="{cream}" {FONT}>142 wpm</text></g>
+  <g transform="translate(304 68)"><circle r="18" fill="#17161A" stroke="#2C2A30"/>
+    <circle r="14" fill="none" stroke="#2C2A30" stroke-width="4"/>
+    <circle r="14" fill="none" stroke="{c}" stroke-width="4" stroke-linecap="round" stroke-dasharray="{round(arc * .84, 1)} {round(arc, 1)}" transform="rotate(-90)"/>
+    <text y="3.4" text-anchor="middle" font-size="9" font-weight="800" fill="{cream}" {FONT}>84</text></g>
+  {_chip(244, 92, 100, 'Nice pause &#10003;', '#18845A', '#fff', 6)}'''
+  return _visor(inner, p['bg'], 'vz-stage')
+
+
 ARTS = {'monshop': art_monshop, 'family': art_family, 'planplate': art_planplate,'varnote': art_varnote, 'blog': art_blog, 'map': art_map, 'bun': art_bun,
         'piano': art_piano, 'pound': art_pound, 'parrot': art_parrot, 'resto': art_resto,
         'screenplay': art_screenplay, 'lyrics': art_lyrics, 'rooms': art_rooms, 'models': art_models,
         'feedback': art_feedback, 'boxing': art_boxing, 'cubes': art_cubes, 'party': art_party, 'pan': art_pan,
-        'personal': art_personal, 'monitor': art_monitor, 'hotel': art_hotel, 'toon': art_toon}
+        'personal': art_personal, 'monitor': art_monitor, 'hotel': art_hotel, 'toon': art_toon,
+        'snacks': art_snacks, 'wall': art_wall, 'stage': art_stage}
 
 
 def art(p):
