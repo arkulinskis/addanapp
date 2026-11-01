@@ -5,4 +5,5 @@ unique_ids:
   forms: {}
   modules: {}
   scripts: {}
-  server_modules: {}
+  server_modules:
+    seo_routes: 6MEHTL34J2SC7MOWWCMAKYV5C2NRYOMS
