@@ -822,5 +822,16 @@
 "DIY": "Своими руками",
 "Image processing": "Обработка изображений",
 "Voice analysis": "Анализ голоса",
-"Coaching": "Коучинг"
+"Coaching": "Коучинг",
+"We build": "Мы создаём",
+"web apps.": "веб-приложения.",
+"client portals.": "клиентские порталы.",
+"admin panels.": "админ-панели.",
+"data platforms.": "платформы данных.",
+"Client portal": "Клиентский портал",
+"Admin panel": "Админ-панель",
+"Data platform": "Платформа данных",
+"Invoice history in the client portal": "История счетов в клиентском портале",
+"Refund approvals for the support team": "Одобрение возвратов для службы поддержки",
+"Live sales dashboard for 12 stores": "Панель продаж в реальном времени для 12 магазинов"
 }

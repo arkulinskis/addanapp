@@ -14,14 +14,23 @@ def _ev(cls, ico, title, text, when):
           f'<div class="t"><b>{title}</b>{text} <span class="when">· {when}</span></div></div>')
 
 
+# rolling cover: the line above the headline rolls through what we build; the request in the mock changes with it (12 s loop)
+_ROLL = [t('web apps.'), t('client portals.'), t('admin panels.'), t('data platforms.')]
+ROLL = ''.join(f'<span>{w}</span>' for w in _ROLL + _ROLL[:1])
+_REQS = ''.join(
+  f'<div class="req"><span class="chip mono">{k}</span> <span class="chip outline">{c}</span><h4>{h}</h4></div>'
+  for k, c, h in [('AA-1042', t('Integration / API'), t('Deposits for large-party reservations')),
+                  ('AA-1057', t('Client portal'), t('Invoice history in the client portal')),
+                  ('AA-1063', t('Admin panel'), t('Refund approvals for the support team')),
+                  ('AA-1071', t('Data platform'), t('Live sales dashboard for 12 stores'))])
+
 HERO_MOCK = f'''
 <div class="lp-mock rv d2" role="img" aria-label="{t('Example: a feature request tracked in the Addanapp client workspace, from fixed quote to AI draft, human validation and client review.')}">
   <div class="win">
     <div class="bar"><i></i><i></i><i></i><span class="url">addanapp.com · workspace</span></div>
     <div class="body">
       <div class="top">
-        <div><span class="chip mono">AA-1042</span> <span class="chip outline">{t('Integration / API')}</span>
-          <h4>{t('Deposits for large-party reservations')}</h4></div>
+        <div class="lp-reqs">{_REQS}</div>
         <span class="chip ai"><span class="d"></span>{t('In progress')}</span>
       </div>
       <div class="progress"><i style="width:72%"></i></div>
@@ -281,6 +290,7 @@ HTML = f'''
   <div class="aa-wrap grid">
     <div>
       <div class="tag-loc rv"><b>Montréal</b>{t('Custom software studio · EN / FR')}</div>
+      <div class="lp-we rv d1">{t('We build')} <span class="lp-roll" aria-hidden="true">{ROLL}</span></div>
       <h1 id="hero-title" class="rv d1">{t('Apps built at AI speed. <em>Signed off by senior engineers.</em>')}</h1>
       <p class="sub rv d2">{t('Addanapp designs and builds <b>web apps, admin panels, client portals and data-heavy platforms</b>. AI accelerates every step, and an engineer reviews, tests and approves every line before it reaches you. <b>You pay for accepted results, not hours.</b>')}</p>
       <div class="ctas rv d3">

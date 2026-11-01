@@ -819,5 +819,16 @@
 "DIY": "Bricolage",
 "Image processing": "Traitement d'image",
 "Voice analysis": "Analyse de la voix",
-"Coaching": "Coaching"
+"Coaching": "Coaching",
+"We build": "Nous concevons",
+"web apps.": "des applications web.",
+"client portals.": "des portails clients.",
+"admin panels.": "des consoles d'administration.",
+"data platforms.": "des plateformes de données.",
+"Client portal": "Portail client",
+"Admin panel": "Console d'administration",
+"Data platform": "Plateforme de données",
+"Invoice history in the client portal": "Historique des factures dans le portail client",
+"Refund approvals for the support team": "Validation des remboursements pour l'équipe de support",
+"Live sales dashboard for 12 stores": "Tableau de bord des ventes en direct pour 12 magasins"
 }
