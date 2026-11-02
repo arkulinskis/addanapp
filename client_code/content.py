@@ -8,6 +8,21 @@ from . import portfolio
 # Blank until the official address is ready; every spot that shows it hides itself while empty.
 CONTACT_EMAIL = ''
 
+# The Addanapp YouTube channel and the film about Addanapp itself (APP_MAKER/youtube/manifest.json).
+# The film is a click-to-play embed: nothing loads from YouTube until the visitor presses play (Landing._play).
+YT_CHANNEL = 'https://www.youtube.com/@addanapp'
+YT_FILM = 'wzCMxAdyrHo'
+YT_FILM_LENGTH = '1:06'
+YT_LOGO = ('<svg class="yt-logo" viewBox="0 0 28 20" width="22" height="16" aria-hidden="true"><rect width="28" height="20" rx="5" fill="#FF0033"/>'
+           '<path d="M11.2 5.8v8.4l7.3-4.2z" fill="#fff"/></svg>')
+YT_PLAY = ('<svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.3.3 34 .3 34 .3s-21.3 0-26.5 1.4a8.5 8.5 0 0 0-6 6'
+           'C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6c5.2 1.4 26.5 1.4 26.5 1.4s21.3 0 26.5-1.4a8.5 8.5 0 0 0 6-6'
+           'C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z" fill="#FF0033"/><path d="M45 24 27 14v20z" fill="#fff"/></svg>')
+
+# The partner deck (PDF made from the "Addanapp Partner Deck" Slides artifact, minus the slide that names specific firms).
+DECK_URL = '_/theme/addanapp-partner-deck.pdf'
+DECK_SLIDES = 19
+
 
 def _ev(cls, ico, title, text, when):
   return (f'<div class="ev"><div class="ic {cls}">{icon(ico)}</div>'
@@ -361,11 +376,39 @@ HTML = f'''
     <div class="lp-head rv">
       <div class="eyebrow">{t('Selected work')}</div>
       <h2 id="work-title">{t('Shipped, live and <em>in daily use.</em>')}</h2>
-      <p class="lead">{t("A sample of products we've designed, built and run, from revenue-generating platforms to games people can't put down. Every one is live, so click through and try it.")}</p>
+      <p class="lead">{t('Three of our {n} products, picked at random each time you open this page. Every one is live, so click through and try it.', n=len(portfolio.PROJECTS))}</p>
     </div>
-    {portfolio.showcase()}
-    {portfolio.index()}
-    <div class="center" style="margin-top:40px"><a class="aa-btn ghost" href="#work">{t('Explore every project in detail')} <span class="arr">&rarr;</span></a></div>
+    {portfolio.showcase(portfolio.picks(3))}
+    <div class="pf-more">
+      <a class="aa-btn lg" href="#work">{t('See all {n} products in depth', n=len(portfolio.PROJECTS))} <span class="arr">&rarr;</span></a>
+      <button type="button" class="aa-btn ghost lg" data-act="shuffle" title="{t('Show three other products')}">{icon('refresh', 'width="18" height="18"')} {t('Shuffle')}</button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ youtube -->
+<section class="lp-sec on-dark lp-yt" id="youtube" aria-labelledby="yt-title">
+  <div class="aa-wrap yt-grid">
+    <div class="rv">
+      <div class="eyebrow">{YT_LOGO}{t('On YouTube')}</div>
+      <h2 id="yt-title">{t('Every product, <em>in about a minute.</em>')}</h2>
+      <p class="lead">{t("Our new YouTube channel, Addanapp, has a short film for almost every app we've built: what it does, who it's for and how it works in real use. Start with the one about us.")}</p>
+      <div class="ctas">
+        <a class="aa-btn accent" href="{YT_CHANNEL}?sub_confirmation=1" target="_blank" rel="noopener">{t('Subscribe on YouTube')} <span class="arr">&#8599;</span></a>
+        <a class="aa-btn ghost-light" href="{YT_CHANNEL}" target="_blank" rel="noopener">{t('Visit the channel')}</a>
+      </div>
+      <p class="yt-handle">youtube.com/@addanapp</p>
+    </div>
+    <div class="yt-player rv d2">
+      <div class="yt-frame">
+        <button type="button" class="yt-cover" data-act="video" aria-label="{t('Play the Addanapp film')}">
+          <img src="_/theme/yt-addanapp.jpg" alt="" loading="lazy" decoding="async" width="960" height="540">
+          <span class="yt-play" aria-hidden="true">{YT_PLAY}</span>
+          <span class="yt-len">{YT_FILM_LENGTH}</span>
+        </button>
+      </div>
+      <p class="yt-note">{t('The video loads from YouTube when you press play.')}</p>
+    </div>
   </div>
 </section>
 
@@ -405,6 +448,25 @@ HTML = f'''
       <p class="lead">{t('Every engagement runs through your workspace, with fixed quotes and acceptance-based billing.')}</p>
     </div>
     <div class="lp-eng">{ENGAGEMENTS}</div>
+  </div>
+</section>
+
+<!-- ============================================================ partners (deck download) -->
+<section class="lp-sec tight" id="partners" aria-labelledby="partner-title">
+  <div class="aa-wrap">
+    <div class="lp-partner rv">
+      <a class="cover" href="{DECK_URL}" target="_blank" rel="noopener" download="Addanapp-partner-deck.pdf" tabindex="-1" aria-hidden="true">
+        <img src="_/theme/partner-deck-cover.jpg" alt="" loading="lazy" decoding="async" width="960" height="540"></a>
+      <div class="txt">
+        <div class="eyebrow">{t('For agencies and software firms')}</div>
+        <h2 id="partner-title">{t('Need extra hands on delivery? <em>Partner with us.</em>')}</h2>
+        <p>{t("We build fixed-price modules, prototypes and internal tools behind consulting and software firms, at AI speed with senior sign-off. The partner deck covers what we've shipped, how we work, our stack and how a first pilot runs.")}</p>
+        <div class="dl">
+          <a class="aa-btn accent" href="{DECK_URL}" target="_blank" rel="noopener" download="Addanapp-partner-deck.pdf">{icon('file', 'width="18" height="18"')} {t('Download the partner deck')}</a>
+          <span class="meta">{t('PDF · {n} slides · {size}', n=DECK_SLIDES, size='3 MB')}</span>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 

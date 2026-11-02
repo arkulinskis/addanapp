@@ -6,11 +6,11 @@ Addanapp is the website and client platform for a Montréal software consultancy
 
 | Area | What it does |
 | --- | --- |
-| **Landing page** (`#home`) | The marketing site: hero with a live request mock, "hours vs outcomes" comparison, the 5-step AI + human method, capabilities, portfolio (featured case studies + a full project index with filters), client workspace preview, engagement models, commitments, a bilingual Montréal section, FAQ and a project-brief form. |
+| **Landing page** (`#home`) | The marketing site: hero with a live request mock, "hours vs outcomes" comparison, the 5-step AI + human method, capabilities, portfolio (three projects picked at random, a Shuffle button and a link to the full index), the YouTube channel with the Addanapp film, client workspace preview, engagement models, a partner-deck download for agencies, commitments, a bilingual Montréal section, FAQ and a project-brief form. |
 | **Client workspace** (`#portal`) | Clients sign up and submit requests (feature, fix, integration, new app…), approve fixed quotes, follow progress notes, accept deliveries or request changes. |
 | **Consultant console** (`#admin`) | Every request across clients as a list or Kanban board. Post progress notes (update, milestone, human-validated, question, internal), set status, progress %, fixed quote, scope summary and ETA. Also manage clients, website leads and demo data. |
 
-Other routes: `#work` (full portfolio), `#r/<id>` (one request), `#new`, `#account`, `#privacy`, `#login`, `#signup`.
+Other routes: `#work` (full portfolio: every project, with what we built, its film and its link), `#r/<id>` (one request), `#new`, `#account`, `#privacy`, `#login`, `#signup`.
 
 ## Request lifecycle
 
@@ -43,7 +43,7 @@ The whole site and app are available in **English, French, Russian and Latvian**
 ## SEO
 
 - Title, meta description, canonical, Open Graph and Twitter cards, geo tags and keywords are in `anvil.yaml → native_deps.head_html` and `metadata`.
-- JSON-LD structured data in the page head covers `ProfessionalService`/`Organization` (Montréal, areas served, services), `WebSite`, `WebPage`, `FAQPage` (same text as the on-page FAQ) and an `ItemList` of portfolio projects.
+- JSON-LD structured data in the page head covers `ProfessionalService`/`Organization` (Montréal, areas served, services), `WebSite`, `WebPage`, `FAQPage` (same text as the on-page FAQ) an `ItemList` of portfolio projects (each with its YouTube film as `subjectOf`), a `VideoObject` for the Addanapp film, and the YouTube channel as the organisation's `sameAs`.
 - All indexable content lives on the home page with semantic sections, one `h1`, and a French paragraph (`lang="fr-CA"`) for French-language searches such as "développement d'applications sur mesure Montréal".
 - Each route sets its own `<title>`, and private workspace pages are marked `noindex`.
 - Sitemap: `/_/api/sitemap.xml`. Submit it in Google Search Console.
@@ -65,7 +65,7 @@ client_code/
   Account/ Privacy/
   i18n.py          translations: t(), plurals, dates and money per language, language switching
   content.py       landing page copy and markup
-  portfolio.py     portfolio projects + illustrated SVG previews
+  portfolio.py     portfolio projects, films (VIDEOS), SVG previews and screenshot frames, random picks
   ui.py            constants, HTML helpers, formatting, form reading, server-call wrapper
   icons.py         inline SVG icons and the logo
   dialogs.py       sign in / create workspace, text prompts
@@ -85,7 +85,11 @@ theme/assets/      theme.css (design system), aa.js (scroll reveal, page meta), 
 
 Ink navy and warm paper, editorial serif headlines (Instrument Serif), Inter for reading and JetBrains Mono for labels.
 Violet means *AI draft* and green means *human-validated*, and that pairing runs through the site and the app.
-The portfolio (27 projects, all live) has two parts, on both the home page and `#work`: **case studies** (the projects with a `featured` number, now PlanPlate, Prepsto and Subsudo) as large split panels, then **the full index**, every project as a compact row grouped by category with filter chips. On the home page each row links to the live product and hovering it shows its preview in a sticky side panel (desktop); on `#work` each row opens in place to show the preview and what we built. The previews are hand-drawn SVG mini-UIs in each product's own colours, so they stay crisp and need no screenshots. Categories: Working businesses, Useful tools, Engaging games, **VR & mixed reality** (Snackpuncher, WallTracer, MrBigStage: WebXR apps for Meta Quest, added 2026-11-01, previews drawn as a view through a headset visor), Mobile-style apps, Websites. The newest work (the three VR apps) carries a **New** badge; a project with no `domain` yet shows **Launching soon** and isn't a link.
+The portfolio (53 projects, all live) lives in `client_code/portfolio.py`. **Home page:** three live projects picked at random on every visit (`picks()`), shown as large case-study panels, with **See all 53 products in depth** (→ `#work`) and a **Shuffle** button that swaps in three others. **`#work`:** the full index, every project as a compact row grouped by category with filter chips; each row opens in place to show the preview, what we built, a **Watch the film** link to its one-minute film on the Addanapp YouTube channel (`VIDEOS`) and the live link. Previews are hand-drawn SVG mini-UIs for the first 27 projects; the 26 added on 2026-11-02 (`'art': 'shot'`) show the real landing page (`theme/assets/pf/<key>.jpg`, from the App Board hero shots) in a matching browser frame. Categories: Working businesses, Useful tools, **Learning & guides** (added 2026-11-02), Engaging games, VR & mixed reality, Mobile-style apps, Websites. `'new': True` shows a **New** badge (none right now); a project with no `domain` shows **Launching soon** and isn't a link.
+
+**YouTube** (`#youtube` on the home page): the channel youtube.com/@addanapp and a click-to-play embed of the Addanapp film (`YT_*` in content.py). Nothing loads from YouTube until the visitor presses play; then it plays from youtube-nocookie.com (listed in Privacy as the `youtube_play` provider).
+
+**Partner deck** (`#partners`, after Engagements, and in the footer): `theme/assets/addanapp-partner-deck.pdf`, 19 slides rendered from the "Addanapp Partner Deck" Slides artifact (https://claude.ai/artifact/X7izxcayZdhgbzmsdrN9Ua) without its "Where Addanapp fits with each firm" slide, which names specific firms. Re-render it after the deck changes (recipe in the addanapp skill).
 
 <!-- libraries:start -->
 ## Libraries and outside services
@@ -94,6 +98,7 @@ What this project uses besides its own code. Generated by `APP_MAKER/tools/libra
 
 | Name | How it gets in | Used here for |
 |---|---|---|
+| [YouTube embeds](https://developers.google.com/youtube/player_parameters) | Outside web service | Plays a YouTube video inside the page (the privacy-friendlier youtube-nocookie address). |
 | [Google Fonts](https://fonts.google.com) | Loaded from a CDN | Instrument Serif, Inter, JetBrains Mono, PT Serif |
 
 **Built into the browser:** localStorage, Clipboard, IntersectionObserver.

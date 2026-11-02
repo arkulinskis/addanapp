@@ -1,4 +1,6 @@
-"""Portfolio: projects we've shipped, with illustrated previews (inline SVG, no screenshots needed)."""
+"""Portfolio: projects we've shipped, with illustrated previews (inline SVG) or real screenshots ('art': 'shot')."""
+import random
+
 from .ui import esc
 from .icons import icon
 from .i18n import t, tn
@@ -8,6 +10,7 @@ CATEGORIES = [
   ('all', t('All work')),
   ('business', t('Working businesses')),
   ('tools', t('Useful tools')),
+  ('learn', t('Learning & guides')),
   ('games', t('Engaging games')),
   ('vr', t('VR & mixed reality')),
   ('mobile', t('Mobile-style apps')),
@@ -17,16 +20,16 @@ CAT = dict(CATEGORIES)
 
 PROJECTS = [
   {
-    'key': 'planplate', 'name': 'PlanPlate', 'domain': 'planplate.com', 'cat': 'business', 'featured': 1,
+    'key': 'planplate', 'name': 'PlanPlate', 'domain': 'planplate.com', 'cat': 'business',
     'blurb': 'A restaurant reservation and content API platform. Managers run bookings for every location from one portal, and guests book straight from the restaurant\'s own website.',
     'built': ['Multi-restaurant manager portal', 'Drag-and-drop floor plans and table joins',
               'Opening-hour rules, special days and auto-approval', 'Public reservation and content API'],
     'tags': ['SaaS', 'Public API', 'Admin portal'], 'color': '#1F6B63', 'bg': '#DCE7E8', 'art': 'planplate',
   },
-  # 'new' shows a badge (the VR apps Snackpuncher, WallTracer and MrBigStage, added 2026-11-01). 'featured' (1-3) puts a project in the case studies above the index.
+  # 'new': True shows a "New" badge (none right now). The home page shows three live projects picked at random (picks()).
   # A project without a 'domain' shows "Launching soon" and isn't a link. The index groups projects by category.
   {
-    'key': 'prepsto', 'name': 'Prepsto', 'domain': 'prepsto.com', 'cat': 'business', 'featured': 2,
+    'key': 'prepsto', 'name': 'Prepsto', 'domain': 'prepsto.com', 'cat': 'business',
     'blurb': 'A feedback inbox that turns what users say into user stories. Drop one script tag on any site, triage everything on a board, then export ready-to-build stories to Jira, Gherkin or an AI-ready bundle.',
     'built': ['Embeddable feedback widget, one script tag', 'Inbox and drag-and-drop board with sentiment and themes',
               'Story editor with exports to Jira, Gherkin, CSV and JSON'],
@@ -47,7 +50,7 @@ PROJECTS = [
     'tags': ['SaaS', 'Website builder', '3D maps'], 'color': '#1F5C55', 'bg': '#F4EDE0', 'art': 'hotel',
   },
   {
-    'key': 'subsudo', 'name': 'Subsudo', 'domain': 'subsudo.com', 'cat': 'games', 'featured': 3,
+    'key': 'subsudo', 'name': 'Subsudo', 'domain': 'subsudo.com', 'cat': 'games',
     'blurb': 'A virtual fight club. Shadow-box one round with your phone in your fist or in front of your laptop camera, send it as a sealed call-out to anyone in the world, and three automatic judges score the bout.',
     'built': ['Punch detection from phone motion sensors', 'In-browser hand tracking, the video never leaves the device',
               "Elo rankings by city and world, belts and judges' cards"],
@@ -155,21 +158,21 @@ PROJECTS = [
   },
   # VR & mixed reality: WebXR apps for Meta Quest (and any WebXR headset), each with a flat-screen mode too.
   {
-    'key': 'snackpuncher', 'name': 'Snackpuncher', 'domain': 'snackpuncher.anvil.app', 'cat': 'vr', 'new': True,
+    'key': 'snackpuncher', 'name': 'Snackpuncher', 'domain': 'snackpuncher.anvil.app', 'cat': 'vr',
     'blurb': 'A VR boxing quest against an army of googly-eyed fast food. Punch, duck and block your way across ten lands in a Meta Quest headset, free 41 villagers and collect 100 treasures, while a workout log counts every muscle you used.',
     'built': ['WebXR battles with jabs, hooks, uppercuts, ducks and blocks', 'Ten story lands, a growing village and 100 treasures',
               'Passthrough mode, flat-screen play and a workout log'],
     'tags': ['VR', 'Fitness', 'Game'], 'color': '#2F6D3A', 'bg': '#F6ECD6', 'art': 'snacks',
   },
   {
-    'key': 'walltracer', 'name': 'WallTracer', 'domain': 'walltracer.anvil.app', 'cat': 'vr', 'new': True,
+    'key': 'walltracer', 'name': 'WallTracer', 'domain': 'walltracer.anvil.app', 'cat': 'vr',
     'blurb': 'A virtual projector for tracing pictures onto real walls. Pin a picture to your wall at its true size in a Meta Quest headset, lock it in place and trace it with a pencil, then pinch your free hand to hide it and check your lines.',
     'built': ['Passthrough placing with hit-testing and saved anchors', 'Picture editor with line, outline and tone looks, real size and a grid',
               'Stencil library, lettering maker and a showcase of finished walls'],
     'tags': ['Mixed reality', 'DIY', 'Image processing'], 'color': '#C4552D', 'bg': '#EFE9E1', 'art': 'wall',
   },
   {
-    'key': 'mrbigstage', 'name': 'MrBigStage', 'domain': 'mrbigstage.anvil.app', 'cat': 'vr', 'new': True,
+    'key': 'mrbigstage', 'name': 'MrBigStage', 'domain': 'mrbigstage.anvil.app', 'cat': 'vr',
     'blurb': 'Rehearse your talk in front of a 3D audience that reacts to you. Speak in VR or on a screen and get coached on pace, pauses, filler words, projection and eye contact, all blended into one confidence score.',
     'built': ['Seven rooms, from a boardroom to a 5,000-seat arena', 'Voice analysis in the browser: pace, pauses, fillers and pitch',
               'An audience that leans in or checks its phones, plus Q&A and drills'],
@@ -200,7 +203,217 @@ PROJECTS = [
               'Fast static pages in light and dark themes'],
     'tags': ['Website', 'Personal brand', 'Consulting'], 'color': '#0B6F94', 'bg': '#F7F3EE', 'art': 'personal',
   },
+  # Added 2026-11-02. 'art': 'shot' = the app's real landing page (theme/assets/pf/<key>.jpg, from the App Board
+  # hero shots: APP_MAKER/board/heroes) in a browser frame instead of a hand-drawn SVG.
+  {
+    'key': 'healthbooker', 'name': 'Health Booker', 'domain': 'health-booker.anvil.app', 'cat': 'business',
+    'blurb': 'One account for every yoga studio in the city. Students find and book classes, pick their mat and keep every pass in one wallet, while each studio runs its schedule, passes, subs and teacher pay with no commission.',
+    'built': ['Marketplace search and booking across studios', 'Studio back office: schedule, passes, subs and teacher pay', 'Fair waitlists, a practice journal and a free data export'],
+    'tags': ['Marketplace', 'Multi-tenant', 'Booking'], 'color': '#5E8263', 'bg': '#F6F1E9', 'art': 'shot',
+  },
+  {
+    'key': 'autoagile', 'name': 'AutoAgile', 'domain': 'autoagile.anvil.app', 'cat': 'business',
+    'blurb': 'An agile board for crews of people and AI developers. Teams start in Kanban and unlock sprints, forecasts and a roadmap as their data matures, while AI agents pull, claim and hand in cards through an API for human review.',
+    'built': ['Kanban, sprints, forecasts and a year roadmap', 'Agent API: pull, claim, log and hand in for review', 'Complexity-gate estimates, D3 reports and Jira import'],
+    'tags': ['SaaS', 'AI agents', 'Productivity'], 'color': '#0C061B', 'bg': '#EEEBE0', 'art': 'shot',
+  },
+  {
+    'key': 'goodlandlord', 'name': 'Good Landlord', 'domain': 'good-landlord.anvil.app', 'cat': 'business',
+    'blurb': 'Rental numbers and fair tenant records for small landlords. Track rent and every claimable expense, see cash flow, equity and long-term profit, and give each tenant a private, tamper-evident log of messages and repairs.',
+    'built': ['Rent, expenses, mortgage and equity per property', 'Profit if sold today or in 20 years', 'Tamper-evident tenant record of messages and repairs'],
+    'tags': ['SaaS', 'Finance', 'Property'], 'color': '#B4502A', 'bg': '#FBF4EA', 'art': 'shot',
+  },
+  {
+    'key': 'servicerequest', 'name': 'Service Request', 'domain': 'service-request.anvil.app', 'cat': 'business',
+    'blurb': 'A neighbourhood bounty board for small paid jobs. Post leaves, snow, junk or moving from $20, pick an offer from someone nearby, get photo proof, and pay them directly with an optional quality bonus.',
+    'built': ['Bounty map with 40 kinds of jobs', 'Offers, photo proof and a quality checklist', 'Direct cash or Interac e-Transfer, plus a quality bonus'],
+    'tags': ['Marketplace', 'Maps', 'Two-sided'], 'color': '#C2410C', 'bg': '#F4F2EC', 'art': 'shot',
+  },
+  {
+    'key': 'betterthanmarketplace', 'name': 'Better Than Marketplace', 'domain': 'bettermart.anvil.app', 'cat': 'business',
+    'blurb': "Sell what you don't need in thirty seconds. Snap a photo, give it a name, and it's listed for neighbours nearby: no categories, no forms and no fees, with chat, saved items and reserved or sold in one tap.",
+    'built': ['Photo-first listing in about 30 seconds', 'Items sorted by distance from you', 'Buyer and seller chat, favourites and reserved or sold'],
+    'tags': ['Marketplace', 'Mobile-first', 'Maps'], 'color': '#FF5A36', 'bg': '#FFF7EC', 'art': 'shot',
+  },
+  {
+    'key': 'sheetsmith', 'name': 'Sheetsmith', 'domain': 'sheetsmith.anvil.app', 'cat': 'tools',
+    'blurb': 'Turns an Excel workbook into a web app. Upload the file with its tables, formulas, validation rules and VBA macros, adjust the app in a studio, and download a one-file Python server the whole office can share over Wi-Fi.',
+    'built': ['Formula engine and VBA runtime written from scratch', 'Studio with a live preview of the generated app', 'One-file Python server for the local network, no cloud needed'],
+    'tags': ['Code generator', 'Spreadsheets', 'Automation'], 'color': '#1D7A4F', 'bg': '#F3F5F0', 'art': 'shot',
+  },
+  {
+    'key': 'reelstuber', 'name': 'Reelstuber', 'domain': 'reelstuber.anvil.app', 'cat': 'tools',
+    'blurb': 'One long video in, a week of reels out. Reelstuber finds the best moments, reframes them to 9:16, adds word-by-word captions and exports MP4s, all inside the browser, so the video is never uploaded.',
+    'built': ['Moment finder that listens for peaks, pauses and scene changes', 'On-device speech-to-text captions with Whisper', 'Canvas editor and MP4 export, with nothing uploaded'],
+    'tags': ['Video', 'On-device AI', 'Creative tools'], 'color': '#FF3D8B', 'bg': '#FFF7EC', 'art': 'shot',
+  },
+  {
+    'key': 'videoblogbuddy', 'name': 'VideoBlog Buddy', 'domain': 'videoblog-buddy.anvil.app', 'cat': 'tools',
+    'blurb': 'Record, edit and publish videos about what you build. Capture your screen and camera, trim pauses, zoom on clicks, add captions and music, then get a thumbnail, chapters and a direct YouTube upload, while recordings stay on your computer.',
+    'built': ['Screen and camera recorder in the browser', 'Editor with pause removal, click zooms, captions and vertical layouts', 'Thumbnail, chapters, tags and direct YouTube upload'],
+    'tags': ['Video', 'Creative tools', 'YouTube'], 'color': '#CC181E', 'bg': '#F1F1F1', 'art': 'shot',
+  },
+  {
+    'key': 'imgnovella', 'name': 'ImgNovella', 'domain': 'imgnovella.anvil.app', 'cat': 'tools',
+    'blurb': 'A visual novel maker with no scripting. Build branching stories with characters, expressions, choices and multiple endings, then share a link or download a standalone game to sell on itch.io.',
+    'built': ['Scene editor with characters, choices, variables and conditions', 'Reader with saves, rollback, history and an endings gallery', 'Export to a standalone HTML game, plus ten mini-games'],
+    'tags': ['Creative tools', 'Game', 'No-code'], 'color': '#FF4F8B', 'bg': '#FFF5F8', 'art': 'shot',
+  },
+  {
+    'key': 'fillfox', 'name': 'Fillfox', 'domain': 'fillfox.anvil.app', 'cat': 'tools',
+    'blurb': 'A free form builder you write like a document. Share one link or embed it, and see every answer plus exactly where people stopped, with logic, quizzes, signatures and teammates included at no cost.',
+    'built': ['Document-style form editor with logic and quizzes', 'Drop-off by question and unfinished answers', 'Embeds, teammates, auto-deletion and answer copies by email'],
+    'tags': ['Forms', 'Analytics', 'Productivity'], 'color': '#FF4F1F', 'bg': '#FFFFFF', 'art': 'shot',
+  },
+  {
+    'key': 'hookline', 'name': 'Hookline', 'domain': 'hookline.anvil.app', 'cat': 'tools',
+    'blurb': 'A free LinkedIn writing studio. Write in your own voice, get the hook past the see-more fold, plan a calm posting rhythm and learn from your own analytics, with optional AI on your own key.',
+    'built': ['Hook checker for the see-more fold', 'Calendar and posting through the official API', 'Analytics from your export, plus optional bring-your-own-key AI'],
+    'tags': ['Marketing', 'Social', 'AI'], 'color': '#C9A227', 'bg': '#F5F7FA', 'art': 'shot',
+  },
+  {
+    'key': 'marguru', 'name': 'Marguru', 'domain': 'marguru.anvil.app', 'cat': 'tools',
+    'blurb': 'Market your business the way an ad agency would. Describe the business in three minutes and get 25 to 35 copy-ready AI prompts, filled in and ordered stage by stage, from strategy and Google Maps to ads, content and measurement.',
+    'built': ['Playbook of prompts across eight agency stages', 'Plain-words field guide to what agencies do and charge', 'Ad maths calculator and a wins board for owners'],
+    'tags': ['Marketing', 'Prompt playbooks', 'Small business'], 'color': '#C93A20', 'bg': '#F6F1E7', 'art': 'shot',
+  },
+  {
+    'key': 'favesbuddy', 'name': 'Faves Buddy', 'domain': 'faves-buddy.anvil.app', 'cat': 'tools',
+    'blurb': "One home for the tabs, pins and screenshots you mean to come back to. Faves Buddy sorts them for you without AI, puts places on a map with what's open now, and finds more you will love.",
+    'built': ['Rule-based sorting with a small learner, no AI', 'Map of saved places with open now', 'Chrome extension, phone share target and shareable lists'],
+    'tags': ['Productivity', 'Maps', 'Browser extension'], 'color': '#5B5BF0', 'bg': '#F3F5FA', 'art': 'shot',
+  },
+  {
+    'key': 'perfectcast', 'name': 'PerfectCast', 'domain': 'perfectcast.anvil.app', 'cat': 'tools',
+    'blurb': "Fan-casting for romantasy readers. Every new book is listed with its characters, tropes and spice level; fans build celebrity collages for each role, swoon over each other's picks, and every character shows the fandom's favourite.",
+    'built': ['Book pages with characters, tropes and spice levels', 'Collage maker for dream casts', 'Swoons, comments and a fandom pick for every character'],
+    'tags': ['Community', 'Books', 'Social'], 'color': '#C026D3', 'bg': '#FBF2F6', 'art': 'shot',
+  },
+  {
+    'key': 'makeyourownclothes', 'name': 'Make Your Own Clothes', 'domain': 'make-my-clothes.anvil.app', 'cat': 'tools',
+    'blurb': "A tailor's shop for making your own clothes. It drafts real sewing patterns from your measurements, lets you redraw them, sews the pieces in 3D on a mannequin your size and writes a step-by-step making book.",
+    'built': ['Made-to-measure pattern drafting and a redraw table', '3D cloth simulation on a mannequin built from your measurements', 'Fabric guide and a step-by-step making book'],
+    'tags': ['3D', 'DIY', 'Simulations'], 'color': '#1F4D3A', 'bg': '#F3EEE3', 'art': 'shot',
+  },
+  {
+    'key': 'robopresence', 'name': 'Robo Presence', 'domain': 'robo-presence.anvil.app', 'cat': 'tools',
+    'blurb': 'Build a camera robot and drive it from any browser. Use a Raspberry Pi, an Arduino or an old phone, install it with one command, and steer with live peer-to-peer video, a joystick and a pan-tilt head.',
+    'built': ['Parts builder and one-command installer', 'WebRTC cockpit with live video and controls', 'A simulator to practise driving before you build'],
+    'tags': ['Robotics', 'Live video', 'Hardware'], 'color': '#E2611E', 'bg': '#ECE6D6', 'art': 'shot',
+  },
+  {
+    'key': 'battletracker', 'name': 'Battle Tracker', 'domain': 'battletracker.anvil.app', 'cat': 'tools',
+    'blurb': 'Every exercise feed on one live map. Battle Tracker reads NATO and common formats, from STANAG 4607 radar tracks and Cursor on Target to KML and AIS, and draws them in standard military symbols with trails and a replay timeline, for training and simulation data.',
+    'built': ['Parsers for STANAG 4607, 4609, 4545 and 4676, CoT, NFFI, KML and AIS', 'MIL-STD-2525 and APP-6 symbols on a live map', 'Tracks, sensor footprints and a replay timeline'],
+    'tags': ['Maps', 'Data feeds', 'Defence training'], 'color': '#FF7A2F', 'bg': '#E4E7EA', 'art': 'shot',
+  },
+  {
+    'key': 'csuitecoach', 'name': 'C-Suite Coach', 'domain': 'csuite-coach.anvil.app', 'cat': 'learn',
+    'blurb': 'Executive training for current and future C-suite leaders. Members study 24 real business cases, drill with spaced repetition, practise boardroom decisions in written challenges and earn certificates with public verification codes.',
+    'built': ['Seven programs and a casebook of 24 sourced cases', 'Spaced-repetition drills and rubric-scored challenges', 'Final exams and verifiable certificates'],
+    'tags': ['EdTech', 'Coaching', 'Certification'], 'color': '#B08D57', 'bg': '#F7F4EC', 'art': 'shot',
+  },
+  {
+    'key': 'osinty', 'name': 'Osinty', 'domain': 'osinty.anvil.app', 'cat': 'learn',
+    'blurb': "An open-source intelligence academy for private investigators. Twenty-four lessons in a noir detective's office, six fictional case files worked in a simulated search terminal, and a corkboard casebook of your own.",
+    'built': ['24 lessons with quizzes in 8 modules', 'Interactive case files with a simulated search terminal', 'Corkboard casebook and a field kit of real tools'],
+    'tags': ['EdTech', 'Simulations', 'Investigation'], 'color': '#C0392F', 'bg': '#ECE3D0', 'art': 'shot',
+  },
+  {
+    'key': 'businessbuddy', 'name': 'Business Buddy', 'domain': 'business-buddy.anvil.app', 'cat': 'learn',
+    'blurb': 'How to open a small business in Montréal, step by step. Guides for barbers, bakeries, cleaning services, food trucks and more cover permits, boroughs, taxes, real costs and the money maths, and members turn a guide into their own launch plan.',
+    'built': ['Guides for one- and two-person businesses, with official sources', 'Permit, tax and cost breakdowns by kind of business', 'Private launch plan with a checklist, budget and opening date'],
+    'tags': ['Reference', 'Small business', 'Planning'], 'color': '#1F7A6B', 'bg': '#FBF6EE', 'art': 'shot',
+  },
+  {
+    'key': 'jevbuddy', 'name': 'Jev Buddy', 'domain': 'jev-buddy.anvil.app', 'cat': 'learn',
+    'blurb': 'A friendly developer guide to an AI decision model. It explains typed questions and calibrated answers with code examples, twelve business use cases, a live playground and a cost calculator.',
+    'built': ['Multipage guide with Python, TypeScript and curl examples', 'Playground with saved recipes and live runs', 'Use-case library with routing code and cost maths'],
+    'tags': ['Developer docs', 'AI', 'Reference'], 'color': '#0A101D', 'bg': '#F6F8FB', 'art': 'shot',
+  },
+  {
+    'key': 'taichiplease', 'name': 'Tai Chi Please', 'domain': 'tai-chi-please.anvil.app', 'cat': 'learn',
+    'blurb': 'Gentle morning tai chi with a 3D teacher. Guided tai chi, qigong and lymph self-massage sessions in a bamboo forest, a path through the 24-step form and a practice journal, with no sign-up needed to start.',
+    'built': ['Animated 3D teacher you can orbit, mirror and slow down', 'Guided sessions and a learning path through the 24-step form', 'Practice journal and streaks synced across devices'],
+    'tags': ['Fitness', 'Animation', 'Wellness'], 'color': '#2E6A44', 'bg': '#F2F0E4', 'art': 'shot',
+  },
+  {
+    'key': 'brainmechanic', 'name': 'Brain Mechanic', 'domain': 'brain-mechanic.anvil.app', 'cat': 'learn',
+    'blurb': "An owner's manual for the mind, written like a car repair guide. Look up what you're going through in plain words, run free self-checks, and explore how upbringing wires people, with 41 tools to work on it. For reflection, not medical advice.",
+    'built': ['Plain-words lookups and warning-light checklists', 'Four published screeners and clearly labelled pattern checks', 'Toolbox of 41 techniques with live breathing pacers'],
+    'tags': ['Wellness', 'Reference', 'Self-checks'], 'color': '#A8792F', 'bg': '#F2EADC', 'art': 'shot',
+  },
+  {
+    'key': 'littleherobooks', 'name': 'Little Hero Books', 'domain': 'little-hero-books.anvil.app', 'cat': 'learn',
+    'blurb': 'Picture books that star your child. Parents design a cartoon look-alike, pick one of eight classic fairy tales retold for ages 3 to 6, and the child is drawn into every page, ready to read aloud or download as a print-ready PDF.',
+    'built': ['Hero studio for a cartoon look-alike', 'Eight public-domain tales with scenes drawn in code', 'Reader with read-aloud and an 8 x 8 inch PDF'],
+    'tags': ['Kids', 'Books', 'PDF'], 'color': '#EF5A36', 'bg': '#FFF8EC', 'art': 'shot',
+  },
+  {
+    'key': 'cityfuntime', 'name': 'City Fun Time', 'domain': 'city-fun-time.anvil.app', 'cat': 'games',
+    'blurb': 'A life-sim game played on your real streets. Type your address and your neighbourhood is rebuilt in 3D from the map, then work your way up from $20 and a couch to friends, love, fifteen businesses and every block, across 153 missions.',
+    'built': ['3D neighbourhood built live from OpenStreetMap', '153 missions at real places near the player', 'Shops, rides, homes, businesses, turf and a family'],
+    'tags': ['3D', 'Game', 'Maps'], 'color': '#774CA0', 'bg': '#FFF6E9', 'art': 'shot',
+  },
+  {
+    'key': 'mafiacamp', 'name': 'Mafia Camp', 'domain': 'mafia-camp-game.anvil.app', 'cat': 'games',
+    'blurb': 'Mafia on a video call, for three to ten friends. Everyone joins from the browser with no account, gets a secret role at Camp Moonlake, and the call follows the game: at night only the Mafia can see and hear each other.',
+    'built': ['Ten-way video call, peer to peer in the browser', 'Secret roles, night moves and day votes run by the server', 'Private night channels and a ghost chat for players who are out'],
+    'tags': ['Game', 'Live video', 'Multiplayer'], 'color': '#FF8A3D', 'bg': '#0D1530', 'art': 'shot',
+  },
 ]
+
+# One-minute films on the Addanapp YouTube channel (youtube.com/@addanapp); ids from APP_MAKER/youtube/manifest.json.
+# CityCrossers' film is private until its maps are fixed; Battle Tracker has none yet.
+VIDEOS = {
+  'planplate': '4KcdhVtqgNQ',
+  'prepsto': 'CehQC_0r93A',
+  'vitalrpa': 'W0yKLujjtPk',
+  'arvistay': '2Gm5T_OHFl0',
+  'subsudo': 'ECTqEf17FOg',
+  'quickybricks': '7AX1pujnTy0',
+  'toonyloony': 'mfsUukKdXQY',
+  'planfriday': 'd7Gj5GCfeOc',
+  'topameal': 'Eex4sJbZDNg',
+  'oscreenplay': 'niJntt5oVNU',
+  'yabanana': 'TwZemZxbquE',
+  'logsteps': 'tLUZzG1_Jz0',
+  'robointern': '-ZsVXlSr6tI',
+  'monshop': '7hR4RnsYm2M',
+  'adorablescience': 'eoGeoGcAmg8',
+  'funtoplan': 'qWP3bxxPTWE',
+  'busybun': 'mFIuuENN_nI',
+  'doremiroad': 'RXNcbqR-jRs',
+  'snackpuncher': 'YsGjeRjVZMY',
+  'walltracer': 'TavbKRtrFuw',
+  'mrbigstage': 'UuQabze-btg',
+  'poundfighter': 'X7OTOzRsGy8',
+  'healthbooker': '4BjAXdLkvMY',
+  'autoagile': 'iJ6mNTshQPg',
+  'goodlandlord': 'qv8jRRY0KG0',
+  'servicerequest': '_Qj7nniw9cw',
+  'betterthanmarketplace': 'X374nwXR8Qs',
+  'sheetsmith': 'KvFAg0fOglU',
+  'reelstuber': 'pjALr5WpIvM',
+  'videoblogbuddy': 'Olt2yMqA_TI',
+  'imgnovella': 'TV4J74A9QkE',
+  'fillfox': '1T24l_1OT_k',
+  'hookline': 'rgkcyhKM1T8',
+  'marguru': 'bTpH6t4KN2o',
+  'favesbuddy': 'LKq6NHGjgdc',
+  'perfectcast': '_pmaxTfTg38',
+  'makeyourownclothes': 'KHZVGQ4Py7M',
+  'robopresence': '-c7CiXm_WjE',
+  'csuitecoach': 'Z5MC3w_B89A',
+  'osinty': '3AZprKF2iH0',
+  'businessbuddy': 'Yw346NsYCr0',
+  'jevbuddy': 'pGgzeKsxuk0',
+  'taichiplease': 'arxqoGf9PlM',
+  'brainmechanic': '5BWx9DjbcDs',
+  'littleherobooks': 'lpY_f2LUTdI',
+  'cityfuntime': '-Eenu0iTZXI',
+  'mafiacamp': 'gDPcBrwAhtI',
+}
 
 # ------------------------------------------------------------------ illustrations
 
@@ -1405,8 +1618,15 @@ def split_blurb(text):
   return text, ''
 
 
-def featured():
-  return sorted([p for p in PROJECTS if p.get('featured')], key=lambda p: p['featured'])
+def picks(n=3, exclude=()):
+  """n live projects picked at random: the home page shows three, different on every visit (and on Shuffle)."""
+  pool = [p for p in PROJECTS if p.get('domain') and p['key'] not in exclude]
+  if len(pool) < n:
+    pool = [p for p in PROJECTS if p.get('domain')]
+  out = []
+  while pool and len(out) < n:
+    out.append(pool.pop(int(random.random() * len(pool))))
+  return out
 
 
 def in_category(key):
@@ -1436,18 +1656,44 @@ def _visit(p):
           f'{esc(t("Visit {domain}", domain=p["domain"]))} <span class="arr">&#8599;</span></a>')
 
 
+PLAY = ('<svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="currentColor"/>'
+        '<path d="M8 6.2v7.6l6-3.8z" fill="#fff"/></svg>')
+
+
+def _watch(p):
+  """Link to the project's one-minute film on the Addanapp YouTube channel (opens YouTube)."""
+  vid = VIDEOS.get(p['key'])
+  if not vid:
+    return ''
+  label = t('Watch the {name} film on YouTube', name=p['name'])
+  return (f'<a class="pf-watch" href="https://www.youtube.com/watch?v={vid}" target="_blank" rel="noopener" '
+          f'aria-label="{esc(label)}">{PLAY}<span>{esc(t("Watch the film"))}</span></a>')
+
+
+def _links(p):
+  return f'<div class="pf-acts">{_watch(p)}{_visit(p)}</div>'
+
+
+def _screen(p):
+  """A real screenshot of the app's landing page in a browser frame (same proportions as the SVG previews)."""
+  return (f'<div class="pf-screen" aria-hidden="true"><div class="win">'
+          f'<div class="bar"><i></i><i></i><i></i><span>{esc(p["domain"])}</span></div>'
+          f'<img src="_/theme/pf/{p["key"]}.jpg" alt="" loading="lazy" decoding="async" width="720" height="450"></div></div>')
+
+
 def _shot(p):
-  return f'<div class="shot" style="background:{p["bg"]}">{art(p)}</div>'
+  inner = _screen(p) if p['art'] == 'shot' else art(p)
+  return f'<div class="shot" style="background:{p["bg"]}">{inner}</div>'
 
 
-def showcase():
-  """The featured projects as large case-study panels, alternating sides."""
+def showcase(projects):
+  """Projects as large case-study panels, alternating sides (the home page passes picks())."""
   out = ''
-  for i, p in enumerate(featured()):
+  for i, p in enumerate(projects):
     hook, rest = split_blurb(t(p['blurb']))
     rest_p = '<p>' + esc(rest) + '</p>' if rest else ''
     out += f'''
-    <article class="pf-spot rv{' flip' if i % 2 else ''}">
+    <article class="pf-spot rv{' flip' if i % 2 else ''}" data-pf="{p['key']}">
       {_shot(p)}
       <div class="txt">
         <div class="pf-cat"><span>{'%02d' % (i + 1)} &middot; {esc(CAT[p['cat']])}</span>{_new(p)}</div>
@@ -1455,7 +1701,7 @@ def showcase():
         <p class="hook">{esc(hook)}</p>
         {rest_p}
         {_built(p)}
-        <div class="foot">{_tags(p)}{_visit(p)}</div>
+        <div class="foot">{_tags(p)}{_links(p)}</div>
       </div>
     </article>'''
   return f'<div class="pf-spots">{out}</div>'
@@ -1474,16 +1720,8 @@ def _row(p, tag, attrs, end):
     </{tag}>'''
 
 
-def _link_row(p):
-  if not p.get('domain'):
-    return _row(p, 'div', f'data-cat="{p["cat"]}"', '<span class="go"></span>')
-  label = t('{name}: {category}, opens {domain}', name=p['name'], category=CAT[p['cat']], domain=p['domain'])
-  attrs = f'data-cat="{p["cat"]}" href="{url(p)}" target="_blank" rel="noopener" aria-label="{esc(label)}"'
-  return _row(p, 'a', attrs, '<span class="go" aria-hidden="true">&#8599;</span>')
-
-
 def _detail_row(p):
-  """A row that opens in place (native <details>) to show the preview, what we built and the link."""
+  """A row that opens in place (native <details>) to show the preview, what we built, the film and the link."""
   rest = split_blurb(t(p['blurb']))[1]
   rest_p = '<p>' + esc(rest) + '</p>' if rest else ''
   return f'''<details class="pf-item" data-cat="{p['cat']}">
@@ -1494,26 +1732,10 @@ def _detail_row(p):
         {rest_p}
         <div class="lbl">{esc(t('What we built'))}</div>
         {_built(p)}
-        <div class="foot">{_tags(p)}{_visit(p)}</div>
+        <div class="foot">{_tags(p)}{_links(p)}</div>
       </div>
     </div>
   </details>'''
-
-
-def _preview(p, on):
-  rest = split_blurb(t(p['blurb']))[1]
-  status = (f'<span class="live">{esc(p["domain"])}</span>' if p.get('domain')
-            else f'<span class="pf-soon">{esc(t("Launching soon"))}</span>')
-  return f'''<div class="pf-pv{' on' if on else ''}" data-pv="{p['key']}">
-    {_shot(p)}
-    <div class="pv-txt">
-      <div class="pf-cat"><span>{esc(CAT[p['cat']])}</span>{status}</div>
-      <h3>{esc(p['name'])}</h3>
-      <p>{esc(rest or t(p['blurb']))}</p>
-      {_built(p)}
-      {_tags(p)}
-    </div>
-  </div>'''
 
 
 def filter_bar():
@@ -1524,46 +1746,26 @@ def filter_bar():
   return out + '</div>'
 
 
-def index(detailed=False):
-  """Every project as a compact row, grouped by category.
-  Home page: rows link to the live product, and hovering one shows its preview in a sticky panel (desktop).
-  Work page (detailed): rows open in place to show the preview and what we built."""
-  rows, previews = '', ''
+def index():
+  """Every project as a compact row, grouped by category (Work page). Rows open in place to show the preview,
+  what we built, the film and the live link."""
+  rows = ''
   for key, label in CATEGORIES[1:]:
     group = in_category(key)
     if not group:
       continue
     rows += f'<div class="pf-group" data-cat="{key}"><span>{esc(label)}</span><span class="n">{"%02d" % len(group)}</span></div>'
     for p in group:
-      rows += _detail_row(p) if detailed else _link_row(p)
-      if not detailed:
-        previews += _preview(p, not previews)
+      rows += _detail_row(p)
   count = tn(len(PROJECTS), '{n} product', '{n} products') + ' &middot; ' + esc(t('{n} live', n=live_count()))
   head = f'''<div class="pf-head">
     <h3>{esc(t('The full index'))}</h3><span class="pf-count">{count}</span>
   </div>{filter_bar()}'''
-  if detailed:
-    return f'<div class="pf-index detailed">{head}<div class="pf-list">{rows}</div></div>'
-  return f'''<div class="pf-index">{head}
-    <div class="pf-cols">
-      <div class="pf-list">{rows}</div>
-      <aside class="pf-preview" aria-hidden="true"><div class="pf-stack">{previews}</div></aside>
-    </div>
-  </div>'''
-
-
-def _show_preview(index_el, key):
-  pvs = index_el.querySelectorAll('.pf-pv')
-  for i in range(pvs.length):
-    el = pvs.item(i)
-    if el.getAttribute('data-pv') == key:
-      el.classList.add('on')
-    else:
-      el.classList.remove('on')
+  return f'<div class="pf-index detailed">{head}<div class="pf-list">{rows}</div></div>'
 
 
 def apply_filter(root_node, key):
-  """Show one category of the index (DOM only); the preview panel jumps to the first project shown."""
+  """Show one category of the index (DOM only)."""
   btns = root_node.querySelectorAll('.lp-filter button')
   for i in range(btns.length):
     b = btns.item(i)
@@ -1571,17 +1773,10 @@ def apply_filter(root_node, key):
       b.classList.add('on')
     else:
       b.classList.remove('on')
-  first = None
   els = root_node.querySelectorAll('.pf-index [data-cat]')
   for i in range(els.length):
     el = els.item(i)
     if key == 'all' or el.getAttribute('data-cat') == key:
       el.classList.remove('gone')
-      pf = el.getAttribute('data-pf')
-      if first is None and pf:
-        first = pf
     else:
       el.classList.add('gone')
-  index_el = root_node.querySelector('.pf-index')
-  if index_el is not None and first:
-    _show_preview(index_el, first)

@@ -289,7 +289,7 @@ native_deps:
       try { l = localStorage.getItem('aa.lang'); } catch (e) {}
       if (l === 'fr' || l === 'ru' || l === 'lv') {
         document.documentElement.lang = l;
-        window.aaLangPack = fetch('_/theme/lang-' + l + '.json?v=10').then(function (r) {
+        window.aaLangPack = fetch('_/theme/lang-' + l + '.json?v=12').then(function (r) {
           if (!r.ok) throw new Error('lang ' + r.status);
           return r.text();
         });
@@ -305,11 +305,11 @@ native_deps:
       }
     })();
     </script>
-    <script src="_/theme/legal-kit.js?v=eeaefeb687"></script>
+    <script src="_/theme/legal-kit.js?v=a4749d7d91"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-    <script src="_/theme/aa.js?v=3"></script>
+    <script src="_/theme/aa.js?v=4"></script>
     <link rel="icon" type="image/svg+xml" href="_/theme/logo.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="_/theme/favicon-32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="_/theme/apple-touch-icon.png">
@@ -517,7 +517,10 @@ native_deps:
           }
          }
         ]
-       }
+       },
+       "sameAs": [
+        "https://www.youtube.com/@addanapp"
+       ]
       },
       {
        "@type": "WebSite",
@@ -644,7 +647,14 @@ native_deps:
           },
           "keywords": "SaaS, Public API, Admin portal, Working businesses",
           "applicationCategory": "BusinessApplication",
-          "operatingSystem": "Web"
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "PlanPlate in about a minute",
+           "url": "https://www.youtube.com/watch?v=4KcdhVtqgNQ",
+           "thumbnailUrl": "https://i.ytimg.com/vi/4KcdhVtqgNQ/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
          }
         },
         {
@@ -660,7 +670,14 @@ native_deps:
           },
           "keywords": "SaaS, Embeddable widget, Rule engine, Working businesses",
           "applicationCategory": "BusinessApplication",
-          "operatingSystem": "Web"
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "Prepsto in about a minute",
+           "url": "https://www.youtube.com/watch?v=CehQC_0r93A",
+           "thumbnailUrl": "https://i.ytimg.com/vi/CehQC_0r93A/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
          }
         },
         {
@@ -676,7 +693,14 @@ native_deps:
           },
           "keywords": "SaaS, Monitoring, Automation, Working businesses",
           "applicationCategory": "BusinessApplication",
-          "operatingSystem": "Web"
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "VitalRPA in about a minute",
+           "url": "https://www.youtube.com/watch?v=W0yKLujjtPk",
+           "thumbnailUrl": "https://i.ytimg.com/vi/W0yKLujjtPk/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
          }
         },
         {
@@ -692,7 +716,14 @@ native_deps:
           },
           "keywords": "SaaS, Website builder, 3D maps, Working businesses",
           "applicationCategory": "BusinessApplication",
-          "operatingSystem": "Web"
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "ArviStay in about a minute",
+           "url": "https://www.youtube.com/watch?v=2Gm5T_OHFl0",
+           "thumbnailUrl": "https://i.ytimg.com/vi/2Gm5T_OHFl0/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
          }
         },
         {
@@ -708,7 +739,14 @@ native_deps:
           },
           "keywords": "Marketplace, Maps, Two-sided, Working businesses",
           "applicationCategory": "BusinessApplication",
-          "operatingSystem": "Web"
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "MonShop in about a minute",
+           "url": "https://www.youtube.com/watch?v=7hR4RnsYm2M",
+           "thumbnailUrl": "https://i.ytimg.com/vi/7hR4RnsYm2M/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
          }
         },
         {
@@ -724,7 +762,14 @@ native_deps:
           },
           "keywords": "CMS, Roles & moderation, Publishing, Working businesses",
           "applicationCategory": "BusinessApplication",
-          "operatingSystem": "Web"
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "Adorable Science in about a minute",
+           "url": "https://www.youtube.com/watch?v=eoGeoGcAmg8",
+           "thumbnailUrl": "https://i.ytimg.com/vi/eoGeoGcAmg8/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
          }
         },
         {
@@ -748,6 +793,121 @@ native_deps:
          "position": 8,
          "item": {
           "@type": "SoftwareApplication",
+          "name": "Health Booker",
+          "url": "https://health-booker.anvil.app",
+          "description": "One account for every yoga studio in the city. Students find and book classes, pick their mat and keep every pass in one wallet, while each studio runs its schedule, passes, subs and teacher pay with no commission.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Marketplace, Multi-tenant, Booking, Working businesses",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "Health Booker in about a minute",
+           "url": "https://www.youtube.com/watch?v=4BjAXdLkvMY",
+           "thumbnailUrl": "https://i.ytimg.com/vi/4BjAXdLkvMY/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 9,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "AutoAgile",
+          "url": "https://autoagile.anvil.app",
+          "description": "An agile board for crews of people and AI developers. Teams start in Kanban and unlock sprints, forecasts and a roadmap as their data matures, while AI agents pull, claim and hand in cards through an API for human review.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "SaaS, AI agents, Productivity, Working businesses",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "AutoAgile in about a minute",
+           "url": "https://www.youtube.com/watch?v=iJ6mNTshQPg",
+           "thumbnailUrl": "https://i.ytimg.com/vi/iJ6mNTshQPg/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 10,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "Good Landlord",
+          "url": "https://good-landlord.anvil.app",
+          "description": "Rental numbers and fair tenant records for small landlords. Track rent and every claimable expense, see cash flow, equity and long-term profit, and give each tenant a private, tamper-evident log of messages and repairs.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "SaaS, Finance, Property, Working businesses",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "Good Landlord in about a minute",
+           "url": "https://www.youtube.com/watch?v=qv8jRRY0KG0",
+           "thumbnailUrl": "https://i.ytimg.com/vi/qv8jRRY0KG0/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 11,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "Service Request",
+          "url": "https://service-request.anvil.app",
+          "description": "A neighbourhood bounty board for small paid jobs. Post leaves, snow, junk or moving from $20, pick an offer from someone nearby, get photo proof, and pay them directly with an optional quality bonus.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Marketplace, Maps, Two-sided, Working businesses",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "Service Request in about a minute",
+           "url": "https://www.youtube.com/watch?v=_Qj7nniw9cw",
+           "thumbnailUrl": "https://i.ytimg.com/vi/_Qj7nniw9cw/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 12,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "Better Than Marketplace",
+          "url": "https://bettermart.anvil.app",
+          "description": "Sell what you don't need in thirty seconds. Snap a photo, give it a name, and it's listed for neighbours nearby: no categories, no forms and no fees, with chat, saved items and reserved or sold in one tap.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Marketplace, Mobile-first, Maps, Working businesses",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "Better Than Marketplace in about a minute",
+           "url": "https://www.youtube.com/watch?v=X374nwXR8Qs",
+           "thumbnailUrl": "https://i.ytimg.com/vi/X374nwXR8Qs/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 13,
+         "item": {
+          "@type": "SoftwareApplication",
           "name": "Plan Friday",
           "url": "https://planfriday.com",
           "description": "The easy way to plan a weekend dinner with any group of friends. Send one link: friends pick the slots that suit them and say what they are bringing, with no account, and the host locks in the best night.",
@@ -756,12 +916,19 @@ native_deps:
           },
           "keywords": "Social, Group planning, No account needed, Useful tools",
           "applicationCategory": "LifestyleApplication",
-          "operatingSystem": "Web"
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "Plan Friday in about a minute",
+           "url": "https://www.youtube.com/watch?v=d7Gj5GCfeOc",
+           "thumbnailUrl": "https://i.ytimg.com/vi/d7Gj5GCfeOc/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
          }
         },
         {
          "@type": "ListItem",
-         "position": 9,
+         "position": 14,
          "item": {
           "@type": "SoftwareApplication",
           "name": "OScreenplay",
@@ -772,12 +939,19 @@ native_deps:
           },
           "keywords": "Creative tools, Rich editor, Rule engine, Useful tools",
           "applicationCategory": "DesignApplication",
-          "operatingSystem": "Web"
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "OScreenplay in about a minute",
+           "url": "https://www.youtube.com/watch?v=niJntt5oVNU",
+           "thumbnailUrl": "https://i.ytimg.com/vi/niJntt5oVNU/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
          }
         },
         {
          "@type": "ListItem",
-         "position": 10,
+         "position": 15,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Yabanana",
@@ -788,12 +962,19 @@ native_deps:
           },
           "keywords": "Community, Web Audio, Gamification, Useful tools",
           "applicationCategory": "UtilitiesApplication",
-          "operatingSystem": "Web"
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "Yabanana in about a minute",
+           "url": "https://www.youtube.com/watch?v=TwZemZxbquE",
+           "thumbnailUrl": "https://i.ytimg.com/vi/TwZemZxbquE/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
          }
         },
         {
          "@type": "ListItem",
-         "position": 11,
+         "position": 16,
          "item": {
           "@type": "SoftwareApplication",
           "name": "RoboIntern",
@@ -804,12 +985,19 @@ native_deps:
           },
           "keywords": "Machine learning, Code generator, Reference, Useful tools",
           "applicationCategory": "UtilitiesApplication",
-          "operatingSystem": "Web"
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "RoboIntern in about a minute",
+           "url": "https://www.youtube.com/watch?v=-ZsVXlSr6tI",
+           "thumbnailUrl": "https://i.ytimg.com/vi/-ZsVXlSr6tI/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
          }
         },
         {
          "@type": "ListItem",
-         "position": 12,
+         "position": 17,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Varnote",
@@ -825,7 +1013,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 13,
+         "position": 18,
          "item": {
           "@type": "SoftwareApplication",
           "name": "FunToPlan",
@@ -836,12 +1024,449 @@ native_deps:
           },
           "keywords": "Family, Gamification, Productivity, Useful tools",
           "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "FunToPlan in about a minute",
+           "url": "https://www.youtube.com/watch?v=qWP3bxxPTWE",
+           "thumbnailUrl": "https://i.ytimg.com/vi/qWP3bxxPTWE/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 19,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "Sheetsmith",
+          "url": "https://sheetsmith.anvil.app",
+          "description": "Turns an Excel workbook into a web app. Upload the file with its tables, formulas, validation rules and VBA macros, adjust the app in a studio, and download a one-file Python server the whole office can share over Wi-Fi.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Code generator, Spreadsheets, Automation, Useful tools",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "Sheetsmith in about a minute",
+           "url": "https://www.youtube.com/watch?v=KvFAg0fOglU",
+           "thumbnailUrl": "https://i.ytimg.com/vi/KvFAg0fOglU/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 20,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "Reelstuber",
+          "url": "https://reelstuber.anvil.app",
+          "description": "One long video in, a week of reels out. Reelstuber finds the best moments, reframes them to 9:16, adds word-by-word captions and exports MP4s, all inside the browser, so the video is never uploaded.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Video, On-device AI, Creative tools, Useful tools",
+          "applicationCategory": "MultimediaApplication",
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "Reelstuber in about a minute",
+           "url": "https://www.youtube.com/watch?v=pjALr5WpIvM",
+           "thumbnailUrl": "https://i.ytimg.com/vi/pjALr5WpIvM/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 21,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "VideoBlog Buddy",
+          "url": "https://videoblog-buddy.anvil.app",
+          "description": "Record, edit and publish videos about what you build. Capture your screen and camera, trim pauses, zoom on clicks, add captions and music, then get a thumbnail, chapters and a direct YouTube upload, while recordings stay on your computer.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Video, Creative tools, YouTube, Useful tools",
+          "applicationCategory": "MultimediaApplication",
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "VideoBlog Buddy in about a minute",
+           "url": "https://www.youtube.com/watch?v=Olt2yMqA_TI",
+           "thumbnailUrl": "https://i.ytimg.com/vi/Olt2yMqA_TI/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 22,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "ImgNovella",
+          "url": "https://imgnovella.anvil.app",
+          "description": "A visual novel maker with no scripting. Build branching stories with characters, expressions, choices and multiple endings, then share a link or download a standalone game to sell on itch.io.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Creative tools, Game, No-code, Useful tools",
+          "applicationCategory": "DesignApplication",
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "ImgNovella in about a minute",
+           "url": "https://www.youtube.com/watch?v=TV4J74A9QkE",
+           "thumbnailUrl": "https://i.ytimg.com/vi/TV4J74A9QkE/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 23,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "Fillfox",
+          "url": "https://fillfox.anvil.app",
+          "description": "A free form builder you write like a document. Share one link or embed it, and see every answer plus exactly where people stopped, with logic, quizzes, signatures and teammates included at no cost.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Forms, Analytics, Productivity, Useful tools",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "Fillfox in about a minute",
+           "url": "https://www.youtube.com/watch?v=1T24l_1OT_k",
+           "thumbnailUrl": "https://i.ytimg.com/vi/1T24l_1OT_k/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 24,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "Hookline",
+          "url": "https://hookline.anvil.app",
+          "description": "A free LinkedIn writing studio. Write in your own voice, get the hook past the see-more fold, plan a calm posting rhythm and learn from your own analytics, with optional AI on your own key.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Marketing, Social, AI, Useful tools",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "Hookline in about a minute",
+           "url": "https://www.youtube.com/watch?v=rgkcyhKM1T8",
+           "thumbnailUrl": "https://i.ytimg.com/vi/rgkcyhKM1T8/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 25,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "Marguru",
+          "url": "https://marguru.anvil.app",
+          "description": "Market your business the way an ad agency would. Describe the business in three minutes and get 25 to 35 copy-ready AI prompts, filled in and ordered stage by stage, from strategy and Google Maps to ads, content and measurement.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Marketing, Prompt playbooks, Small business, Useful tools",
+          "applicationCategory": "BusinessApplication",
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "Marguru in about a minute",
+           "url": "https://www.youtube.com/watch?v=bTpH6t4KN2o",
+           "thumbnailUrl": "https://i.ytimg.com/vi/bTpH6t4KN2o/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 26,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "Faves Buddy",
+          "url": "https://faves-buddy.anvil.app",
+          "description": "One home for the tabs, pins and screenshots you mean to come back to. Faves Buddy sorts them for you without AI, puts places on a map with what's open now, and finds more you will love.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Productivity, Maps, Browser extension, Useful tools",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "Faves Buddy in about a minute",
+           "url": "https://www.youtube.com/watch?v=LKq6NHGjgdc",
+           "thumbnailUrl": "https://i.ytimg.com/vi/LKq6NHGjgdc/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 27,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "PerfectCast",
+          "url": "https://perfectcast.anvil.app",
+          "description": "Fan-casting for romantasy readers. Every new book is listed with its characters, tropes and spice level; fans build celebrity collages for each role, swoon over each other's picks, and every character shows the fandom's favourite.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Community, Books, Social, Useful tools",
+          "applicationCategory": "SocialNetworkingApplication",
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "PerfectCast in about a minute",
+           "url": "https://www.youtube.com/watch?v=_pmaxTfTg38",
+           "thumbnailUrl": "https://i.ytimg.com/vi/_pmaxTfTg38/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 28,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "Make Your Own Clothes",
+          "url": "https://make-my-clothes.anvil.app",
+          "description": "A tailor's shop for making your own clothes. It drafts real sewing patterns from your measurements, lets you redraw them, sews the pieces in 3D on a mannequin your size and writes a step-by-step making book.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "3D, DIY, Simulations, Useful tools",
+          "applicationCategory": "DesignApplication",
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "Make Your Own Clothes in about a minute",
+           "url": "https://www.youtube.com/watch?v=KHZVGQ4Py7M",
+           "thumbnailUrl": "https://i.ytimg.com/vi/KHZVGQ4Py7M/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 29,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "Robo Presence",
+          "url": "https://robo-presence.anvil.app",
+          "description": "Build a camera robot and drive it from any browser. Use a Raspberry Pi, an Arduino or an old phone, install it with one command, and steer with live peer-to-peer video, a joystick and a pan-tilt head.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Robotics, Live video, Hardware, Useful tools",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "Robo Presence in about a minute",
+           "url": "https://www.youtube.com/watch?v=-c7CiXm_WjE",
+           "thumbnailUrl": "https://i.ytimg.com/vi/-c7CiXm_WjE/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 30,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "Battle Tracker",
+          "url": "https://battletracker.anvil.app",
+          "description": "Every exercise feed on one live map. Battle Tracker reads NATO and common formats, from STANAG 4607 radar tracks and Cursor on Target to KML and AIS, and draws them in standard military symbols with trails and a replay timeline, for training and simulation data.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Maps, Data feeds, Defence training, Useful tools",
+          "applicationCategory": "UtilitiesApplication",
           "operatingSystem": "Web"
          }
         },
         {
          "@type": "ListItem",
-         "position": 14,
+         "position": 31,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "C-Suite Coach",
+          "url": "https://csuite-coach.anvil.app",
+          "description": "Executive training for current and future C-suite leaders. Members study 24 real business cases, drill with spaced repetition, practise boardroom decisions in written challenges and earn certificates with public verification codes.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "EdTech, Coaching, Certification, Learning & guides",
+          "applicationCategory": "EducationalApplication",
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "C-Suite Coach in about a minute",
+           "url": "https://www.youtube.com/watch?v=Z5MC3w_B89A",
+           "thumbnailUrl": "https://i.ytimg.com/vi/Z5MC3w_B89A/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 32,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "Osinty",
+          "url": "https://osinty.anvil.app",
+          "description": "An open-source intelligence academy for private investigators. Twenty-four lessons in a noir detective's office, six fictional case files worked in a simulated search terminal, and a corkboard casebook of your own.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "EdTech, Simulations, Investigation, Learning & guides",
+          "applicationCategory": "EducationalApplication",
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "Osinty in about a minute",
+           "url": "https://www.youtube.com/watch?v=3AZprKF2iH0",
+           "thumbnailUrl": "https://i.ytimg.com/vi/3AZprKF2iH0/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 33,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "Business Buddy",
+          "url": "https://business-buddy.anvil.app",
+          "description": "How to open a small business in Montréal, step by step. Guides for barbers, bakeries, cleaning services, food trucks and more cover permits, boroughs, taxes, real costs and the money maths, and members turn a guide into their own launch plan.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Reference, Small business, Planning, Learning & guides",
+          "applicationCategory": "EducationalApplication",
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "Business Buddy in about a minute",
+           "url": "https://www.youtube.com/watch?v=Yw346NsYCr0",
+           "thumbnailUrl": "https://i.ytimg.com/vi/Yw346NsYCr0/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 34,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "Jev Buddy",
+          "url": "https://jev-buddy.anvil.app",
+          "description": "A friendly developer guide to an AI decision model. It explains typed questions and calibrated answers with code examples, twelve business use cases, a live playground and a cost calculator.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Developer docs, AI, Reference, Learning & guides",
+          "applicationCategory": "EducationalApplication",
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "Jev Buddy in about a minute",
+           "url": "https://www.youtube.com/watch?v=pGgzeKsxuk0",
+           "thumbnailUrl": "https://i.ytimg.com/vi/pGgzeKsxuk0/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 35,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "Tai Chi Please",
+          "url": "https://tai-chi-please.anvil.app",
+          "description": "Gentle morning tai chi with a 3D teacher. Guided tai chi, qigong and lymph self-massage sessions in a bamboo forest, a path through the 24-step form and a practice journal, with no sign-up needed to start.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Fitness, Animation, Wellness, Learning & guides",
+          "applicationCategory": "HealthApplication",
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "Tai Chi Please in about a minute",
+           "url": "https://www.youtube.com/watch?v=arxqoGf9PlM",
+           "thumbnailUrl": "https://i.ytimg.com/vi/arxqoGf9PlM/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 36,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "Brain Mechanic",
+          "url": "https://brain-mechanic.anvil.app",
+          "description": "An owner's manual for the mind, written like a car repair guide. Look up what you're going through in plain words, run free self-checks, and explore how upbringing wires people, with 41 tools to work on it. For reflection, not medical advice.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Wellness, Reference, Self-checks, Learning & guides",
+          "applicationCategory": "HealthApplication",
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "Brain Mechanic in about a minute",
+           "url": "https://www.youtube.com/watch?v=5BWx9DjbcDs",
+           "thumbnailUrl": "https://i.ytimg.com/vi/5BWx9DjbcDs/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 37,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "Little Hero Books",
+          "url": "https://little-hero-books.anvil.app",
+          "description": "Picture books that star your child. Parents design a cartoon look-alike, pick one of eight classic fairy tales retold for ages 3 to 6, and the child is drawn into every page, ready to read aloud or download as a print-ready PDF.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Kids, Books, PDF, Learning & guides",
+          "applicationCategory": "EducationalApplication",
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "Little Hero Books in about a minute",
+           "url": "https://www.youtube.com/watch?v=lpY_f2LUTdI",
+           "thumbnailUrl": "https://i.ytimg.com/vi/lpY_f2LUTdI/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 38,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Subsudo",
@@ -852,12 +1477,19 @@ native_deps:
           },
           "keywords": "Game, Motion sensors, Computer vision, Engaging games",
           "applicationCategory": "GameApplication",
-          "operatingSystem": "Web"
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "Subsudo in about a minute",
+           "url": "https://www.youtube.com/watch?v=ECTqEf17FOg",
+           "thumbnailUrl": "https://i.ytimg.com/vi/ECTqEf17FOg/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
          }
         },
         {
          "@type": "ListItem",
-         "position": 15,
+         "position": 39,
          "item": {
           "@type": "SoftwareApplication",
           "name": "QuickyBricks",
@@ -868,12 +1500,19 @@ native_deps:
           },
           "keywords": "3D, Multiplayer, Kids, Engaging games",
           "applicationCategory": "GameApplication",
-          "operatingSystem": "Web"
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "QuickyBricks in about a minute",
+           "url": "https://www.youtube.com/watch?v=7AX1pujnTy0",
+           "thumbnailUrl": "https://i.ytimg.com/vi/7AX1pujnTy0/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
          }
         },
         {
          "@type": "ListItem",
-         "position": 16,
+         "position": 40,
          "item": {
           "@type": "SoftwareApplication",
           "name": "ToonyLoony",
@@ -884,12 +1523,19 @@ native_deps:
           },
           "keywords": "Kids, Animation, Creative tools, Engaging games",
           "applicationCategory": "GameApplication",
-          "operatingSystem": "Web"
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "ToonyLoony in about a minute",
+           "url": "https://www.youtube.com/watch?v=mfsUukKdXQY",
+           "thumbnailUrl": "https://i.ytimg.com/vi/mfsUukKdXQY/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
          }
         },
         {
          "@type": "ListItem",
-         "position": 17,
+         "position": 41,
          "item": {
           "@type": "SoftwareApplication",
           "name": "BusyBun",
@@ -900,12 +1546,19 @@ native_deps:
           },
           "keywords": "Game, Level editor, Canvas, Engaging games",
           "applicationCategory": "GameApplication",
-          "operatingSystem": "Web"
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "BusyBun in about a minute",
+           "url": "https://www.youtube.com/watch?v=mFIuuENN_nI",
+           "thumbnailUrl": "https://i.ytimg.com/vi/mFIuuENN_nI/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
          }
         },
         {
          "@type": "ListItem",
-         "position": 18,
+         "position": 42,
          "item": {
           "@type": "SoftwareApplication",
           "name": "DoremiRoad",
@@ -916,12 +1569,65 @@ native_deps:
           },
           "keywords": "EdTech, Web MIDI, Game, Engaging games",
           "applicationCategory": "GameApplication",
-          "operatingSystem": "Web"
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "DoremiRoad in about a minute",
+           "url": "https://www.youtube.com/watch?v=RXNcbqR-jRs",
+           "thumbnailUrl": "https://i.ytimg.com/vi/RXNcbqR-jRs/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
          }
         },
         {
          "@type": "ListItem",
-         "position": 19,
+         "position": 43,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "City Fun Time",
+          "url": "https://city-fun-time.anvil.app",
+          "description": "A life-sim game played on your real streets. Type your address and your neighbourhood is rebuilt in 3D from the map, then work your way up from $20 and a couch to friends, love, fifteen businesses and every block, across 153 missions.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "3D, Game, Maps, Engaging games",
+          "applicationCategory": "GameApplication",
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "City Fun Time in about a minute",
+           "url": "https://www.youtube.com/watch?v=-Eenu0iTZXI",
+           "thumbnailUrl": "https://i.ytimg.com/vi/-Eenu0iTZXI/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 44,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "Mafia Camp",
+          "url": "https://mafia-camp-game.anvil.app",
+          "description": "Mafia on a video call, for three to ten friends. Everyone joins from the browser with no account, gets a secret role at Camp Moonlake, and the call follows the game: at night only the Mafia can see and hear each other.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Game, Live video, Multiplayer, Engaging games",
+          "applicationCategory": "GameApplication",
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "Mafia Camp in about a minute",
+           "url": "https://www.youtube.com/watch?v=gDPcBrwAhtI",
+           "thumbnailUrl": "https://i.ytimg.com/vi/gDPcBrwAhtI/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 45,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Snackpuncher",
@@ -932,12 +1638,19 @@ native_deps:
           },
           "keywords": "VR, Fitness, Game, VR & mixed reality",
           "applicationCategory": "GameApplication",
-          "operatingSystem": "Web"
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "Snackpuncher in about a minute",
+           "url": "https://www.youtube.com/watch?v=YsGjeRjVZMY",
+           "thumbnailUrl": "https://i.ytimg.com/vi/YsGjeRjVZMY/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
          }
         },
         {
          "@type": "ListItem",
-         "position": 20,
+         "position": 46,
          "item": {
           "@type": "SoftwareApplication",
           "name": "WallTracer",
@@ -948,12 +1661,19 @@ native_deps:
           },
           "keywords": "Mixed reality, DIY, Image processing, VR & mixed reality",
           "applicationCategory": "DesignApplication",
-          "operatingSystem": "Web"
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "WallTracer in about a minute",
+           "url": "https://www.youtube.com/watch?v=TavbKRtrFuw",
+           "thumbnailUrl": "https://i.ytimg.com/vi/TavbKRtrFuw/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
          }
         },
         {
          "@type": "ListItem",
-         "position": 21,
+         "position": 47,
          "item": {
           "@type": "SoftwareApplication",
           "name": "MrBigStage",
@@ -964,12 +1684,19 @@ native_deps:
           },
           "keywords": "VR, Voice analysis, Coaching, VR & mixed reality",
           "applicationCategory": "EducationalApplication",
-          "operatingSystem": "Web"
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "MrBigStage in about a minute",
+           "url": "https://www.youtube.com/watch?v=UuQabze-btg",
+           "thumbnailUrl": "https://i.ytimg.com/vi/UuQabze-btg/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
          }
         },
         {
          "@type": "ListItem",
-         "position": 22,
+         "position": 48,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Topameal",
@@ -980,12 +1707,19 @@ native_deps:
           },
           "keywords": "Mobile-first, Meal planning, Shared lists, Mobile-style apps",
           "applicationCategory": "LifestyleApplication",
-          "operatingSystem": "Web"
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "Topameal in about a minute",
+           "url": "https://www.youtube.com/watch?v=Eex4sJbZDNg",
+           "thumbnailUrl": "https://i.ytimg.com/vi/Eex4sJbZDNg/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
          }
         },
         {
          "@type": "ListItem",
-         "position": 23,
+         "position": 49,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Logsteps",
@@ -996,12 +1730,19 @@ native_deps:
           },
           "keywords": "Mobile-first, 3D, GPU pipeline, Mobile-style apps",
           "applicationCategory": "LifestyleApplication",
-          "operatingSystem": "Web"
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "Logsteps in about a minute",
+           "url": "https://www.youtube.com/watch?v=tLUZzG1_Jz0",
+           "thumbnailUrl": "https://i.ytimg.com/vi/tLUZzG1_Jz0/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
          }
         },
         {
          "@type": "ListItem",
-         "position": 24,
+         "position": 50,
          "item": {
           "@type": "SoftwareApplication",
           "name": "PoundFighter",
@@ -1012,12 +1753,19 @@ native_deps:
           },
           "keywords": "Mobile-first, Voice, Fitness, Mobile-style apps",
           "applicationCategory": "LifestyleApplication",
-          "operatingSystem": "Web"
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "PoundFighter in about a minute",
+           "url": "https://www.youtube.com/watch?v=X7OTOzRsGy8",
+           "thumbnailUrl": "https://i.ytimg.com/vi/X7OTOzRsGy8/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
          }
         },
         {
          "@type": "ListItem",
-         "position": 25,
+         "position": 51,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Parapeet",
@@ -1033,7 +1781,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 26,
+         "position": 52,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Dilettante",
@@ -1049,7 +1797,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 27,
+         "position": 53,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Arkvital",
@@ -1064,6 +1812,20 @@ native_deps:
          }
         }
        ]
+      },
+      {
+       "@type": "VideoObject",
+       "@id": "https://addanapp.com/#film",
+       "name": "Addanapp: Apps Built at AI Speed, Signed Off by Senior Engineers",
+       "description": "A one-minute film about Addanapp, the Montréal studio that builds web apps, admin panels, client portals and data platforms with AI speed and senior-engineer sign-off.",
+       "thumbnailUrl": "https://addanapp.com/_/theme/yt-addanapp.jpg",
+       "uploadDate": "2026-11-02",
+       "duration": "PT1M6S",
+       "embedUrl": "https://www.youtube-nocookie.com/embed/wzCMxAdyrHo",
+       "url": "https://www.youtube.com/watch?v=wzCMxAdyrHo",
+       "publisher": {
+        "@id": "https://addanapp.com/#org"
+       }
       }
      ]
     }

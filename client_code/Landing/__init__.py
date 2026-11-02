@@ -3,7 +3,7 @@ from anvil import *
 
 from .. import ui, state, portfolio
 from ..i18n import t
-from ..content import HTML
+from ..content import HTML, YT_FILM
 
 
 class Landing(LandingTemplate):
@@ -15,7 +15,8 @@ class Landing(LandingTemplate):
       'signup': lambda a: self._workspace('signup'),
       'login': lambda a: self._workspace('login'),
       'contact': lambda a: state.go('home/contact'),
-      'filter': lambda key: portfolio.apply_filter(self.node, key),
+      'shuffle': lambda a: self._shuffle(),
+      'video': lambda a: self._play(),
       'wstab': self._ws_tab,
       'lead': lambda a: self._send_lead(),
     })
@@ -30,6 +31,25 @@ class Landing(LandingTemplate):
       state.go(state.home_route())
     else:
       state.go(mode)
+
+  def _shuffle(self):
+    """Three other projects in the Selected work panels."""
+    box = self.node.querySelector('.pf-spots')
+    if box is None:
+      return
+    shown = [el.getAttribute('data-pf') for el in ui.qa(box, '.pf-spot')]
+    box.outerHTML = portfolio.showcase(portfolio.picks(3, exclude=shown))
+    ui.reveal(self)
+
+  def _play(self):
+    """Swap the film's cover for the YouTube player (privacy-enhanced; loads only now, on the visitor's click)."""
+    frame = self.node.querySelector('.yt-frame')
+    if frame is None:
+      return
+    title = ui.esc(t('Addanapp: apps built at AI speed, signed off by senior engineers'))
+    frame.innerHTML = (f'<iframe src="https://www.youtube-nocookie.com/embed/{YT_FILM}?autoplay=1&rel=0&playsinline=1" '
+                       f'title="{title}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen '
+                       f'referrerpolicy="strict-origin-when-cross-origin"></iframe>')
 
   def _ws_tab(self, which):
     for b in ui.qa(self.node, '.lp-ws .tabs button'):

@@ -102,6 +102,8 @@ SHELL = f'''
           <li><a href="#home/approach">{t('Our approach')}</a></li>
           <li><a href="#work">{t('Work')}</a></li>
           <li><a href="#home/engage">{t('Engagements')}</a></li>
+          <li><a href="https://www.youtube.com/@addanapp" target="_blank" rel="noopener">{t('YouTube channel')}</a></li>
+          <li><a href="_/theme/addanapp-partner-deck.pdf" target="_blank" rel="noopener" download="Addanapp-partner-deck.pdf">{t('Partner deck (PDF)')}</a></li>
           <li><a href="#home/faq">{t('FAQ')}</a></li>
           <li><a href="#privacy">{t('Privacy &amp; Terms')}</a></li></ul></div>
         <div><h4>{t('Clients')}</h4><ul>
@@ -339,8 +341,8 @@ class Main(MainTemplate):
     if head == 'work':
       self.set_page(Work(), public=True, nav='work')
       return ui.set_meta(t("Work | Apps, platforms and games built by Addanapp, Montréal"),
-                         t("Live products built by Addanapp: PlanPlate, Prepsto, VitalRPA, ArviStay, ToonyLoony, Subsudo, "
-                           "QuickyBricks, Snackpuncher, WallTracer, MonShop, CityCrossers, OScreenplay and more."))
+                         t("Live products built by Addanapp, from restaurant platforms and SaaS to games, VR and learning apps: "
+                           "PlanPlate, Prepsto, VitalRPA, ArviStay, Health Booker, AutoAgile, Sheetsmith, Subsudo, City Fun Time and more."))
     if head == 'privacy':
       self.set_page(Privacy(), public=True)
       return ui.set_meta(t("Privacy & Terms | Addanapp"), t("How Addanapp collects, uses and protects personal information (Québec Law 25, PIPEDA, GDPR), and the terms of use."))
