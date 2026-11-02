@@ -7,7 +7,8 @@ import anvil.server
 from .. import ui, state, dialogs, i18n
 from ..i18n import t
 from ..icons import icon, LOGO, WORDMARK
-from ..content import CONTACT_EMAIL
+from ..content import CONTACT_EMAIL, deck_attrs
+from ..portfolio import PROJECTS
 from ..Landing import Landing
 from ..Work import Work
 from ..Portal import Portal
@@ -34,6 +35,20 @@ def _lang_switch():
           f'<div class="aa-menu aa-lang-menu" role="menu">{items}</div></div>')
 
 
+def _group(key, href, label, items):
+  """A header link with a small menu of its sub-sections (hover on desktop, the arrow button on touch and keyboard).
+  In the mobile menu the sub-links are listed under it. items: (link attributes, icon, label)."""
+  links = ''.join(f'<a {attrs} role="menuitem">{icon(ico, "width=16 height=16")}<span>{text}</span></a>' for attrs, ico, text in items)
+  return (f'<div class="aa-nav-grp js-grp"><a href="{href}" data-nav="{key}">{label}</a>'
+          f'<button type="button" class="aa-nav-more js-grp-btn" aria-haspopup="true" aria-expanded="false" '
+          f'aria-label="{t("More in {section}", section=label)}">{icon("chev-down", "width=14 height=14")}</button>'
+          f'<div class="aa-sub" role="menu">{links}</div></div>')
+
+
+# Home-page sections that belong to a header link (the "chapter" lit up in the header).
+CHAPTER = {'method': 'approach', 'youtube': 'work', 'partners': 'engage'}
+
+
 def _lang_links():
   return ' '.join(f'<a href="javascript:void(0)" data-lang="{c}" lang="{c}" class="{"on" if c == i18n.lang else ""}">{name}</a>'
                   for c, name in i18n.LANGS)
@@ -47,9 +62,16 @@ SHELL = f'''
       <nav class="aa-nav aa-nav-public" aria-label="{t('Main')}">
         <a href="#home/approach" data-nav="approach">{t('Approach')}</a>
         <a href="#home/services" data-nav="services">{t('Services')}</a>
-        <a href="#work" data-nav="work">{t('Work')}</a>
+        {_group('work', '#work', t('Work'), [
+          (f'href="#work"', 'grid', t('All {n} products', n=len(PROJECTS))),
+          (f'href="#home/youtube"', 'play', t('Films on YouTube')),
+        ])}
         <a href="#home/workspace" data-nav="workspace">{t('Client workspace')}</a>
-        <a href="#home/engage" data-nav="engage">{t('Engagements')}</a>
+        {_group('engage', '#home/engage', t('Engagements'), [
+          (f'href="#home/engage"', 'briefcase', t('Ways to work together')),
+          (f'href="#home/partners"', 'users', t('Partner with us')),
+          (deck_attrs(), 'file', t('Partner deck (PDF)')),
+        ])}
         <a href="#home/faq" data-nav="faq">{t('FAQ')}</a>
         <a href="#login" class="sm-only js-out-only">{t('Sign in')}</a>
       </nav>
@@ -103,7 +125,7 @@ SHELL = f'''
           <li><a href="#work">{t('Work')}</a></li>
           <li><a href="#home/engage">{t('Engagements')}</a></li>
           <li><a href="https://www.youtube.com/@addanapp" target="_blank" rel="noopener">{t('YouTube channel')}</a></li>
-          <li><a href="_/theme/addanapp-partner-deck.pdf" target="_blank" rel="noopener" download="Addanapp-partner-deck.pdf">{t('Partner deck (PDF)')}</a></li>
+          <li><a {deck_attrs()}>{t('Partner deck (PDF)')}</a></li>
           <li><a href="#home/faq">{t('FAQ')}</a></li>
           <li><a href="#privacy">{t('Privacy &amp; Terms')}</a></li></ul></div>
         <div><h4>{t('Clients')}</h4><ul>
@@ -142,6 +164,9 @@ class Main(MainTemplate):
     self.node.querySelector('.js-lang-btn').addEventListener('click', self._toggle_lang)
     for el in ui.qa(self.node, '[data-lang]'):
       self._wire_lang(el)
+    self.groups = ui.qa(self.node, '.js-grp')
+    for g in self.groups:
+      self._wire_group(g)
     anvil.js.window.document.addEventListener('click', self._outside_click)
     legal.setup(lang=i18n.lang)
     anvil.js.window.addEventListener('hashchange', lambda e: self.route())
@@ -176,6 +201,22 @@ class Main(MainTemplate):
         i18n.set_lang(code)
     el.addEventListener('click', pick)
 
+  def _wire_group(self, g):
+    btn = g.querySelector('.js-grp-btn')
+
+    def toggle(e):
+      e.stopPropagation()
+      opening = not g.classList.contains('open')
+      self._close_groups()
+      g.classList.toggle('open', opening)
+      btn.setAttribute('aria-expanded', 'true' if opening else 'false')
+    btn.addEventListener('click', toggle)
+
+  def _close_groups(self):
+    for g in getattr(self, 'groups', []):
+      g.classList.remove('open')
+      g.querySelector('.js-grp-btn').setAttribute('aria-expanded', 'false')
+
   def _toggle_nav(self, e):
     e.stopPropagation()
     self.shell.classList.toggle('nav-open')
@@ -187,6 +228,9 @@ class Main(MainTemplate):
       self.menu.classList.remove('open')
     if not self.lang_box.contains(e.target):
       self.lang_box.classList.remove('open')
+    for g in self.groups:
+      if not g.contains(e.target):
+        g.classList.remove('open')
 
   def update_header(self):
     me = state.me
@@ -237,6 +281,7 @@ class Main(MainTemplate):
 
   def _mark_nav(self):
     key = getattr(self, 'nav_key', None)
+    key = CHAPTER.get(key, key)
     for a in ui.qa(self.node, '.aa-nav a'):
       a.classList.toggle('active', bool(key) and a.getAttribute('data-nav') == key)
 
@@ -309,6 +354,7 @@ class Main(MainTemplate):
     self.lang_box.classList.remove('open')
     self.shell.classList.remove('nav-open')
     self.node.querySelector('.js-burger').setAttribute('aria-expanded', 'false')
+    self._close_groups()
 
   def route(self):
     r = state.current_route()

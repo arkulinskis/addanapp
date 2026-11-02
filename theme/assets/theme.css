@@ -200,6 +200,48 @@ img, svg { max-width: 100%; }
 .aa-menu a:hover, .aa-menu button:hover { background: var(--paper-2); color: var(--ink); }
 @keyframes aa-pop { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: none; } }
 
+/* Header groups: a link plus a small menu of its sub-sections (Work: products, films; Engagements: models, partners, deck).
+   Desktop: opens on hover, or with the arrow button (touch, keyboard). Mobile menu: the sub-links are listed under the link. */
+.aa-nav-grp { position: relative; display: flex; align-items: center; }
+.aa-nav-grp > a { padding-right: 6px; }
+.aa-nav-more {
+  width: 22px; height: 30px; margin-left: -4px; padding: 0; border: 0; border-radius: 999px; background: none; cursor: pointer;
+  color: var(--faint); display: inline-flex; align-items: center; justify-content: center; transition: color .15s, background .15s;
+}
+.aa-nav-more svg { transition: transform .15s; }
+.mode-public .aa-nav-more { color: #8F9BB4; }
+.aa-nav-more:hover, .mode-public .aa-nav-more:hover { color: #fff; background: rgba(255, 255, 255, .08); }
+.aa-sub {
+  position: absolute; left: 0; top: calc(100% + 8px); min-width: 250px; background: #fff; border: 1px solid var(--line);
+  border-radius: 14px; box-shadow: var(--shadow-lg); padding: 8px; display: none; z-index: 60;
+}
+.aa-sub::before { content: ''; position: absolute; left: 0; right: 0; top: -12px; height: 12px; }  /* keeps the hover alive on the way down */
+.aa-nav-grp.open .aa-sub { display: block; animation: aa-pop .14s ease-out; }
+.aa-nav-grp.open .aa-nav-more svg { transform: rotate(180deg); }
+@media (hover: hover) and (pointer: fine) {
+  .aa-nav-grp:hover .aa-sub { display: block; animation: aa-pop .14s ease-out; }
+  .aa-nav-grp:hover .aa-nav-more svg { transform: rotate(180deg); }
+}
+.aa-nav .aa-sub a, .mode-public .aa-nav .aa-sub a {
+  display: flex; gap: 10px; width: 100%; padding: 9px 12px; border-radius: 8px; color: var(--text); font-size: .92rem; background: none;
+}
+.aa-nav .aa-sub a svg { color: var(--faint); flex: none; }
+.aa-nav .aa-sub a:hover, .mode-public .aa-nav .aa-sub a:hover { background: var(--paper-2); color: var(--ink); }
+.aa-nav .aa-sub a:hover svg { color: var(--accent); }
+/* The highlighted header link wraps its arrow too. */
+.aa-nav-grp:has(> a.active) { background: var(--ink); border-radius: 999px; }
+.mode-public .aa-nav-grp:has(> a.active) { background: rgba(255, 255, 255, .14); }
+.aa-nav-grp > a.active, .mode-public .aa-nav-grp > a.active { background: none; }
+.aa-nav-grp:has(> a.active) .aa-nav-more { color: #fff; }
+.aa-text-btn { white-space: nowrap; }
+/* French, Russian and Latvian labels are longer: a little less air between header items keeps them on one line in 1200px. */
+@media (min-width: 1241px) {
+  html[lang="fr"] .aa-header-inner, html[lang="ru"] .aa-header-inner, html[lang="lv"] .aa-header-inner { gap: 18px; }
+  html[lang="fr"] .aa-nav-public > a, html[lang="ru"] .aa-nav-public > a, html[lang="lv"] .aa-nav-public > a,
+  html[lang="fr"] .aa-nav-grp > a, html[lang="ru"] .aa-nav-grp > a, html[lang="lv"] .aa-nav-grp > a { padding-left: 9px; padding-right: 9px; }
+  html[lang="fr"] .aa-nav-grp > a, html[lang="ru"] .aa-nav-grp > a, html[lang="lv"] .aa-nav-grp > a { padding-right: 4px; }
+}
+
 .aa-bell { position: relative; width: 38px; height: 38px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; color: var(--text-2); border: 1px solid var(--line-2); background: #fff; }
 .aa-bell svg { width: 18px; height: 18px; }
 .aa-bell .dot { position: absolute; top: -3px; right: -3px; background: var(--accent); color: #fff; font-size: .66rem; font-weight: 700; min-width: 18px; height: 18px; line-height: 18px; border-radius: 9px; text-align: center; padding: 0 4px; border: 2px solid var(--paper); }
@@ -243,6 +285,26 @@ html[lang="ru"] { --font-d: 'PT Serif', 'Iowan Old Style', Georgia, serif; }
 html[lang="ru"] h1 { font-size: clamp(2.2rem, 5.2vw, 4.1rem); letter-spacing: -0.02em; }
 html[lang="ru"] h2 { font-size: clamp(1.8rem, 3.8vw, 2.9rem); letter-spacing: -0.02em; }
 html[lang="fr"] h1, html[lang="lv"] h1 { font-size: clamp(2.4rem, 5.8vw, 4.6rem); }
+
+/* In the mobile menu a header group is its link with the sub-links listed under it (no arrow, no pop-up). */
+@media (max-width: 1020px) {
+  .aa-nav-grp { flex-direction: column; align-items: stretch; }
+  .aa-nav-grp > a { padding-right: 14px; }
+  .aa-nav-more { display: none; }
+  .aa-sub { display: flex !important; flex-direction: column; position: static; min-width: 0; padding: 0 0 6px 14px; border: 0; box-shadow: none; background: none; animation: none !important; }
+  .aa-sub::before { display: none; }
+  .aa-nav .aa-sub a, .mode-public .aa-nav .aa-sub a { font-size: .98rem; padding: 10px 14px; color: #8F9BB4; }
+  .aa-nav .aa-sub a:hover, .mode-public .aa-nav .aa-sub a:hover { color: #fff; background: rgba(255, 255, 255, .06); }
+}
+@media (max-width: 1240px) {
+  html[lang="fr"] .aa-nav-grp, html[lang="ru"] .aa-nav-grp, html[lang="lv"] .aa-nav-grp { flex-direction: column; align-items: stretch; }
+  html[lang="fr"] .aa-nav-grp > a, html[lang="ru"] .aa-nav-grp > a, html[lang="lv"] .aa-nav-grp > a { padding-right: 14px; }
+  html[lang="fr"] .aa-nav-more, html[lang="ru"] .aa-nav-more, html[lang="lv"] .aa-nav-more { display: none; }
+  html[lang="fr"] .aa-sub, html[lang="ru"] .aa-sub, html[lang="lv"] .aa-sub { display: flex !important; flex-direction: column; position: static; min-width: 0; padding: 0 0 6px 14px; border: 0; box-shadow: none; background: none; animation: none !important; }
+  html[lang="fr"] .aa-sub::before, html[lang="ru"] .aa-sub::before, html[lang="lv"] .aa-sub::before { display: none; }
+  html[lang="fr"] .aa-nav .aa-sub a, html[lang="ru"] .aa-nav .aa-sub a, html[lang="lv"] .aa-nav .aa-sub a { font-size: .98rem; padding: 10px 14px; color: #8F9BB4; }
+  html[lang="fr"] .aa-nav .aa-sub a:hover, html[lang="ru"] .aa-nav .aa-sub a:hover, html[lang="lv"] .aa-nav .aa-sub a:hover { color: #fff; background: rgba(255, 255, 255, .06); }
+}
 
 /* Translated nav labels are longer: switch to the burger menu a little earlier. */
 @media (max-width: 1240px) {
@@ -693,6 +755,17 @@ html[lang="fr"] h1, html[lang="lv"] h1 { font-size: clamp(2.4rem, 5.8vw, 4.6rem)
 .lp-partner p { color: var(--text-2); font-size: 1.02rem; max-width: 600px; margin: 0 0 22px; }
 .lp-partner .dl { display: flex; align-items: center; gap: 12px 18px; flex-wrap: wrap; }
 .lp-partner .meta { font-family: var(--font-m); font-size: .74rem; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+/* "Other languages: ..." under the deck download and the film */
+.aa-langs { font-size: .86rem; color: var(--muted); margin: 0; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; }
+.aa-langs .lbl { font-family: var(--font-m); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; }
+.aa-langs a { color: var(--accent-d); font-weight: 600; text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 3px; transition: text-decoration-color .15s; }
+.aa-langs a:hover { text-decoration-color: currentColor; }
+.aa-langs .sep { color: var(--faint); }
+.lp-partner .aa-langs { margin: 16px 0 0; max-width: none; font-size: .86rem; color: var(--muted); }
+.lp-yt .aa-langs { margin: 6px 2px 0; font-size: .86rem; color: #8F9BB4; }
+.lp-yt .aa-langs a { color: #C9D3FF; }
+.lp-yt .aa-langs .sep { color: #56627D; }
+@media (max-width: 640px) { .lp-partner .dl .aa-btn { max-width: 100%; white-space: normal; text-align: center; justify-content: center; height: auto; line-height: 1.3; } }
 @media (max-width: 900px) { .lp-partner { grid-template-columns: minmax(0, 1fr); gap: 28px; padding: 20px; } .lp-partner .txt { padding: 0 4px 6px; } .lp-partner .cover { transform: none; } }
 
 /* workspace showcase */

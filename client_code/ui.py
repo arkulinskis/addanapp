@@ -331,6 +331,14 @@ def reveal(component=None):
     pass
 
 
+def spy():
+  """Light up the header link of the home-page section in view (aa.js spy; sections carry data-ch)."""
+  try:
+    anvil.js.window.aa.spy()
+  except Exception:
+    pass
+
+
 def scroll_to(section_id):
   try:
     return anvil.js.window.aa.scrollTo(section_id)

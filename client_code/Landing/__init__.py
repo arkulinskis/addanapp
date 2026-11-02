@@ -25,6 +25,7 @@ class Landing(LandingTemplate):
 
   def form_show(self, **event_args):
     ui.reveal(self)
+    ui.spy()
 
   def _workspace(self, mode):
     if state.logged_in():

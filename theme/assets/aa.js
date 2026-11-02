@@ -61,5 +61,29 @@ window.aa = (function () {
     return ok;
   }
 
-  return { reveal: reveal, scrollTo: scrollTo, setMeta: setMeta, copy: copy };
+  /* Header "chapters": every home-page section carries data-ch (the header link it belongs to, or "" for none).
+     While the visitor scrolls the home page, the link of the section under the header lights up. */
+  var spyOn = false, spyBusy = false;
+  function spyRun() {
+    spyBusy = false;
+    var secs = document.querySelectorAll('.lp [data-ch]');
+    if (!secs.length) return;  // not on the home page: the router marks the header itself
+    var line = (document.querySelector('.aa-header') || { offsetHeight: 0 }).offsetHeight + window.innerHeight * 0.3;
+    var cur = '';
+    secs.forEach(function (s) { if (s.getBoundingClientRect().top <= line) cur = s.getAttribute('data-ch'); });
+    document.querySelectorAll('.aa-nav-public a[data-nav]').forEach(function (a) {
+      a.classList.toggle('active', !!cur && a.getAttribute('data-nav') === cur);
+    });
+  }
+  function spy() {
+    if (!spyOn) {
+      spyOn = true;
+      window.addEventListener('scroll', function () {
+        if (!spyBusy) { spyBusy = true; window.requestAnimationFrame(spyRun); }
+      }, { passive: true });
+    }
+    setTimeout(spyRun, 60);
+  }
+
+  return { reveal: reveal, scrollTo: scrollTo, setMeta: setMeta, copy: copy, spy: spy };
 })();

@@ -3,25 +3,64 @@ Everything a search engine should read lives here, on the indexable home page.
 Visible text goes through t() so it can be shown in French, Russian or Latvian (see i18n.py)."""
 from .icons import icon
 from .i18n import t
-from . import portfolio
+from . import i18n, portfolio
 
 # Blank until the official address is ready; every spot that shows it hides itself while empty.
 CONTACT_EMAIL = ''
 
-# The Addanapp YouTube channel and the film about Addanapp itself (APP_MAKER/youtube/manifest.json).
+# The Addanapp YouTube channel and the film about Addanapp itself, one per language (APP_MAKER/youtube/manifest.json:
+# addanapp, addanapp-fr/ru/lv). Visitors get the film in their language, with links to the others.
 # The film is a click-to-play embed: nothing loads from YouTube until the visitor presses play (Landing._play).
 YT_CHANNEL = 'https://www.youtube.com/@addanapp'
-YT_FILM = 'wzCMxAdyrHo'
-YT_FILM_LENGTH = '1:06'
+YT_FILMS = {  # lang: (video id, length, cover in theme/assets)
+  'en': ('wzCMxAdyrHo', '1:06', 'yt-addanapp.jpg'),
+  'fr': ('MKOIck45xWQ', '1:19', 'yt-addanapp-fr.jpg'),
+  'ru': ('aRFXcynn8OU', '1:24', 'yt-addanapp-ru.jpg'),
+  'lv': ('yzDUcUaH2q0', '1:24', 'yt-addanapp-lv.jpg'),
+}
+YT_FILM, YT_FILM_LENGTH, YT_COVER = YT_FILMS.get(i18n.lang, YT_FILMS['en'])
 YT_LOGO = ('<svg class="yt-logo" viewBox="0 0 28 20" width="22" height="16" aria-hidden="true"><rect width="28" height="20" rx="5" fill="#FF0033"/>'
            '<path d="M11.2 5.8v8.4l7.3-4.2z" fill="#fff"/></svg>')
 YT_PLAY = ('<svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.3.3 34 .3 34 .3s-21.3 0-26.5 1.4a8.5 8.5 0 0 0-6 6'
            'C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6c5.2 1.4 26.5 1.4 26.5 1.4s21.3 0 26.5-1.4a8.5 8.5 0 0 0 6-6'
            'C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z" fill="#FF0033"/><path d="M45 24 27 14v20z" fill="#fff"/></svg>')
 
-# The partner deck (PDF made from the "Addanapp Partner Deck" Slides artifact; its firms slide names firms only as examples).
-DECK_URL = '_/theme/addanapp-partner-deck.pdf'
+# The partner deck, one PDF per language (rendered by .claude/skills/addanapp/scripts/deck_pdf.py from the
+# "Addanapp Partner Deck" Slides artifact; its firms slide names firms only as examples).
+# The visitor's language is the main download; the other three are linked under it.
+DECKS = {  # lang: (pdf, cover, size)
+  'en': ('addanapp-partner-deck.pdf', 'partner-deck-cover.jpg', '3 MB'),
+  'fr': ('addanapp-partner-deck-fr.pdf', 'partner-deck-cover-fr.jpg', '3 MB'),
+  'ru': ('addanapp-partner-deck-ru.pdf', 'partner-deck-cover-ru.jpg', '3 MB'),
+  'lv': ('addanapp-partner-deck-lv.pdf', 'partner-deck-cover-lv.jpg', '3 MB'),
+}
 DECK_SLIDES = 20
+DECK_LANG = i18n.lang if i18n.lang in DECKS else 'en'
+DECK_URL = '_/theme/' + DECKS[DECK_LANG][0]
+DECK_COVER = '_/theme/' + DECKS[DECK_LANG][1]
+
+
+def deck_attrs(code=None):
+  """href + download attributes for the partner deck in one language (default: the visitor's)."""
+  code = code if code in DECKS else DECK_LANG
+  name = 'Addanapp-partner-deck' + ('' if code == 'en' else '-' + code.upper()) + '.pdf'
+  return f'href="_/theme/{DECKS[code][0]}" target="_blank" rel="noopener" download="{name}" hreflang="{code}"'
+
+
+def other_languages(link):
+  """'Other languages: English · Русский · Latviešu', each language's link made by link(code)."""
+  others = [c for c in i18n.CODES if c != i18n.lang]
+  return (f'<span class="lbl">{t("Other languages:")}</span> '
+          + ' <span class="sep" aria-hidden="true">·</span> '.join(link(c) for c in others))
+
+
+def _deck_lang_link(code):
+  return f'<a {deck_attrs(code)} lang="{code}">{i18n.NAMES[code]}</a>'
+
+
+def _film_lang_link(code):
+  return (f'<a href="https://www.youtube.com/watch?v={YT_FILMS[code][0]}" target="_blank" rel="noopener" '
+          f'hreflang="{code}" lang="{code}">{i18n.NAMES[code]}</a>')
 
 
 def _ev(cls, ico, title, text, when):
@@ -301,7 +340,7 @@ HTML = f'''
 <div class="lp">
 
 <!-- ============================================================ hero -->
-<section class="lp-hero" id="top" aria-labelledby="hero-title">
+<section class="lp-hero" id="top" data-ch="" aria-labelledby="hero-title">
   <div class="aa-wrap grid">
     <div>
       <div class="tag-loc rv"><b>Montréal</b>{t('Custom software studio · EN / FR')}</div>
@@ -329,7 +368,7 @@ HTML = f'''
 </section>
 
 <!-- ============================================================ why -->
-<section class="lp-sec" id="approach" aria-labelledby="why-title">
+<section class="lp-sec" id="approach" data-ch="approach" aria-labelledby="why-title">
   <div class="aa-wrap">
     <div class="lp-head rv">
       <div class="eyebrow">{t('Why Addanapp')}</div>
@@ -341,7 +380,7 @@ HTML = f'''
 </section>
 
 <!-- ============================================================ method -->
-<section class="lp-sec on-dark" id="method" aria-labelledby="method-title">
+<section class="lp-sec on-dark" id="method" data-ch="approach" aria-labelledby="method-title">
   <div class="aa-wrap">
     <div class="lp-head rv">
       <div class="eyebrow">{t('The method')}</div>
@@ -359,7 +398,7 @@ HTML = f'''
 </section>
 
 <!-- ============================================================ services -->
-<section class="lp-sec" id="services" aria-labelledby="svc-title">
+<section class="lp-sec" id="services" data-ch="services" aria-labelledby="svc-title">
   <div class="aa-wrap">
     <div class="lp-head rv">
       <div class="eyebrow">{t('Capabilities')}</div>
@@ -371,7 +410,7 @@ HTML = f'''
 </section>
 
 <!-- ============================================================ work -->
-<section class="lp-sec lp-alt" id="work" aria-labelledby="work-title">
+<section class="lp-sec lp-alt" id="work" data-ch="work" aria-labelledby="work-title">
   <div class="aa-wrap">
     <div class="lp-head rv">
       <div class="eyebrow">{t('Selected work')}</div>
@@ -387,7 +426,7 @@ HTML = f'''
 </section>
 
 <!-- ============================================================ youtube -->
-<section class="lp-sec on-dark lp-yt" id="youtube" aria-labelledby="yt-title">
+<section class="lp-sec on-dark lp-yt" id="youtube" data-ch="work" aria-labelledby="yt-title">
   <div class="aa-wrap yt-grid">
     <div class="rv">
       <div class="eyebrow">{YT_LOGO}{t('On YouTube')}</div>
@@ -402,18 +441,19 @@ HTML = f'''
     <div class="yt-player rv d2">
       <div class="yt-frame">
         <button type="button" class="yt-cover" data-act="video" aria-label="{t('Play the Addanapp film')}">
-          <img src="_/theme/yt-addanapp.jpg" alt="" loading="lazy" decoding="async" width="960" height="540">
+          <img src="_/theme/{YT_COVER}" alt="" loading="lazy" decoding="async" width="960" height="540">
           <span class="yt-play" aria-hidden="true">{YT_PLAY}</span>
           <span class="yt-len">{YT_FILM_LENGTH}</span>
         </button>
       </div>
       <p class="yt-note">{t('The video loads from YouTube when you press play.')}</p>
+      <p class="aa-langs">{other_languages(_film_lang_link)}</p>
     </div>
   </div>
 </section>
 
 <!-- ============================================================ workspace -->
-<section class="lp-sec" id="workspace" aria-labelledby="ws-title">
+<section class="lp-sec" id="workspace" data-ch="workspace" aria-labelledby="ws-title">
   <div class="aa-wrap lp-ws">
     <div class="rv">
       <div class="eyebrow">{t('Client workspace')}</div>
@@ -440,7 +480,7 @@ HTML = f'''
 </section>
 
 <!-- ============================================================ engagements -->
-<section class="lp-sec lp-alt" id="engage" aria-labelledby="eng-title">
+<section class="lp-sec lp-alt" id="engage" data-ch="engage" aria-labelledby="eng-title">
   <div class="aa-wrap">
     <div class="lp-head center rv">
       <div class="eyebrow">{t('Engagements')}</div>
@@ -452,31 +492,32 @@ HTML = f'''
 </section>
 
 <!-- ============================================================ partners (deck download) -->
-<section class="lp-sec tight" id="partners" aria-labelledby="partner-title">
+<section class="lp-sec tight" id="partners" data-ch="engage" aria-labelledby="partner-title">
   <div class="aa-wrap">
     <div class="lp-partner rv">
-      <a class="cover" href="{DECK_URL}" target="_blank" rel="noopener" download="Addanapp-partner-deck.pdf" tabindex="-1" aria-hidden="true">
-        <img src="_/theme/partner-deck-cover.jpg" alt="" loading="lazy" decoding="async" width="960" height="540"></a>
+      <a class="cover" {deck_attrs()} tabindex="-1" aria-hidden="true">
+        <img src="{DECK_COVER}" alt="" loading="lazy" decoding="async" width="960" height="540"></a>
       <div class="txt">
         <div class="eyebrow">{t('For agencies and software firms')}</div>
         <h2 id="partner-title">{t('Need extra hands on delivery? <em>Partner with us.</em>')}</h2>
         <p>{t("We build fixed-price modules, prototypes and internal tools behind consulting and software firms, at AI speed with senior sign-off. The partner deck covers what we've shipped, how we work, our stack and how a first pilot runs.")}</p>
         <div class="dl">
-          <a class="aa-btn accent" href="{DECK_URL}" target="_blank" rel="noopener" download="Addanapp-partner-deck.pdf">{icon('file', 'width="18" height="18"')} {t('Download the partner deck')}</a>
-          <span class="meta">{t('PDF · {n} slides · {size}', n=DECK_SLIDES, size='3 MB')}</span>
+          <a class="aa-btn accent" {deck_attrs()}>{icon('file', 'width="18" height="18"')} {t('Download the partner deck')}</a>
+          <span class="meta">{t('PDF · {n} slides · {size}', n=DECK_SLIDES, size=t(DECKS[DECK_LANG][2]))} · {i18n.NAMES[DECK_LANG]}</span>
         </div>
+        <p class="aa-langs">{other_languages(_deck_lang_link)}</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ============================================================ commitments -->
-<section class="lp-sec tight" aria-label="{t('Our commitments')}">
+<section class="lp-sec tight" data-ch="engage" aria-label="{t('Our commitments')}">
   <div class="aa-wrap"><div class="lp-commit">{COMMITMENTS}</div></div>
 </section>
 
 <!-- ============================================================ montreal -->
-<section class="lp-sec tight" id="montreal" aria-labelledby="mtl-title" style="padding-top:0">
+<section class="lp-sec tight" id="montreal" data-ch="" aria-labelledby="mtl-title" style="padding-top:0">
   <div class="aa-wrap lp-local">
     <div class="rv">
       <div class="eyebrow">{t('Based in Montréal')}</div>
@@ -496,7 +537,7 @@ HTML = f'''
 </section>
 
 <!-- ============================================================ faq -->
-<section class="lp-sec lp-alt" id="faq" aria-labelledby="faq-title">
+<section class="lp-sec lp-alt" id="faq" data-ch="faq" aria-labelledby="faq-title">
   <div class="aa-wrap lp-faq">
     <div class="rv">
       <div class="eyebrow">{t('FAQ')}</div>
@@ -508,7 +549,7 @@ HTML = f'''
 </section>
 
 <!-- ============================================================ contact -->
-<section class="lp-sec on-dark" id="contact" aria-labelledby="contact-title">
+<section class="lp-sec on-dark" id="contact" data-ch="" aria-labelledby="contact-title">
   <div class="aa-wrap lp-contact">
     <div class="rv">
       <div class="eyebrow">{t('Start a project')}</div>
