@@ -67,6 +67,7 @@ theme/assets/            theme.css, aa.js (scroll reveal, page meta), lang-fr/ru
 - Portfolio previews: SVG on a 400×250 canvas; `_phone()` content goes past the bottom edge, so keep phone UI above y≈248, and a coloured phone screen needs `rx="17"` from y=22 (redraw the notch). Check new art large before shipping: text easily spills out of shapes.
 - **Arkvital** (arkvital.com, Websites) is the user's personal site. Never say on Addanapp that the same person runs both: describe it neutrally as a client-style project.
 - Russian `New` is "Новые" because the admin lead filter uses the same string; the portfolio badge shares it.
+- **Never use `t` (or any imported name) as a comprehension variable.** The browser's Python leaks it into the function: `[t[0] for t in TABS]` in Admin.__init__ turned `t()` into a tuple and the consultant console crashed right after the admin signed in ("'tuple' object is not callable", fixed 2026-11-02). gitapp_check now fails on it. Plain `for t in tags:` loops in portfolio.py are fine as long as that function doesn't call `t()`.
 
 - Russian and Latvian visitors see the Privacy & Terms page in English (the legal kit has EN/FR only).
 - Placeholder business facts to confirm with the user before relying on them: hello@addanapp.com, 2-day quotes, 1–3 week features, 24-month lead retention.

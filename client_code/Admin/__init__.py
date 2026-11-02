@@ -20,7 +20,8 @@ class Admin(AdminTemplate):
 
   def __init__(self, tab='requests', **properties):
     self.init_components(**properties)
-    self.tab = tab if tab in [t[0] for t in TABS] else 'requests'
+    # Don't name the loop variable `t`: in the browser it would replace the t() translation function.
+    self.tab = tab if tab in [entry[0] for entry in TABS] else 'requests'
     self.view = 'list'
     self.filter = 'open'
     self.client_filter = ''
