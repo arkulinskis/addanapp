@@ -19,9 +19,9 @@ YT_PLAY = ('<svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.5 7.7a8
            'C.1 13 .1 24 .1 24s0 11 1.4 16.3a8.5 8.5 0 0 0 6 6c5.2 1.4 26.5 1.4 26.5 1.4s21.3 0 26.5-1.4a8.5 8.5 0 0 0 6-6'
            'C67.9 35 67.9 24 67.9 24s0-11-1.4-16.3z" fill="#FF0033"/><path d="M45 24 27 14v20z" fill="#fff"/></svg>')
 
-# The partner deck (PDF made from the "Addanapp Partner Deck" Slides artifact, minus the slide that names specific firms).
+# The partner deck (PDF made from the "Addanapp Partner Deck" Slides artifact; its firms slide names firms only as examples).
 DECK_URL = '_/theme/addanapp-partner-deck.pdf'
-DECK_SLIDES = 19
+DECK_SLIDES = 20
 
 
 def _ev(cls, ico, title, text, when):

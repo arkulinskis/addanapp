@@ -2,7 +2,7 @@
 
 1. Artifact read of project/deck.json and every project/slides/<id>.html into one folder (keep the project/ layout).
 2. Copy this script into that folder and run it (needs Pillow): it maps the /_blob/ images to the App Board hero shots
-   (byte-identical copies), draws the x-icons, drops the slide that names specific firms and renumbers the footers.
+   (byte-identical copies), draws the x-icons, drops any slide in PUBLIC_SKIP and renumbers the footers.
 3. chrome --headless=new --no-pdf-header-footer --virtual-time-budget=15000 --print-to-pdf=deck.pdf print.html
 4. Copy deck.pdf to theme/assets/addanapp-partner-deck.pdf; update DECK_SLIDES and the size text in content.py.
 """
@@ -17,7 +17,7 @@ IMG.mkdir(exist_ok=True)
 deck = json.loads((HERE / "project/deck.json").read_text(encoding="utf-8"))
 
 # blob id -> hero key, from the alt text (verified: the blobs are the App Board hero PNGs)
-KNOWN = {"134116cd4b03a11a6f85301a0e1370d8": "addanapp"}
+KNOWN = {"134116cd4b03a11a6f85301a0e1370d8": "addanapp", "354a571b87c22451b09e0781328cc2b2": "nouveaustay"}
 blob_key = dict(KNOWN)
 for f in (HERE / "project/slides").glob("*.html"):
   for bid, alt in re.findall(r'src="/_blob/([0-9a-f]+)" alt="([^"]*)"', f.read_text(encoding="utf-8")):
@@ -55,13 +55,12 @@ def icon(m):
 
 
 slides = []
-PUBLIC_SKIP = {"fit"}  # names specific firms: kept out of the public download
+PUBLIC_SKIP = set()  # slide ids to leave out of the public PDF (the firms slide was reframed as examples, 2026-11-02)
 for sid in [x for x in deck["order"] if x not in PUBLIC_SKIP]:
   h = (HERE / f"project/slides/{sid}.html").read_text(encoding="utf-8")
   h = re.sub(r"<aside>.*?</aside>", "", h, flags=re.S)
   h = re.sub(r'src="/_blob/([0-9a-f]+)"', lambda m: f'src="img/{blob_key[m.group(1)]}.jpg"', h)
   h = re.sub(r'<x-icon name="(\w+)" style="([^"]*)"></x-icon>', icon, h)
-  h = h.replace("Nouveau Stay", "ArviStay")  # renamed 2026-11-02
   n = len(slides) + 1
   h = re.sub(r">(\d\d)</p>(\s*</div>\s*</section>)", lambda m: ">%02d</p>%s" % (n, m.group(2)), h)
   slides.append(h)

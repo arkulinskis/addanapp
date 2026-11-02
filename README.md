@@ -89,7 +89,7 @@ The portfolio (53 projects, all live) lives in `client_code/portfolio.py`. **Hom
 
 **YouTube** (`#youtube` on the home page): the channel youtube.com/@addanapp and a click-to-play embed of the Addanapp film (`YT_*` in content.py). Nothing loads from YouTube until the visitor presses play; then it plays from youtube-nocookie.com (listed in Privacy as the `youtube_play` provider).
 
-**Partner deck** (`#partners`, after Engagements, and in the footer): `theme/assets/addanapp-partner-deck.pdf`, 19 slides rendered from the "Addanapp Partner Deck" Slides artifact (https://claude.ai/artifact/X7izxcayZdhgbzmsdrN9Ua) without its "Where Addanapp fits with each firm" slide, which names specific firms. Re-render it after the deck changes (recipe in the addanapp skill).
+**Partner deck** (`#partners`, after Engagements, and in the footer): `theme/assets/addanapp-partner-deck.pdf`, all 20 slides of the "Addanapp Partner Deck" Slides artifact (https://claude.ai/artifact/X7izxcayZdhgbzmsdrN9Ua). Its "firms like these" slide names firms only as examples, with a no-affiliation note: the user is not partnering with them. Re-render it after the deck changes (recipe in the addanapp skill).
 
 <!-- libraries:start -->
 ## Libraries and outside services
