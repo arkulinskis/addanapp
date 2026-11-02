@@ -61,6 +61,7 @@ theme/assets/            theme.css, aa.js (scroll reveal, page meta), lang-fr/ru
 
 ## Gotchas
 
+- **Continue with Google** (client_code/dialogs.py `_AuthBox.google` (strings in lang-*.json)): `login_with_google()` returns None for someone without an account, so the code then calls `signup_with_google()`; on the sign-up view it needs the Privacy & Terms tick first. Needs `use_google` + the Google service in anvil.yaml.
 - Portfolio previews: SVG on a 400×250 canvas; `_phone()` content goes past the bottom edge, so keep phone UI above y≈248, and a coloured phone screen needs `rx="17"` from y=22 (redraw the notch). Check new art large before shipping: text easily spills out of shapes.
 - **Arkvital** (arkvital.com, Websites) is the user's personal site. Never say on Addanapp that the same person runs both: describe it neutrally as a client-style project.
 - Russian `New` is "Новые" because the admin lead filter uses the same string; the portfolio badge shares it.

@@ -305,7 +305,7 @@ native_deps:
       }
     })();
     </script>
-    <script src="_/theme/legal-kit.js?v=6ab17f8808"></script>
+    <script src="_/theme/legal-kit.js?v=eeaefeb687"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
@@ -1088,10 +1088,13 @@ services:
     remember_me_days: 30
     require_secure_passwords: true
     use_email: true
-    use_google: false
+    use_google: true
   server_config:
     user_table: users
   source: /runtime/services/anvil/users.yml
+- client_config: {}
+  server_config: {}
+  source: /runtime/services/google.yml
 - client_config: {}
   server_config: {}
   source: /runtime/services/anvil/email.yml

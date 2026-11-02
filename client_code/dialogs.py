@@ -8,6 +8,17 @@ from .i18n import t
 from .ui import esc
 from .icons import LOGO
 
+GOOGLE_G = '<svg viewBox="0 0 48 48" width="18" height="18" aria-hidden="true" style="flex:none"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>'
+
+
+def _google_step_done():
+  """After login_with_google() gave None: did the person finish the Google window (they just have no account yet)?"""
+  try:
+    import anvil.google.auth
+    return bool(anvil.google.auth.get_user_email())
+  except Exception:
+    return True  # can't tell: go on to sign-up, which asks Google again if needed
+
 
 # ================================================================== auth
 
@@ -34,12 +45,15 @@ class _AuthBox(object):
         <div class="f"><label>{t('Password')}</label><input type="password" name="pw" autocomplete="current-password" placeholder="{t('8+ characters')}"></div>
         <div class="f-legal">{legal.consent_field()}</div>
         <button type="button" class="aa-btn block lg t-go" data-act="go"></button>
+        <div style="text-align:center;opacity:.6;margin:10px 0;font-size:14px">{t('or')}</div>
+        <button type="button" class="aa-btn block lg ghost" data-act="google">{GOOGLE_G}{t('Continue with Google')}</button>
         <div class="switch"><span class="t-switch-text"></span> <button type="button" class="aa-link" data-act="switch"></button>
           <div class="f-forgot" style="margin-top:8px"><button type="button" class="aa-link" data-act="forgot">{t('Forgot your password?')}</button></div>
         </div>
         <p class="fine">{t('Your workspace is private to you and your Addanapp engineer.')}<br>{t('See our <a href="javascript:void(0)" data-lk-open="overview">Privacy &amp; Terms</a>.')}</p>
       </div>''', actions={
         'go': lambda a: self.submit(),
+        'google': lambda a: self.google(),
         'switch': lambda a: self.set_mode('login' if self.mode == 'signup' else 'signup'),
         'forgot': lambda a: self.forgot(),
         'privacy': lambda a: ui.close_modal(self.component, None),
@@ -105,6 +119,26 @@ class _AuthBox(object):
     except anvil.users.AuthenticationFailed:
       ui.busy(btn, False)
       return self.error(t("That email and password don't match."))
+    except Exception as e:
+      ui.busy(btn, False)
+      return self.error(str(e).replace('anvil.users.', ''))
+    ui.close_modal(self.component, True)
+
+  def google(self):
+    """Continue with Google: sign in, or create the workspace on the first visit (sign-up asks for the tick here too)."""
+    if self.mode == 'signup' and not legal.consent_ok(ui.dom(self.component)):
+      return
+    btn = self._q('[data-act=google]')
+    ui.busy(btn, True)
+    try:
+      if anvil.users.login_with_google(remember=True) is None:
+        if not _google_step_done() or anvil.users.signup_with_google(remember=True) is None:
+          ui.busy(btn, False)
+          return self.error(t("Google sign-in was cancelled."))
+        v = ui.vals(self.component) if self.mode == 'signup' else {}
+        changes = {k: v[k] for k in ('name', 'company') if len(v.get(k) or '') >= 2}
+        if changes:
+          anvil.server.call('update_me', changes)
     except Exception as e:
       ui.busy(btn, False)
       return self.error(str(e).replace('anvil.users.', ''))
