@@ -3,7 +3,7 @@ from anvil import *
 
 from .. import ui, state, portfolio
 from ..i18n import t
-from ..content import HTML, YT_FILM
+from ..content import HTML, YT_FILM, YT_REBUILD
 
 
 class Landing(LandingTemplate):
@@ -16,7 +16,7 @@ class Landing(LandingTemplate):
       'login': lambda a: self._workspace('login'),
       'contact': lambda a: state.go('home/contact'),
       'shuffle': lambda a: self._shuffle(),
-      'video': lambda a: self._play(),
+      'video': self._play,
       'wstab': self._ws_tab,
       'lead': lambda a: self._send_lead(),
     })
@@ -42,13 +42,22 @@ class Landing(LandingTemplate):
     box.outerHTML = portfolio.showcase(portfolio.picks(3, exclude=shown))
     ui.reveal(self)
 
-  def _play(self):
-    """Swap the film's cover for the YouTube player (privacy-enhanced; loads only now, on the visitor's click)."""
+  def _play(self, vid=None):
+    """Swap the frame's content for the YouTube player (privacy-enhanced; loads only now, on the visitor's click).
+    vid: the Parapeet rebuild film's id from its card; otherwise the Addanapp film."""
     frame = self.node.querySelector('.yt-frame')
     if frame is None:
       return
-    title = ui.esc(t('Addanapp: apps built at AI speed, signed off by senior engineers'))
-    frame.innerHTML = (f'<iframe src="https://www.youtube-nocookie.com/embed/{YT_FILM}?autoplay=1&rel=0&playsinline=1" '
+    if vid == YT_REBUILD:
+      title = ui.esc(t('Parapeet, before and after'))
+      card = self.node.querySelector('.yt-more')
+      if card is not None:
+        card.style.display = 'none'
+      frame.scrollIntoView({'behavior': 'smooth', 'block': 'center'})
+    else:
+      vid = YT_FILM
+      title = ui.esc(t('Addanapp: apps built at AI speed, signed off by senior engineers'))
+    frame.innerHTML = (f'<iframe src="https://www.youtube-nocookie.com/embed/{vid}?autoplay=1&rel=0&playsinline=1" '
                        f'title="{title}" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen '
                        f'referrerpolicy="strict-origin-when-cross-origin"></iframe>')
 

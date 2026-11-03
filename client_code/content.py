@@ -19,6 +19,9 @@ YT_FILMS = {  # lang: (video id, length, cover in theme/assets)
   'lv': ('yzDUcUaH2q0', '1:24', 'yt-addanapp-lv.jpg'),
 }
 YT_FILM, YT_FILM_LENGTH, YT_COVER = YT_FILMS.get(i18n.lang, YT_FILMS['en'])
+# A second film shows another kind of work: Parapeet, a live 2023 app we rebuilt (before/after, English only).
+# Its card plays it in the same frame (Landing._play).
+YT_REBUILD, YT_REBUILD_LENGTH, YT_REBUILD_COVER = 'FW-j_xL_DWo', '1:29', 'yt-parapeet.jpg'
 YT_LOGO = ('<svg class="yt-logo" viewBox="0 0 28 20" width="22" height="16" aria-hidden="true"><rect width="28" height="20" rx="5" fill="#FF0033"/>'
            '<path d="M11.2 5.8v8.4l7.3-4.2z" fill="#fff"/></svg>')
 YT_PLAY = ('<svg viewBox="0 0 68 48" width="68" height="48"><path d="M66.5 7.7a8.5 8.5 0 0 0-6-6C55.3.3 34 .3 34 .3s-21.3 0-26.5 1.4a8.5 8.5 0 0 0-6 6'
@@ -448,6 +451,10 @@ HTML = f'''
       </div>
       <p class="yt-note">{t('The video loads from YouTube when you press play.')}</p>
       <p class="aa-langs">{other_languages(_film_lang_link)}</p>
+      <button type="button" class="yt-more" data-act="video" data-arg="{YT_REBUILD}" aria-label="{t('Play the Parapeet before-and-after film')}">
+        <span class="yt-thumb"><img src="_/theme/{YT_REBUILD_COVER}" alt="" loading="lazy" decoding="async" width="320" height="180"><span class="yt-len">{YT_REBUILD_LENGTH}</span></span>
+        <span class="yt-more-t"><span class="k">{t('Not only new apps')}</span><b>{t('Parapeet, before and after')}</b>{t('A live app from 2023, rebuilt from scratch with every player and their progress kept. The film shows the old version next to the new one.')}</span>
+      </button>
     </div>
   </div>
 </section>

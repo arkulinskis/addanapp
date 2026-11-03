@@ -289,7 +289,7 @@ native_deps:
       try { l = localStorage.getItem('aa.lang'); } catch (e) {}
       if (l === 'fr' || l === 'ru' || l === 'lv') {
         document.documentElement.lang = l;
-        window.aaLangPack = fetch('_/theme/lang-' + l + '.json?v=13').then(function (r) {
+        window.aaLangPack = fetch('_/theme/lang-' + l + '.json?v=14').then(function (r) {
           if (!r.ok) throw new Error('lang ' + r.status);
           return r.text();
         });
@@ -785,7 +785,14 @@ native_deps:
           },
           "keywords": "Social, Maps, Gamification, Working businesses",
           "applicationCategory": "BusinessApplication",
-          "operatingSystem": "Web"
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "CityCrossers in about a minute",
+           "url": "https://www.youtube.com/watch?v=iIDuAWF-BzI",
+           "thumbnailUrl": "https://i.ytimg.com/vi/iIDuAWF-BzI/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
          }
         },
         {
@@ -1770,13 +1777,20 @@ native_deps:
           "@type": "SoftwareApplication",
           "name": "Parapeet",
           "url": "https://parapeet.com",
-          "description": "A French learning app built around real-life situations, from ordering at a café to small talk with neighbours. Short, playful and mobile-first.",
+          "description": "Everyday French, Spanish and Italian phrases in ten moods, from your boss to a sad friend. A live app from 2023 that we rebuilt from scratch in 2026: new mood cards, short lessons, and every player's progress carried over.",
           "creator": {
            "@id": "https://addanapp.com/#org"
           },
-          "keywords": "Mobile-first, Language learning, EdTech, Mobile-style apps",
+          "keywords": "Mobile-first, Language learning, App rebuild, Mobile-style apps",
           "applicationCategory": "LifestyleApplication",
-          "operatingSystem": "Web"
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "Parapeet in about a minute",
+           "url": "https://www.youtube.com/watch?v=FW-j_xL_DWo",
+           "thumbnailUrl": "https://i.ytimg.com/vi/FW-j_xL_DWo/hqdefault.jpg",
+           "uploadDate": "2026-11-02"
+          }
          }
         },
         {

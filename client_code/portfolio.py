@@ -186,9 +186,9 @@ PROJECTS = [
   },
   {
     'key': 'parapeet', 'name': 'Parapeet', 'domain': 'parapeet.com', 'cat': 'mobile',
-    'blurb': 'A French learning app built around real-life situations, from ordering at a café to small talk with neighbours. Short, playful and mobile-first.',
-    'built': ['Lessons built around real situations', 'Bite-sized, mobile-first sessions', 'Story-driven, playful design'],
-    'tags': ['Mobile-first', 'Language learning', 'EdTech'], 'color': '#3F9A35', 'bg': '#E4F2DD', 'art': 'parrot',
+    'blurb': "Everyday French, Spanish and Italian phrases in ten moods, from your boss to a sad friend. A live app from 2023 that we rebuilt from scratch in 2026: new mood cards, short lessons, and every player's progress carried over.",
+    'built': ["Rebuilt from scratch, with players' progress carried over", 'Ten moods, each with its own colour, icon and highlighted words', 'Short lessons: guess the meaning, spot the mood, build and say the sentence'],
+    'tags': ['Mobile-first', 'Language learning', 'App rebuild'], 'color': '#3F9A35', 'bg': '#E4F2DD', 'art': 'parrot',
   },
   {
     'key': 'dilettante', 'name': 'Dilettante', 'domain': 'dilettante.com', 'cat': 'sites',
@@ -364,8 +364,10 @@ PROJECTS = [
 ]
 
 # One-minute films on the Addanapp YouTube channel (youtube.com/@addanapp); ids from APP_MAKER/youtube/manifest.json.
-# CityCrossers' film is private until its maps are fixed; Battle Tracker has none yet.
+# Battle Tracker has none yet. Parapeet's is a before/after film of a rebuild (also in the YouTube section, content.py).
 VIDEOS = {
+  'parapeet': 'FW-j_xL_DWo',
+  'citycrossers': 'iIDuAWF-BzI',
   'planplate': '4KcdhVtqgNQ',
   'prepsto': 'CehQC_0r93A',
   'vitalrpa': 'W0yKLujjtPk',
