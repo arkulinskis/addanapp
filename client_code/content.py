@@ -15,7 +15,7 @@ YT_CHANNEL = 'https://www.youtube.com/@addanapp'
 YT_FILMS = {  # lang: (video id, length, cover in theme/assets)
   'en': ('wzCMxAdyrHo', '1:06', 'yt-addanapp.jpg'),
   'fr': ('MKOIck45xWQ', '1:19', 'yt-addanapp-fr.jpg'),
-  'ru': ('aRFXcynn8OU', '1:24', 'yt-addanapp-ru.jpg'),
+  'ru': ('awzVxnVHrco', '1:24', 'yt-addanapp-ru-2.jpg'),
   'lv': ('yzDUcUaH2q0', '1:24', 'yt-addanapp-lv.jpg'),
 }
 YT_FILM, YT_FILM_LENGTH, YT_COVER = YT_FILMS.get(i18n.lang, YT_FILMS['en'])
