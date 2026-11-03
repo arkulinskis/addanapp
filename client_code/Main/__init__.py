@@ -17,6 +17,7 @@ from ..RequestDetail import RequestDetail
 from ..Admin import Admin
 from ..Account import Account
 from ..Privacy import Privacy
+from ..Guides import Guides
 from .. import legal
 
 SEO_TITLE = t("AddAnApp - triple A software delivery service")
@@ -46,7 +47,7 @@ def _group(key, href, label, items):
 
 
 # Home-page sections that belong to a header link (the "chapter" lit up in the header).
-CHAPTER = {'method': 'approach', 'youtube': 'work', 'partners': 'engage'}
+CHAPTER = {'method': 'approach', 'youtube': 'work', 'partners': 'engage', 'guides': 'engage'}
 
 
 def _lang_links():
@@ -71,6 +72,7 @@ SHELL = f'''
           (f'href="#home/engage"', 'briefcase', t('Ways to work together')),
           (f'href="#home/partners"', 'users', t('Partner with us')),
           (deck_attrs(), 'file', t('Partner deck (PDF)')),
+          (f'href="#guides"', 'file', t('Free guides (PDF)')),
         ])}
         <a href="#home/faq" data-nav="faq">{t('FAQ')}</a>
         <a href="#login" class="sm-only js-out-only">{t('Sign in')}</a>
@@ -126,6 +128,7 @@ SHELL = f'''
           <li><a href="#home/engage">{t('Engagements')}</a></li>
           <li><a href="https://www.youtube.com/@addanapp" target="_blank" rel="noopener">{t('YouTube channel')}</a></li>
           <li><a {deck_attrs()}>{t('Partner deck (PDF)')}</a></li>
+          <li><a href="#guides">{t('Free guides (PDF)')}</a></li>
           <li><a href="#home/faq">{t('FAQ')}</a></li>
           <li><a href="#privacy">{t('Privacy &amp; Terms')}</a></li></ul></div>
         <div><h4>{t('Clients')}</h4><ul>
@@ -145,7 +148,7 @@ SHELL = f'''
 
 
 class Main(MainTemplate):
-  """App shell + hash router. Routes: #home[/section], #work, #portal, #new, #r/ID, #admin[/tab], #account."""
+  """App shell + hash router. Routes: #home[/section], #work, #guides[/slug], #portal, #new, #r/ID, #admin[/tab], #account."""
 
   def __init__(self, **properties):
     self.init_components(**properties)
@@ -389,6 +392,11 @@ class Main(MainTemplate):
       return ui.set_meta(t("Work | Apps, platforms and games built by Addanapp, Montréal"),
                          t("Live products built by Addanapp, from restaurant platforms and SaaS to games, VR and learning apps: "
                            "PlanPlate, Prepsto, VitalRPA, ArviStay, Health Booker, AutoAgile, Sheetsmith, Subsudo, City Fun Time and more."))
+    if head == 'guides':
+      self.set_page(Guides(focus=arg), public=True, nav='guides')
+      return ui.set_meta(t("Free guides for business owners | Addanapp"),
+                         t("Five free PDF guides: when a spreadsheet has become an app, a one-page app brief template, buying AI-built "
+                           "software, build vs buy with a 3-year cost worksheet, and a Québec Law 25 checklist."))
     if head == 'privacy':
       self.set_page(Privacy(), public=True)
       return ui.set_meta(t("Privacy & Terms | Addanapp"), t("How Addanapp collects, uses and protects personal information (Québec Law 25, PIPEDA, GDPR), and the terms of use."))

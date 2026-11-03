@@ -1,5 +1,6 @@
 from ._anvil_designer import AdminTemplate
 from anvil import *
+import anvil.media
 
 from .. import ui, state, i18n
 from ..i18n import t, tn
@@ -43,7 +44,7 @@ class Admin(AdminTemplate):
     ui.bind(self, {
       'filter': self._set_filter, 'view': self._set_view, 'new-for': self.new_for_client,
       'client-req': self._client_requests, 'toggle-admin': self._toggle_admin, 'toggle-enabled': self._toggle_enabled,
-      'lead-del': self._lead_delete, 'seed': lambda a: self._tool('admin_seed_demo'),
+      'lead-del': self._lead_delete, 'lead-filter': self._lead_filter, 'tips-csv': lambda a: self._tips_csv(), 'seed': lambda a: self._tool('admin_seed_demo'),
       'clear': lambda a: self._tool('admin_clear_demo'), 'open': lambda rid: state.go('r/' + rid),
     })
     getattr(self, 'show_' + self.tab)()
@@ -286,15 +287,31 @@ class Admin(AdminTemplate):
     if res is ui.FAIL:
       return
     self.leads = res
-    new = len([l for l in res if l['status'] == 'new'])
-    self._head(t('Leads'), t('Project briefs from the website · {n} new', n=new))
+    new = len([l for l in res if l['status'] == 'new' and not l['source'].startswith('guide')])
+    readers = [l for l in res if l['source'].startswith('guide')]
+    tips = len([l for l in readers if l['source'] == 'guide+news'])
+    lf = getattr(self, 'lead_filter', 'all')
+    tabs = ''.join(f'<button type="button" class="aa-btn sm {"" if key == lf else "ghost"}" data-act="lead-filter" data-arg="{key}">{label}</button>'
+                   for key, label in [('all', t('All')), ('briefs', t('Project briefs')), ('guides', t('Guide readers'))])
+    export = (f'<button type="button" class="aa-btn sm ghost" data-act="tips-csv">{icon("file", "width=14 height=14")} '
+              f'{t("Tips list (CSV)")}</button>' if tips else '')
+    self._head(t('Leads'), t('Project briefs from the website · {n} new', n=new) + ' · ' +
+               t('{n} guide readers, {k} want tips', n=len(readers), k=tips),
+               f'<div style="display:flex;gap:8px;flex-wrap:wrap">{tabs}{export}</div>')
+    if lf == 'briefs':
+      res = [l for l in res if not l['source'].startswith('guide')]
+    elif lf == 'guides':
+      res = readers
     if not res:
       ui.q(self, '.js-root').innerHTML = ui.empty('mail', t('No briefs yet'), t('Briefs sent from the website contact form land here, and you get an email for each one.'))
       return
     out = ''
     for l in res:
-      subj = 'Re: your Addanapp project brief'  # goes to the prospect, so it stays in English
-      kind_chip = ui.chip(t(l["kind"]), "outline") if l["kind"] else ""
+      guide = l['source'].startswith('guide')
+      # Goes to the prospect, so it stays in English.
+      subj = 'Re: your Addanapp guides' if guide else 'Re: your Addanapp project brief'
+      kind_chip = (ui.chip(t('Free guides'), 'ai') if guide else '') + (ui.chip(t('Wants tips'), 'human') if l['source'] == 'guide+news' else '')
+      kind_chip += ui.chip(t(l["kind"]), "outline") if l["kind"] else ""
       budget_chip = ui.chip(t('Budget: {budget}', budget=t(l["budget"])), "outline") if l["budget"] else ""
       out += f'''
         <div class="lead-card">
@@ -321,6 +338,15 @@ class Admin(AdminTemplate):
         if state.main:
           state.main._poll()
     sel.addEventListener('change', on_change)
+
+  def _lead_filter(self, key):
+    self.lead_filter = key if key in ('all', 'briefs', 'guides') else 'all'
+    self.show_leads()
+
+  def _tips_csv(self):
+    media = ui.call('admin_newsletter_csv')
+    if media is not ui.FAIL and media is not None:
+      anvil.media.download(media)
 
   def _lead_delete(self, lid):
     if ui.ask(t("Delete this lead permanently?"), yes=t('Delete')):

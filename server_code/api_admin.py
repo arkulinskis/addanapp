@@ -1,6 +1,7 @@
 """Consultant console API: every request, progress notes, status, quotes, clients, leads."""
 import datetime
 
+import anvil
 import anvil.server
 import anvil.tables as tables
 from anvil.tables import app_tables
@@ -201,8 +202,25 @@ def admin_leads():
   for l in app_tables.leads.search(tables.order_by('created', ascending=False)):
     out.append({'id': rid(l), 'name': l['name'], 'email': l['email'], 'company': l['company'] or '',
                 'kind': l['kind'] or '', 'budget': l['budget'] or '', 'message': l['message'] or '',
-                'status': l['status'] or 'new', 'created': l['created']})
+                'status': l['status'] or 'new', 'created': l['created'], 'source': l['source'] or ''})
   return out
+
+
+@anvil.server.callable
+def admin_newsletter_csv():
+  """Everyone who ticked the tips box on the guides page, with their consent record, as a CSV file."""
+  require_admin()
+  import csv
+  import io
+  import re
+  buf = io.StringIO()
+  w = csv.writer(buf)
+  w.writerow(['email', 'name', 'situation', 'first_request_utc', 'consent_record'])
+  for l in app_tables.leads.search(tables.order_by('created', ascending=True), source='guide+news'):
+    m = re.search(r'Newsletter: yes\. Ticked ".*?" on [^(]*\([^)]*\)\.', l['message'] or '')
+    w.writerow([l['email'], l['name'] or '', l['kind'] or '',
+                l['created'].strftime('%Y-%m-%d %H:%M') if l['created'] else '', m.group(0) if m else ''])
+  return anvil.BlobMedia('text/csv', buf.getvalue().encode('utf-8-sig'), name='addanapp-tips-subscribers.csv')
 
 
 @anvil.server.callable

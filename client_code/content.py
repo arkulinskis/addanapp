@@ -50,6 +50,36 @@ def deck_attrs(code=None):
   return f'href="_/theme/{DECKS[code][0]}" target="_blank" rel="noopener" download="{name}" hreflang="{code}"'
 
 
+# Free guides (lead magnets, made in Documents/CLAUDE/addanapp-guides). PDFs and covers live in theme/assets/guides/.
+# The #guides page asks for an email before showing the download links (api_public.request_guides).
+# (slug, number, title, hook, what's inside, pages)
+GUIDES = [
+  ('spreadsheet-escape-plan', '01', 'Your Spreadsheet Is Already an App',
+   'Is your business running on a spreadsheet only one person understands?',
+   ['The 10-sign test', 'A calculator for what "it works fine" really costs', 'A five-move plan to graduate safely'], 10),
+  ('one-page-app-brief', '02', 'The One-Page App Brief',
+   'Got an app idea but no idea what it should cost?',
+   ['The 7 boxes of a good brief', 'A fill-in template and a worked example', '12 questions to ask any developer'], 10),
+  ('ai-built-human-signed', '03', 'AI-Built, Human-Signed',
+   'Your next developer will use AI. Who checks the code?',
+   ['What AI is great at, and where it trips', 'The 10-point sign-off checklist', 'Green flags and red flags'], 9),
+  ('build-buy-or-bolt-on', '04', 'Build, Buy or Bolt On',
+   'Paying for six tools to do one job?',
+   ['An 8-question decision test', 'A 3-year cost worksheet', 'Five small add-ons that pay off fast'], 9),
+  ('law-25-app-checklist', '05', 'Law 25 for Your Next App',
+   'Collecting names and emails in Québec? Read this first.',
+   ['A 15-point privacy checklist', 'Requirements to paste into your developer brief', 'Bonus: email lists and CASL'], 9),
+]
+GUIDE_SLUGS = [g[0] for g in GUIDES]
+# Same English labels as api_public.GUIDE_SITUATIONS; the last two count as buying signals there.
+GUIDE_SITUATIONS = ['We run on spreadsheets', 'We pay for too many tools', 'Just curious', 'I have an app idea',
+                    "We're building something now"]
+
+
+def guide_cover(slug):
+  return f'_/theme/guides/{slug}.jpg'
+
+
 def other_languages(link):
   """'Other languages: English · Русский · Latviešu', each language's link made by link(code)."""
   others = [c for c in i18n.CODES if c != i18n.lang]
@@ -521,6 +551,19 @@ HTML = f'''
 <!-- ============================================================ commitments -->
 <section class="lp-sec tight" data-ch="engage" aria-label="{t('Our commitments')}">
   <div class="aa-wrap"><div class="lp-commit">{COMMITMENTS}</div></div>
+</section>
+
+<!-- ============================================================ free guides -->
+<section class="lp-sec tight lp-alt" id="guides" data-ch="engage" aria-labelledby="guides-title">
+  <div class="aa-wrap lp-gteaser">
+    <div class="txt rv">
+      <div class="eyebrow">{t('Free guides')}</div>
+      <h2 id="guides-title">{t('Five short guides <em>for people who run things.</em>')}</h2>
+      <p>{t('Spreadsheets that became apps, what software should cost, buying AI-built work, build or buy, and Law 25. Practical, sourced, about ten pages each.')}</p>
+      <a class="aa-btn accent" href="#guides">{icon('file', 'width="18" height="18"')} {t('Get the free guides')} <span class="arr">&rarr;</span></a>
+    </div>
+    <div class="fan rv d1" aria-hidden="true">{''.join(f'<a href="#guides/{g[0]}" tabindex="-1"><img src="{guide_cover(g[0])}" alt="" loading="lazy" decoding="async" width="480" height="621"></a>' for g in GUIDES)}</div>
+  </div>
 </section>
 
 <!-- ============================================================ montreal -->

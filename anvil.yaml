@@ -289,7 +289,7 @@ native_deps:
       try { l = localStorage.getItem('aa.lang'); } catch (e) {}
       if (l === 'fr' || l === 'ru' || l === 'lv') {
         document.documentElement.lang = l;
-        window.aaLangPack = fetch('_/theme/lang-' + l + '.json?v=14').then(function (r) {
+        window.aaLangPack = fetch('_/theme/lang-' + l + '.json?v=15').then(function (r) {
           if (!r.ok) throw new Error('lang ' + r.status);
           return r.text();
         });
@@ -305,7 +305,7 @@ native_deps:
       }
     })();
     </script>
-    <script src="_/theme/legal-kit.js?v=a4749d7d91"></script>
+    <script src="_/theme/legal-kit.js?v=3ebde31d1a"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">

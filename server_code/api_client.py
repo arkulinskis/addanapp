@@ -10,6 +10,7 @@ from . import serial
 from .common import (current_user, rid, by_id, clean, now, next_ref, add_note, touch, notify_admins,
                      KINDS, PRIORITIES, OPEN_STATUSES, KIND_LABEL, PRIORITY_LABEL)
 from .i18n_server import set_user_lang
+from .api_public import is_quiet_guide_lead
 
 
 # ---------------------------------------------------------------- profile
@@ -51,7 +52,7 @@ def poll_counts():
   touch(u)
   if u['is_admin']:
     return {'unread': len(app_tables.requests.search(admin_unread=True)),
-            'leads': len(app_tables.leads.search(status='new'))}
+            'leads': len([l for l in app_tables.leads.search(status='new') if not is_quiet_guide_lead(l)])}
   return {'unread': len(app_tables.requests.search(client=u, client_unread=True))}
 
 
