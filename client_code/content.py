@@ -303,7 +303,7 @@ FAQ = [
    "in milestones, and the first usable version typically lands in four to eight weeks."),
   ("Can you take over an existing app?",
    "Often, yes. We start with a short, fixed-price audit of the codebase, document the risks, then quote improvements request by "
-   "request, like any other work."),
+   "request, like any other work.", 'rebuild'),
   ("Do you only work with Montréal companies?",
    "No. We're based in Montréal and happy to meet in person locally, but we work with clients across Canada, the United States and "
    "Europe. Service is available in English and French."),
@@ -316,10 +316,22 @@ FAQ = [
 ]
 
 
+def _faq_rebuild():
+  """Example under "Can you take over an existing app?": the Parapeet rebuild film (opens YouTube)."""
+  link = (f'<a href="https://www.youtube.com/watch?v={YT_REBUILD}" target="_blank" rel="noopener">'
+          f'{t("Parapeet’s before-and-after film")} <span class="arr">&#8599;</span></a>')
+  return t('For an example, watch {link}: a live app from 2023 that we rebuilt from scratch.', link=link)
+
+
+FAQ_EXTRA = {'rebuild': _faq_rebuild}  # optional third item of a FAQ entry: one more paragraph under the answer
+
+
 def _faq():
   out = ''
-  for qn, ans in FAQ:
-    out += f'<details class="rv"><summary>{t(qn)}</summary><p>{t(ans)}</p></details>'
+  for item in FAQ:
+    qn, ans = item[0], item[1]
+    extra = f'<p>{FAQ_EXTRA[item[2]]()}</p>' if len(item) > 2 else ''
+    out += f'<details class="rv"><summary>{t(qn)}</summary><p>{t(ans)}</p>{extra}</details>'
   return out
 
 
