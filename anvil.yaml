@@ -651,9 +651,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "PlanPlate in about a minute",
-           "url": "https://www.youtube.com/watch?v=4KcdhVtqgNQ",
+           "description": "PlanPlate runs the front of house for restaurant owners with one restaurant or ten: bookings that confirm themselves, opening hours, a drag-and-drop floor plan, menu, specials, events, and a website made from one form.",
            "thumbnailUrl": "https://i.ytimg.com/vi/4KcdhVtqgNQ/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:09:10+00:00",
+           "embedUrl": "https://www.youtube.com/embed/4KcdhVtqgNQ",
+           "url": "https://www.youtube.com/watch?v=4KcdhVtqgNQ",
+           "duration": "PT1M11S"
           }
          }
         },
@@ -674,9 +677,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "Prepsto in about a minute",
-           "url": "https://www.youtube.com/watch?v=CehQC_0r93A",
+           "description": "Prepsto is a customer-feedback plug-in for indie makers, product managers and small SaaS teams. Drop one link or one script tag on your site, then turn what your users say into user stories, with their own words attached.",
            "thumbnailUrl": "https://i.ytimg.com/vi/CehQC_0r93A/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:09:43+00:00",
+           "embedUrl": "https://www.youtube.com/embed/CehQC_0r93A",
+           "url": "https://www.youtube.com/watch?v=CehQC_0r93A",
+           "duration": "PT1M6S"
           }
          }
         },
@@ -697,9 +703,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "VitalRPA in about a minute",
-           "url": "https://www.youtube.com/watch?v=W0yKLujjtPk",
+           "description": "VitalRPA puts robots on every website you run: uptime, response time, a keyword on the page, TLS certificates, domain expiry and security headers, with no code on your sites. When something breaks, your playbooks act.",
            "thumbnailUrl": "https://i.ytimg.com/vi/W0yKLujjtPk/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:07:54+00:00",
+           "embedUrl": "https://www.youtube.com/embed/W0yKLujjtPk",
+           "url": "https://www.youtube.com/watch?v=W0yKLujjtPk",
+           "duration": "PT1M14S"
           }
          }
         },
@@ -720,9 +729,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "ArviStay in about a minute",
-           "url": "https://www.youtube.com/watch?v=2Gm5T_OHFl0",
+           "description": "ArviStay builds a beautiful Art Nouveau website for your small hotel, B&B or guesthouse from one address: it maps the neighbourhood, drafts the texts and plans each guest's stay hour by hour.",
            "thumbnailUrl": "https://i.ytimg.com/vi/2Gm5T_OHFl0/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:08:55+00:00",
+           "embedUrl": "https://www.youtube.com/embed/2Gm5T_OHFl0",
+           "url": "https://www.youtube.com/watch?v=2Gm5T_OHFl0",
+           "duration": "PT1M10S"
           }
          }
         },
@@ -743,9 +755,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "MonShop in about a minute",
-           "url": "https://www.youtube.com/watch?v=7hR4RnsYm2M",
+           "description": "MonShop is a live map of the independent shops, cafés and restaurants near you, with photos of what's on their shelves right now. Bookmark the places you love and get 5% off every time you go back. Free for everyone, no ads.",
            "thumbnailUrl": "https://i.ytimg.com/vi/7hR4RnsYm2M/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:10:36+00:00",
+           "embedUrl": "https://www.youtube.com/embed/7hR4RnsYm2M",
+           "url": "https://www.youtube.com/watch?v=7hR4RnsYm2M",
+           "duration": "PT1M8S"
           }
          }
         },
@@ -766,9 +781,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "Adorable Science in about a minute",
-           "url": "https://www.youtube.com/watch?v=eoGeoGcAmg8",
+           "description": "Adorable Science is fuzzy-hearted, well-sourced science news written by the community. Anyone can write an article, and a Lab Director reviews every one before it's published.",
            "thumbnailUrl": "https://i.ytimg.com/vi/eoGeoGcAmg8/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T15:22:06+00:00",
+           "embedUrl": "https://www.youtube.com/embed/eoGeoGcAmg8",
+           "url": "https://www.youtube.com/watch?v=eoGeoGcAmg8",
+           "duration": "PT1M11S"
           }
          }
         },
@@ -789,9 +807,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "CityCrossers in about a minute",
-           "url": "https://www.youtube.com/watch?v=iIDuAWF-BzI",
+           "description": "CityCrossers is a free walking club app for people who'd rather stroll 20 km than sprint 5. Swipe on group walks near you, plan routes with café and food stops, and meet new people on foot.",
            "thumbnailUrl": "https://i.ytimg.com/vi/iIDuAWF-BzI/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-03T05:14:06+00:00",
+           "embedUrl": "https://www.youtube.com/embed/iIDuAWF-BzI",
+           "url": "https://www.youtube.com/watch?v=iIDuAWF-BzI",
+           "duration": "PT1M14S"
           }
          }
         },
@@ -812,9 +833,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "Health Booker in about a minute",
-           "url": "https://www.youtube.com/watch?v=4BjAXdLkvMY",
+           "description": "Health Booker is one account for every independent yoga studio in Montréal. Find a class, pick your mat and book, with no booking fees. Studios get a calm back office with no commission and no contract.",
            "thumbnailUrl": "https://i.ytimg.com/vi/4BjAXdLkvMY/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:12:05+00:00",
+           "embedUrl": "https://www.youtube.com/embed/4BjAXdLkvMY",
+           "url": "https://www.youtube.com/watch?v=4BjAXdLkvMY",
+           "duration": "PT1M16S"
           }
          }
         },
@@ -835,9 +859,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "AutoAgile in about a minute",
-           "url": "https://www.youtube.com/watch?v=iJ6mNTshQPg",
+           "description": "AutoAgile is an agile board for crews of humans and AI developers. AI agents pull cards, log their work and hand it in through an API, and humans approve what ships.",
            "thumbnailUrl": "https://i.ytimg.com/vi/iJ6mNTshQPg/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T15:22:11+00:00",
+           "embedUrl": "https://www.youtube.com/embed/iJ6mNTshQPg",
+           "url": "https://www.youtube.com/watch?v=iJ6mNTshQPg",
+           "duration": "PT1M7S"
           }
          }
         },
@@ -858,9 +885,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "Good Landlord in about a minute",
-           "url": "https://www.youtube.com/watch?v=qv8jRRY0KG0",
+           "description": "Good Landlord is a free app for small landlords who want to know their numbers and treat their tenants fairly. Track rent and every claimable expense, see your cash flow and what you'd make if you sold, and give each tenant a private record of messages and repairs.",
            "thumbnailUrl": "https://i.ytimg.com/vi/qv8jRRY0KG0/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T15:22:37+00:00",
+           "embedUrl": "https://www.youtube.com/embed/qv8jRRY0KG0",
+           "url": "https://www.youtube.com/watch?v=qv8jRRY0KG0",
+           "duration": "PT1M16S"
           }
          }
         },
@@ -881,9 +911,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "Service Request in about a minute",
-           "url": "https://www.youtube.com/watch?v=_Qj7nniw9cw",
+           "description": "Service Request is a neighbourhood bounty board. Post a small job (raking leaves, shovelling snow, hauling junk, moving a couch, walking a dog) from $20, and people nearby send offers. Pay cash or by Interac e-Transfer once the work checks out, with a bonus for great work.",
            "thumbnailUrl": "https://i.ytimg.com/vi/_Qj7nniw9cw/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:08:41+00:00",
+           "embedUrl": "https://www.youtube.com/embed/_Qj7nniw9cw",
+           "url": "https://www.youtube.com/watch?v=_Qj7nniw9cw",
+           "duration": "PT1M12S"
           }
          }
         },
@@ -904,9 +937,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "Better Than Marketplace in about a minute",
-           "url": "https://www.youtube.com/watch?v=X374nwXR8Qs",
+           "description": "Better Than Marketplace is a free local marketplace where selling takes about 30 seconds: snap a photo with your phone, give it a name, done. No categories, no forms, no fees, no ads.",
            "thumbnailUrl": "https://i.ytimg.com/vi/X374nwXR8Qs/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T15:22:16+00:00",
+           "embedUrl": "https://www.youtube.com/embed/X374nwXR8Qs",
+           "url": "https://www.youtube.com/watch?v=X374nwXR8Qs",
+           "duration": "PT1M9S"
           }
          }
         },
@@ -927,9 +963,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "Plan Friday in about a minute",
-           "url": "https://www.youtube.com/watch?v=d7Gj5GCfeOc",
+           "description": "Plan Friday is the quickest way to throw a last-minute weekend dinner party: make a party page, send one link, and your friends say which day suits them and what they're bringing. No accounts for guests.",
            "thumbnailUrl": "https://i.ytimg.com/vi/d7Gj5GCfeOc/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:09:59+00:00",
+           "embedUrl": "https://www.youtube.com/embed/d7Gj5GCfeOc",
+           "url": "https://www.youtube.com/watch?v=d7Gj5GCfeOc",
+           "duration": "PT1M9S"
           }
          }
         },
@@ -950,9 +989,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "OScreenplay in about a minute",
-           "url": "https://www.youtube.com/watch?v=niJntt5oVNU",
+           "description": "OScreenplay is a free screenwriting studio for one writer: from half an idea to properly formatted pages. Pull a story spark, build characters who react like people, plan your scenes and write in a real screenplay editor. No AI writes for you.",
            "thumbnailUrl": "https://i.ytimg.com/vi/niJntt5oVNU/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:10:22+00:00",
+           "embedUrl": "https://www.youtube.com/embed/niJntt5oVNU",
+           "url": "https://www.youtube.com/watch?v=niJntt5oVNU",
+           "duration": "PT1M10S"
           }
          }
         },
@@ -973,9 +1015,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "Yabanana in about a minute",
-           "url": "https://www.youtube.com/watch?v=TwZemZxbquE",
+           "description": "Yabanana is a free songwriting app for rappers, poets and pop writers. Write your lyrics over real beats, with rhymes, similes and metaphors one click away. No ads, and no AI writing your lines.",
            "thumbnailUrl": "https://i.ytimg.com/vi/TwZemZxbquE/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T04:17:48+00:00",
+           "embedUrl": "https://www.youtube.com/embed/TwZemZxbquE",
+           "url": "https://www.youtube.com/watch?v=TwZemZxbquE",
+           "duration": "PT1M13S"
           }
          }
         },
@@ -996,9 +1041,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "RoboIntern in about a minute",
-           "url": "https://www.youtube.com/watch?v=-ZsVXlSr6tI",
+           "description": "RoboIntern is a free field guide to machine-learning models for predicting from historical data, with the Python included. Paste your table's header row, and it ranks the models that fit, explains the maths, and writes the code.",
            "thumbnailUrl": "https://i.ytimg.com/vi/-ZsVXlSr6tI/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:09:03+00:00",
+           "embedUrl": "https://www.youtube.com/embed/-ZsVXlSr6tI",
+           "url": "https://www.youtube.com/watch?v=-ZsVXlSr6tI",
+           "duration": "PT1M16S"
           }
          }
         },
@@ -1035,9 +1083,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "FunToPlan in about a minute",
-           "url": "https://www.youtube.com/watch?v=qWP3bxxPTWE",
+           "description": "Fun To Plan is one shared board for families of 2 to 4: chores, plans and wish lists on sticky notes that look like your fridge door. Finish a task, earn brownie points, and let the points do the nagging.",
            "thumbnailUrl": "https://i.ytimg.com/vi/qWP3bxxPTWE/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:12:18+00:00",
+           "embedUrl": "https://www.youtube.com/embed/qWP3bxxPTWE",
+           "url": "https://www.youtube.com/watch?v=qWP3bxxPTWE",
+           "duration": "PT1M11S"
           }
          }
         },
@@ -1058,9 +1109,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "Sheetsmith in about a minute",
-           "url": "https://www.youtube.com/watch?v=KvFAg0fOglU",
+           "description": "Sheetsmith turns an Excel workbook, with its tables, formulas, validation rules, conditional colours and VBA macros, into a web app plus a tiny Python server that runs on any computer on your network. Everyone on the same Wi-Fi shares one app and the same live data.",
            "thumbnailUrl": "https://i.ytimg.com/vi/KvFAg0fOglU/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:08:38+00:00",
+           "embedUrl": "https://www.youtube.com/embed/KvFAg0fOglU",
+           "url": "https://www.youtube.com/watch?v=KvFAg0fOglU",
+           "duration": "PT1M12S"
           }
          }
         },
@@ -1081,9 +1135,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "Reelstuber in about a minute",
-           "url": "https://www.youtube.com/watch?v=pjALr5WpIvM",
+           "description": "Reelstuber turns one long video into a week of short reels for Instagram Reels, TikTok and YouTube Shorts, right in your browser. Your video is never uploaded.",
            "thumbnailUrl": "https://i.ytimg.com/vi/pjALr5WpIvM/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:09:15+00:00",
+           "embedUrl": "https://www.youtube.com/embed/pjALr5WpIvM",
+           "url": "https://www.youtube.com/watch?v=pjALr5WpIvM",
+           "duration": "PT1M14S"
           }
          }
         },
@@ -1104,9 +1161,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "VideoBlog Buddy in about a minute",
-           "url": "https://www.youtube.com/watch?v=Olt2yMqA_TI",
+           "description": "VideoBlog Buddy is a free screen and camera recorder and video editor that runs in your browser, made for people who build apps. Record a demo, edit it, and publish it to YouTube, Shorts or Reels. Your recordings never leave your computer.",
            "thumbnailUrl": "https://i.ytimg.com/vi/Olt2yMqA_TI/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:07:57+00:00",
+           "embedUrl": "https://www.youtube.com/embed/Olt2yMqA_TI",
+           "url": "https://www.youtube.com/watch?v=Olt2yMqA_TI",
+           "duration": "PT1M8S"
           }
          }
         },
@@ -1127,9 +1187,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "ImgNovella in about a minute",
-           "url": "https://www.youtube.com/watch?v=TV4J74A9QkE",
+           "description": "ImgNovella is a visual novel maker you use online: scenes, characters, branching choices and multiple endings, with no code to learn. Share your novel with a link, or package it as a game and sell it.",
            "thumbnailUrl": "https://i.ytimg.com/vi/TV4J74A9QkE/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:11:46+00:00",
+           "embedUrl": "https://www.youtube.com/embed/TV4J74A9QkE",
+           "url": "https://www.youtube.com/watch?v=TV4J74A9QkE",
+           "duration": "PT1M13S"
           }
          }
         },
@@ -1150,9 +1213,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "Fillfox in about a minute",
-           "url": "https://www.youtube.com/watch?v=1T24l_1OT_k",
+           "description": "Fillfox is a free form builder: write a form like a document, share one link, and see every answer plus exactly where people gave up. There is no paid plan.",
            "thumbnailUrl": "https://i.ytimg.com/vi/1T24l_1OT_k/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:12:27+00:00",
+           "embedUrl": "https://www.youtube.com/embed/1T24l_1OT_k",
+           "url": "https://www.youtube.com/watch?v=1T24l_1OT_k",
+           "duration": "PT1M9S"
           }
          }
         },
@@ -1173,9 +1239,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "Hookline in about a minute",
-           "url": "https://www.youtube.com/watch?v=rgkcyhKM1T8",
+           "description": "Hookline is a free LinkedIn writing studio. Write posts in your own voice, see exactly where \"see more\" cuts them, and fix the hook before anyone scrolls past. No paid plan, no browser extension, and nothing posts without you.",
            "thumbnailUrl": "https://i.ytimg.com/vi/rgkcyhKM1T8/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:12:01+00:00",
+           "embedUrl": "https://www.youtube.com/embed/rgkcyhKM1T8",
+           "url": "https://www.youtube.com/watch?v=rgkcyhKM1T8",
+           "duration": "PT1M16S"
           }
          }
         },
@@ -1196,9 +1265,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "Marguru in about a minute",
-           "url": "https://www.youtube.com/watch?v=bTpH6t4KN2o",
+           "description": "Marguru is your pocket marketing agency for small business owners. Describe your business in about three minutes and get a step-by-step playbook of 25 to 35 copy-ready AI prompts, filled in with your details and ordered the way an agency does the work.",
            "thumbnailUrl": "https://i.ytimg.com/vi/bTpH6t4KN2o/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:10:42+00:00",
+           "embedUrl": "https://www.youtube.com/embed/bTpH6t4KN2o",
+           "url": "https://www.youtube.com/watch?v=bTpH6t4KN2o",
+           "duration": "PT1M14S"
           }
          }
         },
@@ -1219,9 +1291,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "Faves Buddy in about a minute",
-           "url": "https://www.youtube.com/watch?v=LKq6NHGjgdc",
+           "description": "Faves Buddy keeps everything you mean to come back to: open tabs, Google Maps pins, screenshots, notes and ideas, sorted for you without AI.",
            "thumbnailUrl": "https://i.ytimg.com/vi/LKq6NHGjgdc/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:12:33+00:00",
+           "embedUrl": "https://www.youtube.com/embed/LKq6NHGjgdc",
+           "url": "https://www.youtube.com/watch?v=LKq6NHGjgdc",
+           "duration": "PT1M15S"
           }
          }
         },
@@ -1242,9 +1317,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "PerfectCast in about a minute",
-           "url": "https://www.youtube.com/watch?v=_pmaxTfTg38",
+           "description": "PerfectCast is a free fan-casting site for romantasy readers. Pick a new release, cast its characters as a photo collage of the stars you'd choose, and watch the fandom crown its favourites. No ads.",
            "thumbnailUrl": "https://i.ytimg.com/vi/_pmaxTfTg38/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:10:09+00:00",
+           "embedUrl": "https://www.youtube.com/embed/_pmaxTfTg38",
+           "url": "https://www.youtube.com/watch?v=_pmaxTfTg38",
+           "duration": "PT1M8S"
           }
          }
         },
@@ -1265,9 +1343,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "Make Your Own Clothes in about a minute",
-           "url": "https://www.youtube.com/watch?v=KHZVGQ4Py7M",
+           "description": "Make Your Own Clothes drafts real sewing patterns from your own measurements, the way tailors do, sews them together in 3D on a mannequin built from your numbers, and writes you a step-by-step making book.",
            "thumbnailUrl": "https://i.ytimg.com/vi/KHZVGQ4Py7M/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:10:48+00:00",
+           "embedUrl": "https://www.youtube.com/embed/KHZVGQ4Py7M",
+           "url": "https://www.youtube.com/watch?v=KHZVGQ4Py7M",
+           "duration": "PT1M16S"
           }
          }
         },
@@ -1288,9 +1369,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "Robo Presence in about a minute",
-           "url": "https://www.youtube.com/watch?v=-c7CiXm_WjE",
+           "description": "Robo Presence turns a Raspberry Pi, a Pi plus an Arduino, or an old phone into a camera robot on wheels that you drive live from any browser. Free: you only pay for your parts.",
            "thumbnailUrl": "https://i.ytimg.com/vi/-c7CiXm_WjE/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:08:48+00:00",
+           "embedUrl": "https://www.youtube.com/embed/-c7CiXm_WjE",
+           "url": "https://www.youtube.com/watch?v=-c7CiXm_WjE",
+           "duration": "PT1M13S"
           }
          }
         },
@@ -1327,9 +1411,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "C-Suite Coach in about a minute",
-           "url": "https://www.youtube.com/watch?v=Z5MC3w_B89A",
+           "description": "C-Suite Coach is executive education and certification for current and aspiring C-suite leaders: seven programs, real boardroom cases, scenario challenges and spaced-repetition drills, with credentials anyone can verify.",
            "thumbnailUrl": "https://i.ytimg.com/vi/Z5MC3w_B89A/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:12:47+00:00",
+           "embedUrl": "https://www.youtube.com/embed/Z5MC3w_B89A",
+           "url": "https://www.youtube.com/watch?v=Z5MC3w_B89A",
+           "duration": "PT1M12S"
           }
          }
         },
@@ -1350,9 +1437,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "Osinty in about a minute",
-           "url": "https://www.youtube.com/watch?v=3AZprKF2iH0",
+           "description": "Osinty is a free open-source intelligence (OSINT) academy styled like a private eye's office. Learn how investigators find answers in public information, then practise on fictional case files in a simulated search terminal. Legally, ethically, step by step.",
            "thumbnailUrl": "https://i.ytimg.com/vi/3AZprKF2iH0/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:10:17+00:00",
+           "embedUrl": "https://www.youtube.com/embed/3AZprKF2iH0",
+           "url": "https://www.youtube.com/watch?v=3AZprKF2iH0",
+           "duration": "PT1M12S"
           }
          }
         },
@@ -1373,9 +1463,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "Business Buddy in about a minute",
-           "url": "https://www.youtube.com/watch?v=Yw346NsYCr0",
+           "description": "Business Buddy is a free, step-by-step guide to opening a one- or two-person business in Montréal: the permits, the borough, the taxes, the real costs and the money maths, with links to the official sources. No ads.",
            "thumbnailUrl": "https://i.ytimg.com/vi/Yw346NsYCr0/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T15:22:26+00:00",
+           "embedUrl": "https://www.youtube.com/embed/Yw346NsYCr0",
+           "url": "https://www.youtube.com/watch?v=Yw346NsYCr0",
+           "duration": "PT1M15S"
           }
          }
         },
@@ -1396,9 +1489,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "Jev Buddy in about a minute",
-           "url": "https://www.youtube.com/watch?v=pGgzeKsxuk0",
+           "description": "Jev Buddy is a free developer guide to Jev, TypeSafe AI's decision model: send state and typed questions, get typed answers with calibrated probabilities instead of text to parse.",
            "thumbnailUrl": "https://i.ytimg.com/vi/pGgzeKsxuk0/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:11:27+00:00",
+           "embedUrl": "https://www.youtube.com/embed/pGgzeKsxuk0",
+           "url": "https://www.youtube.com/watch?v=pGgzeKsxuk0",
+           "duration": "PT1M16S"
           }
          }
         },
@@ -1419,9 +1515,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "Tai Chi Please in about a minute",
-           "url": "https://www.youtube.com/watch?v=arxqoGf9PlM",
+           "description": "Tai Chi Please is a gentle morning practice in a bamboo forest: guided tai chi, qigong and lymphatic self-massage with a calm 3D teacher. Free, no ads, and no sign-up to try.",
            "thumbnailUrl": "https://i.ytimg.com/vi/arxqoGf9PlM/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:08:17+00:00",
+           "embedUrl": "https://www.youtube.com/embed/arxqoGf9PlM",
+           "url": "https://www.youtube.com/watch?v=arxqoGf9PlM",
+           "duration": "PT1M15S"
           }
          }
         },
@@ -1442,9 +1541,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "Brain Mechanic in about a minute",
-           "url": "https://www.youtube.com/watch?v=5BWx9DjbcDs",
+           "description": "Brain Mechanic is the owner's manual for your mind, written like a car repair manual. Look up what you're going through in plain words, tick the warning lights you notice, and leave with practical tools and a work order for a real professional.",
            "thumbnailUrl": "https://i.ytimg.com/vi/5BWx9DjbcDs/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T15:22:20+00:00",
+           "embedUrl": "https://www.youtube.com/embed/5BWx9DjbcDs",
+           "url": "https://www.youtube.com/watch?v=5BWx9DjbcDs",
+           "duration": "PT1M14S"
           }
          }
         },
@@ -1465,9 +1567,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "Little Hero Books in about a minute",
-           "url": "https://www.youtube.com/watch?v=lpY_f2LUTdI",
+           "description": "Little Hero Books makes picture books starring your child. Design a cartoon look-alike of your little one, pick a classic fairy tale, and read it on screen or print it.",
            "thumbnailUrl": "https://i.ytimg.com/vi/lpY_f2LUTdI/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:11:19+00:00",
+           "embedUrl": "https://www.youtube.com/embed/lpY_f2LUTdI",
+           "url": "https://www.youtube.com/watch?v=lpY_f2LUTdI",
+           "duration": "PT1M15S"
           }
          }
         },
@@ -1488,9 +1593,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "Subsudo in about a minute",
-           "url": "https://www.youtube.com/watch?v=ECTqEf17FOg",
+           "description": "Subsudo is a free virtual fight club. Shadow-box one round with your phone in your fist or in front of your laptop camera, send it to anyone in the world, and let three judges decide.",
            "thumbnailUrl": "https://i.ytimg.com/vi/ECTqEf17FOg/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:08:26+00:00",
+           "embedUrl": "https://www.youtube.com/embed/ECTqEf17FOg",
+           "url": "https://www.youtube.com/watch?v=ECTqEf17FOg",
+           "duration": "PT1M12S"
           }
          }
         },
@@ -1511,9 +1619,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "QuickyBricks in about a minute",
-           "url": "https://www.youtube.com/watch?v=7AX1pujnTy0",
+           "description": "QuickyBricks is a silly 3D cube game for kids, played with a grown-up. Roll your squishy cube and whatever lands on top happens: BOING! TOOT-TOOT! LOVEY-DOVEY! Free, with no ads, right in the browser.",
            "thumbnailUrl": "https://i.ytimg.com/vi/7AX1pujnTy0/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:09:27+00:00",
+           "embedUrl": "https://www.youtube.com/embed/7AX1pujnTy0",
+           "url": "https://www.youtube.com/watch?v=7AX1pujnTy0",
+           "duration": "PT1M11S"
           }
          }
         },
@@ -1534,9 +1645,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "ToonyLoony in about a minute",
-           "url": "https://www.youtube.com/watch?v=mfsUukKdXQY",
+           "description": "ToonyLoony is a free cartoon studio in the browser for young creators and their grown-ups. Build a character, teach it moves, then press and hold it on the stage and drag it around: ToonyLoony records every step.",
            "thumbnailUrl": "https://i.ytimg.com/vi/mfsUukKdXQY/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:08:07+00:00",
+           "embedUrl": "https://www.youtube.com/embed/mfsUukKdXQY",
+           "url": "https://www.youtube.com/watch?v=mfsUukKdXQY",
+           "duration": "PT1M15S"
           }
          }
         },
@@ -1557,9 +1671,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "BusyBun in about a minute",
-           "url": "https://www.youtube.com/watch?v=mFIuuENN_nI",
+           "description": "Busy Bun is a free, cosy adventure game you play right in your browser. You're a little bao bun: run errands for the neighbours, fill your bun with meat, Steam Dash through pests and smash their nests.",
            "thumbnailUrl": "https://i.ytimg.com/vi/mFIuuENN_nI/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T15:22:33+00:00",
+           "embedUrl": "https://www.youtube.com/embed/mFIuuENN_nI",
+           "url": "https://www.youtube.com/watch?v=mFIuuENN_nI",
+           "duration": "PT1M9S"
           }
          }
         },
@@ -1580,9 +1697,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "DoremiRoad in about a minute",
-           "url": "https://www.youtube.com/watch?v=RXNcbqR-jRs",
+           "description": "Doremi Road is a free piano game that teaches music theory like a road trip: 9 territories and 42 levels across the Realm of Harmony, from your first C to the circle of fifths. Play as a guest, no account needed.",
            "thumbnailUrl": "https://i.ytimg.com/vi/RXNcbqR-jRs/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:12:39+00:00",
+           "embedUrl": "https://www.youtube.com/embed/RXNcbqR-jRs",
+           "url": "https://www.youtube.com/watch?v=RXNcbqR-jRs",
+           "duration": "PT1M15S"
           }
          }
         },
@@ -1603,9 +1723,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "City Fun Time in about a minute",
-           "url": "https://www.youtube.com/watch?v=-Eenu0iTZXI",
+           "description": "City Fun Time is a free life-sim game on your real streets. Type any address on Earth and the neighbourhood around it becomes a 3D city, built from OpenStreetMap, with missions at real cafés, bakeries and parks. No ads, no download.",
            "thumbnailUrl": "https://i.ytimg.com/vi/-Eenu0iTZXI/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:12:52+00:00",
+           "embedUrl": "https://www.youtube.com/embed/-Eenu0iTZXI",
+           "url": "https://www.youtube.com/watch?v=-Eenu0iTZXI",
+           "duration": "PT1M11S"
           }
          }
         },
@@ -1626,9 +1749,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "Mafia Camp in about a minute",
-           "url": "https://www.youtube.com/watch?v=gDPcBrwAhtI",
+           "description": "Mafia Camp is a video party game for 3 to 10 friends. Everyone joins one video call in the browser, gets a secret role and plays Mafia (Werewolf) at Camp Moonlake. No accounts.",
            "thumbnailUrl": "https://i.ytimg.com/vi/gDPcBrwAhtI/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:11:06+00:00",
+           "embedUrl": "https://www.youtube.com/embed/gDPcBrwAhtI",
+           "url": "https://www.youtube.com/watch?v=gDPcBrwAhtI",
+           "duration": "PT1M9S"
           }
          }
         },
@@ -1649,9 +1775,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "Snackpuncher in about a minute",
-           "url": "https://www.youtube.com/watch?v=YsGjeRjVZMY",
+           "description": "Snackpuncher is a free VR punching quest for Meta Quest: the Greasy Horde, cartoon fast food with googly eyes, has overrun the realm of Nourra, and every battle you fight is a workout. No install, no ads, nothing to buy.",
            "thumbnailUrl": "https://i.ytimg.com/vi/YsGjeRjVZMY/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:08:31+00:00",
+           "embedUrl": "https://www.youtube.com/embed/YsGjeRjVZMY",
+           "url": "https://www.youtube.com/watch?v=YsGjeRjVZMY",
+           "duration": "PT1M15S"
           }
          }
         },
@@ -1672,9 +1801,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "WallTracer in about a minute",
-           "url": "https://www.youtube.com/watch?v=TavbKRtrFuw",
+           "description": "WallTracer turns your headset into a projector: pick a picture, pin it to your real wall in passthrough on a Meta Quest, lock it, and trace it with a pencil. Free, with no projector and no dark room.",
            "thumbnailUrl": "https://i.ytimg.com/vi/TavbKRtrFuw/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:07:50+00:00",
+           "embedUrl": "https://www.youtube.com/embed/TavbKRtrFuw",
+           "url": "https://www.youtube.com/watch?v=TavbKRtrFuw",
+           "duration": "PT1M16S"
           }
          }
         },
@@ -1695,9 +1827,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "MrBigStage in about a minute",
-           "url": "https://www.youtube.com/watch?v=UuQabze-btg",
+           "description": "Rehearse your next talk on a real-feeling stage: give it to a 3D crowd that reacts, with a live coach, then get one Stage Confidence score.",
            "thumbnailUrl": "https://i.ytimg.com/vi/UuQabze-btg/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:10:29+00:00",
+           "embedUrl": "https://www.youtube.com/embed/UuQabze-btg",
+           "url": "https://www.youtube.com/watch?v=UuQabze-btg",
+           "duration": "PT1M13S"
           }
          }
         },
@@ -1718,9 +1853,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "Topameal in about a minute",
-           "url": "https://www.youtube.com/watch?v=Eex4sJbZDNg",
+           "description": "Topameal is a free grocery planner for busy people and tired parents. Mom picks a week of quick one-pan toppers for the rice, pasta and potatoes you already have, and writes one shopping list. You never choose: you only say no.",
            "thumbnailUrl": "https://i.ytimg.com/vi/Eex4sJbZDNg/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:08:01+00:00",
+           "embedUrl": "https://www.youtube.com/embed/Eex4sJbZDNg",
+           "url": "https://www.youtube.com/watch?v=Eex4sJbZDNg",
+           "duration": "PT1M9S"
           }
          }
         },
@@ -1741,9 +1879,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "Logsteps in about a minute",
-           "url": "https://www.youtube.com/watch?v=tLUZzG1_Jz0",
+           "description": "Logsteps turns a slow walk around a room with your phone into a 3D model you can step back into, measure, pin notes on, share with a link and edit on your computer. Free, with no app to install.",
            "thumbnailUrl": "https://i.ytimg.com/vi/tLUZzG1_Jz0/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:11:13+00:00",
+           "embedUrl": "https://www.youtube.com/embed/tLUZzG1_Jz0",
+           "url": "https://www.youtube.com/watch?v=tLUZzG1_Jz0",
+           "duration": "PT1M5S"
           }
          }
         },
@@ -1764,9 +1905,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "PoundFighter in about a minute",
-           "url": "https://www.youtube.com/watch?v=X7OTOzRsGy8",
+           "description": "PoundFighter turns micro workouts into a monster-collecting game. Do a one-minute fight in bed, at your desk or standing, count your reps by voice, and capture the monster you beat.",
            "thumbnailUrl": "https://i.ytimg.com/vi/X7OTOzRsGy8/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T18:09:51+00:00",
+           "embedUrl": "https://www.youtube.com/embed/X7OTOzRsGy8",
+           "url": "https://www.youtube.com/watch?v=X7OTOzRsGy8",
+           "duration": "PT1M13S"
           }
          }
         },
@@ -1787,9 +1931,12 @@ native_deps:
           "subjectOf": {
            "@type": "VideoObject",
            "name": "Parapeet in about a minute",
-           "url": "https://www.youtube.com/watch?v=FW-j_xL_DWo",
+           "description": "Parapeet, the French app that teaches every phrase in ten moods, is all new: here's the old version next to the rebuilt one.",
            "thumbnailUrl": "https://i.ytimg.com/vi/FW-j_xL_DWo/hqdefault.jpg",
-           "uploadDate": "2026-11-02"
+           "uploadDate": "2026-11-02T23:56:33+00:00",
+           "embedUrl": "https://www.youtube.com/embed/FW-j_xL_DWo",
+           "url": "https://www.youtube.com/watch?v=FW-j_xL_DWo",
+           "duration": "PT1M30S"
           }
          }
         },
@@ -1829,14 +1976,14 @@ native_deps:
       },
       {
        "@type": "VideoObject",
-       "@id": "https://addanapp.com/#film",
        "name": "Addanapp: Apps Built at AI Speed, Signed Off by Senior Engineers",
-       "description": "A one-minute film about Addanapp, the Montréal studio that builds web apps, admin panels, client portals and data platforms with AI speed and senior-engineer sign-off.",
+       "description": "Addanapp is a Montréal software studio: apps built at AI speed, signed off by senior engineers. Fixed quotes, a live client workspace, and you only pay for results you accept.",
        "thumbnailUrl": "https://addanapp.com/_/theme/yt-addanapp.jpg",
-       "uploadDate": "2026-11-02",
-       "duration": "PT1M6S",
-       "embedUrl": "https://www.youtube-nocookie.com/embed/wzCMxAdyrHo",
+       "uploadDate": "2026-11-02T15:21:46+00:00",
+       "embedUrl": "https://www.youtube.com/embed/wzCMxAdyrHo",
        "url": "https://www.youtube.com/watch?v=wzCMxAdyrHo",
+       "duration": "PT1M6S",
+       "@id": "https://addanapp.com/#film",
        "publisher": {
         "@id": "https://addanapp.com/#org"
        }
