@@ -1077,5 +1077,9 @@
 "The guides are written in English.": "Гайды написаны на английском.",
 "Your guides are ready": "Ваши гайды готовы",
 "Parapeet’s before-and-after film": "ролик «Parapeet: до и после»",
-"For an example, watch {link}: a live app from 2023 that we rebuilt from scratch.": "Пример — {link}: приложение, которое работает с 2023 года и которое мы переписали с нуля (на английском)."
+"For an example, watch {link}: a live app from 2023 that we rebuilt from scratch.": "Пример — {link}: приложение, которое работает с 2023 года и которое мы переписали с нуля (на английском).",
+  "Console": "Консоль",
+  "Show": "Показать",
+  "View": "Вид",
+  "Workspace preview": "Предпросмотр рабочего пространства"
 }

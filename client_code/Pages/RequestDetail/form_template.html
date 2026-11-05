@@ -1,0 +1,80 @@
+<anvil-form layout="Addanapp.Layouts.Shell">
+<anvil-block slot="content">
+<div class="app-page"><div class="aa-wrap">
+  <div anvil:name="missing">
+    <div class="empty">
+      <div class="ico"><i class="ic ic-inbox"></i></div>
+      <h3 data-t>Request not available</h3>
+      <div class="empty-p" data-t>It may have been removed, or it belongs to another workspace.</div>
+      <a class="aa-btn" href="#portal" data-t>Back to dashboard</a>
+    </div>
+  </div>
+
+  <div anvil:name="main_part">
+    <div class="crumbs"><a anvil:name="back_link">&larr; <anvil-component type="Label" name="back_label" prop:role='["t"]'></anvil-component></a><span>/</span><span class="mono" anvil:dom-node="crumb_ref"></span></div>
+    <div class="rd-title">
+      <anvil-component type="Label" name="ref_chip"></anvil-component>
+      <anvil-component type="Label" name="kind_chip"></anvil-component>
+      <anvil-component type="Label" name="prio_chip"></anvil-component>
+      <anvil-component type="Label" name="project_chip"></anvil-component>
+    </div>
+    <h1 class="rd-h"><anvil-component type="Label" name="title" prop:role='["t"]'></anvil-component></h1>
+    <div class="stepper" aria-label="Request progress" data-ta="aria-label"><anvil-component type="RepeatingPanel" name="steps" prop:item_template="Addanapp.Items.Step" prop:role='["contents"]'></anvil-component></div>
+    <div class="banner" anvil:name="banner">
+      <div><h4><anvil-component type="Label" name="banner_title" prop:role='["t"]'></anvil-component></h4><div class="bn-p"><anvil-component type="Label" name="banner_text" prop:role='["t"]'></anvil-component></div></div>
+      <div class="acts">
+        <anvil-component type="Button" name="act1" prop:role='["aa-btn", "sm"]'></anvil-component>
+        <anvil-component type="Button" name="act2" prop:role='["aa-btn", "sm"]'></anvil-component>
+      </div>
+    </div>
+    <div class="rd">
+      <div>
+        <div class="sec-card"><h3 data-t>Request</h3><div class="prose"><anvil-component type="Label" name="desc" prop:role='["t"]'></anvil-component></div></div>
+        <div class="sec-card" anvil:name="acc_card"><h3 data-t>Acceptance criteria</h3><div class="prose"><anvil-component type="Label" name="acc" prop:role='["t"]'></anvil-component></div></div>
+        <div class="sec-card" style="border-color:#CBD6FF" anvil:name="scope_card"><h3 data-t>Scope &amp; quote</h3><div class="prose"><anvil-component type="Label" name="scope" prop:role='["t"]'></anvil-component></div></div>
+        <div class="sec-card"><h3 data-t>Activity</h3>
+          <div class="tl"><anvil-component type="RepeatingPanel" name="notes" prop:item_template="Addanapp.Items.NoteItem" prop:role='["contents"]'></anvil-component></div>
+          <div class="muted small" anvil:name="no_notes" data-t>No activity yet.</div>
+          <div anvil:name="composer_part">
+            <div class="composer">
+              <anvil-component type="TextArea" name="note_box"></anvil-component>
+              <div class="bar">
+                <div class="opts" anvil:name="note_opts"><anvil-component type="DropDown" name="note_kind"></anvil-component></div>
+                <span class="tiny muted" anvil:name="client_hint" data-t>Your engineer is notified by email.</span>
+                <anvil-component type="Button" name="post_button" prop:role='["aa-btn", "sm"]'></anvil-component>
+              </div>
+            </div>
+            <div class="tiny muted" style="margin:8px 2px 0" anvil:name="admin_hint" data-t>Client-visible notes are emailed to the client. Internal notes stay private to consultants.</div>
+          </div>
+        </div>
+      </div>
+      <div class="side">
+        <div class="sec-card">
+          <div class="st-head"><h3 data-t>Status</h3><anvil-component type="Label" name="status_chip"></anvil-component></div>
+          <div class="big-pct"><b anvil:dom-node="pct"></b><span class="small muted" data-t>complete</span></div>
+          <anvil-component type="Addanapp.Components.Progress" name="progress"></anvil-component>
+        </div>
+        <div class="sec-card" anvil:name="client_card"><h3 data-t>Client</h3>
+          <div class="cl-row"><anvil-component type="Addanapp.Components.Avatar" name="client_avatar" prop:size="40"></anvil-component>
+            <div><b class="cl-name" anvil:dom-node="client_name"></b><div class="small muted" anvil:dom-node="client_company"></div><a class="small" anvil:dom-node="client_email"></a></div></div></div>
+        <div class="sec-card manage" id="manage" anvil:name="manage"><h3 data-t>Manage</h3>
+          <label class="f"><span class="lbl" data-t>Status</span><anvil-component type="DropDown" name="m_status"></anvil-component></label>
+          <div class="f"><span class="lbl"><x-t data-t>Progress</x-t> <span class="opt" anvil:dom-node="m_pct"></span></span>
+            <input class="range" type="range" min="0" max="100" step="5" aria-label="Progress" data-ta="aria-label" anvil:dom-node="m_progress" anvil:on-dom:input="self.range_input"></div>
+          <div class="row2">
+            <label class="f"><span class="lbl" data-t>Fixed quote ($)</span><anvil-component type="TextBox" name="m_quote" prop:type="number" prop:placeholder="e.g. 2400"></anvil-component></label>
+            <label class="f"><span class="lbl" data-t>ETA</span><anvil-component type="TextBox" name="m_eta"></anvil-component></label>
+          </div>
+          <label class="f"><span class="lbl" data-t>Scope summary (shown with the quote)</span><anvil-component type="TextArea" name="m_note" prop:placeholder="What's included, assumptions, exclusions…"></anvil-component></label>
+          <label class="f"><span class="lbl" data-t>Priority</span><anvil-component type="DropDown" name="m_prio"></anvil-component></label>
+          <anvil-component type="Button" name="save_button" prop:text="Save &amp; notify client" prop:role='["aa-btn", "block"]'></anvil-component>
+          <div class="mt10"><anvil-component type="Button" name="delete_button" prop:text="Delete request" prop:role='["aa-btn", "danger", "block", "sm", "ic-trash"]'></anvil-component></div>
+        </div>
+        <div class="sec-card"><h3 data-t>Details</h3><div class="kv"><anvil-component type="RepeatingPanel" name="kv" prop:item_template="Addanapp.Items.KvRow" prop:role='["contents"]'></anvil-component></div></div>
+        <div class="sec-card" anvil:name="billing"><h3 data-t>How billing works</h3><div class="small muted" data-t>The fixed quote covers the agreed scope. You are invoiced only after you accept the delivery.</div></div>
+      </div>
+    </div>
+  </div>
+</div></div>
+</anvil-block>
+</anvil-form>

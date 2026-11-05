@@ -1,0 +1,34 @@
+<anvil-form layout="Addanapp.Layouts.Shell">
+<anvil-block slot="content">
+<div class="lp">
+  <section class="lp-hero" style="padding-bottom:72px" aria-labelledby="work-h">
+    <div class="aa-wrap" style="position:relative;z-index:1">
+      <div class="eyebrow rv" data-t>Selected work</div>
+      <h1 id="work-h" class="rv d1" style="max-width:900px" data-t>Products we've built, <em>shipped and still run.</em></h1>
+      <p class="sub rv d2" data-t>Working businesses, useful tools, learning apps, games, VR and mobile-first apps. Each one started as a request, went through the same scope, build, validate and accept loop, and is live today.</p>
+      <p class="sub rv d3" style="margin-top:10px" data-t>Open any project to see what we built, try it live or watch its one-minute film.</p>
+    </div>
+  </section>
+  <section class="lp-sec" style="padding-top:56px">
+    <div class="aa-wrap">
+      <div class="pf-index detailed" anvil:dom-node="index">
+        <div class="pf-head"><h3 data-t>The full index</h3><span class="pf-count" anvil:dom-node="count"></span></div>
+        <div class="lp-filter" role="group" aria-label="Filter work by category" data-ta="aria-label"><anvil-component type="RepeatingPanel" name="filters" prop:item_template="Addanapp.Items.Pill" prop:role='["contents"]'></anvil-component></div>
+        <div class="pf-list"><anvil-component type="RepeatingPanel" name="groups" prop:item_template="Addanapp.Items.WorkGroup" prop:role='["contents"]'></anvil-component></div>
+      </div>
+    </div>
+  </section>
+  <section class="lp-sec tight lp-alt">
+    <div class="aa-wrap lp-final">
+      <div class="eyebrow" style="justify-content:center" data-t>Your turn</div>
+      <h2 data-t>Have something that should exist? <em>Let's scope it.</em></h2>
+      <p data-t>Send a brief and get a fixed quote from an engineer within two business days.</p>
+      <div class="ctas">
+        <a class="aa-btn accent lg" href="#home/contact"><x-t data-t>Start a project</x-t> <span class="arr">&rarr;</span></a>
+        <a class="aa-btn ghost lg" href="#signup" data-t>Create a client workspace</a>
+      </div>
+    </div>
+  </section>
+</div>
+</anvil-block>
+</anvil-form>

@@ -27,13 +27,32 @@ Other routes: `#work` (full portfolio: every project, with what we built, its fi
 3. Run the app and create a workspace with **arkulinskis@gmail.com**. Emails listed in `ADMIN_EMAILS` (`server_code/common.py`) become consultants automatically. Other consultants can be promoted from **Console → Clients**.
 4. Optional: **Console → Tools → Load demo data** adds 3 fictional clients and 8 requests at every stage. Demo clients can't sign in and never get email.
 
-Services used: Data Tables, Users (email + password, sign-up on, no email confirmation), Email.
+Services used: Data Tables, Users (email + password, sign-up on, no email confirmation, Continue with Google), Google, Email.
+
+The app is built as **native Anvil Forms** (since 2026-11-05): Python Forms with HTML templates, one layout (`Layouts/Shell`),
+custom components and RepeatingPanels; JavaScript only for small page effects. Runtime: `anvil.yaml → runtime_options`
+version 3 with the Python 3.14 server (the form format needs it).
+
+## Checking a change
+
+- `python tools/check.py` → **ALL CHECKS PASSED**: Anvil's validator (`anvil validate`: every template and Python file
+  type-checked), JavaScript syntax, asset hashes (`tools/assets.py`), server tests (`tools/testing/test_server.py`, a strict
+  Anvil mock: public forms, workspace, console, who may do what).
+- `python -I tools/ui_test.py` → **ALL UI TESTS PASSED** (Docker Desktop running): the app in the open-source Anvil App
+  Server, driven by headless Chrome: the journeys (`tools/ui/flow.js`), every page at 390 px (`phone.js`), the consultant
+  console (`admin.js`), accessibility (`a11y.js`: axe-core WCAG 2.2 AA + keyboard checks) and the translations (`i18n.js`,
+  in French, Russian and Latvian). `--shots DIR` saves screenshots of every page, desktop and phone.
+- `python -I tools/i18n_check.py` lists template texts that have no translation (offline).
 
 ## Languages
 
 The whole site and app are available in **English, French, Russian and Latvian**. Pick one from the globe button in the header (or the footer, or **Account → Language**).
 
-- English is built into the code and loads with no extra download. Every visible string goes through `t("English text")` (`client_code/i18n.py`).
+- English is built into the code and loads with no extra download. Text in a form template is written in English and
+  marked `data-t` (`<h2 data-t>Most consultancies sell hours. <em>We sell outcomes.</em></h2>`); `i18n.apply(self)` at the end
+  of the form's `__init__` swaps it for the visitor's language (the element's inner HTML is the key), fills `{n}`-style
+  values (`data-tv="n:products"`), translates `data-ta` attributes and the text of the form's Buttons and Labels. Text set
+  from Python goes through `tp("English text")` (plain text) or `t()` (HTML) in `client_code/i18n.py`.
 - The other languages are packs in `theme/assets/lang-fr.json`, `lang-ru.json` and `lang-lv.json`, keyed by the English text. A pack is only downloaded when the visitor chose that language: the choice is saved in the browser (`localStorage` key `aa.lang`), and a small script at the top of `anvil.yaml → native_deps.head_html` starts the download while the app boots. Switching language reloads the page.
 - Notification emails go out in each person's language. The app saves it on the user row (`users.lang`) when they open the app; email texts are in `server_code/email_text.py`.
 - Status notes and server messages are stored in English and translated when shown, so consultants and clients can use different languages.
@@ -49,27 +68,28 @@ The whole site and app are available in **English, French, Russian and Latvian**
 - Sitemap: `/_/api/sitemap.xml`. Submit it in Google Search Console.
 - Share image: `theme/assets/og-image.png` (1200×630).
 
-**Assumptions to check:** the domain is `https://addanapp.com` (set in `SITE_URL` in `server_code/common.py` and in the head tags). The contact email is `hello@addanapp.com` (`client_code/content.py`). Turnaround promises (2-day quotes, 1–3 week features) and the privacy policy's 24-month lead retention are placeholder copy, so edit them to match how you work.
+**Assumptions to check:** the domain is `https://addanapp.com` (set in `SITE_URL` in `server_code/common.py` and in the head tags). The contact email is blank for now (`CONTACT_EMAIL` in `client_code/content.py`; the spots that show it stay hidden). Turnaround promises (2-day quotes, 1–3 week features) and the privacy policy's 24-month lead retention are placeholder copy, so edit them to match how you work.
 
 ## Code map
 
 ```
 client_code/
-  Main/            app shell (header, footer) + hash router
-  Landing/         marketing page (markup in content.py)
-  Work/            full portfolio page
-  Portal/          client dashboard
-  NewRequest/      request form (also reused by the console's "request for a client")
-  RequestDetail/   one request: stepper, client actions, timeline, consultant manage panel
-  Admin/           consultant console: requests (list/board), clients, leads, tools
-  Account/ Privacy/
-  i18n.py          translations: t(), plurals, dates and money per language, language switching
-  content.py       landing page copy and markup
-  portfolio.py     portfolio projects, films (VIDEOS), SVG previews and screenshot frames, random picks
-  ui.py            constants, HTML helpers, formatting, form reading, server-call wrapper
-  icons.py         inline SVG icons and the logo
-  dialogs.py       sign in / create workspace, text prompts
-  state.py         signed-in user, unread counts, navigation
+  startup.py       start-up: language pack, Privacy & Terms kit, who is signed in, router
+  router.py        #addresses -> page Forms (same addresses as before), sign-in rules, page titles
+  Layouts/Shell/   header (chapter links + menus, language switch, account menu, burger), footer, unread-count timer
+  Pages/           Landing (all the marketing copy, in the template), Work, Guides, Privacy, Portal, NewRequest,
+                   RequestDetail, Account, Admin
+  Components/      Avatar, Progress, Seg (one-of-several buttons), RequestForm (also in the console's dialog), Shot (a
+                   project's SVG preview or screenshot)
+  Items/           RepeatingPanel rows: ShowcaseCard, WorkGroup/WorkRow/WorkDetail, ProofLink, LangLink, Tick, Tag, Pill,
+                   Tile, AttnRow, RequestRow, BoardColumn/BoardCard, Step, NoteItem, KvRow, GuideCard, GuideLink,
+                   PersonCard, LeadCard, AppNavLink, SegOption
+  Dialogs/         AuthBox (sign in / create workspace), PromptText, NewForClient
+  i18n.py          translations: t(), tp(), plurals, apply() for templates, dates and money per language
+  content.py       films, partner decks, free guides, project-brief choices (data; the copy is in the templates)
+  portfolio.py     portfolio projects, films (VIDEOS), the SVG preview "engine" (art_*), random picks
+  ui.py            constants, formatting, chips, the server-call wrapper
+  state.py         signed-in person, unread counts, toasts, accessibility helpers
 server_code/
   common.py        users, ids, statuses, notes, email templates
   i18n_server.py   email language per user; email_text.py holds the French, Russian and Latvian email texts
@@ -78,7 +98,11 @@ server_code/
   api_admin.py     overview, update request + notes, clients, leads
   api_public.py    project-brief form, sitemap
   seed.py          demo data
-theme/assets/      theme.css (design system), aa.js (scroll reveal, page meta), lang-fr/ru/lv.json, logo, icons, og-image
+theme/assets/      app.css (design system + the layer that styles Anvil's components), theme.css (loading spinner),
+                   icons.css (made by tools/build_icons.py from app-kit.js), app-kit.js (icons, storage, template translator,
+                   accessibility glue), aa.js (scroll reveal, smooth scroll, page meta, header spy, film player),
+                   lang-fr/ru/lv.json, logo, og-image
+tools/             check.py, ui_test.py + ui/, i18n_check.py, assets.py, build_icons.py, testing/ (server tests + mock)
 ```
 
 ## Design
@@ -93,7 +117,7 @@ The portfolio (53 projects, all live) lives in `client_code/portfolio.py`. **Hom
 
 **Free guides** (`#guides`, added 2026-11-03; home teaser `#home/guides` after the commitments, Engagements menu and footer): five short PDF lead magnets made in `Documents/CLAUDE/addanapp-guides` (rebuild there, then copy `out/<slug>.pdf` and a 480 px cover JPG to `theme/assets/guides/`). One email unlocks all five: `api_public.request_guides` saves a lead (`source` = `guide`, or `guide+news` when the person ticked the unticked "occasional tips" box; their situation is the `kind`; the CASL consent wording, time and language are written into `message`), emails the links at most once a day per address, and returns them; the browser remembers them in localStorage (`aa.guides`). Only "I have an app idea" / "We're building something now" alert the consultants and count in the Leads badge. The Leads tab filters briefs vs guide readers and exports the tips list as CSV (`admin_newsletter_csv`). The PDFs are public theme assets (this repo is public), so the email step is a soft gate. No tips emails are sent yet: a real newsletter needs a sender with an unsubscribe link and a mailing address (CASL).
 
-**Header "chapters"** (keeping a long page tidy): the header has six links and no more. Each home-page section belongs to one of them through `data-ch` on its `<section>` (or `data-ch=""` for none), and the link of the section in view lights up while you scroll (`aa.spy` in aa.js). Sections without their own link are reached from a small menu on their chapter's link (`_group` in Main: **Work** → all products, films on YouTube; **Engagements** → ways to work together, partner with us, partner deck). On phones the menu lists those sub-links under their link. A new section joins a chapter (and, if visitors need to jump to it, that chapter's menu) rather than getting a new header link.
+**Header "chapters"** (keeping a long page tidy): the header has six links and no more. Each home-page section belongs to one of them through `data-ch` on its `<section>` (or `data-ch=""` for none), and the link of the section in view lights up while you scroll (`aa.spy` in aa.js). Sections without their own link are reached from a small menu on their chapter's link (the `aa-nav-grp` blocks in `Layouts/Shell`: **Work** → all products, films on YouTube; **Engagements** → ways to work together, partner with us, partner deck). On phones the menu lists those sub-links under their link. A new section joins a chapter (and, if visitors need to jump to it, that chapter's menu) rather than getting a new header link.
 
 <!-- libraries:start -->
 ## Libraries and outside services

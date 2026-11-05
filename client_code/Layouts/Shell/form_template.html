@@ -1,0 +1,119 @@
+---
+layout_metadata:
+  title: Addanapp frame
+  description: Header (chapter links, language switch, account menu), the page in the middle and the footer
+---
+<div class="aa-host">
+<div class="aa-shell mode-public signed-out" anvil:name="shell">
+  <header class="aa-header">
+    <div class="aa-wrap aa-header-inner">
+      <a class="aa-brand" href="#home" aria-label="Addanapp home" data-ta="aria-label"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="16" fill="#0B1220"/><rect x="2.75" y="2.75" width="58.5" height="58.5" rx="15.25" fill="none" stroke="#2F5BFF" stroke-opacity=".55" stroke-width="1.5"/><path d="M32 18v28M18 32h28" stroke="#fff" stroke-width="6" stroke-linecap="round"/><circle cx="48" cy="16" r="9" fill="#0E9F6E" stroke="#0B1220" stroke-width="3"/><path d="M44.2 16.2l2.6 2.6 5-5.2" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="word">add<span>an</span>app</span></a>
+      <nav class="aa-nav aa-nav-public" aria-label="Main" data-ta="aria-label" anvil:name="nav_public">
+        <a href="#home/approach" data-nav="approach" data-t>Approach</a>
+        <a href="#home/services" data-nav="services" data-t>Services</a>
+        <div class="aa-nav-grp" anvil:name="grp_work">
+          <a href="#work" data-nav="work" data-t>Work</a>
+          <button type="button" class="aa-nav-more" aria-haspopup="true" aria-expanded="false" anvil:name="grp_work_btn" anvil:on-dom:click="self.group_click" data-grp="work"><i class="ic ic-chev-down s14"></i></button>
+          <div class="aa-sub" role="menu">
+            <a href="#work" role="menuitem"><i class="ic ic-grid s16"></i><span data-t data-tv="n:products">All {n} products</span></a>
+            <a href="#home/youtube" role="menuitem"><i class="ic ic-play s16"></i><span data-t>Films on YouTube</span></a>
+          </div>
+        </div>
+        <a href="#home/workspace" data-nav="workspace" data-t>Client workspace</a>
+        <div class="aa-nav-grp" anvil:name="grp_engage">
+          <a href="#home/engage" data-nav="engage" data-t>Engagements</a>
+          <button type="button" class="aa-nav-more" aria-haspopup="true" aria-expanded="false" anvil:name="grp_engage_btn" anvil:on-dom:click="self.group_click" data-grp="engage"><i class="ic ic-chev-down s14"></i></button>
+          <div class="aa-sub" role="menu">
+            <a href="#home/engage" role="menuitem"><i class="ic ic-briefcase s16"></i><span data-t>Ways to work together</span></a>
+            <a href="#home/partners" role="menuitem"><i class="ic ic-users s16"></i><span data-t>Partner with us</span></a>
+            <a anvil:name="deck_menu_link" role="menuitem"><i class="ic ic-file s16"></i><span data-t>Partner deck (PDF)</span></a>
+            <a href="#guides" role="menuitem"><i class="ic ic-file s16"></i><span data-t>Free guides (PDF)</span></a>
+          </div>
+        </div>
+        <a href="#home/faq" data-nav="faq" data-t>FAQ</a>
+        <a href="#login" class="sm-only" anvil:name="nav_login" data-t>Sign in</a>
+      </nav>
+      <nav class="aa-nav aa-nav-app" aria-label="Workspace" data-ta="aria-label">
+        <anvil-component type="RepeatingPanel" name="app_nav" prop:item_template="Addanapp.Items.AppNavLink" prop:role='["contents"]'></anvil-component>
+      </nav>
+      <div class="aa-header-actions">
+        <div class="aa-lang" anvil:name="lang_box">
+          <button type="button" class="aa-lang-btn" aria-haspopup="true" anvil:name="lang_btn" anvil:on-dom:click="self.lang_btn_click"><i class="ic ic-globe s16"></i><anvil-component type="Label" name="lang_code" prop:role='["t"]'></anvil-component></button>
+          <div class="aa-menu aa-lang-menu" role="menu">
+            <button type="button" role="menuitemradio" lang="en" data-lang="en" anvil:name="lang_en" anvil:on-dom:click="self.lang_click">English<span class="code">EN</span></button>
+            <button type="button" role="menuitemradio" lang="fr" data-lang="fr" anvil:name="lang_fr" anvil:on-dom:click="self.lang_click">Français<span class="code">FR</span></button>
+            <button type="button" role="menuitemradio" lang="ru" data-lang="ru" anvil:name="lang_ru" anvil:on-dom:click="self.lang_click">Русский<span class="code">RU</span></button>
+            <button type="button" role="menuitemradio" lang="lv" data-lang="lv" anvil:name="lang_lv" anvil:on-dom:click="self.lang_click">Latviešu<span class="code">LV</span></button>
+          </div>
+        </div>
+        <span class="when-out">
+          <a class="aa-text-btn hide-sm" href="#login" data-t>Sign in</a>
+          <a class="aa-btn accent sm" href="#home/contact" data-t>Start a project</a>
+        </span>
+        <span class="when-in">
+          <a class="aa-btn accent sm public-only hide-sm" anvil:name="ws_link"><anvil-component type="Label" name="ws_label" prop:role='["t"]'></anvil-component></a>
+          <div class="aa-me" anvil:name="me_box">
+            <button type="button" class="aa-me-btn" aria-haspopup="true" aria-label="Account menu" data-ta="aria-label" anvil:name="me_btn" anvil:on-dom:click="self.me_btn_click">
+              <anvil-component type="Addanapp.Components.Avatar" name="me_avatar" prop:size="30"></anvil-component><span class="nm"><anvil-component type="Label" name="me_first" prop:role='["t"]'></anvil-component></span><span class="chev">&#9662;</span></button>
+            <div class="aa-menu" role="menu">
+              <div class="head"><b><anvil-component type="Label" name="me_name" prop:role='["t"]'></anvil-component></b><span class="small muted"><anvil-component type="Label" name="me_email" prop:role='["t"]'></anvil-component></span></div>
+              <hr>
+              <a href="#portal" role="menuitem" anvil:name="m_ws" data-t>My workspace</a>
+              <a href="#admin" role="menuitem" anvil:name="m_admin" data-t>Consultant console</a>
+              <a href="#new" role="menuitem" anvil:name="m_new" data-t>New request</a>
+              <a href="#account" role="menuitem" data-t>Account settings</a>
+              <a href="#home" role="menuitem" data-t>Addanapp website</a>
+              <hr>
+              <button type="button" role="menuitem" anvil:on-dom:click="self.sign_out_click" data-t>Sign out</button>
+            </div>
+          </div>
+        </span>
+        <button class="aa-burger" type="button" aria-label="Open menu" data-ta="aria-label" aria-expanded="false" anvil:name="burger" anvil:on-dom:click="self.burger_click"><span></span></button>
+      </div>
+    </div>
+  </header>
+  <main class="aa-main" id="main"><anvil-slot name="content"></anvil-slot></main>
+  <footer class="aa-footer">
+    <div class="aa-wrap">
+      <div class="cols">
+        <div>
+          <a class="aa-brand" href="#home"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="16" fill="#0B1220"/><rect x="2.75" y="2.75" width="58.5" height="58.5" rx="15.25" fill="none" stroke="#2F5BFF" stroke-opacity=".55" stroke-width="1.5"/><path d="M32 18v28M18 32h28" stroke="#fff" stroke-width="6" stroke-linecap="round"/><circle cx="48" cy="16" r="9" fill="#0E9F6E" stroke="#0B1220" stroke-width="3"/><path d="M44.2 16.2l2.6 2.6 5-5.2" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="word">add<span>an</span>app</span></a>
+          <div class="ft-about" data-t>Custom software, AI-accelerated and human-validated. Web apps, admin panels, client portals and data platforms, built in Montréal.</div>
+          <address data-t>Montréal, Québec, Canada</address>
+          <div class="aa-lang-links" aria-label="Language" data-ta="aria-label"><i class="ic ic-globe s15"></i>
+            <a href="#" lang="en" data-lang="en" anvil:name="fl_en" anvil:on-dom:click="self.lang_click">English</a>
+            <a href="#" lang="fr" data-lang="fr" anvil:name="fl_fr" anvil:on-dom:click="self.lang_click">Français</a>
+            <a href="#" lang="ru" data-lang="ru" anvil:name="fl_ru" anvil:on-dom:click="self.lang_click">Русский</a>
+            <a href="#" lang="lv" data-lang="lv" anvil:name="fl_lv" anvil:on-dom:click="self.lang_click">Latviešu</a>
+          </div>
+        </div>
+        <div><h4 data-t>Services</h4><ul>
+          <li><a href="#home/services" data-t>Admin panels &amp; back-offices</a></li>
+          <li><a href="#home/services" data-t>Client portals</a></li>
+          <li><a href="#home/services" data-t>APIs &amp; integrations</a></li>
+          <li><a href="#home/services" data-t>Mobile-first web apps</a></li>
+          <li><a href="#home/services" data-t>AI features</a></li></ul></div>
+        <div><h4 data-t>Company</h4><ul>
+          <li><a href="#home/approach" data-t>Our approach</a></li>
+          <li><a href="#work" data-t>Work</a></li>
+          <li><a href="#home/engage" data-t>Engagements</a></li>
+          <li><a href="https://www.youtube.com/@addanapp" target="_blank" rel="noopener" data-t>YouTube channel</a></li>
+          <li><a anvil:name="deck_footer_link" data-t>Partner deck (PDF)</a></li>
+          <li><a href="#guides" data-t>Free guides (PDF)</a></li>
+          <li><a href="#home/faq" data-t>FAQ</a></li>
+          <li><a href="#privacy" data-t>Privacy &amp; Terms</a></li></ul></div>
+        <div><h4 data-t>Clients</h4><ul>
+          <li><a href="#home/contact" data-t>Start a project</a></li>
+          <li><a href="#signup" data-t>Create a workspace</a></li>
+          <li><a href="#login" data-t>Sign in</a></li>
+          <li><a href="#home/montreal" lang="fr-CA">En français</a></li></ul></div>
+      </div>
+      <div class="base">
+        <span>&copy; <anvil-component type="Label" name="year_label" prop:role='["t"]'></anvil-component> <span data-t>Addanapp · Custom software development, Montréal</span></span>
+        <span><span data-t>AI-accelerated. Human-validated.</span> <a href="https://prepsto.com/#f/e4xsnwm" target="_blank" rel="noopener" data-prepsto-open data-t>Submit feedback</a> · <a href="javascript:void(0)" data-lk-open="overview" data-t>Privacy &amp; Terms</a></span>
+      </div>
+    </div>
+  </footer>
+  <anvil-component type="Timer" name="poll_timer" prop:interval="0"></anvil-component>
+</div>
+</div>

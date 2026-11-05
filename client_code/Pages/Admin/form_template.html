@@ -1,0 +1,85 @@
+<anvil-form layout="Addanapp.Layouts.Shell">
+<anvil-block slot="content">
+<div class="app-page"><div class="aa-wrap">
+  <div class="page-head"><div><div class="eyebrow" data-t>Consultant console</div><h1><anvil-component type="Label" name="title" prop:role='["t"]'></anvil-component></h1>
+    <div class="ph-sub"><anvil-component type="Label" name="sub" prop:role='["t"]'></anvil-component></div></div>
+    <div class="actions">
+      <anvil-component type="Button" name="new_button" prop:text="New request for a client" prop:role='["aa-btn", "accent", "ic-plus"]'></anvil-component>
+      <div class="lead-acts" anvil:name="lead_acts">
+        <anvil-component type="RepeatingPanel" name="lead_filters" prop:item_template="Addanapp.Items.Pill" prop:role='["contents"]'></anvil-component>
+        <anvil-component type="Button" name="csv_button" prop:text="Tips list (CSV)" prop:role='["aa-btn", "sm", "ghost", "ic-file"]'></anvil-component>
+      </div>
+    </div>
+  </div>
+  <nav class="tabs-line" aria-label="Console" data-ta="aria-label">
+    <a href="#admin" anvil:name="tab_requests"><x-t data-t>Requests</x-t><span class="count" anvil:name="tab_requests_n"><anvil-component type="Label" name="n_requests" prop:role='["t"]'></anvil-component></span></a>
+    <a href="#admin/clients" anvil:name="tab_clients" data-t>Clients</a>
+    <a href="#admin/leads" anvil:name="tab_leads"><x-t data-t>Leads</x-t><span class="count" anvil:name="tab_leads_n"><anvil-component type="Label" name="n_leads" prop:role='["t"]'></anvil-component></span></a>
+    <a href="#admin/tools" anvil:name="tab_tools" data-t>Tools</a>
+  </nav>
+
+  <!-- requests -->
+  <div anvil:name="requests_part">
+    <div class="tiles six"><anvil-component type="RepeatingPanel" name="tiles" prop:item_template="Addanapp.Items.Tile" prop:role='["contents"]'></anvil-component></div>
+    <div class="toolbar">
+      <div class="left"><div class="pills" role="group" aria-label="Show" data-ta="aria-label"><anvil-component type="RepeatingPanel" name="pills" prop:item_template="Addanapp.Items.Pill" prop:role='["contents"]'></anvil-component></div>
+        <anvil-component type="DropDown" name="client_dd"></anvil-component></div>
+      <div class="right"><anvil-component type="TextBox" name="search_box" prop:placeholder="Search title, ref, client"></anvil-component>
+        <div class="pills" role="group" aria-label="View" data-ta="aria-label"><anvil-component type="RepeatingPanel" name="views" prop:item_template="Addanapp.Items.Pill" prop:role='["contents"]'></anvil-component></div></div>
+    </div>
+    <div class="rq-list" anvil:name="list">
+      <div class="rq admin head"><span data-t>Ref</span><span data-t>Request</span><span data-t>Client</span><span data-t>Status</span><span data-t>Progress</span><span style="text-align:right" data-t>Activity</span></div>
+      <anvil-component type="RepeatingPanel" name="rows" prop:item_template="Addanapp.Items.RequestRow" prop:role='["contents"]'></anvil-component>
+    </div>
+    <div class="board" anvil:name="board"><anvil-component type="RepeatingPanel" name="columns" prop:item_template="Addanapp.Items.BoardColumn" prop:role='["contents"]'></anvil-component></div>
+    <div class="empty" anvil:name="none">
+      <div class="ico"><i class="ic ic-inbox"></i></div>
+      <h3 data-t>No requests here</h3>
+      <div class="empty-p" data-t>Try another filter, or load demo data from the Tools tab.</div>
+    </div>
+  </div>
+
+  <!-- clients -->
+  <div anvil:name="clients_part">
+    <div class="people"><anvil-component type="RepeatingPanel" name="people" prop:item_template="Addanapp.Items.PersonCard" prop:role='["contents"]'></anvil-component></div>
+    <div class="empty" anvil:name="no_people">
+      <div class="ico"><i class="ic ic-users"></i></div>
+      <h3 data-t>No clients yet</h3>
+      <div class="empty-p" data-t>Clients appear here once they create a workspace.</div>
+    </div>
+  </div>
+
+  <!-- leads -->
+  <div anvil:name="leads_part">
+    <anvil-component type="RepeatingPanel" name="leads" prop:item_template="Addanapp.Items.LeadCard" prop:role='["contents"]'></anvil-component>
+    <div class="empty" anvil:name="no_leads">
+      <div class="ico"><i class="ic ic-mail"></i></div>
+      <h3 data-t>No briefs yet</h3>
+      <div class="empty-p" data-t>Briefs sent from the website contact form land here, and you get an email for each one.</div>
+    </div>
+  </div>
+
+  <!-- tools -->
+  <div anvil:name="tools_part">
+    <div class="people">
+      <div class="person"><div class="top"><span class="av" style="width:44px;height:44px;background:var(--ai)"><i class="ic ic-sparkle s20"></i></span>
+        <div><b data-t>Demo data</b><div class="s" data-t>3 fictional clients, 8 requests at every stage</div></div></div>
+        <div class="small muted pp" data-t>Great for showing the console and workspace to prospects. Demo clients can't sign in and never receive email.</div>
+        <div class="acts">
+          <anvil-component type="Button" name="seed_button" prop:text="Load demo data" prop:role='["aa-btn", "sm"]'></anvil-component>
+          <anvil-component type="Button" name="clear_button" prop:text="Remove demo data" prop:role='["aa-btn", "sm", "danger"]'></anvil-component>
+        </div></div>
+      <div class="person"><div class="top"><span class="av" style="width:44px;height:44px;background:var(--human)"><i class="ic ic-globe s20"></i></span>
+        <div><b data-t>Search &amp; SEO</b><div class="s" data-t>For Google Search Console</div></div></div>
+        <div class="small muted pp" data-t>Submit the sitemap at <span class="mono">/_/api/sitemap.xml</span> in Search Console. Titles, descriptions, Open Graph tags and structured data (ProfessionalService, FAQ, portfolio) are in the page head.</div>
+        <div class="acts"><a class="aa-btn sm ghost" href="/_/api/sitemap.xml" target="_blank" rel="noopener" data-t>Open sitemap</a>
+          <a class="aa-btn sm ghost" href="https://search.google.com/test/rich-results" target="_blank" rel="noopener" data-t>Rich results test</a></div></div>
+      <div class="person"><div class="top"><span class="av" style="width:44px;height:44px;background:var(--accent)"><i class="ic ic-bell s20"></i></span>
+        <div><b data-t>Notifications</b><div class="s" data-t>Email on new requests, comments and briefs</div></div></div>
+        <div class="small muted pp" data-t>Consultant email notifications follow your account settings.</div>
+        <div class="acts"><a class="aa-btn sm ghost" href="#account" data-t>Account settings</a></div></div>
+    </div>
+  </div>
+</div></div>
+</anvil-block>
+</anvil-form>

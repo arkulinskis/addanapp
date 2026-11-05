@@ -1,0 +1,19 @@
+---
+custom_component: true
+properties:
+  - name: person
+    type: object
+    default_value: null
+    description: "A person dict from the server: name, initials, color, is_admin"
+    default_binding_prop: true
+  - name: size
+    type: number
+    default_value: 32
+    description: Diameter in pixels
+toolbox_item:
+  title: Avatar
+  group: Addanapp
+help_text: |
+  A round avatar with someone's initials in their colour (consultants: ink with a green ring).
+---
+<span class="av-host"><span class="av" anvil:name="circle"><anvil-component type="Label" name="letters" prop:role='["t"]'></anvil-component></span></span>

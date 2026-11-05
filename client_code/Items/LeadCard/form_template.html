@@ -1,0 +1,18 @@
+<div class="lead-card">
+  <div>
+    <div class="lc-top"><b class="lc-name" anvil:dom-node="name"></b><anvil-component type="Label" name="c_new"></anvil-component><span class="small muted" anvil:dom-node="when"></span></div>
+    <div class="small"><a anvil:dom-node="email"></a><x-t anvil:dom-node="company"></x-t></div>
+    <div class="meta">
+      <anvil-component type="Label" name="c_guide"></anvil-component>
+      <anvil-component type="Label" name="c_tips"></anvil-component>
+      <anvil-component type="Label" name="c_kind"></anvil-component>
+      <anvil-component type="Label" name="c_budget"></anvil-component>
+    </div>
+    <div class="msg"><anvil-component type="Label" name="msg" prop:role='["t"]'></anvil-component></div>
+  </div>
+  <div class="side">
+    <anvil-component type="DropDown" name="status_dd" prop:role='["inp"]'></anvil-component>
+    <a class="aa-btn sm" anvil:dom-node="reply"><i class="ic ic-mail s14"></i> <x-t data-t>Reply</x-t></a>
+    <anvil-component type="Button" name="delete_button" prop:text="Delete" prop:role='["aa-btn", "sm", "danger"]'></anvil-component>
+  </div>
+</div>

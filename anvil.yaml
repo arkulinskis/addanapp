@@ -289,9 +289,12 @@ native_deps:
       try { l = localStorage.getItem('aa.lang'); } catch (e) {}
       if (l === 'fr' || l === 'ru' || l === 'lv') {
         document.documentElement.lang = l;
-        window.aaLangPack = fetch('_/theme/lang-' + l + '.json?v=16').then(function (r) {
+        window.aaLangPack = fetch('_/theme/lang-' + l + '.json?v=17').then(function (r) {
           if (!r.ok) throw new Error('lang ' + r.status);
           return r.text();
+        }).then(function (t) {
+          try { window.AA_PACK = JSON.parse(t); } catch (e) {}  /* the template translator (app-kit.js UI.tr) */
+          return t;
         });
         window.aaLangPack.catch(function () {});
         if (l === 'ru') {
@@ -305,11 +308,14 @@ native_deps:
       }
     })();
     </script>
-    <script src="_/theme/legal-kit.js?v=3ebde31d1a"></script>
+    <script src="_/theme/legal-kit.js?v=c5e8955359"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-    <script src="_/theme/aa.js?v=5"></script>
+    <link rel="stylesheet" href="_/theme/icons.css?v=58ea88e510">
+    <link rel="stylesheet" href="_/theme/app.css?v=b8016a7081">
+    <script src="_/theme/app-kit.js?v=5b52a77799"></script>
+    <script src="_/theme/aa.js?v=4606a6b288"></script>
     <link rel="icon" type="image/svg+xml" href="_/theme/logo.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="_/theme/favicon-32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="_/theme/apple-touch-icon.png">
@@ -1994,9 +2000,9 @@ native_deps:
 package_name: Addanapp
 runtime_options:
   client_version: '3'
-  server_spec: {}
-  server_version: python3-full
-  version: 2
+  server_spec:
+    base: python314
+  version: 3
 services:
 - client_config:
     enable_v2: true
@@ -2021,4 +2027,6 @@ services:
 - client_config: {}
   server_config: {}
   source: /runtime/services/anvil/email.yml
-startup_form: Main
+startup:
+  module: startup
+  type: module

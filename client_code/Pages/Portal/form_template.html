@@ -1,0 +1,44 @@
+<anvil-form layout="Addanapp.Layouts.Shell">
+<anvil-block slot="content">
+<div class="app-page"><div class="aa-wrap">
+  <div class="page-head">
+    <div><div class="eyebrow"><anvil-component type="Label" name="eyebrow" prop:role='["t"]'></anvil-component></div>
+      <h1><anvil-component type="Label" name="hello" prop:role='["t"]'></anvil-component></h1>
+      <div class="ph-sub"><anvil-component type="Label" name="counts" prop:role='["t"]'></anvil-component></div></div>
+    <div class="actions"><a class="aa-btn accent" href="#new"><i class="ic ic-plus s16"></i> <x-t data-t>New request</x-t></a></div>
+  </div>
+
+  <div anvil:name="first_run">
+    <div class="empty">
+      <div class="ico"><i class="ic ic-rocket"></i></div>
+      <h3 data-t>Your workspace is ready</h3>
+      <div class="empty-p" data-t>Submit your first request: a new feature, a fix, an integration or a whole new app. An engineer will scope it and send you a fixed quote, usually within two business days.</div>
+      <a class="aa-btn accent lg" href="#new"><x-t data-t>Submit your first request</x-t> <span class="arr">&rarr;</span></a>
+    </div>
+    <div class="tiles" style="margin-top:28px">
+      <div class="tile"><div class="v">1</div><div class="l" data-t>Describe the outcome</div></div>
+      <div class="tile"><div class="v">2</div><div class="l" data-t>Approve a fixed quote</div></div>
+      <div class="tile"><div class="v">3</div><div class="l" data-t>Follow progress notes</div></div>
+      <div class="tile"><div class="v">4</div><div class="l" data-t>Accept, then pay</div></div>
+    </div>
+  </div>
+
+  <div anvil:name="main_part">
+    <div class="attn-box" anvil:name="attn_box"><h4 data-t>Waiting on you</h4>
+      <anvil-component type="RepeatingPanel" name="attn" prop:item_template="Addanapp.Items.AttnRow" prop:role='["contents"]'></anvil-component></div>
+    <div class="tiles"><anvil-component type="RepeatingPanel" name="tiles" prop:item_template="Addanapp.Items.Tile" prop:role='["contents"]'></anvil-component></div>
+    <div class="toolbar"><div class="left"><div class="pills" role="group" aria-label="Show" data-ta="aria-label"><anvil-component type="RepeatingPanel" name="pills" prop:item_template="Addanapp.Items.Pill" prop:role='["contents"]'></anvil-component></div></div>
+      <div class="right"><anvil-component type="TextBox" name="search_box" prop:placeholder="Search requests" prop:role='["search"]'></anvil-component></div></div>
+    <div class="rq-list" anvil:name="list">
+      <div class="rq head"><span data-t>Ref</span><span data-t>Request</span><span data-t>Status</span><span data-t>Progress</span><span style="text-align:right" data-t>Updated</span></div>
+      <anvil-component type="RepeatingPanel" name="rows" prop:item_template="Addanapp.Items.RequestRow" prop:role='["contents"]'></anvil-component>
+    </div>
+    <div class="empty" anvil:name="none">
+      <div class="ico"><i class="ic ic-inbox"></i></div>
+      <h3 data-t>Nothing here</h3>
+      <div class="empty-p" data-t>No requests match this view.</div>
+    </div>
+  </div>
+</div></div>
+</anvil-block>
+</anvil-form>

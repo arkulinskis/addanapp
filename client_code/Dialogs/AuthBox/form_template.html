@@ -1,0 +1,21 @@
+<div class="auth">
+  <div class="head"><svg viewBox="0 0 64 64" aria-hidden="true"><rect x="2" y="2" width="60" height="60" rx="16" fill="#0B1220"/><rect x="2.75" y="2.75" width="58.5" height="58.5" rx="15.25" fill="none" stroke="#2F5BFF" stroke-opacity=".55" stroke-width="1.5"/><path d="M32 18v28M18 32h28" stroke="#fff" stroke-width="6" stroke-linecap="round"/><circle cx="48" cy="16" r="9" fill="#0E9F6E" stroke="#0B1220" stroke-width="3"/><path d="M44.2 16.2l2.6 2.6 5-5.2" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    <h2><anvil-component type="Label" name="heading" prop:role='["t"]'></anvil-component></h2>
+    <div class="au-sub"><anvil-component type="Label" name="sub" prop:role='["t"]'></anvil-component></div>
+  </div>
+  <anvil-component type="Label" name="error" prop:role='["msg-error"]' prop:visible="false"></anvil-component>
+  <div anvil:name="signup_fields">
+    <label class="f"><span class="lbl" data-t>Your name</span><anvil-component type="TextBox" name="name_box" prop:placeholder="Jane Tremblay"></anvil-component></label>
+    <label class="f"><span class="lbl"><x-t data-t>Company</x-t> <span class="opt" data-t>(optional)</span></span><anvil-component type="TextBox" name="company_box" prop:placeholder="Acme Inc."></anvil-component></label>
+  </div>
+  <label class="f"><span class="lbl" data-t>Work email</span><anvil-component type="TextBox" name="email_box" prop:type="email" prop:placeholder="you@company.com"></anvil-component></label>
+  <label class="f"><span class="lbl" data-t>Password</span><anvil-component type="TextBox" name="password_box" prop:hide_text="true" prop:placeholder="8+ characters"></anvil-component></label>
+  <div class="f-legal" anvil:name="legal_box" anvil:dom-node="consent"></div>
+  <anvil-component type="Button" name="go_button" prop:role='["aa-btn", "block", "lg"]'></anvil-component>
+  <div class="au-or" data-t>or</div>
+  <anvil-component type="Button" name="google_button" prop:text="Continue with Google" prop:icon="_/theme/google-g.svg" prop:role='["aa-btn", "block", "lg", "ghost", "google"]'></anvil-component>
+  <div class="switch"><anvil-component type="Label" name="switch_text" prop:role='["t"]'></anvil-component> <anvil-component type="Button" name="switch_button" prop:role='["aa-link"]'></anvil-component>
+    <div class="f-forgot" anvil:name="forgot_box"><anvil-component type="Button" name="forgot_button" prop:text="Forgot your password?" prop:role='["aa-link"]'></anvil-component></div>
+  </div>
+  <div class="fine"><x-t data-t>Your workspace is private to you and your Addanapp engineer.</x-t><br><x-t data-t>See our <a href="javascript:void(0)" data-lk-open="overview">Privacy &amp; Terms</a>.</x-t></div>
+</div>

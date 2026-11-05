@@ -1,0 +1,28 @@
+<anvil-form layout="Addanapp.Layouts.Shell">
+<anvil-block slot="content">
+<div class="app-page"><div class="aa-wrap" style="max-width:720px">
+  <div class="page-head"><div><div class="eyebrow" data-t>Account</div><h1 data-t>Your details</h1>
+    <div class="ph-sub" data-t>Used on requests, notes and invoices.</div></div></div>
+  <div class="card card-pad">
+    <div class="row2 ac-two">
+      <label class="f"><span class="lbl" data-t>Name</span><anvil-component type="TextBox" name="name_box"></anvil-component></label>
+      <label class="f"><span class="lbl" data-t>Company</span><anvil-component type="TextBox" name="company_box"></anvil-component></label>
+    </div>
+    <div class="row2 ac-two">
+      <label class="f"><span class="lbl" data-t>Email</span><anvil-component type="TextBox" name="email_box" prop:type="email" prop:enabled="false"></anvil-component>
+        <span class="hint" data-t>Contact us to change your sign-in email.</span></label>
+      <label class="f"><span class="lbl"><x-t data-t>Phone</x-t> <span class="opt" data-t>(optional)</span></span><anvil-component type="TextBox" name="phone_box" prop:type="tel"></anvil-component></label>
+    </div>
+    <label class="check" style="margin:6px 0 22px"><input type="checkbox" anvil:dom-node="notify"><span data-t>Email me when a request changes status or gets a new note.</span></label>
+    <div class="ac-acts">
+      <anvil-component type="Button" name="reset_button" prop:text="Send password reset email" prop:role='["aa-btn", "ghost"]'></anvil-component>
+      <anvil-component type="Button" name="save_button" prop:text="Save changes" prop:role='["aa-btn"]'></anvil-component>
+    </div>
+  </div>
+  <div class="card card-pad" style="margin-top:18px">
+    <label class="f" style="margin:0"><span class="lbl" data-t>Language</span><anvil-component type="DropDown" name="lang_dd"></anvil-component>
+      <span class="hint" data-t>Used for this website, your workspace and the emails we send you. The page reloads to switch.</span></label>
+  </div>
+</div></div>
+</anvil-block>
+</anvil-form>

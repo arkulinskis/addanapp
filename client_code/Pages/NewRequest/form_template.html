@@ -1,0 +1,26 @@
+<anvil-form layout="Addanapp.Layouts.Shell">
+<anvil-block slot="content">
+<div class="app-page"><div class="aa-wrap">
+  <div class="crumbs"><a href="#portal" data-t>Dashboard</a><span>/</span><span data-t>New request</span></div>
+  <div class="page-head"><div><h1 data-t>New request</h1><div class="ph-sub" data-t>Describe the outcome. We'll reply with scope, a fixed price and an ETA.</div></div></div>
+  <div class="nr">
+    <div class="card card-pad">
+      <anvil-component type="Addanapp.Components.RequestForm" name="form"></anvil-component>
+      <div class="nr-acts">
+        <a class="aa-btn ghost" href="#portal" data-t>Cancel</a>
+        <anvil-component type="Button" name="submit_button" prop:text="Submit request" prop:role='["aa-btn", "accent"]'></anvil-component>
+      </div>
+    </div>
+    <aside class="aside card card-pad">
+      <h3 style="margin-bottom:16px" data-t>What happens next</h3>
+      <ol>
+        <li><div><b data-t>Scoping</b><x-t data-t>An engineer reads your request and may ask a question or two in the thread.</x-t></div></li>
+        <li><div><b data-t>Fixed quote</b><x-t data-t>You get the price, acceptance criteria and an ETA. Usually within 2 business days.</x-t></div></li>
+        <li><div><b data-t>Build &amp; validate</b><x-t data-t>AI-accelerated build, then human review and testing. Follow it live.</x-t></div></li>
+        <li><div><b data-t>Accept, then pay</b><x-t data-t>Test it on staging. You're invoiced only once you accept.</x-t></div></li>
+      </ol>
+    </aside>
+  </div>
+</div></div>
+</anvil-block>
+</anvil-form>

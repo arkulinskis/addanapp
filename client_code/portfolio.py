@@ -1,24 +1,25 @@
-"""Portfolio: projects we've shipped, with illustrated previews (inline SVG) or real screenshots ('art': 'shot')."""
+"""Portfolio: projects we've shipped, with illustrated previews (inline SVG) or real screenshots ('art': 'shot').
+
+The art_* functions are the drawing "engine": each returns one SVG (400 x 250) in the product's colours, and
+Components/Shot puts it on the page. Cards and index rows are Forms (Items/ShowcaseCard, Items/WorkRow)."""
 import random
 
-from .ui import esc
-from .icons import icon
-from .i18n import t, tn
+from .i18n import tp
 
-# Project text below is English; card() translates it when the page is built.
+# Project text below is English; the cards and rows translate it (i18n.tp) when they are drawn.
 CATEGORIES = [
-  ('all', t('All work')),
-  ('business', t('Working businesses')),
-  ('tools', t('Useful tools')),
-  ('learn', t('Learning & guides')),
-  ('games', t('Engaging games')),
-  ('vr', t('VR & mixed reality')),
-  ('mobile', t('Mobile-style apps')),
-  ('sites', t('Websites')),
+  ('all', tp('All work')),
+  ('business', tp('Working businesses')),
+  ('tools', tp('Useful tools')),
+  ('learn', tp('Learning & guides')),
+  ('games', tp('Engaging games')),
+  ('vr', tp('VR & mixed reality')),
+  ('mobile', tp('Mobile-style apps')),
+  ('sites', tp('Websites')),
 ]
 CAT = dict(CATEGORIES)
 
-PROJECTS = [
+PROJECTS: list = [  # each project: a dict of plain values (see the first one)
   {
     'key': 'planplate', 'name': 'PlanPlate', 'domain': 'planplate.com', 'cat': 'business',
     'blurb': 'A restaurant reservation and content API platform. Managers run bookings for every location from one portal, and guests book straight from the restaurant\'s own website.',
@@ -1612,6 +1613,10 @@ def url(p):
 
 # ------------------------------------------------------------------ case studies + index
 
+def esc(s):
+  return (str(s or '').replace('&', '&amp;').replace('<', '&lt;').replace('>', '&gt;').replace('"', '&quot;'))
+
+
 def split_blurb(text):
   """(first sentence, the rest). The first sentence doubles as the one-line summary in the index."""
   for i in range(len(text) - 1):
@@ -1639,146 +1644,17 @@ def live_count():
   return len([p for p in PROJECTS if p.get('domain')])
 
 
-def _new(p):
-  return f'<span class="new">{esc(t("New"))}</span>' if p.get('new') else ''
-
-
-def _tags(p):
-  return '<div class="tags">' + ''.join(f'<span>{esc(t(tg))}</span>' for tg in p['tags']) + '</div>'
-
-
-def _built(p):
-  return ('<ul class="pf-built">' + ''.join(f'<li>{icon("check")}<span>{esc(t(b))}</span></li>' for b in p['built']) + '</ul>')
-
-
-def _visit(p):
-  if not p.get('domain'):
-    return f'<span class="pf-soon">{esc(t("Launching soon"))}</span>'
-  return (f'<a class="aa-btn ghost sm pf-visit" href="{url(p)}" target="_blank" rel="noopener">'
-          f'{esc(t("Visit {domain}", domain=p["domain"]))} <span class="arr">&#8599;</span></a>')
-
-
-PLAY = ('<svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="currentColor"/>'
-        '<path d="M8 6.2v7.6l6-3.8z" fill="#fff"/></svg>')
-
-
-def _watch(p):
-  """Link to the project's one-minute film on the Addanapp YouTube channel (opens YouTube)."""
+def film(p):
+  """The project's one-minute film on the Addanapp YouTube channel, or ''."""
   vid = VIDEOS.get(p['key'])
-  if not vid:
-    return ''
-  label = t('Watch the {name} film on YouTube', name=p['name'])
-  return (f'<a class="pf-watch" href="https://www.youtube.com/watch?v={vid}" target="_blank" rel="noopener" '
-          f'aria-label="{esc(label)}">{PLAY}<span>{esc(t("Watch the film"))}</span></a>')
+  return 'https://www.youtube.com/watch?v=' + vid if vid else ''
 
 
-def _links(p):
-  return f'<div class="pf-acts">{_watch(p)}{_visit(p)}</div>'
-
-
-def _screen(p):
-  """A real screenshot of the app's landing page in a browser frame (same proportions as the SVG previews)."""
+def shot_html(p):
+  """The preview: an SVG mini-UI in the product's colours, or a real screenshot in a browser frame ('art': 'shot').
+  Static markup made here from fixed data (no visitor input), drawn into Components/Shot."""
+  if p['art'] != 'shot':
+    return art(p)
   return (f'<div class="pf-screen" aria-hidden="true"><div class="win">'
           f'<div class="bar"><i></i><i></i><i></i><span>{esc(p["domain"])}</span></div>'
           f'<img src="_/theme/pf/{p["key"]}.jpg" alt="" loading="lazy" decoding="async" width="720" height="450"></div></div>')
-
-
-def _shot(p):
-  inner = _screen(p) if p['art'] == 'shot' else art(p)
-  return f'<div class="shot" style="background:{p["bg"]}">{inner}</div>'
-
-
-def showcase(projects):
-  """Projects as large case-study panels, alternating sides (the home page passes picks())."""
-  out = ''
-  for i, p in enumerate(projects):
-    hook, rest = split_blurb(t(p['blurb']))
-    rest_p = '<p>' + esc(rest) + '</p>' if rest else ''
-    out += f'''
-    <article class="pf-spot rv{' flip' if i % 2 else ''}" data-pf="{p['key']}">
-      {_shot(p)}
-      <div class="txt">
-        <div class="pf-cat"><span>{'%02d' % (i + 1)} &middot; {esc(CAT[p['cat']])}</span>{_new(p)}</div>
-        <h3>{esc(p['name'])}</h3>
-        <p class="hook">{esc(hook)}</p>
-        {rest_p}
-        {_built(p)}
-        <div class="foot">{_tags(p)}{_links(p)}</div>
-      </div>
-    </article>'''
-  return f'<div class="pf-spots">{out}</div>'
-
-
-def _row(p, tag, attrs, end):
-  live = p.get('domain')
-  dom = (f'<span class="dm live">{esc(p["domain"])}</span>' if live
-         else f'<span class="dm soon">{esc(t("Launching soon"))}</span>')
-  return f'''<{tag} class="pf-row" data-pf="{p['key']}" {attrs}>
-      <span class="ic" style="background:{p['color']}" aria-hidden="true">{esc(p['name'][0])}</span>
-      <span class="nm"><b>{esc(p['name'])}</b>{_new(p)}</span>
-      <span class="ln">{esc(split_blurb(t(p['blurb']))[0])}</span>
-      <span class="tg">{esc(' · '.join(t(x) for x in p['tags'][:2]))}</span>
-      {dom}{end}
-    </{tag}>'''
-
-
-def _detail_row(p):
-  """A row that opens in place (native <details>) to show the preview, what we built, the film and the link."""
-  rest = split_blurb(t(p['blurb']))[1]
-  rest_p = '<p>' + esc(rest) + '</p>' if rest else ''
-  return f'''<details class="pf-item" data-cat="{p['cat']}">
-    {_row(p, 'summary', '', '<span class="go plus" aria-hidden="true"></span>')}
-    <div class="pf-body">
-      {_shot(p)}
-      <div class="txt">
-        {rest_p}
-        <div class="lbl">{esc(t('What we built'))}</div>
-        {_built(p)}
-        <div class="foot">{_tags(p)}{_links(p)}</div>
-      </div>
-    </div>
-  </details>'''
-
-
-def filter_bar():
-  out = f'<div class="lp-filter" role="tablist" aria-label="{esc(t("Filter work by category"))}">'
-  for key, label in CATEGORIES:
-    n = len(PROJECTS) if key == 'all' else len(in_category(key))
-    out += f'<button type="button" class="{"on" if key == "all" else ""}" data-act="filter" data-arg="{key}" role="tab">{esc(label)}<span class="n">{n}</span></button>'
-  return out + '</div>'
-
-
-def index():
-  """Every project as a compact row, grouped by category (Work page). Rows open in place to show the preview,
-  what we built, the film and the live link."""
-  rows = ''
-  for key, label in CATEGORIES[1:]:
-    group = in_category(key)
-    if not group:
-      continue
-    rows += f'<div class="pf-group" data-cat="{key}"><span>{esc(label)}</span><span class="n">{"%02d" % len(group)}</span></div>'
-    for p in group:
-      rows += _detail_row(p)
-  count = tn(len(PROJECTS), '{n} product', '{n} products') + ' &middot; ' + esc(t('{n} live', n=live_count()))
-  head = f'''<div class="pf-head">
-    <h3>{esc(t('The full index'))}</h3><span class="pf-count">{count}</span>
-  </div>{filter_bar()}'''
-  return f'<div class="pf-index detailed">{head}<div class="pf-list">{rows}</div></div>'
-
-
-def apply_filter(root_node, key):
-  """Show one category of the index (DOM only)."""
-  btns = root_node.querySelectorAll('.lp-filter button')
-  for i in range(btns.length):
-    b = btns.item(i)
-    if b.getAttribute('data-arg') == key:
-      b.classList.add('on')
-    else:
-      b.classList.remove('on')
-  els = root_node.querySelectorAll('.pf-index [data-cat]')
-  for i in range(els.length):
-    el = els.item(i)
-    if key == 'all' or el.getAttribute('data-cat') == key:
-      el.classList.remove('gone')
-    else:
-      el.classList.add('gone')

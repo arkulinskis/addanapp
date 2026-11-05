@@ -85,5 +85,34 @@ window.aa = (function () {
     setTimeout(spyRun, 60);
   }
 
-  return { reveal: reveal, scrollTo: scrollTo, setMeta: setMeta, copy: copy, spy: spy };
+  /* The router lights up the header link of the page (or home-page section) that is open. */
+  function markNav(key) {
+    document.querySelectorAll('.aa-nav-public a[data-nav]').forEach(function (a) {
+      a.classList.toggle('active', !!key && a.getAttribute('data-nav') === key);
+    });
+  }
+
+  /* Swap a film cover for the YouTube player (privacy-enhanced; nothing loads from YouTube before this click). */
+  function playFilm(frame, vid, title) {
+    if (!frame) return;
+    var f = document.createElement('iframe');
+    f.src = 'https://www.youtube-nocookie.com/embed/' + encodeURIComponent(vid) + '?autoplay=1&rel=0&playsinline=1';
+    f.title = title || '';
+    f.allow = 'autoplay; encrypted-media; picture-in-picture; fullscreen';
+    f.allowFullscreen = true;
+    f.referrerPolicy = 'strict-origin-when-cross-origin';
+    frame.innerHTML = '';
+    frame.appendChild(f);
+  }
+
+  /* Work page filter: show one category of the index (rows and group headings carry data-cat). */
+  function filterWork(root, key) {
+    if (!root) return;
+    root.querySelectorAll('[data-cat]').forEach(function (el) {
+      el.classList.toggle('gone', key !== 'all' && el.getAttribute('data-cat') !== key);
+    });
+  }
+
+  return { reveal: reveal, scrollTo: scrollTo, setMeta: setMeta, copy: copy, spy: spy, markNav: markNav,
+           playFilm: playFilm, filterWork: filterWork };
 })();
