@@ -1,15 +1,14 @@
 ---
 custom_component: true
+help_text: 'A portfolio project''s preview: its hand-drawn SVG mini-UI, or a screenshot in a browser frame, on its own colour.'
 properties:
-  - name: project_key
-    type: string
-    default_value: ""
-    description: A key from portfolio.PROJECTS
-    default_binding_prop: true
+- default_binding_prop: true
+  default_value: ''
+  description: A key from portfolio.PROJECTS
+  name: project_key
+  type: string
 toolbox_item:
-  title: Project preview
   group: Addanapp
-help_text: |
-  A portfolio project's preview: its hand-drawn SVG mini-UI, or a screenshot in a browser frame, on its own colour.
+  title: Project preview
 ---
 <div class="shot-host"><div class="shot" anvil:dom-node="box"></div></div>

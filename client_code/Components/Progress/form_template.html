@@ -1,19 +1,18 @@
 ---
 custom_component: true
+help_text: 'A thin progress bar: blue while in progress, green when done (100% or delivered).'
 properties:
-  - name: value
-    type: number
-    default_value: 0
-    description: Percent complete (0-100)
-    default_binding_prop: true
-  - name: done
-    type: boolean
-    default_value: false
-    description: Green bar (delivered)
+- default_binding_prop: true
+  default_value: 0
+  description: Percent complete (0-100)
+  name: value
+  type: number
+- default_value: false
+  description: Green bar (delivered)
+  name: done
+  type: boolean
 toolbox_item:
-  title: Progress bar
   group: Addanapp
-help_text: |
-  A thin progress bar: blue while in progress, green when done (100% or delivered).
+  title: Progress bar
 ---
 <span class="ct"><div class="progress" anvil:name="bar" role="progressbar" aria-valuemin="0" aria-valuemax="100"><i anvil:name="fill"></i></div></span>

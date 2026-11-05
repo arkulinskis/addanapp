@@ -1,281 +1,216 @@
 allow_embedding: false
 db_schema:
-  users:
-    client: none
-    columns:
-    - admin_ui:
-        width: 200
-      name: email
-      type: string
-    - admin_ui:
-        width: 200
-      name: enabled
-      type: bool
-    - admin_ui:
-        width: 200
-      name: last_login
-      type: datetime
-    - admin_ui:
-        width: 200
-      name: password_hash
-      type: string
-    - admin_ui:
-        width: 200
-      name: n_password_failures
-      type: number
-    - admin_ui:
-        width: 200
-      name: confirmed_email
-      type: bool
-    - admin_ui:
-        width: 200
-      name: remembered_logins
-      type: simpleObject
-    - admin_ui:
-        width: 200
-      name: signed_up
-      type: datetime
-    - admin_ui:
-        width: 200
-      name: email_confirmation_key
-      type: string
-    - admin_ui:
-        width: 200
-      name: name
-      type: string
-    - admin_ui:
-        width: 200
-      name: company
-      type: string
-    - admin_ui:
-        width: 200
-      name: phone
-      type: string
-    - admin_ui:
-        width: 200
-      name: color
-      type: string
-    - admin_ui:
-        width: 200
-      name: role
-      type: string
-    - admin_ui:
-        width: 200
-      name: is_admin
-      type: bool
-    - admin_ui:
-        width: 200
-      name: is_demo
-      type: bool
-    - admin_ui:
-        width: 200
-      name: email_notifications
-      type: bool
-    - admin_ui:
-        width: 200
-      name: created
-      type: datetime
-    - admin_ui:
-        width: 200
-      name: last_seen
-      type: datetime
-    - admin_ui:
-        width: 200
-      name: legal_version
-      type: string
-    - admin_ui:
-        width: 200
-      name: legal_accepted_at
-      type: datetime
-    - admin_ui:
-        width: 200
-      name: legal_source
-      type: string
-    - admin_ui:
-        width: 200
-      name: lang
-      type: string
-    server: full
-    title: Users
-  requests:
-    client: none
-    columns:
-    - admin_ui:
-        width: 200
-      name: ref
-      type: string
-    - admin_ui:
-        width: 200
-      name: client
-      type: link_single
-      target: users
-    - admin_ui:
-        width: 200
-      name: title
-      type: string
-    - admin_ui:
-        width: 200
-      name: kind
-      type: string
-    - admin_ui:
-        width: 200
-      name: priority
-      type: string
-    - admin_ui:
-        width: 200
-      name: description
-      type: string
-    - admin_ui:
-        width: 200
-      name: acceptance
-      type: string
-    - admin_ui:
-        width: 200
-      name: project
-      type: string
-    - admin_ui:
-        width: 200
-      name: budget
-      type: string
-    - admin_ui:
-        width: 200
-      name: desired_date
-      type: date
-    - admin_ui:
-        width: 200
-      name: status
-      type: string
-    - admin_ui:
-        width: 200
-      name: progress
-      type: number
-    - admin_ui:
-        width: 200
-      name: quote_amount
-      type: number
-    - admin_ui:
-        width: 200
-      name: quote_note
-      type: string
-    - admin_ui:
-        width: 200
-      name: eta
-      type: date
-    - admin_ui:
-        width: 200
-      name: created
-      type: datetime
-    - admin_ui:
-        width: 200
-      name: updated
-      type: datetime
-    - admin_ui:
-        width: 200
-      name: last_activity
-      type: datetime
-    - admin_ui:
-        width: 200
-      name: accepted_at
-      type: datetime
-    - admin_ui:
-        width: 200
-      name: admin_unread
-      type: bool
-    - admin_ui:
-        width: 200
-      name: client_unread
-      type: bool
-    server: full
-    title: Requests
-  notes:
-    client: none
-    columns:
-    - admin_ui:
-        width: 200
-      name: request
-      type: link_single
-      target: requests
-    - admin_ui:
-        width: 200
-      name: author
-      type: link_single
-      target: users
-    - admin_ui:
-        width: 200
-      name: kind
-      type: string
-    - admin_ui:
-        width: 200
-      name: body
-      type: string
-    - admin_ui:
-        width: 200
-      name: internal
-      type: bool
-    - admin_ui:
-        width: 200
-      name: status_from
-      type: string
-    - admin_ui:
-        width: 200
-      name: status_to
-      type: string
-    - admin_ui:
-        width: 200
-      name: progress
-      type: number
-    - admin_ui:
-        width: 200
-      name: created
-      type: datetime
-    server: full
-    title: Notes
   leads:
     client: none
     columns:
-    - admin_ui:
-        width: 200
+    - admin_ui: {width: 200}
       name: name
       type: string
-    - admin_ui:
-        width: 200
+    - admin_ui: {width: 200}
       name: email
       type: string
-    - admin_ui:
-        width: 200
+    - admin_ui: {width: 200}
       name: company
       type: string
-    - admin_ui:
-        width: 200
+    - admin_ui: {width: 200}
       name: kind
       type: string
-    - admin_ui:
-        width: 200
+    - admin_ui: {width: 200}
       name: budget
       type: string
-    - admin_ui:
-        width: 200
+    - admin_ui: {width: 200}
       name: message
       type: string
-    - admin_ui:
-        width: 200
+    - admin_ui: {width: 200}
       name: status
       type: string
-    - admin_ui:
-        width: 200
+    - admin_ui: {width: 200}
       name: source
       type: string
-    - admin_ui:
-        width: 200
+    - admin_ui: {width: 200}
       name: created
       type: datetime
     server: full
     title: Leads
+  notes:
+    client: none
+    columns:
+    - admin_ui: {width: 200}
+      name: request
+      target: requests
+      type: link_single
+    - admin_ui: {width: 200}
+      name: author
+      target: users
+      type: link_single
+    - admin_ui: {width: 200}
+      name: kind
+      type: string
+    - admin_ui: {width: 200}
+      name: body
+      type: string
+    - admin_ui: {width: 200}
+      name: internal
+      type: bool
+    - admin_ui: {width: 200}
+      name: status_from
+      type: string
+    - admin_ui: {width: 200}
+      name: status_to
+      type: string
+    - admin_ui: {width: 200}
+      name: progress
+      type: number
+    - admin_ui: {width: 200}
+      name: created
+      type: datetime
+    server: full
+    title: Notes
+  requests:
+    client: none
+    columns:
+    - admin_ui: {width: 200}
+      name: ref
+      type: string
+    - admin_ui: {width: 200}
+      name: client
+      target: users
+      type: link_single
+    - admin_ui: {width: 200}
+      name: title
+      type: string
+    - admin_ui: {width: 200}
+      name: kind
+      type: string
+    - admin_ui: {width: 200}
+      name: priority
+      type: string
+    - admin_ui: {width: 200}
+      name: description
+      type: string
+    - admin_ui: {width: 200}
+      name: acceptance
+      type: string
+    - admin_ui: {width: 200}
+      name: project
+      type: string
+    - admin_ui: {width: 200}
+      name: budget
+      type: string
+    - admin_ui: {width: 200}
+      name: desired_date
+      type: date
+    - admin_ui: {width: 200}
+      name: status
+      type: string
+    - admin_ui: {width: 200}
+      name: progress
+      type: number
+    - admin_ui: {width: 200}
+      name: quote_amount
+      type: number
+    - admin_ui: {width: 200}
+      name: quote_note
+      type: string
+    - admin_ui: {width: 200}
+      name: eta
+      type: date
+    - admin_ui: {width: 200}
+      name: created
+      type: datetime
+    - admin_ui: {width: 200}
+      name: updated
+      type: datetime
+    - admin_ui: {width: 200}
+      name: last_activity
+      type: datetime
+    - admin_ui: {width: 200}
+      name: accepted_at
+      type: datetime
+    - admin_ui: {width: 200}
+      name: admin_unread
+      type: bool
+    - admin_ui: {width: 200}
+      name: client_unread
+      type: bool
+    server: full
+    title: Requests
+  users:
+    client: none
+    columns:
+    - admin_ui: {width: 200}
+      name: email
+      type: string
+    - admin_ui: {width: 200}
+      name: enabled
+      type: bool
+    - admin_ui: {width: 200}
+      name: last_login
+      type: datetime
+    - admin_ui: {width: 200}
+      name: password_hash
+      type: string
+    - admin_ui: {width: 200}
+      name: n_password_failures
+      type: number
+    - admin_ui: {width: 200}
+      name: confirmed_email
+      type: bool
+    - admin_ui: {width: 200}
+      name: remembered_logins
+      type: simpleObject
+    - admin_ui: {width: 200}
+      name: signed_up
+      type: datetime
+    - admin_ui: {width: 200}
+      name: email_confirmation_key
+      type: string
+    - admin_ui: {width: 200}
+      name: name
+      type: string
+    - admin_ui: {width: 200}
+      name: company
+      type: string
+    - admin_ui: {width: 200}
+      name: phone
+      type: string
+    - admin_ui: {width: 200}
+      name: color
+      type: string
+    - admin_ui: {width: 200}
+      name: role
+      type: string
+    - admin_ui: {width: 200}
+      name: is_admin
+      type: bool
+    - admin_ui: {width: 200}
+      name: is_demo
+      type: bool
+    - admin_ui: {width: 200}
+      name: email_notifications
+      type: bool
+    - admin_ui: {width: 200}
+      name: created
+      type: datetime
+    - admin_ui: {width: 200}
+      name: last_seen
+      type: datetime
+    - admin_ui: {width: 200}
+      name: legal_version
+      type: string
+    - admin_ui: {width: 200}
+      name: legal_accepted_at
+      type: datetime
+    - admin_ui: {width: 200}
+      name: legal_source
+      type: string
+    - admin_ui: {width: 200}
+      name: lang
+      type: string
+    server: full
+    title: Users
 dependencies: []
-metadata:
-  title: AddAnApp - triple A software delivery service
-  description: Montréal software consultancy for web apps, admin panels, client portals and data platforms. AI-accelerated, human-validated, fixed quotes. Pay for results.
-  logo_img: asset:apple-touch-icon.png
+metadata: {description: 'Montréal software consultancy for web apps, admin panels, client portals and data platforms. AI-accelerated, human-validated, fixed quotes. Pay for results.', logo_img: 'asset:apple-touch-icon.png', title: AddAnApp - triple A software delivery service}
 name: Addanapp
 native_deps:
   head_html: |-
@@ -2000,26 +1935,14 @@ native_deps:
 package_name: Addanapp
 runtime_options:
   client_version: '3'
-  server_spec:
-    base: python314
+  server_spec: {base: python314}
   version: 3
 services:
-- client_config:
-    enable_v2: true
-  server_config:
-    auto_create_missing_columns: true
+- client_config: {enable_v2: true}
+  server_config: {auto_create_missing_columns: true}
   source: /runtime/services/tables.yml
-- client_config:
-    allow_remember_me: true
-    allow_signup: true
-    confirm_email: false
-    enable_automatically: true
-    remember_me_days: 30
-    require_secure_passwords: true
-    use_email: true
-    use_google: true
-  server_config:
-    user_table: users
+- client_config: {allow_remember_me: true, allow_signup: true, confirm_email: false, enable_automatically: true, remember_me_days: 30, require_secure_passwords: true, use_email: true, use_google: true}
+  server_config: {user_table: users}
   source: /runtime/services/anvil/users.yml
 - client_config: {}
   server_config: {}
@@ -2027,6 +1950,4 @@ services:
 - client_config: {}
   server_config: {}
   source: /runtime/services/anvil/email.yml
-startup:
-  module: startup
-  type: module
+startup: {module: startup, type: module}

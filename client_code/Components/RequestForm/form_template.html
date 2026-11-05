@@ -1,16 +1,16 @@
 ---
 custom_component: true
-properties:
-  - name: budgets
-    type: boolean
-    default_value: true
-    description: Show the budget range (clients choose one; the console's "request for a client" doesn't)
-toolbox_item:
-  title: Request form
-  group: Addanapp
-help_text: |
+help_text: |-
   The fields of a new request: title, type, description, acceptance criteria, priority, project, date, budget.
   collect() reads them, validate(data) says what's missing, show_error(msg) shows it at the top.
+properties:
+- default_value: true
+  description: Show the budget range (clients choose one; the console's "request for a client" doesn't)
+  name: budgets
+  type: boolean
+toolbox_item:
+  group: Addanapp
+  title: Request form
 ---
 <div class="rf">
   <anvil-component type="Label" name="error" prop:role='["msg-error"]' prop:visible="false"></anvil-component>
