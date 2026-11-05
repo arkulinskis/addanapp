@@ -1,0 +1,18 @@
+<span class="ct"><article class="pf-spot rv" anvil:name="card">
+  <anvil-component type="Addanapp.Components.Shot" name="shot"></anvil-component>
+  <div class="txt">
+    <div class="pf-cat"><span anvil:dom-node="cat"></span><span class="new" anvil:name="new_badge" data-t>New</span></div>
+    <h3 anvil:dom-node="name"></h3>
+    <div class="hook" anvil:dom-node="hook"></div>
+    <div class="pf-rest" anvil:name="rest_box"><anvil-component type="Label" name="rest" prop:role='["t"]'></anvil-component></div>
+    <div class="pf-built" role="list"><anvil-component type="RepeatingPanel" name="built" prop:item_template="Addanapp.Items.Tick" prop:role='["contents"]'></anvil-component></div>
+    <div class="foot">
+      <div class="tags"><anvil-component type="RepeatingPanel" name="tags" prop:item_template="Addanapp.Items.Tag" prop:role='["contents"]'></anvil-component></div>
+      <div class="pf-acts">
+        <a class="pf-watch" target="_blank" rel="noopener" anvil:name="watch"><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="currentColor"/><path d="M8 6.2v7.6l6-3.8z" fill="#fff"/></svg><span data-t>Watch the film</span></a>
+        <a class="aa-btn ghost sm pf-visit" target="_blank" rel="noopener" anvil:name="visit"><anvil-component type="Label" name="visit_label" prop:role='["t"]'></anvil-component> <span class="arr">&#8599;</span></a>
+        <span class="pf-soon" anvil:name="soon" data-t>Launching soon</span>
+      </div>
+    </div>
+  </div>
+</article></span>

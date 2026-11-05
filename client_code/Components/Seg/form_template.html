@@ -1,0 +1,26 @@
+---
+custom_component: true
+properties:
+  - name: choices
+    type: object
+    default_value: null
+    description: "A list of (value, label) pairs"
+  - name: selected_value
+    type: string
+    default_value: ""
+    description: The chosen value
+    default_binding_prop: true
+  - name: label
+    type: string
+    default_value: ""
+    description: What the group is for (read out by screen readers)
+events:
+  - name: change
+    description: When someone picks another choice
+toolbox_item:
+  title: Segmented choice
+  group: Addanapp
+help_text: |
+  A row of buttons where exactly one is chosen (type of request, priority).
+---
+<span class="ct"><div class="seg" role="group" anvil:name="group"><anvil-component type="RepeatingPanel" name="options" prop:item_template="Addanapp.Items.SegOption" prop:role='["contents"]'></anvil-component></div></span>

@@ -7,7 +7,12 @@ a small script in the page head (anvil.yaml -> native_deps) starts the download 
 module waits for it before any page is built. Changing language saves the choice and reloads.
 
   t("Hello {name}", name=x)              translated text; {placeholders} are filled in
+  tp("Save &amp; notify client")         the same as plain text (for a Button/Label: no HTML entities)
   tn(n, "{n} request", "{n} requests")   plural-aware (French, Russian and Latvian rules)
+  apply(form, products=53)               translates a form's template: every element marked data-t (its inner
+                                         HTML is the English key; data-tv="n:products" fills {n}), data-ta
+                                         attributes, and the text/placeholder/tooltip of its Buttons, Labels,
+                                         Links and boxes. Call it at the end of every form's __init__.
 
 A missing translation falls back to English, so new strings never break a page.
 When you bump VERSION here, bump ?v= in the head script too (it busts the browser cache).
@@ -22,7 +27,7 @@ LANGS = [('en', 'English'), ('fr', 'Français'), ('ru', 'Русский'), ('lv'
 CODES = [c for c, _n in LANGS]
 NAMES = dict(LANGS)
 STORAGE_KEY = 'aa.lang'
-VERSION = '16'
+VERSION = '17'
 
 
 def _stored():
@@ -51,10 +56,12 @@ def _load():
       text = anvil.js.await_promise(p)  # started by the head script
     else:
       resp = window.fetch(f'_/theme/lang-{lang}.json?v={VERSION}')  # Anvil waits for JS promises
-      if not resp.ok:
-        raise Exception(f'HTTP {resp.status}')
-      text = resp.text()
+      if not getattr(resp, 'ok'):
+        raise Exception(f"HTTP {getattr(resp, 'status')}")
+      text = getattr(resp, 'text')()
     _pack = json.loads(text)
+    if not window.get('AA_PACK'):
+      window.AA_PACK = window.JSON.parse(text)  # the template translator (app-kit.js UI.tr) reads it there
   except Exception as e:
     print("Language pack failed to load, using English:", e)
     _pack = {}
@@ -205,3 +212,70 @@ def set_lang(code):
   except Exception:
     pass
   window.location.reload()
+
+
+# ------------------------------------------------------------------ plain text + form templates
+
+_ENTITIES = [('&nbsp;', chr(160)), ('&lt;', '<'), ('&gt;', '>'), ('&quot;', '"'), ('&#39;', "'"), ('&amp;', '&')]
+
+
+def plain(s):
+  """HTML entities -> characters (a Button or Label shows its text as typed)."""
+  for ent, ch in _ENTITIES:
+    s = s.replace(ent, ch)
+  return s
+
+
+def tp(s, **kw):
+  """t() for a Button, Label or placeholder: the key may be stored with &amp; (it came from HTML), the result is plain."""
+  if _pack and s not in _pack and '&' in s:
+    alt = s.replace('&', '&amp;')
+    if alt in _pack:
+      return plain(t(alt, **kw))
+  return plain(t(s, **kw))
+
+
+_PROPS = ('text', 'placeholder', 'tooltip')
+
+
+def _components(form):
+  """The components a form's template declares. A templated form isn't a container (no get_components()): its
+  components are attributes named after them (self.save_button ...), so look through those."""
+  from anvil import Component
+  try:
+    names = list(form.__dict__.keys())
+  except Exception:  # the browser's Python may not offer it: dir() below
+    names = []
+  out = [getattr(form, n, None) for n in names if not n.startswith('_')]
+  out = [c for c in out if isinstance(c, Component)]
+  if not out:
+    for n in dir(form):
+      if n.startswith('_') or n in ('item', 'parent', 'layout', 'dom_nodes'):
+        continue
+      try:
+        c = getattr(form, n, None)
+      except Exception:
+        continue
+      if isinstance(c, Component):
+        out.append(c)
+  return out
+
+
+def _props(form):
+  from anvil import Button, Label, Link, CheckBox, TextBox, TextArea
+  for c in _components(form):
+    if not isinstance(c, (Button, Label, Link, CheckBox, TextBox, TextArea)):
+      continue
+    for name in _PROPS:
+      if name == 'text' and isinstance(c, (TextBox, TextArea)):
+        continue  # that's what the person typed
+      v = getattr(c, name, None)
+      if isinstance(v, str) and v.strip():
+        setattr(c, name, tp(v))
+
+
+def apply(form, **vars):
+  """Translate a form's template text (data-t / data-ta elements) and its components' text, then fill {vars}."""
+  window.UI.tr(anvil.js.get_dom_node(form), vars)
+  if _pack:
+    _props(form)

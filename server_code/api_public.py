@@ -109,7 +109,7 @@ def request_guides(data):
       add += ' ' + consent
     if emailed:
       add += ' ' + sent_note
-    ch = {'message': (msg + add)[-4000:]}
+    ch: dict = {'message': (msg + add)[-4000:]}
     if wants_news:
       ch['source'] = 'guide+news'
     if situation:

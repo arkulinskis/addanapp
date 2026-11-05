@@ -1,0 +1,35 @@
+---
+custom_component: true
+properties:
+  - name: budgets
+    type: boolean
+    default_value: true
+    description: Show the budget range (clients choose one; the console's "request for a client" doesn't)
+toolbox_item:
+  title: Request form
+  group: Addanapp
+help_text: |
+  The fields of a new request: title, type, description, acceptance criteria, priority, project, date, budget.
+  collect() reads them, validate(data) says what's missing, show_error(msg) shows it at the top.
+---
+<div class="rf">
+  <anvil-component type="Label" name="error" prop:role='["msg-error"]' prop:visible="false"></anvil-component>
+  <label class="f"><span class="lbl" data-t>Title</span>
+    <anvil-component type="TextBox" name="title_box" prop:placeholder="e.g. Let customers pay a deposit when booking"></anvil-component>
+    <span class="hint" data-t>One line that describes the outcome.</span></label>
+  <div class="f"><span class="lbl" data-t>Type of request</span><anvil-component type="Addanapp.Components.Seg" name="kind_seg"></anvil-component></div>
+  <label class="f"><span class="lbl" data-t>What do you need, and why?</span>
+    <anvil-component type="TextArea" name="desc_box" prop:placeholder="Describe the problem, who it's for and what should happen. Links and examples help."></anvil-component></label>
+  <label class="f"><span class="lbl"><x-t data-t>How will we know it's done?</x-t> <span class="opt" data-t>(optional)</span></span>
+    <anvil-component type="TextArea" name="acc_box"></anvil-component>
+    <span class="hint" data-t>Your acceptance criteria. If you skip this, your engineer will propose them with the quote.</span></label>
+  <div class="f"><span class="lbl" data-t>Priority</span><anvil-component type="Addanapp.Components.Seg" name="prio_seg"></anvil-component></div>
+  <div class="row2 rf-two">
+    <label class="f"><span class="lbl"><x-t data-t>App or project</x-t> <span class="opt" data-t>(optional)</span></span>
+      <anvil-component type="TextBox" name="project_box" prop:placeholder="e.g. Booking website"></anvil-component></label>
+    <label class="f"><span class="lbl"><x-t data-t>Ideal delivery date</x-t> <span class="opt" data-t>(optional)</span></span>
+      <anvil-component type="TextBox" name="date_box"></anvil-component></label>
+  </div>
+  <label class="f" anvil:name="budget_field"><span class="lbl"><x-t data-t>Budget range</x-t> <span class="opt" data-t>(optional)</span></span>
+    <anvil-component type="DropDown" name="budget_dd"></anvil-component></label>
+</div>

@@ -1,0 +1,10 @@
+<div class="dlg">
+  <h3 class="dlg-h" data-t>New request for a client</h3>
+  <div class="small muted dlg-sub" data-t>It appears in their workspace right away, and they get an email.</div>
+  <label class="f"><span class="lbl" data-t>Client</span><anvil-component type="DropDown" name="client_dd"></anvil-component></label>
+  <anvil-component type="Addanapp.Components.RequestForm" name="form" prop:budgets="false"></anvil-component>
+  <div class="dlg-acts">
+    <anvil-component type="Button" name="cancel_button" prop:text="Cancel" prop:role='["aa-btn", "ghost"]'></anvil-component>
+    <anvil-component type="Button" name="ok_button" prop:text="Create request" prop:role='["aa-btn", "accent"]'></anvil-component>
+  </div>
+</div>

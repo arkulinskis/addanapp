@@ -1,0 +1,55 @@
+<anvil-form layout="Addanapp.Layouts.Shell">
+<anvil-block slot="content">
+<div class="lp">
+  <section class="lp-hero gd-hero" aria-labelledby="gd-h">
+    <div class="aa-wrap grid">
+      <div>
+        <div class="eyebrow rv" data-t>Free guides</div>
+        <h1 id="gd-h" class="rv d1" data-t>Short guides for people who <em>run things.</em></h1>
+        <p class="sub rv d2" data-t>Five practical PDFs for owners and managers: when a spreadsheet has become an app, how to get a fixed price for software, what to demand from AI-assisted developers, build or buy, and Québec's Law 25.</p>
+        <div class="assure rv d3">
+          <span><i class="ic ic-check"></i><x-t data-t>Free, no sales call</x-t></span>
+          <span><i class="ic ic-check"></i><x-t data-t>About ten pages each</x-t></span>
+          <span><i class="ic ic-check"></i><x-t data-t>Every number sourced</x-t></span>
+        </div>
+        <div class="gd-lang" anvil:name="lang_note"><i class="ic ic-lang s16"></i> <x-t data-t>The guides are written in English.</x-t></div>
+      </div>
+      <div class="lp-form gd-form rv d2" id="guide-form" anvil:dom-node="form_box">
+        <div class="form-body" anvil:name="form_body">
+          <h3 style="font-size:1.3rem;margin-bottom:4px" data-t>Get all five guides free</h3>
+          <div class="small muted" style="margin-bottom:20px" data-t>Enter your email and the download links appear right away. We email them to you as well.</div>
+          <anvil-component type="Label" name="error" prop:role='["msg-error"]' prop:visible="false"></anvil-component>
+          <div class="row2">
+            <label class="f"><span class="lbl" data-t>Work email</span><anvil-component type="TextBox" name="email_box" prop:type="email" prop:placeholder="jane@company.com"></anvil-component></label>
+            <label class="f"><span class="lbl"><x-t data-t>First name</x-t> <span class="opt" data-t>(optional)</span></span><anvil-component type="TextBox" name="name_box" prop:placeholder="Jane"></anvil-component></label>
+          </div>
+          <label class="f"><span class="lbl"><x-t data-t>What's closest to your situation?</x-t> <span class="opt" data-t>(optional)</span></span><anvil-component type="DropDown" name="situation_dd"></anvil-component></label>
+          <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" anvil:dom-node="hp">
+          <label class="check" style="margin-bottom:18px"><input type="checkbox" anvil:dom-node="news"><span data-t>Yes, also send me occasional tips from Addanapp. I can unsubscribe at any time.</span></label>
+          <anvil-component type="Button" name="get_button" prop:role='["aa-btn", "accent", "block", "lg"]'></anvil-component>
+          <div class="tiny muted" style="margin:14px 0 0" data-t>We use your email to send you the guides and, only if you tick the box, occasional tips. We never sell it. See our <a href="javascript:void(0)" data-lk-open="privacy">privacy policy</a>.</div>
+        </div>
+        <div class="ok" anvil:name="ok_box">
+          <div class="seal"><i class="ic ic-check"></i></div>
+          <h3 style="font-size:1.4rem" data-t>Your guides are ready</h3>
+          <div class="muted" anvil:name="sent_note" data-t>We've also emailed you the links, so you can come back to them later.</div>
+          <div class="gd-list"><anvil-component type="RepeatingPanel" name="link_rows" prop:item_template="Addanapp.Items.GuideLink" prop:role='["contents"]'></anvil-component></div>
+          <div class="tiny muted" style="margin:16px 0 0"><x-t data-t>Recognise your business in one of them?</x-t> <a href="#home/contact" data-t>Send us a brief</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="lp-sec" style="padding-top:72px">
+    <div class="aa-wrap"><div class="gd-grid"><anvil-component type="RepeatingPanel" name="cards" prop:item_template="Addanapp.Items.GuideCard" prop:role='["contents"]'></anvil-component></div></div>
+  </section>
+  <section class="lp-sec tight lp-alt">
+    <div class="aa-wrap lp-final">
+      <div class="eyebrow" style="justify-content:center" data-t>Your turn</div>
+      <h2 data-t>Read one and thought it was about you? <em>Let's scope it.</em></h2>
+      <p data-t>Send a short brief. An engineer, not a salesperson, will reply with questions or a fixed quote.</p>
+      <div class="ctas"><a class="aa-btn accent lg" href="#home/contact"><x-t data-t>Start a project</x-t> <span class="arr">&rarr;</span></a></div>
+    </div>
+  </section>
+</div>
+</anvil-block>
+</anvil-form>
