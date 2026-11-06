@@ -6,17 +6,20 @@
 around them with an offset instead of whole files.
 
 **What it is:** Montréal software consultancy for web apps, admin panels, client portals and data platforms. AI-accelerated, human-validated, fixed quotes. Pay for results.
-**Live:** https://addanapp.com · **Repo:** github.com/arkulinskis/addanapp · **Layout:** classic Anvil repo with a JavaScript front end (not native Forms yet) · **Deploy:** master
+**Live:** https://addanapp.com · **Repo:** github.com/arkulinskis/addanapp · **Layout:** native Anvil Forms · **Deploy:** master
 **Guide** (workflow, design rules, product knowledge): `.claude/skills/addanapp/SKILL.md`
 
 ## How to change it
 
-- This folder **is** the Anvil repo. The front end is JavaScript in `theme/assets/`, started by the client form(s) below;
-  the server is `server_code/`.
-- **New server function**: `@anvil.server.callable` in `server_code`; the JavaScript reaches it through the form's bridge (see *Client side*).
-- **New table/column**: `anvil.yaml` → `db_schema` (the user accepts Anvil's Schema Mismatch alert).
-- **Check**: `python -I APP_MAKER/tools/gitapp_check.py <key>`; server tests: `python -I APP_MAKER/tools/gitapp_test.py`.
-- **Deploy**: commit as arkulinskis (+ Co-Authored-By) and `git push origin master` (pull first: Anvil commits too).
+- **New page**: copy a similar `client_code/Pages/<Name>/` (form_template.html + __init__.py), register it in
+  `client_code/router.py` (`PAGES`, `_form()`, and `NAV` for the menu). Address = `#name/arg`.
+- **New list**: a RepeatingPanel in the page template + `client_code/Items/<Name>/`. **Dialog**: `client_code/Dialogs/<Name>/` opened with `alert(...)`.
+- **New server function**: `@anvil.server.callable` in the matching `server_code` module (see *Server*), called with `state.call("name", ...)`.
+- **New table/column**: `anvil.yaml` → `db_schema` (the user accepts Anvil's Schema Mismatch alert); update the server-test mock.
+- **Drawing/media/canvas**: a JavaScript engine in `theme/assets/` wrapped by a Python module or a `Components/` form.
+- **Styles**: `theme/assets/app.css` (colour tokens at the top; rules in APP_MAKER/design/README.md).
+- **Check**: `python tools/check.py` → ALL CHECKS PASSED; UI: `python -I tools/ui_test.py` (Docker Desktop running).
+- **Deploy**: commit as arkulinskis (+ Co-Authored-By) and `git push` (master unless apps.json says branch-first).
 - **Footer** must keep: Submit feedback (Prepsto), Privacy & Terms, Contact developer (arkvital.com), Parent company (addanapp.com).
 - **After any change**: `python -I C:/Users/arkvi/Documents/CLAUDE/APP_MAKER/standard/app_map.py addanapp` refreshes this map.
 
@@ -25,6 +28,20 @@ around them with an offset instead of whole files.
 <!-- NOTES: hand-written, kept when the map is regenerated -->
 _Add what the code doesn't say: where tricky features live, decisions, gotchas. Kept when the map is regenerated._
 <!-- /NOTES -->
+
+## Pages (`client_code/router.py`)
+
+| Address | Who | Form | Lines py/html | Server calls | Links to |
+|---|---|---|---|---|---|
+| (not routed) |  | Pages/Account | 49/29 | update_me | – |
+| (not routed) |  | Pages/Admin | 228/86 | admin_clear_demo, admin_clients, admin_leads, admin_newsletter_csv, admin_overview, admin_seed_demo | #account #admin |
+| (not routed) |  | Pages/Guides | 96/56 | request_guides | #home |
+| (not routed) |  | Pages/Landing | 121/409 | submit_lead | #guides #home #login #signup #work |
+| (not routed) |  | Pages/NewRequest | 32/27 | create_request | #portal |
+| (not routed) |  | Pages/Portal | 86/45 | my_requests | #new |
+| (not routed) |  | Pages/Privacy | 18/16 | – | – |
+| (not routed) |  | Pages/RequestDetail | 285/81 | admin_delete_request, admin_update_request, client_action, get_request | #admin #portal |
+| (not routed) |  | Pages/Work | 41/35 | – | #home #signup |
 
 ## Server (`server_code/`)
 
@@ -96,60 +113,60 @@ Tables: notes, requests, users
 
 ## Client side
 
-- `client_code/Components/__init__.py` (3 lines): Reusable custom components (Forms with custom_component: true in their frontmatter). They appear in… · 
-- `client_code/Components/Avatar/__init__.py` (48 lines) · Avatar L7
-- `client_code/Components/Progress/__init__.py` (43 lines) · Progress L8
-- `client_code/Components/RequestForm/__init__.py` (65 lines) · RequestForm L10
-- `client_code/Components/Seg/__init__.py` (55 lines) · Seg L7
-- `client_code/Components/Shot/__init__.py` (34 lines) · Shot L9
-- `client_code/content.py` (87 lines): Landing-page data that depends on the visitor's language or is shared by several pages: the films,… · deck L37, film_url L44, other_languages L48, guide_cover L79
-- `client_code/Dialogs/__init__.py` (3 lines): Dialog Forms, shown with alert(Form(...), buttons=[], role="aa-dialog"). Each closes itself with se… · 
-- `client_code/Dialogs/AuthBox/__init__.py` (140 lines) · _google_step_done L14, AuthBox L23
-- `client_code/Dialogs/NewForClient/__init__.py` (32 lines) · NewForClient L7
-- `client_code/Dialogs/PromptText/__init__.py` (36 lines) · PromptText L8
-- `client_code/i18n.py` (282 lines): Translations: English (built in), French, Russian and Latvian. · _stored L33, _load L45, _no_double_dot L76, t L84, _form L98, tn L114, month L136, date_text L140, money L146, server_text L176, set_lang L203, plain L222, tp L229, _components L241, _props L264, apply L277
-- `client_code/Items/__init__.py` (2 lines): RepeatingPanel item templates: one small Form per repeated thing (a card in a list, a row in a tabl… · 
-- `client_code/Items/AppNavLink/__init__.py` (20 lines) · AppNavLink L7
-- `client_code/Items/AttnRow/__init__.py` (19 lines) · AttnRow L8
-- `client_code/Items/BoardCard/__init__.py` (27 lines) · BoardCard L7
-- `client_code/Items/BoardColumn/__init__.py` (20 lines) · BoardColumn L7
-- `client_code/Items/GuideCard/__init__.py` (43 lines) · GuideCard L9
-- `client_code/Items/GuideLink/__init__.py` (21 lines) · GuideLink L8
-- `client_code/Items/KvRow/__init__.py` (15 lines) · KvRow L6
-- `client_code/Items/LangLink/__init__.py` (21 lines) · LangLink L7
-- `client_code/Items/LeadCard/__init__.py` (51 lines) · LeadCard L10
-- `client_code/Items/NoteItem/__init__.py` (54 lines) · NoteItem L9
-- `client_code/Items/PersonCard/__init__.py` (60 lines) · PersonCard L8
-- `client_code/Items/Pill/__init__.py` (34 lines) · Pill L7
-- `client_code/Items/ProofLink/__init__.py` (21 lines) · ProofLink L8
-- `client_code/Items/RequestRow/__init__.py` (43 lines) · RequestRow L8
-- `client_code/Items/SegOption/__init__.py` (22 lines) · SegOption L7
-- `client_code/Items/ShowcaseCard/__init__.py` (45 lines) · fill_project L9, ShowcaseCard L29
-- `client_code/Items/Step/__init__.py` (14 lines) · Step L6
-- `client_code/Items/Tag/__init__.py` (13 lines) · Tag L6
-- `client_code/Items/Tick/__init__.py` (11 lines) · Tick L6
-- `client_code/Items/Tile/__init__.py` (26 lines) · Tile L7
-- `client_code/Items/WorkDetail/__init__.py` (18 lines) · WorkDetail L9
-- `client_code/Items/WorkGroup/__init__.py` (19 lines) · WorkGroup L6
-- `client_code/Items/WorkRow/__init__.py` (39 lines) · WorkRow L9
-- `client_code/Layouts/__init__.py` (2 lines): Layout forms: the frame around every page. · 
-- `client_code/Layouts/Shell/__init__.py` (191 lines) · Shell L14
-- `client_code/legal.py` (92 lines): Privacy & Terms: connects the shared LegalKit page (legal-kit.js) to this app's server. · _kit L20, _accept L27, setup L36, refresh L50, refresh_soon L64, signed_out L72, open L78, consent_field L84, consent_ok L89
-- `client_code/Pages/__init__.py` (2 lines): One Form per page. router.py opens them for the #page/args addresses; each uses Layouts.Shell. · 
-- `client_code/Pages/Account/__init__.py` (49 lines) · Account L9
-- `client_code/Pages/Admin/__init__.py` (228 lines) · Admin L13
-- `client_code/Pages/Guides/__init__.py` (96 lines) · _saved L15, _save L24, Guides L31
-- `client_code/Pages/Landing/__init__.py` (121 lines) · spot_items L12, Landing L16
-- `client_code/Pages/NewRequest/__init__.py` (32 lines) · NewRequest L8
-- `client_code/Pages/Portal/__init__.py` (86 lines) · filter_requests L11, Portal L25
-- `client_code/Pages/Privacy/__init__.py` (18 lines) · Privacy L7
-- `client_code/Pages/RequestDetail/__init__.py` (285 lines) · RequestDetail L9
-- `client_code/Pages/Work/__init__.py` (41 lines) · Work L9
-- `client_code/portfolio.py` (1661 lines): Portfolio: projects we've shipped, with illustrated previews (inline SVG) or real screenshots ('art… · _browser L426, _phone L438, art_planplate L448, art_varnote L474, art_blog L504, art_map L528, art_bun L547, art_piano L574, art_pound L602, art_parrot L626, art_resto L645, _pin L672, art_monshop L678, _brownie L712, art_family L718, art_screenplay L763, art_lyrics L819, art_rooms L871, art_models L925, art_feedback L970, art_boxing L1027, _cube L1063, art_cubes L1082, art_party L1109, art_pan L1156, … +24 more
-- `client_code/router.py` (186 lines): Page addresses (the same as the old app, so shared links keep working): · current L29, go L34, shell L43, _open L47, _landing L57, open_auth L74, after_sign_in L88, show L99, _private L148, _on_hash L177, start L181
-- `client_code/startup.py` (10 lines): The app starts here (anvil.yaml: startup module). The language pack first (i18n waits for the head… · 
-- `client_code/state.py` (171 lines): App-wide client state and small helpers every form uses. · me L23, set_me L27, logged_in L31, is_admin L35, home_route L40, refresh_me L46, counts L59, set_counts L63, remember_after L67, take_after L71, need_sign_in L77, toast L84, dom L93, set_attr L97, store_get L107, store_set L112, feedback L116, control L125, focus L133, set_control_attr L138, heading L147, live L153, refocus_later L158, date_box L168
-- `client_code/ui.py` (237 lines): Shared constants (mirroring the server), formatting, chips and the server-call wrapper. · dd_items L58, chip_roles L65, chip L74, status_chip L80, priority_chip L85, first_name L92, local L98, now_local L109, fmt_date L113, fmt_dt L120, ago L127, money L146, date_iso L152, parse_date L158, greeting L168, set_meta L179, reveal L186, spy L194, scroll_to L202, scroll_into_view L209, call L218
+**Components/**
+- `Components/Avatar` (48/18): A round avatar: initials in the person's colour; consultants get the ink circle with a gr…
+- `Components/Progress` (43/18): A progress bar (blue while in progress, green when done).
+- `Components/RequestForm` (65/35): The fields of a new request (#new, and the console's "New request for a client" dialog).
+- `Components/Seg` (55/25): Segmented choice: a row of buttons, one chosen (the old .seg). choices = [(value, label)].
+- `Components/Shot` (34/14): A project's preview (portfolio.shot_html: the SVG "engine" or a framed screenshot), on th…
+
+**Dialogs/**
+- `Dialogs/AuthBox` (140/21): Sign in (#login) or create a workspace (#signup), shown over the landing page. alert() re… · calls update_me
+- `Dialogs/NewForClient` (32/10): Console: create a request on a client's behalf. alert() returns the new request's id, or… · calls admin_create_request
+- `Dialogs/PromptText` (36/10): Ask for a few words (a client asking for changes). alert() returns the text, or None if c…
+
+**Items/**
+- `Items/AppNavLink` (20/1): A workspace menu link in the header. item = {href, icon, label, count, sm_only, on} (Shel…
+- `Items/AttnRow` (19/1): A request waiting for the client (a quote to approve or a delivery to accept). item = a r…
+- `Items/BoardCard` (27/1): A request card on the console's board (opens the request). item = a request dict.
+- `Items/BoardColumn` (20/1): A status column of the console's board. item = {status, requests}.
+- `Items/GuideCard` (43/13): A free guide: cover, what's inside, and either "Get it free" (asks for the email first) o…
+- `Items/GuideLink` (21/1): An unlocked guide in the "Your guides are ready" list. item = {slug, num, title, url}.
+- `Items/KvRow` (15/1): A label / value line in a request's Details card. item = {k, v, first}.
+- `Items/LangLink` (21/1): One language in an "Other languages:" row (the film or the partner deck in another langua…
+- `Items/LeadCard` (51/18): A website lead (a project brief, or someone who asked for the free guides): status, reply… · calls admin_update_lead
+- `Items/NoteItem` (54/9): One entry in a request's activity: a status change (a quiet system line) or a note / comm…
+- `Items/PersonCard` (60/17): A client (or consultant) in the console: contact, activity, numbers, and what a consultan… · calls admin_set_user
+- `Items/Pill` (34/1): A filter / view button in a row of pills (.pills, .lp-filter, the leads filter). item = {…
+- `Items/ProofLink` (21/1): One product in the "Built & running" marquee. item = {key, hidden}: the second copy (whic…
+- `Items/RequestRow` (43/1): A request in a list (the client's dashboard, or the console with the client column when i…
+- `Items/SegOption` (22/1): One button of a segmented choice. item = {value, label, on}.
+- `Items/ShowcaseCard` (45/18): A home-page case study. item = {key, i}: alternate cards put the preview on the other sid…
+- `Items/Step` (14/1): One stage of a request's stepper. item = {label, state: "done" | "cur" | ""}.
+- `Items/Tag` (13/1): A small tag (a project's tech or kind). item = {text} (already translated). Plain text, s…
+- `Items/Tick` (11/1): A ticked line in a list (what we built, what's in a guide). item = {text} (already transl…
+- `Items/Tile` (26/1): A count tile that filters the list below it (portal, console). item = {key, value, label,…
+- `Items/WorkDetail` (18/16): The opened part of a Work index row: preview, the rest of the blurb, what we built, tags,…
+- `Items/WorkGroup` (19/1): A category of the Work index: its heading and its projects. item = {key, label, keys, fir…
+- `Items/WorkRow` (39/11): One project in the Work index: a row that opens in place (native <details>). The opened p…
+
+**Layouts/**
+- `Layouts/Shell` (191/119): The frame around every page: the header (six chapter links for visitors, the workspace me… · calls poll_counts
+
+**Page internals** (methods of the bigger pages)
+- `Pages/Admin`: __init__ L17, _head L49, show_requests L54, _draw_requests L61, _filtered L88, _draw_list L108, _set_filter L119, _set_view L123, client_dd_change L128, search_box_change L133, new_button_click L138, _new_for L141, _clients L153, show_clients L159, _client_requests L170, show_leads L176, _set_lead_filter L197, csv_button_click L202, show_tools L208, seed_button_click L212, clear_button_click L216, _tool L220
+- `Pages/Landing`: spot_items L12, __init__ L20, form_show L55, shuffle_button_click L61, play_click L67, rebuild_click L71, _ws_tab L78, ws_client_click L84, ws_admin_click L87, _lead_fail L91, lead_send_click L96
+- `Pages/RequestDetail`: __init__ L13, admin L36, _apply L39, _draw L47, _steps L80, _banner L89, _composer L137, _manage L152, _details L169, range_input L180, act1_click L184, act2_click L188, _act L191, _client_action L215, _quick_status L234, post_button_click L241, save_button_click L259, delete_button_click L277
+
+**Client modules** (`client_code/*.py`)
+- `content.py` (87 lines): Landing-page data that depends on the visitor's language or is shared by several pages: the films,… · deck L37, film_url L44, other_languages L48, guide_cover L79
+- `i18n.py` (282 lines): Translations: English (built in), French, Russian and Latvian. · _stored L33, _load L45, _no_double_dot L76, t L84, _form L98, tn L114, month L136, date_text L140, money L146, server_text L176, set_lang L203, plain L222, tp L229, _components L241, _props L264, apply L277
+- `legal.py` (92 lines): Privacy & Terms: connects the shared LegalKit page (legal-kit.js) to this app's server. · _kit L20, _accept L27, setup L36, refresh L50, refresh_soon L64, signed_out L72, open L78, consent_field L84, consent_ok L89
+- `portfolio.py` (1661 lines): Portfolio: projects we've shipped, with illustrated previews (inline SVG) or real screenshots ('art… · _browser L426, _phone L438, art_planplate L448, art_varnote L474, art_blog L504, art_map L528, art_bun L547, art_piano L574, art_pound L602, art_parrot L626, art_resto L645, _pin L672, art_monshop L678, _brownie L712, art_family L718, art_screenplay L763, art_lyrics L819, art_rooms L871, art_models L925, art_feedback L970, art_boxing L1027, _cube L1063, art_cubes L1082, art_party L1109, art_pan L1156, … +24 more
+- `router.py` (186 lines): Page addresses (the same as the old app, so shared links keep working): · current L29, go L34, shell L43, _open L47, _landing L57, open_auth L74, after_sign_in L88, show L99, _private L148, _on_hash L177, start L181
+- `startup.py` (10 lines): The app starts here (anvil.yaml: startup module). The language pack first (i18n waits for the head… · 
+- `state.py` (171 lines): App-wide client state and small helpers every form uses. · me L23, set_me L27, logged_in L31, is_admin L35, home_route L40, refresh_me L46, counts L59, set_counts L63, remember_after L67, take_after L71, need_sign_in L77, toast L84, dom L93, set_attr L97, store_get L107, store_set L112, feedback L116, control L125, focus L133, set_control_attr L138, heading L147, live L153, refocus_later L158, date_box L168
+- `ui.py` (237 lines): Shared constants (mirroring the server), formatting, chips and the server-call wrapper. · dd_items L58, chip_roles L65, chip L74, status_chip L80, priority_chip L85, first_name L92, local L98, now_local L109, fmt_date L113, fmt_dt L120, ago L127, money L146, date_iso L152, parse_date L158, greeting L168, set_meta L179, reveal L186, spy L194, scroll_to L202, scroll_into_view L209, call L218
 
 **JavaScript** (function index)
 - `theme/assets/aa.js` (119 lines): reveal L5, scrollTo L25, setMeta L33, copy L48, spyRun L67, spy L78, markNav L89, playFilm L96, filterWork L109
