@@ -27,7 +27,7 @@ LANGS = [('en', 'English'), ('fr', 'Français'), ('ru', 'Русский'), ('lv'
 CODES = [c for c, _n in LANGS]
 NAMES = dict(LANGS)
 STORAGE_KEY = 'aa.lang'
-VERSION = '17'
+VERSION = '18'
 
 
 def _stored():

@@ -224,7 +224,7 @@ native_deps:
       try { l = localStorage.getItem('aa.lang'); } catch (e) {}
       if (l === 'fr' || l === 'ru' || l === 'lv') {
         document.documentElement.lang = l;
-        window.aaLangPack = fetch('_/theme/lang-' + l + '.json?v=17').then(function (r) {
+        window.aaLangPack = fetch('_/theme/lang-' + l + '.json?v=18').then(function (r) {
           if (!r.ok) throw new Error('lang ' + r.status);
           return r.text();
         }).then(function (t) {
@@ -1340,6 +1340,48 @@ native_deps:
          "position": 31,
          "item": {
           "@type": "SoftwareApplication",
+          "name": "Humbeat",
+          "url": "https://humbeat.anvil.app",
+          "description": "Hum a tune and it becomes a song. Pick one of 18 styles from hopecore to heavy metal for a full arrangement, record your voice with auto-tune, and turn a hummed melody into any of 26 instruments, all in the browser.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Creative tools, Web Audio, Voice, Useful tools",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "Humbeat in about a minute",
+           "description": "Humbeat is a free music studio in your browser for people who have never made a song. Pick a style, sing with auto-tune, and hum a melody that turns into any instrument.",
+           "thumbnailUrl": "https://i.ytimg.com/vi/YKVGdvY_VAk/hqdefault.jpg",
+           "uploadDate": "2026-11-06T19:29:42+00:00",
+           "embedUrl": "https://www.youtube.com/embed/YKVGdvY_VAk",
+           "url": "https://www.youtube.com/watch?v=YKVGdvY_VAk",
+           "duration": "PT1M13S"
+          }
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 32,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "CarChoice",
+          "url": "https://carchoice.anvil.app",
+          "description": "Hundreds of cars narrowed down to your five. Filter 268 models from 52 brands by price, power, range, cargo, seats and towing, compare a shortlist side by side, then search the marketplaces and check whether a listing is priced fairly.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Reference, Analytics, No account needed, Useful tools",
+          "applicationCategory": "UtilitiesApplication",
+          "operatingSystem": "Web"
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 33,
+         "item": {
+          "@type": "SoftwareApplication",
           "name": "C-Suite Coach",
           "url": "https://csuite-coach.anvil.app",
           "description": "Executive training for current and future C-suite leaders. Members study 24 real business cases, drill with spaced repetition, practise boardroom decisions in written challenges and earn certificates with public verification codes.",
@@ -1363,7 +1405,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 32,
+         "position": 34,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Osinty",
@@ -1389,7 +1431,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 33,
+         "position": 35,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Business Buddy",
@@ -1415,7 +1457,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 34,
+         "position": 36,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Jev Buddy",
@@ -1441,7 +1483,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 35,
+         "position": 37,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Tai Chi Please",
@@ -1467,7 +1509,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 36,
+         "position": 38,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Brain Mechanic",
@@ -1493,7 +1535,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 37,
+         "position": 39,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Little Hero Books",
@@ -1519,7 +1561,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 38,
+         "position": 40,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Subsudo",
@@ -1545,7 +1587,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 39,
+         "position": 41,
          "item": {
           "@type": "SoftwareApplication",
           "name": "QuickyBricks",
@@ -1571,7 +1613,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 40,
+         "position": 42,
          "item": {
           "@type": "SoftwareApplication",
           "name": "ToonyLoony",
@@ -1597,7 +1639,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 41,
+         "position": 43,
          "item": {
           "@type": "SoftwareApplication",
           "name": "BusyBun",
@@ -1623,7 +1665,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 42,
+         "position": 44,
          "item": {
           "@type": "SoftwareApplication",
           "name": "DoremiRoad",
@@ -1649,7 +1691,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 43,
+         "position": 45,
          "item": {
           "@type": "SoftwareApplication",
           "name": "City Fun Time",
@@ -1675,7 +1717,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 44,
+         "position": 46,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Mafia Camp",
@@ -1701,7 +1743,49 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 45,
+         "position": 47,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "PhotoHunt",
+          "url": "https://photohunt.anvil.app",
+          "description": "A birthday photo treasure hunt, set up in five minutes. Snap things around the house, the kids join by scanning a QR code and race to find and photograph them, with voice riddles, 100 party tasks and photo bingo for the little ones.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "Kids, Family, Image processing, Engaging games",
+          "applicationCategory": "GameApplication",
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "PhotoHunt in about a minute",
+           "description": "PhotoHunt turns your house into a photo treasure hunt for a kids' birthday party. Snap a few things with your phone, show the code, and the kids race around with a tablet to find and photograph them.",
+           "thumbnailUrl": "https://i.ytimg.com/vi/FHK7txELJ58/hqdefault.jpg",
+           "uploadDate": "2026-11-08T18:32:30+00:00",
+           "embedUrl": "https://www.youtube.com/embed/FHK7txELJ58",
+           "url": "https://www.youtube.com/watch?v=FHK7txELJ58",
+           "duration": "PT1M7S"
+          }
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 48,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "Campfire",
+          "url": "https://campfire.anvil.app",
+          "description": "A campfire that never burns the same way twice. The flames come from a live fluid simulation, logs dry, char and fall in, and every crackle is made on the spot, across three campsites with their own night sounds and a sleep timer.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "GPU pipeline, Web Audio, No account needed, Engaging games",
+          "applicationCategory": "GameApplication",
+          "operatingSystem": "Web"
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 49,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Snackpuncher",
@@ -1727,7 +1811,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 46,
+         "position": 50,
          "item": {
           "@type": "SoftwareApplication",
           "name": "WallTracer",
@@ -1753,7 +1837,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 47,
+         "position": 51,
          "item": {
           "@type": "SoftwareApplication",
           "name": "MrBigStage",
@@ -1779,7 +1863,33 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 48,
+         "position": 52,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "VRtoToon",
+          "url": "https://vrtotoon.anvil.app",
+          "description": "A cartoon studio where one actor plays every role. Perform each character yourself in a VR headset or with the mouse, direct the takes on your computer, and export video, subtitles or a Blender kit.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "VR, Animation, Creative tools, VR & mixed reality",
+          "applicationCategory": "GameApplication",
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "VRtoToon in about a minute",
+           "description": "VRtoToon is a free cartoon studio in your browser where one actor plays every role. Put on a VR headset and your head, hands and voice drive a 3D toon; then play the next character while the first one acts around you.",
+           "thumbnailUrl": "https://i.ytimg.com/vi/wXfPmsZW_tA/hqdefault.jpg",
+           "uploadDate": "2026-11-04T07:21:48+00:00",
+           "embedUrl": "https://www.youtube.com/embed/wXfPmsZW_tA",
+           "url": "https://www.youtube.com/watch?v=wXfPmsZW_tA",
+           "duration": "PT1M16S"
+          }
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 53,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Topameal",
@@ -1805,7 +1915,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 49,
+         "position": 54,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Logsteps",
@@ -1831,7 +1941,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 50,
+         "position": 55,
          "item": {
           "@type": "SoftwareApplication",
           "name": "PoundFighter",
@@ -1857,7 +1967,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 51,
+         "position": 56,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Parapeet",
@@ -1883,7 +1993,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 52,
+         "position": 57,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Dilettante",
@@ -1899,7 +2009,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 53,
+         "position": 58,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Arkvital",

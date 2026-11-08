@@ -362,6 +362,37 @@ PROJECTS: list = [  # each project: a dict of plain values (see the first one)
     'built': ['Ten-way video call, peer to peer in the browser', 'Secret roles, night moves and day votes run by the server', 'Private night channels and a ghost chat for players who are out'],
     'tags': ['Game', 'Live video', 'Multiplayer'], 'color': '#FF8A3D', 'bg': '#0D1530', 'art': 'shot',
   },
+  # Added 2026-11-08: Humbeat, CarChoice, PhotoHunt, Campfire, VRtoToon (screenshots from the App Board).
+  {
+    'key': 'humbeat', 'name': 'Humbeat', 'domain': 'humbeat.anvil.app', 'cat': 'tools',
+    'blurb': 'Hum a tune and it becomes a song. Pick one of 18 styles from hopecore to heavy metal for a full arrangement, record your voice with auto-tune, and turn a hummed melody into any of 26 instruments, all in the browser.',
+    'built': ['18 styles with full arrangements', 'Voice recording with auto-tune, harmonies and effects on the device', 'Hum-to-notes and beatbox-to-drums, with WAV and MIDI export'],
+    'tags': ['Creative tools', 'Web Audio', 'Voice'], 'color': '#C40E54', 'bg': '#FBEFF3', 'art': 'shot',
+  },
+  {
+    'key': 'carchoice', 'name': 'CarChoice', 'domain': 'carchoice.anvil.app', 'cat': 'tools',
+    'blurb': 'Hundreds of cars narrowed down to your five. Filter 268 models from 52 brands by price, power, range, cargo, seats and towing, compare a shortlist side by side, then search the marketplaces and check whether a listing is priced fairly.',
+    'built': ['268 models in one sortable table with 44 filters', 'A shortlist of five, compared side by side', 'Marketplace searches in six regions with a fair-price check'],
+    'tags': ['Reference', 'Analytics', 'No account needed'], 'color': '#1F5F8B', 'bg': '#F4F5F2', 'art': 'shot',
+  },
+  {
+    'key': 'photohunt', 'name': 'PhotoHunt', 'domain': 'photohunt.anvil.app', 'cat': 'games',
+    'blurb': 'A birthday photo treasure hunt, set up in five minutes. Snap things around the house, the kids join by scanning a QR code and race to find and photograph them, with voice riddles, 100 party tasks and photo bingo for the little ones.',
+    'built': ['Photo hunts, voice riddles, party tasks and photo bingo', 'Kids join with a QR code, with no app or account', 'Photo matching with a grown-up check, a live board and a party album'],
+    'tags': ['Kids', 'Family', 'Image processing'], 'color': '#C2255C', 'bg': '#FFF4F6', 'art': 'shot',
+  },
+  {
+    'key': 'campfire', 'name': 'Campfire', 'domain': 'campfire.anvil.app', 'cat': 'games',
+    'blurb': 'A campfire that never burns the same way twice. The flames come from a live fluid simulation, logs dry, char and fall in, and every crackle is made on the spot, across three campsites with their own night sounds and a sleep timer.',
+    'built': ['Live GPU fluid-simulated flames, never a loop', 'Nine woods that dry, catch, char and fall in', 'Crackles made live, three campsites and a sleep timer'],
+    'tags': ['GPU pipeline', 'Web Audio', 'No account needed'], 'color': '#A8461A', 'bg': '#F3E7DA', 'art': 'shot',
+  },
+  {
+    'key': 'vrtotoon', 'name': 'VRtoToon', 'domain': 'vrtotoon.anvil.app', 'cat': 'vr',
+    'blurb': 'A cartoon studio where one actor plays every role. Perform each character yourself in a VR headset or with the mouse, direct the takes on your computer, and export video, subtitles or a Blender kit.',
+    'built': ['25 toon characters with lip sync from your voice, in VR or as a desk puppet', 'A script-driven timeline with an auto-director and 10 sets', 'Export to 1080p or vertical video, subtitles and Blender'],
+    'tags': ['VR', 'Animation', 'Creative tools'], 'color': '#B3182B', 'bg': '#F7F1E6', 'art': 'shot',
+  },
 ]
 
 # One-minute films on the Addanapp YouTube channel (youtube.com/@addanapp); ids from APP_MAKER/youtube/manifest.json.
@@ -416,6 +447,9 @@ VIDEOS = {
   'littleherobooks': 'lpY_f2LUTdI',
   'cityfuntime': '-Eenu0iTZXI',
   'mafiacamp': 'gDPcBrwAhtI',
+  'humbeat': 'YKVGdvY_VAk',
+  'photohunt': 'FHK7txELJ58',
+  'vrtotoon': 'wXfPmsZW_tA',
 }
 
 # ------------------------------------------------------------------ illustrations

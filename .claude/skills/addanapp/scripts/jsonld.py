@@ -10,7 +10,7 @@ APP = Path(__file__).resolve().parents[4]  # the addanapp repo
 # load portfolio.py with stand-ins for its sibling modules
 pkg = types.ModuleType("aa"); pkg.__path__ = []; sys.modules["aa"] = pkg
 for name, attrs in {"ui": {"esc": lambda s: s}, "icons": {"icon": lambda *a, **k: ""},
-                    "i18n": {"t": lambda s, **k: s.format(**k) if k else s, "tn": lambda n, a, b, **k: (a if n == 1 else b).format(n=n)}}.items():
+                    "i18n": {"t": lambda s, **k: s.format(**k) if k else s, "tp": lambda s, **k: s.format(**k) if k else s, "tn": lambda n, a, b, **k: (a if n == 1 else b).format(n=n)}}.items():
   m = types.ModuleType("aa." + name); m.__dict__.update(attrs); sys.modules["aa." + name] = m
 spec = importlib.util.spec_from_file_location("aa.portfolio", APP / "client_code/portfolio.py")
 pf = importlib.util.module_from_spec(spec); sys.modules["aa.portfolio"] = pf; spec.loader.exec_module(pf)
