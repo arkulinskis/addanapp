@@ -166,7 +166,7 @@ class Shell(ShellTemplate):
             self.shell.classes["nav-open"] = False  # a link in the phone menu was chosen
 
     def _key(self, event):
-        if event.key == "Escape":
+        if getattr(event, "key", None) == "Escape":
             self.close_menus()
 
     @handle("", "show")
