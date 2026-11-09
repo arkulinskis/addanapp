@@ -1539,8 +1539,8 @@ native_deps:
          "item": {
           "@type": "SoftwareApplication",
           "name": "Little Hero Books",
-          "url": "https://little-hero-books.anvil.app",
-          "description": "Picture books that star your child. Parents design a cartoon look-alike, pick one of eight classic fairy tales retold for ages 3 to 6, and the child is drawn into every page, ready to read aloud or download as a print-ready PDF.",
+          "url": "https://littleheroapp.com",
+          "description": "Picture books that star your child. Parents design a cartoon look-alike, pick one of twelve classic fairy tales retold for ages 3 to 6, and the child is drawn into every page, ready to read aloud, colour in, repaint in six art styles or download as a print-ready PDF.",
           "creator": {
            "@id": "https://addanapp.com/#org"
           },

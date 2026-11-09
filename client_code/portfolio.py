@@ -345,9 +345,9 @@ PROJECTS: list = [  # each project: a dict of plain values (see the first one)
     'tags': ['Wellness', 'Reference', 'Self-checks'], 'color': '#A8792F', 'bg': '#F2EADC', 'art': 'shot',
   },
   {
-    'key': 'littleherobooks', 'name': 'Little Hero Books', 'domain': 'little-hero-books.anvil.app', 'cat': 'learn',
-    'blurb': 'Picture books that star your child. Parents design a cartoon look-alike, pick one of eight classic fairy tales retold for ages 3 to 6, and the child is drawn into every page, ready to read aloud or download as a print-ready PDF.',
-    'built': ['Hero studio for a cartoon look-alike', 'Eight public-domain tales with scenes drawn in code', 'Reader with read-aloud and an 8 x 8 inch PDF'],
+    'key': 'littleherobooks', 'name': 'Little Hero Books', 'domain': 'littleheroapp.com', 'cat': 'learn',
+    'blurb': 'Picture books that star your child. Parents design a cartoon look-alike, pick one of twelve classic fairy tales retold for ages 3 to 6, and the child is drawn into every page, ready to read aloud, colour in, repaint in six art styles or download as a print-ready PDF.',
+    'built': ['Hero studio for a cartoon look-alike', 'Twelve public-domain tales with scenes drawn in code', 'Reader with read-aloud, colouring, painting and print-ready PDFs'],
     'tags': ['Kids', 'Books', 'PDF'], 'color': '#EF5A36', 'bg': '#FFF8EC', 'art': 'shot',
   },
   {
