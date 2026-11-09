@@ -399,6 +399,12 @@ PROJECTS: list = [  # each project: a dict of plain values (see the first one)
     'built': ['Seven programs, 28 modules and 252 drills', 'Labs for token costs, chunking, hybrid retrieval and judge calibration', 'Certificates with public verification codes'],
     'tags': ['EdTech', 'AI', 'Certification'], 'color': '#0B6E5B', 'bg': '#F6F7F9', 'art': 'shot',
   },
+  {
+    'key': 'productexpert', 'name': 'Product Expert', 'domain': 'productexpert.anvil.app', 'cat': 'learn',
+    'blurb': 'Free training for product managers ready to lead product. Eight programs cover strategy, discovery and experiments, metrics and pricing, the P&L, org design, executive influence and AI products, with 288 drills, in-browser labs, 22 real case files and certificates anyone can verify.',
+    'built': ['Eight programs, 32 modules and 288 drills', 'Labs for experiment peeking, metric trees, cohorts and pricing', '22 sourced product leadership case files'],
+    'tags': ['EdTech', 'Product leadership', 'Certification'], 'color': '#2340A8', 'bg': '#F4F5F7', 'art': 'shot',
+  },
 ]
 
 # One-minute films on the Addanapp YouTube channel (youtube.com/@addanapp); ids from APP_MAKER/youtube/manifest.json.
@@ -456,6 +462,8 @@ VIDEOS = {
   'humbeat': 'YKVGdvY_VAk',
   'photohunt': 'FHK7txELJ58',
   'vrtotoon': 'wXfPmsZW_tA',
+  'aiexpert': 'bZcM4sIz4kQ',
+  'productexpert': 'wPLbvs9qoKU',
 }
 
 # ------------------------------------------------------------------ illustrations

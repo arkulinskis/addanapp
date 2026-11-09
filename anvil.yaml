@@ -224,7 +224,7 @@ native_deps:
       try { l = localStorage.getItem('aa.lang'); } catch (e) {}
       if (l === 'fr' || l === 'ru' || l === 'lv') {
         document.documentElement.lang = l;
-        window.aaLangPack = fetch('_/theme/lang-' + l + '.json?v=19').then(function (r) {
+        window.aaLangPack = fetch('_/theme/lang-' + l + '.json?v=20').then(function (r) {
           if (!r.ok) throw new Error('lang ' + r.status);
           return r.text();
         }).then(function (t) {
@@ -1572,12 +1572,48 @@ native_deps:
           },
           "keywords": "EdTech, AI, Certification, Learning & guides",
           "applicationCategory": "EducationalApplication",
-          "operatingSystem": "Web"
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "AI Expert in about a minute",
+           "description": "AI Expert is free training and certification for AI engineers who want their AI products to hold up in production, not just in a demo: seven programs, sourced briefings, drills, browser labs, real incident files and exams with certificates anyone can verify.",
+           "thumbnailUrl": "https://i.ytimg.com/vi/bZcM4sIz4kQ/hqdefault.jpg",
+           "uploadDate": "2026-11-09T01:03:05-08:00",
+           "embedUrl": "https://www.youtube.com/embed/bZcM4sIz4kQ",
+           "url": "https://www.youtube.com/watch?v=bZcM4sIz4kQ",
+           "duration": "PT1M19S"
+          }
          }
         },
         {
          "@type": "ListItem",
          "position": 41,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "Product Expert",
+          "url": "https://productexpert.anvil.app",
+          "description": "Free training for product managers ready to lead product. Eight programs cover strategy, discovery and experiments, metrics and pricing, the P&L, org design, executive influence and AI products, with 288 drills, in-browser labs, 22 real case files and certificates anyone can verify.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "EdTech, Product leadership, Certification, Learning & guides",
+          "applicationCategory": "EducationalApplication",
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "Product Expert in about a minute",
+           "description": "Product Expert is free, senior-level training and certification for product managers preparing to become a Director of Product: eight programs, sourced briefings, \"Director's call?\" drills, browser labs, real case files and exams with certificates anyone can verify.",
+           "thumbnailUrl": "https://i.ytimg.com/vi/wPLbvs9qoKU/hqdefault.jpg",
+           "uploadDate": "2026-11-09T01:03:12-08:00",
+           "embedUrl": "https://www.youtube.com/embed/wPLbvs9qoKU",
+           "url": "https://www.youtube.com/watch?v=wPLbvs9qoKU",
+           "duration": "PT1M34S"
+          }
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 42,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Subsudo",
@@ -1603,7 +1639,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 42,
+         "position": 43,
          "item": {
           "@type": "SoftwareApplication",
           "name": "QuickyBricks",
@@ -1629,7 +1665,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 43,
+         "position": 44,
          "item": {
           "@type": "SoftwareApplication",
           "name": "ToonyLoony",
@@ -1655,7 +1691,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 44,
+         "position": 45,
          "item": {
           "@type": "SoftwareApplication",
           "name": "BusyBun",
@@ -1681,7 +1717,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 45,
+         "position": 46,
          "item": {
           "@type": "SoftwareApplication",
           "name": "DoremiRoad",
@@ -1707,7 +1743,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 46,
+         "position": 47,
          "item": {
           "@type": "SoftwareApplication",
           "name": "City Fun Time",
@@ -1733,7 +1769,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 47,
+         "position": 48,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Mafia Camp",
@@ -1759,7 +1795,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 48,
+         "position": 49,
          "item": {
           "@type": "SoftwareApplication",
           "name": "PhotoHunt",
@@ -1785,7 +1821,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 49,
+         "position": 50,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Campfire",
@@ -1801,7 +1837,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 50,
+         "position": 51,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Snackpuncher",
@@ -1827,7 +1863,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 51,
+         "position": 52,
          "item": {
           "@type": "SoftwareApplication",
           "name": "WallTracer",
@@ -1853,7 +1889,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 52,
+         "position": 53,
          "item": {
           "@type": "SoftwareApplication",
           "name": "MrBigStage",
@@ -1879,7 +1915,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 53,
+         "position": 54,
          "item": {
           "@type": "SoftwareApplication",
           "name": "VRtoToon",
@@ -1905,7 +1941,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 54,
+         "position": 55,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Topameal",
@@ -1931,7 +1967,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 55,
+         "position": 56,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Logsteps",
@@ -1957,7 +1993,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 56,
+         "position": 57,
          "item": {
           "@type": "SoftwareApplication",
           "name": "PoundFighter",
@@ -1983,7 +2019,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 57,
+         "position": 58,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Parapeet",
@@ -2009,7 +2045,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 58,
+         "position": 59,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Dilettante",
@@ -2025,7 +2061,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 59,
+         "position": 60,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Arkvital",
