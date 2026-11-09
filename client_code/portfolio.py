@@ -393,6 +393,12 @@ PROJECTS: list = [  # each project: a dict of plain values (see the first one)
     'built': ['25 toon characters with lip sync from your voice, in VR or as a desk puppet', 'A script-driven timeline with an auto-director and 10 sets', 'Export to 1080p or vertical video, subtitles and Blender'],
     'tags': ['VR', 'Animation', 'Creative tools'], 'color': '#B3182B', 'bg': '#F7F1E6', 'art': 'shot',
   },
+  {
+    'key': 'aiexpert', 'name': 'AI Expert', 'domain': 'aiexpert.anvil.app', 'cat': 'learn',
+    'blurb': 'Free training for engineers who build AI that holds up in production. Seven programs cover context engineering, production RAG, agents, evals, security and LLMOps, with 252 drills, hands-on labs, 18 real incident files and certificates anyone can verify.',
+    'built': ['Seven programs, 28 modules and 252 drills', 'Labs for token costs, chunking, hybrid retrieval and judge calibration', 'Certificates with public verification codes'],
+    'tags': ['EdTech', 'AI', 'Certification'], 'color': '#0B6E5B', 'bg': '#F6F7F9', 'art': 'shot',
+  },
 ]
 
 # One-minute films on the Addanapp YouTube channel (youtube.com/@addanapp); ids from APP_MAKER/youtube/manifest.json.
