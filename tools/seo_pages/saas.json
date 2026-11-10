@@ -1,0 +1,206 @@
+{
+  "key": "saas",
+  "service_type": "SaaS development",
+  "en": {
+    "slug": "/saas-development",
+    "title": "SaaS Development in Montréal at a Fixed Price | Addanapp",
+    "description": "Multi-tenant SaaS built in Montréal: per-customer settings, feature flags, white-labelling and Stripe billing. Fixed price per milestone, paid on acceptance.",
+    "h1": "SaaS development: a multi-tenant product your customers can configure",
+    "intro": [
+      "Addanapp builds configurable, multi-tenant SaaS products for founders and companies turning an internal tool or a service into software they sell. Each customer gets its own space, settings and, if you want, its own branding, all on one codebase your team can maintain.",
+      "Addanapp is a Montréal software consultancy serving clients in Canada, the US and Europe, in English and French. Every delivery is built with AI acceleration, signed off by a senior engineer, quoted at a fixed price and invoiced only on acceptance. See [pricing](/pricing)."
+    ],
+    "sections": [
+      {
+        "h2": "What SaaS development with Addanapp includes",
+        "bullets": [
+          "**Multi-tenancy:** each customer organization's data kept separate, with its own users and roles.",
+          "**Per-customer settings:** fields, workflows, labels and limits configured without code changes.",
+          "**Feature flags:** features switched on per plan, per customer or for a test group.",
+          "**White-labelling:** a customer's logo, colours and domain where your model calls for it.",
+          "**Subscription and usage billing** through Stripe: plans, trials, invoices and metered usage.",
+          "**A SaaS admin panel** for your team to manage customers, plans and support. See [admin panel development](/admin-panel-development).",
+          "**Self-serve onboarding:** sign-up, teammate invitations and first setup."
+        ],
+        "paragraphs": [
+          "For users on the go, the product can be a mobile-first installable web app with offline mode, camera and push notifications."
+        ]
+      },
+      {
+        "h2": "Custom app or SaaS: which one do you need?",
+        "paragraphs": [
+          "If one organization will use the software, a custom web app or a [client portal](/client-portal-development) is simpler and costs less. SaaS makes sense when you will sell the same product to many organizations with similar needs. Multi-tenancy adds real work: data isolation, settings, billing and onboarding.",
+          "A sensible middle path: launch with one pilot customer, but make the data model tenant-aware from day one. Adding tenancy to a finished app later usually means rebuilding its foundations."
+        ]
+      },
+      {
+        "h2": "How a SaaS project works with Addanapp",
+        "bullets": [
+          "**Discovery workshop:** who pays, who uses the product, what differs between customers, and how you will charge.",
+          "**Fixed quote and ETA:** approved by you in your private workspace before work starts.",
+          "**Build and review:** built with AI acceleration; a senior engineer reviews the code, tests tenant isolation and signs off.",
+          "**Acceptance:** you try the delivery with real accounts, guided by the engineer's progress notes, and are invoiced once you accept.",
+          "**Launch and learn:** first customers onboard, and their feedback shapes the next milestone."
+        ]
+      },
+      {
+        "h2": "How fixed-price milestones apply to a SaaS build",
+        "paragraphs": [
+          "Addanapp projects run from $30,000 to $300,000 CAD in fixed-price milestones, each quoted before it starts and invoiced only on acceptance. You can stop after any milestone and keep the code, data and documentation. For SaaS, a typical sequence is:"
+        ],
+        "bullets": [
+          "**Launch ($30,000, about 6–8 weeks):** the core workflow end to end, accounts and roles, a tenant-aware data model and a basic admin, live and ready for pilot customers.",
+          "**Operate (+$45,000, total $75,000):** Stripe billing, email notifications, the integrations customers ask for (accounting, CRM) and first reports.",
+          "**Scale (+$75,000, total $150,000):** a second user group (your customers' own clients through a portal, or a staff app), dashboards, automation, performance work, a security review, a Law 25 privacy file and WCAG 2.2 AA accessibility.",
+          "**Complete (+$150,000, total $300,000):** the remaining roadmap, an installable mobile app, data migration from old systems, training, documentation, monitoring and 12 months of support. Hosting and payment fees are billed at cost."
+        ]
+      },
+      {
+        "h2": "SaaS-style products Addanapp has built",
+        "paragraphs": [
+          "Addanapp has built 60 live products, several of them platforms serving many businesses: **Health Booker**, a multi-studio yoga booking marketplace with a studio back office; **ArviStay**, a hotel website builder; **PlanPlate**, a restaurant bookings platform; **Prepsto**, a feedback and ticket platform with an API; **Fillfox**, a form builder. See [addanapp.com/#work](https://addanapp.com/#work)."
+        ]
+      },
+      {
+        "h2": "Mistakes to avoid when building a SaaS product",
+        "bullets": [
+          "**Coding each customer's special request into the core.** Use settings and feature flags, or the product splinters.",
+          "**Skipping tenant isolation tests.** One customer seeing another's data is the most damaging bug a SaaS can ship.",
+          "**Hard-coding prices and plans.** You will change them.",
+          "**No support tools.** Without an admin panel, engineers end up doing customer support.",
+          "**Ignoring privacy.** Québec customers will ask how you handle personal data. See [Law 25-ready apps](/law-25-compliant-apps) (general information, not legal advice)."
+        ]
+      },
+      {
+        "h2": "How to choose a SaaS development partner",
+        "paragraphs": [
+          "Ask who owns the code (with Addanapp, you do), how tenant isolation is tested, whether prices are fixed per stage, and whether you can stop without penalty. Check too that the partner can connect your product to your customers' tools; see [API integration](/api-integration-development)."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "How much does it cost to build a SaaS product?",
+        "With Addanapp, a SaaS build starts with the Launch milestone at $30,000 CAD: the core workflow, accounts, a tenant-aware data model and a basic admin, live in about 6–8 weeks. Products grow through fixed-price milestones up to $300,000 CAD. Each milestone is quoted before it starts and invoiced only once you accept it."
+      ],
+      [
+        "Can you build subscription and usage-based billing?",
+        "Yes. Addanapp builds billing on Stripe, including plans, free trials, invoices and usage-based (metered) pricing. Plans and prices stay configurable, so you can change your pricing without new code. Third-party fees such as Stripe's processing fees are billed at cost."
+      ],
+      [
+        "Can each customer have its own branding?",
+        "Yes. White-labelling lets each customer organization show its own logo, colours and, where needed, its own domain, while every customer runs on the same codebase. Addanapp sets this up as a per-customer setting, so your team can brand a new customer without an engineer."
+      ],
+      [
+        "Can you turn our existing single-client app into SaaS?",
+        "Often, yes. Addanapp reviews the current app, then plans either a refactor or a rebuild with a tenant-aware foundation, migrating existing data. For example, Parapeet, a 2023 app, was rebuilt from scratch with every player's progress kept. The fixed quote states which approach we recommend and why."
+      ]
+    ],
+    "cta": {
+      "heading": "Get a fixed quote for your SaaS product",
+      "text": "Tell us who your customers are and what each needs to configure. We will reply with a fixed quote and a timeline for the Launch milestone.",
+      "button": "Get a fixed quote"
+    }
+  },
+  "fr": {
+    "slug": "/fr/developpement-saas",
+    "title": "Développement SaaS à Montréal, à prix fixe | Addanapp",
+    "description": "SaaS multi-clients développé à Montréal : paramètres par client, marque blanche, facturation Stripe. Prix fixe par étape, payé seulement à l'acceptation.",
+    "h1": "Développement SaaS : un logiciel multi-clients que chaque client configure",
+    "intro": [
+      "Addanapp développe des produits SaaS multi-clients et configurables pour les fondateurs et les PME qui transforment un outil interne ou un service en logiciel à vendre. Chaque client a son espace, ses paramètres et, au besoin, sa marque, sur une seule base de code.",
+      "Addanapp est une firme de développement logiciel montréalaise, active au Canada, aux États-Unis et en Europe, en français et en anglais. Chaque livraison est développée avec l'aide de l'IA, approuvée par un ingénieur senior et soumissionnée à prix fixe. Voyez [nos tarifs](/fr/tarifs)."
+    ],
+    "sections": [
+      {
+        "h2": "Ce que comprend le développement SaaS chez Addanapp",
+        "bullets": [
+          "**Architecture multi-clients :** les données de chaque organisation cliente restent séparées, avec ses utilisateurs et ses rôles.",
+          "**Paramètres par client :** champs, flux de travail, libellés et limites configurés sans toucher au code.",
+          "**Fonctions activables :** une fonction ouverte par forfait, par client ou pour un groupe test.",
+          "**Marque blanche :** logo, couleurs et domaine du client, si votre modèle le demande.",
+          "**Facturation par abonnement et à l'usage** avec Stripe : forfaits, essais, factures, usage mesuré.",
+          "**Un panneau d'administration** pour gérer clients, forfaits et soutien. Voyez [ce service](/fr/developpement-panneau-administration).",
+          "**Inscription libre-service :** compte, invitations, configuration initiale."
+        ],
+        "paragraphs": [
+          "Pour des utilisateurs sur la route, le produit peut être une application web installable, avec mode hors ligne, caméra et notifications."
+        ]
+      },
+      {
+        "h2": "Logiciel sur mesure ou SaaS : lequel vous faut-il ?",
+        "paragraphs": [
+          "Si une seule organisation utilisera le logiciel, une application web sur mesure ou un [portail client](/fr/developpement-portail-client) est plus simple et moins cher. Le SaaS a du sens quand vous vendrez le même produit à plusieurs organisations. Le multi-clients demande du vrai travail : isolation, paramètres, facturation, inscription.",
+          "Une voie sensée : lancer avec un client pilote, mais concevoir le modèle de données multi-clients dès le départ. L'ajouter plus tard oblige souvent à refaire les fondations."
+        ]
+      },
+      {
+        "h2": "Le déroulement d'un projet SaaS",
+        "bullets": [
+          "**Atelier de découverte :** qui paie, qui utilise, ce qui change d'un client à l'autre, comment facturer.",
+          "**Soumission à prix fixe et échéancier :** approuvés dans votre espace client privé avant le début des travaux.",
+          "**Développement et révision :** développé avec l'aide de l'IA; un ingénieur senior révise le code, teste l'isolation des données et approuve.",
+          "**Acceptation :** vous essayez la livraison avec de vrais comptes, guidé par les notes de l'ingénieur. La facture suit votre acceptation.",
+          "**Lancement :** les premiers clients s'inscrivent et orientent l'étape suivante."
+        ]
+      },
+      {
+        "h2": "Les étapes à prix fixe appliquées à un projet SaaS",
+        "paragraphs": [
+          "Les projets d'Addanapp vont de 30 000 $ à 300 000 $ (CAD), en étapes à prix fixe, chacune soumissionnée d'avance et facturée à l'acceptation. Vous pouvez arrêter après n'importe quelle étape et tout garder. Pour un SaaS, la séquence type :"
+        ],
+        "bullets": [
+          "**Lancement (30 000 $, environ 6 à 8 semaines) :** le flux principal de bout en bout, les comptes et les rôles, un modèle de données multi-clients et une administration de base, en ligne pour vos clients pilotes.",
+          "**Exploitation (+45 000 $, total 75 000 $) :** facturation Stripe, notifications par courriel, intégrations demandées par vos clients (comptabilité, CRM) et premiers rapports.",
+          "**Croissance (+75 000 $, total 150 000 $) :** un deuxième groupe d'utilisateurs (portail pour les clients de vos clients, ou application pour le personnel), tableaux de bord, automatisation, performance, revue de sécurité, dossier de confidentialité Loi 25 et accessibilité WCAG 2.2 AA.",
+          "**Complet (+150 000 $, total 300 000 $) :** le reste de la feuille de route, une application mobile installable, la migration des anciens systèmes, la formation, la documentation, la surveillance et 12 mois de soutien. Frais de tiers au coûtant."
+        ]
+      },
+      {
+        "h2": "Des plateformes SaaS développées par Addanapp",
+        "paragraphs": [
+          "Addanapp a développé 60 produits en ligne, dont plusieurs plateformes multi-entreprises : **Health Booker**, place de marché de réservation pour studios de yoga avec back-office; **ArviStay**, créateur de sites d'hôtels; **PlanPlate**, réservations pour restaurants; **Prepsto**, commentaires et billets avec API; **Fillfox**, créateur de formulaires. Voyez [addanapp.com/#work](https://addanapp.com/#work)."
+        ]
+      },
+      {
+        "h2": "Les erreurs à éviter en développant un SaaS",
+        "bullets": [
+          "**Coder chaque demande spéciale dans le produit.** Utilisez des paramètres et des fonctions activables.",
+          "**Négliger les tests d'isolation.** Un client qui voit les données d'un autre : le pire bogue.",
+          "**Coder les prix en dur.** Ils changeront.",
+          "**Aucun outil de soutien.** Sans administration, vos ingénieurs font le service à la clientèle.",
+          "**Oublier la confidentialité.** Vos clients québécois vous questionneront sur les renseignements personnels. Voyez [les applications conformes à la Loi 25](/fr/applications-conformes-loi-25) (information générale, pas un avis juridique)."
+        ]
+      },
+      {
+        "h2": "Comment choisir une firme de développement SaaS",
+        "paragraphs": [
+          "Demandez à qui appartient le code (chez Addanapp, à vous), comment l'isolation est testée, si les prix sont fixes par étape et si vous pouvez arrêter sans pénalité. Vérifiez aussi que la firme sait brancher votre produit aux outils de vos clients; voyez [l'intégration API](/fr/integration-api)."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Combien coûte le développement d'un produit SaaS ?",
+        "Chez Addanapp, un SaaS commence par l'étape Lancement à 30 000 $ (CAD) : le flux principal, les comptes, un modèle de données multi-clients et une administration de base, en ligne en 6 à 8 semaines environ. Le produit grandit ensuite par étapes à prix fixe jusqu'à 300 000 $, facturées à l'acceptation."
+      ],
+      [
+        "Pouvez-vous mettre en place une facturation par abonnement ou à l'usage ?",
+        "Oui. Addanapp intègre la facturation à Stripe : forfaits, essais gratuits, factures et tarification à l'usage. Les forfaits et les prix restent configurables, pour changer votre grille tarifaire sans nouveau code. Les frais de tiers, comme ceux de Stripe, sont facturés au coûtant."
+      ],
+      [
+        "Chaque client peut-il avoir sa propre marque ?",
+        "Oui. La marque blanche permet à chaque organisation cliente d'afficher son logo, ses couleurs et, au besoin, son propre domaine, sur une seule base de code. Addanapp en fait un paramètre par client : votre équipe peut habiller un nouveau client sans faire appel à un ingénieur."
+      ],
+      [
+        "Pouvez-vous transformer notre application existante en SaaS ?",
+        "Souvent, oui. Addanapp analyse l'application, puis propose une refonte partielle ou une reconstruction sur une base multi-clients, avec migration des données. Par exemple, Parapeet, une application de 2023, a été reconstruite de zéro en conservant la progression de chaque joueur. La soumission explique l'approche recommandée."
+      ]
+    ],
+    "cta": {
+      "heading": "Obtenez une soumission à prix fixe pour votre SaaS",
+      "text": "Dites-nous qui sont vos clients et ce que chacun doit configurer. Vous recevrez une soumission à prix fixe et un échéancier pour l'étape Lancement.",
+      "button": "Obtenir une soumission"
+    }
+  }
+}

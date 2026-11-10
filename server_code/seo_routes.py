@@ -15,7 +15,7 @@ except ImportError:  # seo.py imports this file outside Anvil to render previews
 
 SEO = {
  "name": "Addanapp",
- "title": "Addanapp: custom web apps built at AI speed, Montréal",
+ "title": "Custom Web App Development in Montréal | Addanapp",
  "tagline": "Apps built at AI speed. Signed off by senior engineers.",
  "description": "Montréal software consultancy for web apps, admin panels, client portals and data platforms. AI-accelerated, human-validated, fixed quotes. Pay for results.",
  "keywords": [
@@ -55,6 +55,79 @@ SEO = {
    "How is AI used?",
    "AI speeds up the building; senior engineers review and validate every delivery before it reaches you."
   ]
+ ],
+ "languages": [
+  "en",
+  "fr"
+ ],
+ "pages": [
+  [
+   "Custom software development services in Montréal",
+   "/services"
+  ],
+  [
+   "Client portal development: one secure place for your clients to work with you",
+   "/client-portal-development"
+  ],
+  [
+   "Admin panel development: a back office your team actually wants to use",
+   "/admin-panel-development"
+  ],
+  [
+   "Fixed-price MVP development: your first product live for $30,000",
+   "/mvp-development"
+  ],
+  [
+   "Data platform development: dashboards, reporting and pipelines you can trust",
+   "/data-platform-development"
+  ],
+  [
+   "SaaS development: a multi-tenant product your customers can configure",
+   "/saas-development"
+  ],
+  [
+   "API integration development: connect Stripe, QuickBooks, Google and your CRM",
+   "/api-integration-development"
+  ],
+  [
+   "Fixed-price software development pricing",
+   "/pricing"
+  ],
+  [
+   "How we work: AI-accelerated development, signed off by senior engineers",
+   "/how-we-work"
+  ],
+  [
+   "Law 25-ready apps and portals for Québec businesses",
+   "/law-25-compliant-apps"
+  ],
+  [
+   "En français : développement d'applications web à Montréal",
+   "/fr"
+  ]
+ ],
+ "sitemap_extra": [
+  "/fr",
+  "/services",
+  "/client-portal-development",
+  "/admin-panel-development",
+  "/mvp-development",
+  "/data-platform-development",
+  "/saas-development",
+  "/api-integration-development",
+  "/pricing",
+  "/how-we-work",
+  "/law-25-compliant-apps",
+  "/fr/services",
+  "/fr/developpement-portail-client",
+  "/fr/developpement-panneau-administration",
+  "/fr/developpement-mvp",
+  "/fr/developpement-plateforme-donnees",
+  "/fr/developpement-saas",
+  "/fr/integration-api",
+  "/fr/tarifs",
+  "/fr/notre-methode",
+  "/fr/applications-conformes-loi-25"
  ],
  "site": "https://addanapp.com",
  "updated": "2026-11-09",
@@ -131,6 +204,8 @@ def llms_txt(o):
             out += ["### %s" % q, "", a, ""]
     out += ["## Links", "", "- [Open %s](%s/)" % (s["name"], o), "- [About %s](%s/about)" % (s["name"], o),
             "- Made by [Arkvital](https://arkvital.com), Montreal, Canada (arkvital@outlook.com)", ""]
+    if s.get("pages"):  # more pages worth reading: [title, path]
+        out += ["## Pages", ""] + ["- [%s](%s%s)" % (n, o, p) for n, p in s["pages"]] + [""]
     if s.get("keywords"):
         out += ["Keywords: %s" % ", ".join(s["keywords"]), ""]
     return "\n".join(out)
@@ -150,10 +225,15 @@ def _ld(o):
         app["availableChannel"] = {"@type": "ServiceChannel", "serviceUrl": o + "/", "name": "Web browser",
                                    "availableLanguage": s.get("lang", "en")}
         del app["inLanguage"], app["publisher"], app["keywords"]
+    site_id = o + "/#site"
     if app["@type"] == "ProfessionalService":
-        # an Organization: knowsLanguage, not inLanguage (a CreativeWork field)
-        app["knowsLanguage"] = app.pop("inLanguage")
-        del app["publisher"]
+        # an Organization: knowsLanguage, not inLanguage (a CreativeWork field). The business itself, so it uses
+        # the same @ids as the hand-made home-page JSON-LD (#org, #website): one entity across the site.
+        app["knowsLanguage"] = s.get("languages", app.pop("inLanguage"))
+        app.pop("inLanguage", None)
+        app["@id"] = o + "/#org"
+        del app["publisher"], app["keywords"]
+        site_id = o + "/#website"
     if app["@type"] in ("WebApplication", "VideoGame"):
         app["applicationCategory"] = s.get("category", "WebApplication")
         app["operatingSystem"] = "Any (web browser)"
@@ -167,9 +247,10 @@ def _ld(o):
     if s.get("audience") and app["@type"] != "ProfessionalService":
         app["audience"] = {"@type": "Audience", "audienceType": s["audience"]}
     page = {"@type": "AboutPage", "@id": o + "/about#page", "url": o + "/about", "name": "About " + s["name"],
-            "about": {"@id": o + "/#app"}, "isPartOf": {"@id": o + "/#site"}}
-    graph = [app, page, {"@type": "WebSite", "@id": o + "/#site", "url": o + "/", "name": s["name"],
-                         "publisher": {"@id": "https://arkvital.com/#org"}},
+            "about": {"@id": app["@id"]}, "isPartOf": {"@id": site_id}}
+    graph = [app, page, {"@type": "WebSite", "@id": site_id, "url": o + "/", "name": s["name"],
+                         "publisher": {"@id": app["@id"] if app["@type"] == "ProfessionalService"
+                                       else "https://arkvital.com/#org"}},
              {"@type": "Organization", "@id": "https://arkvital.com/#org", "name": "Arkvital", "url": "https://arkvital.com",
               "email": "arkvital@outlook.com", "address": {"@type": "PostalAddress", "addressLocality": "Montreal",
                                                            "addressRegion": "QC", "addressCountry": "CA"}}]

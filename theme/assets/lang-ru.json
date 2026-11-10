@@ -67,7 +67,7 @@
 "Activity": "Активность",
 "Add capability to the app you already run, whether we built it or not.": "Расширьте возможности приложения, которое у вас уже работает, — неважно, мы его делали или нет.",
 "Add the fixed quote amount before sending the quote.": "Укажите сумму фиксированной сметы перед отправкой.",
-"AddAnApp - triple A software delivery service": "AddAnApp — разработка ПО класса AAA",
+"Custom Web App Development in Montréal | Addanapp": "Разработка веб-приложений на заказ в Монреале | Addanapp",
 "Addanapp designs and builds <b>web apps, admin panels, client portals and data-heavy platforms</b>. AI accelerates every step, and an engineer reviews, tests and approves every line before it reaches you. <b>You pay for accepted results, not hours.</b>": "Addanapp проектирует и разрабатывает <b>веб-приложения, админ-панели, клиентские порталы и платформы для больших объёмов данных</b>. ИИ ускоряет каждый шаг, а инженер проверяет, тестирует и утверждает каждую строку, прежде чем она попадёт к вам. <b>Вы платите за принятый результат, а не за часы.</b>",
 "Addanapp home": "Главная Addanapp",
 "Addanapp is operated by Arkvital, Montréal, Québec. We follow Québec's Law 25, Canada's PIPEDA and the GDPR. These documents explain, in plain language, what we collect, why, who helps us, your rights, and the rules for using our website and client workspace.": "Addanapp управляет компания Arkvital, Монреаль, Квебек. Мы соблюдаем Закон 25 Квебека, канадский PIPEDA и GDPR. В этих документах простым языком описано, что мы собираем, зачем, кто нам помогает, ваши права и правила пользования сайтом и кабинетом клиента.",
@@ -1110,5 +1110,14 @@
 "Eight programs, 32 modules and 288 drills": "Восемь программ, 32 модуля и 288 упражнений",
 "Labs for experiment peeking, metric trees, cohorts and pricing": "Лаборатории по преждевременному подглядыванию в эксперименты, деревьям метрик, когортам и ценообразованию",
 "22 sourced product leadership case files": "22 кейса по продуктовому лидерству с источниками",
-"Product leadership": "Продуктовое лидерство"
+"Product leadership": "Продуктовое лидерство",
+  "See every service in detail": "Подробно о каждой услуге",
+  "$30k to $300k, in fixed-price milestones": "От $30 тыс. до $300 тыс., этапами по фиксированной цене",
+  "Stop after any milestone and keep everything": "Можно остановиться после любого этапа и сохранить всё",
+  "How milestone pricing works": "Как устроена оплата по этапам",
+  "Under $30k": "До $30 тыс.",
+  "$30k – $75k": "$30–75 тыс.",
+  "$75k – $150k": "$75–150 тыс.",
+  "$150k – $300k": "$150–300 тыс.",
+  "$300k+": "$300 тыс. и больше"
 }

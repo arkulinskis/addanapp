@@ -1,0 +1,190 @@
+{
+  "key": "how-we-work",
+  "service_type": null,
+  "en": {
+    "slug": "/how-we-work",
+    "title": "AI-Accelerated Development, Senior-Reviewed | Addanapp",
+    "description": "How Addanapp works: AI speeds up drafting, senior engineers design, review and sign off. Fixed quote first, invoiced only when you accept the delivery.",
+    "h1": "How we work: AI-accelerated development, signed off by senior engineers",
+    "intro": [
+      "Addanapp builds custom software with AI to move faster, and senior engineers review, test and sign off every delivery before it reaches you. You get a **fixed quote and an ETA before work starts**, you follow progress in a private workspace, and you are invoiced only when you accept what was delivered.",
+      "This page explains each step, from the first request to acceptance, and draws a clear line between what AI does in Addanapp's process and what senior engineers do. The same method applies to a $2,400 change and to a full project priced in [fixed milestones](/pricing)."
+    ],
+    "sections": [
+      {
+        "h2": "Step by step: quote, build, review, acceptance",
+        "paragraphs": [
+          "Every piece of work at Addanapp, large or small, moves through the same four steps."
+        ],
+        "bullets": [
+          "**1. Quote.** You describe what you need in your workspace. An engineer turns it into a written scope with a fixed price and an ETA, within 2 business days for single features. Work starts only when you approve the quote.",
+          "**2. Build.** Engineers build the feature with AI assistance, posting progress notes in your workspace as the work moves forward.",
+          "**3. Review.** A senior engineer reviews the code, runs the tests, checks security and signs off the delivery. Nothing reaches you without that sign-off.",
+          "**4. Acceptance.** You test the delivery against the agreed scope. If something is off, you say so and it gets fixed. You are invoiced only when you accept."
+        ]
+      },
+      {
+        "h2": "What AI does in Addanapp's process",
+        "paragraphs": [
+          "At Addanapp, AI is a drafting tool. AI speeds up the parts of software work that are mostly typing once the design is decided:"
+        ],
+        "bullets": [
+          "Drafting code for features an engineer has already designed",
+          "Drafting automated tests that check the code does what the scope says",
+          "Drafting documentation, such as setup notes and user guides",
+          "Exploring options quickly, such as trying two layouts or two data structures before an engineer picks one"
+        ]
+      },
+      {
+        "h2": "What AI does not do",
+        "paragraphs": [
+          "AI does not decide anything at Addanapp. AI does not choose the architecture, approve its own output, decide what goes to production or talk to clients about scope and price. Every line of AI-drafted code is read and judged by an engineer before it ships. Treating AI output as a draft, never as a finished product, is the reason the sign-off step exists. If you are buying AI-built software from anyone, the free guide on [buying AI-built software](https://addanapp.com/#guides) lists the questions to ask."
+        ]
+      },
+      {
+        "h2": "What senior engineers do",
+        "paragraphs": [
+          "Senior engineers own every decision that affects how your software behaves, how safe it is and how long it lasts."
+        ],
+        "bullets": [
+          "**Architecture**: how the system is structured, where data lives and how parts connect, so the software can grow without a rewrite",
+          "**Review**: reading every change, including AI-drafted code, and rejecting what is wrong, unclear or fragile",
+          "**Security**: checking access rules, data handling and integrations, and applying privacy requirements such as [Québec Law 25](/law-25-compliant-apps)",
+          "**Sign-off**: confirming the delivery matches the scope, passes its tests and is ready for you to accept"
+        ]
+      },
+      {
+        "h2": "The private client workspace",
+        "paragraphs": [
+          "Each Addanapp client gets a private workspace that replaces long email threads. In the workspace you submit requests, approve or decline quotes, read progress notes written by the engineer (not generated status reports) and accept deliveries. The workspace keeps a record of what was asked, what was quoted and what was accepted, so scope and price are never a matter of memory. The workspace is available in English and French."
+        ]
+      },
+      {
+        "h2": "Code review, tests and accessibility included",
+        "paragraphs": [
+          "Code review and tests are part of every Addanapp quote, not an add-on. Interfaces are built toward WCAG 2.2 AA accessibility, and privacy is handled with Québec Law 25, PIPEDA and GDPR in mind. At the end of any milestone you keep the code, the data and the documentation, so another team could pick up the work if you ever chose to. See [all services](/services) for what this method is used to build."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Is AI-built software safe to use in a business?",
+        "AI-drafted code is only as safe as the review behind it. At Addanapp, a senior engineer reads every change, runs the tests, checks security and signs off each delivery before you see it. AI speeds up drafting; it never approves its own work. You then test and accept the delivery yourself before it is invoiced."
+      ],
+      [
+        "Who is responsible for the code Addanapp delivers?",
+        "Addanapp's senior engineers are responsible. They design the architecture, review every change and sign off every delivery. AI is a tool they use to draft code, tests and documentation faster. Responsibility for what ships stays with the engineer who signed it off, and with your acceptance at the end."
+      ],
+      [
+        "How fast do I get a quote?",
+        "For a single feature or change, Addanapp sends a fixed quote and an ETA within 2 business days of your request. Larger projects start with a discovery workshop as part of the Launch milestone, which sets the scope and fixed price for that milestone. No work starts until you approve the quote."
+      ],
+      [
+        "Will I know what is happening while the work is in progress?",
+        "Yes. The engineer working on your request posts progress notes in your private workspace as the work moves forward. The notes are written by the engineer, not generated, and explain what was done and what comes next. You also see every quote and delivery in the same place."
+      ],
+      [
+        "What happens if I do not accept a delivery?",
+        "Addanapp invoices only accepted deliveries. If a delivery does not match the agreed scope, you explain what is wrong in your workspace and the engineer fixes it. Once the delivery matches the scope and you accept it, it is invoiced. You never pay for work you have not accepted."
+      ]
+    ],
+    "cta": {
+      "heading": "Start with a fixed quote",
+      "text": "Send your first request and get a written scope, a fixed price and an ETA. You pay only when you accept the delivery. See the full [milestone pricing](/pricing) or browse [60 live products](https://addanapp.com/#work).",
+      "button": "Get a fixed quote"
+    }
+  },
+  "fr": {
+    "slug": "/fr/notre-methode",
+    "title": "Notre méthode : développement accéléré par l'IA | Addanapp",
+    "description": "L'IA accélère la rédaction du code ; des ingénieurs seniors conçoivent, révisent et approuvent. Soumission à prix fixe, facture seulement à l'acceptation.",
+    "h1": "Notre méthode : un développement accéléré par l'IA, approuvé par des ingénieurs seniors",
+    "intro": [
+      "Addanapp développe des logiciels sur mesure avec l'IA pour aller plus vite, et des ingénieurs seniors révisent, testent et approuvent chaque livraison avant qu'elle vous parvienne. Vous recevez une **soumission à prix fixe et un délai avant le début des travaux**, vous suivez l'avancement dans un espace client privé, et vous n'êtes facturé qu'une fois la livraison acceptée.",
+      "Cette page décrit chaque étape, de la première demande à l'acceptation, et trace une ligne claire entre ce que fait l'IA et ce que font les ingénieurs seniors. La même méthode s'applique à une modification de 2 400 $ comme à un projet complet découpé en [étapes à prix fixe](/fr/tarifs)."
+    ],
+    "sections": [
+      {
+        "h2": "Étape par étape : soumission, développement, révision, acceptation",
+        "paragraphs": [
+          "Chez Addanapp, chaque mandat, petit ou grand, suit les mêmes quatre étapes."
+        ],
+        "bullets": [
+          "**1. Soumission.** Vous décrivez votre besoin dans votre espace client. Un ingénieur le transforme en portée écrite avec un prix fixe et un délai, en 2 jours ouvrables pour une fonction simple. Les travaux commencent seulement après votre approbation.",
+          "**2. Développement.** Les ingénieurs construisent la fonction avec l'aide de l'IA et publient des notes d'avancement dans votre espace au fil du travail.",
+          "**3. Révision.** Un ingénieur senior révise le code, exécute les tests, vérifie la sécurité et approuve la livraison. Rien ne vous est remis sans cette approbation.",
+          "**4. Acceptation.** Vous testez la livraison selon la portée convenue. Si quelque chose cloche, vous le dites et c'est corrigé. La facture suit seulement votre acceptation."
+        ]
+      },
+      {
+        "h2": "Ce que fait l'IA dans notre processus",
+        "paragraphs": [
+          "Chez Addanapp, l'IA est un outil de rédaction. L'IA accélère les parties du travail qui relèvent surtout de l'écriture, une fois la conception décidée :"
+        ],
+        "bullets": [
+          "Rédiger le code de fonctions déjà conçues par un ingénieur",
+          "Rédiger des tests automatisés qui vérifient que le code fait ce que prévoit la portée",
+          "Rédiger la documentation, comme les notes d'installation et les guides d'utilisation",
+          "Explorer rapidement des options, par exemple deux mises en page ou deux structures de données, avant qu'un ingénieur tranche"
+        ]
+      },
+      {
+        "h2": "Ce que l'IA ne fait pas",
+        "paragraphs": [
+          "Chez Addanapp, l'IA ne décide de rien. L'IA ne choisit pas l'architecture, n'approuve pas son propre travail, ne décide pas de ce qui va en production et ne discute pas de portée ni de prix avec les clients. Chaque ligne de code rédigée par l'IA est lue et jugée par un ingénieur avant d'être livrée. C'est précisément parce que le résultat de l'IA est traité comme un brouillon, jamais comme un produit fini, que l'étape d'approbation existe. Si vous achetez un logiciel construit avec l'IA, notre guide gratuit sur [l'achat de logiciels conçus avec l'IA](https://addanapp.com/#guides) dresse la liste des questions à poser."
+        ]
+      },
+      {
+        "h2": "Ce que font les ingénieurs seniors",
+        "paragraphs": [
+          "Les ingénieurs seniors sont responsables de chaque décision qui touche le comportement de votre logiciel, sa sécurité et sa durée de vie."
+        ],
+        "bullets": [
+          "**Architecture** : la structure du système, l'emplacement des données et la façon dont les parties se relient, pour que le logiciel puisse grandir sans tout refaire",
+          "**Révision** : lire chaque changement, y compris le code rédigé par l'IA, et refuser ce qui est faux, flou ou fragile",
+          "**Sécurité** : vérifier les règles d'accès, le traitement des données et les intégrations, et appliquer les exigences comme la [Loi 25](/fr/applications-conformes-loi-25)",
+          "**Approbation** : confirmer que la livraison respecte la portée, réussit ses tests et est prête pour votre acceptation"
+        ]
+      },
+      {
+        "h2": "L'espace client privé",
+        "paragraphs": [
+          "Chaque client d'Addanapp dispose d'un espace de travail privé qui remplace les longues chaînes de courriels. Dans cet espace, vous soumettez vos demandes, approuvez ou refusez les soumissions, lisez les notes d'avancement rédigées par l'ingénieur (pas des rapports générés automatiquement) et acceptez les livraisons. L'espace client garde une trace de ce qui a été demandé, soumis et accepté : la portée et le prix ne dépendent jamais de la mémoire de quelqu'un. L'espace est offert en français et en anglais."
+        ]
+      },
+      {
+        "h2": "Revue de code, tests et accessibilité inclus",
+        "paragraphs": [
+          "La revue de code et les tests font partie de chaque soumission d'Addanapp ; ce ne sont pas des options. Les interfaces visent l'accessibilité WCAG 2.2 AA, et la protection des renseignements personnels tient compte de la Loi 25, de la LPRPDE et du RGPD. À la fin de chaque étape, vous gardez le code, les données et la documentation, si bien qu'une autre équipe pourrait reprendre le travail si vous le souhaitiez. Voyez [tous nos services](/fr/services) pour savoir ce que nous construisons avec cette méthode."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Un logiciel construit avec l'IA est-il sûr pour une entreprise ?",
+        "Un code rédigé par l'IA est aussi sûr que la révision qui le suit. Chez Addanapp, un ingénieur senior lit chaque changement, exécute les tests, vérifie la sécurité et approuve chaque livraison avant que vous la voyiez. L'IA accélère la rédaction ; elle n'approuve jamais son propre travail. Vous testez et acceptez ensuite la livraison avant toute facture."
+      ],
+      [
+        "Qui est responsable du code livré par Addanapp ?",
+        "Les ingénieurs seniors d'Addanapp en sont responsables. Ils conçoivent l'architecture, révisent chaque changement et approuvent chaque livraison. L'IA est un outil qu'ils utilisent pour rédiger plus vite le code, les tests et la documentation. La responsabilité de ce qui est livré reste à l'ingénieur qui l'a approuvé, puis à votre acceptation."
+      ],
+      [
+        "En combien de temps reçoit-on une soumission ?",
+        "Pour une fonction ou une modification simple, Addanapp envoie une soumission à prix fixe avec un délai en 2 jours ouvrables. Les projets plus importants commencent par un atelier de découverte inclus dans l'étape Lancement, qui fixe la portée et le prix de cette étape. Aucun travail ne commence sans votre approbation de la soumission."
+      ],
+      [
+        "Vais-je savoir où en est le travail ?",
+        "Oui. L'ingénieur qui travaille sur votre demande publie des notes d'avancement dans votre espace client privé au fil du travail. Ces notes sont rédigées par l'ingénieur, pas générées automatiquement, et expliquent ce qui a été fait et ce qui s'en vient. Vous voyez aussi chaque soumission et chaque livraison au même endroit."
+      ],
+      [
+        "Que se passe-t-il si je n'accepte pas une livraison ?",
+        "Addanapp ne facture que les livraisons acceptées. Si une livraison ne correspond pas à la portée convenue, vous expliquez le problème dans votre espace client et l'ingénieur le corrige. Une fois la livraison conforme et acceptée, elle est facturée. Vous ne payez jamais pour un travail que vous n'avez pas accepté."
+      ]
+    ],
+    "cta": {
+      "heading": "Commencez par une soumission à prix fixe",
+      "text": "Envoyez votre première demande et recevez une portée écrite, un prix fixe et un délai. Vous ne payez qu'à l'acceptation de la livraison. Consultez nos [tarifs par étapes](/fr/tarifs) ou nos [60 produits en ligne](https://addanapp.com/#work).",
+      "button": "Obtenir une soumission"
+    }
+  }
+}

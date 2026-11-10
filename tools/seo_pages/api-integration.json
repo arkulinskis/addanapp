@@ -1,0 +1,192 @@
+{
+  "key": "api-integration",
+  "service_type": "API integration development",
+  "en": {
+    "slug": "/api-integration-development",
+    "title": "API Integration Development in Montréal | Addanapp",
+    "description": "Connect Stripe, QuickBooks, Google and your CRM so data stops being re-typed. Fixed quote before work starts; invoiced only when you accept the delivery.",
+    "h1": "API integration development: connect Stripe, QuickBooks, Google and your CRM",
+    "intro": [
+      "Addanapp builds API integrations that make your systems talk to each other: a payment in Stripe becomes an invoice in QuickBooks, a web form becomes a lead in your CRM, a booking lands in the right calendar. Staff stop re-typing data, and errors from copy-and-paste disappear.",
+      "Addanapp is a Montréal software consultancy working in English and French. Every integration is built with AI acceleration, reviewed and signed off by a senior engineer, quoted at a fixed price before work starts, and invoiced only when you accept it. See [pricing](/pricing)."
+    ],
+    "sections": [
+      {
+        "h2": "What API integration work includes",
+        "bullets": [
+          "**Third-party API connections:** payments (Stripe), accounting (QuickBooks), Google services, CRMs and email platforms.",
+          "**Webhooks and event handling,** so one system reacts the moment something happens in another.",
+          "**Scheduled sync jobs** for systems that cannot push events.",
+          "**Your own API,** so partners and customers can connect to your platform securely.",
+          "**Error handling:** retries, alerts and a readable log of every exchange.",
+          "**Documentation** of each data flow, field mapping and credential."
+        ]
+      },
+      {
+        "h2": "Common integrations and what they replace",
+        "bullets": [
+          "**Payment to accounting:** each Stripe payment creates or settles the matching QuickBooks entry, instead of a month-end reconciliation by hand.",
+          "**Website to CRM:** form submissions become CRM contacts with their source attached.",
+          "**Bookings to calendars and email:** confirmations and reminders go out automatically.",
+          "**Order status to customers:** updates flow into your [client portal](/client-portal-development) instead of phone calls.",
+          "**Partner API:** partners pull or push data through a documented API. Prepsto, a feedback and ticket platform Addanapp built, offers one."
+        ]
+      },
+      {
+        "h2": "How an API integration project works",
+        "bullets": [
+          "**Map the data flow:** for every field, which system is the source of truth, and what happens when two systems disagree.",
+          "**Check access:** API availability, rate limits, sandbox accounts and any paid API fees.",
+          "**Fixed quote and ETA:** approved in your private workspace before work starts. For a single integration, Addanapp aims to quote within 2 business days.",
+          "**Build and review:** built against sandbox accounts; a senior engineer reviews the code and tests failure cases, not only the happy path.",
+          "**Acceptance with real data:** you check real records flowing through, read the engineer's progress notes, and accept. Then you are invoiced."
+        ]
+      },
+      {
+        "h2": "How fixed pricing applies to integrations",
+        "paragraphs": [
+          "One integration added to an existing app is usually a small change with its own fixed quote (a sample quote: $2,400, 6 days). Integration-heavy projects use Addanapp's milestones, from $30,000 to $300,000 CAD, each quoted before it starts and invoiced on acceptance. You can stop after any milestone and keep the code, data and documentation."
+        ],
+        "bullets": [
+          "**Launch ($30,000, about 6–8 weeks):** the most important workflow end to end, including the integration it depends on, with accounts, roles and a basic admin, live.",
+          "**Operate (+$45,000, total $75,000):** the core of integration work: payments, accounting, CRM and email, plus notifications and first reports.",
+          "**Scale (+$75,000, total $150,000):** a partner portal or second user group, a [data platform](/data-platform-development) and dashboards, automation, performance, a security review, a Law 25 privacy file and WCAG 2.2 AA accessibility.",
+          "**Complete (+$150,000, total $300,000):** migration from old systems, monitoring, documentation, training and 12 months of support. Paid API fees are billed at cost."
+        ]
+      },
+      {
+        "h2": "Mistakes to avoid with API integrations",
+        "bullets": [
+          "**No source of truth.** If two systems both edit a customer record, duplicates and conflicts follow.",
+          "**Ignoring failures.** A missed webhook or an expired token should raise an alert, not lose an invoice quietly.",
+          "**Credentials in the code.** Keys belong in a secure secrets store, owned by you.",
+          "**Syncing everything.** Move only the fields each system needs; less data means fewer errors and less privacy exposure.",
+          "**Undocumented automation chains.** When nobody knows what triggers what, every change becomes risky."
+        ]
+      },
+      {
+        "h2": "How to choose an API integration developer",
+        "paragraphs": [
+          "Ask how failures are detected and retried, who owns the API keys and accounts, what documentation you receive, and whether testing uses sandbox accounts before live data. Ask whether the price is fixed. Integrations often grow into larger products, so it helps if the same team can build [SaaS platforms](/saas-development) and portals. See 60 live products at [addanapp.com/#work](https://addanapp.com/#work)."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "How much does an API integration cost?",
+        "A single integration added to an existing app is usually quoted as a small change with a fixed price; a sample Addanapp quote was $2,400 for 6 days of work. Larger integration projects use fixed-price milestones from $30,000 CAD. Every quote is agreed before work starts, and you are invoiced only when you accept the delivery."
+      ],
+      [
+        "Can you integrate with a system that has no API?",
+        "Often, yes, through other routes such as scheduled file exports, a direct database connection, or structured emails, depending on what the vendor allows. Addanapp checks the options during discovery and explains the trade-offs, including reliability and maintenance, in writing before quoting."
+      ],
+      [
+        "Can you build an API for our partners or customers?",
+        "Yes. Addanapp builds secure APIs with access keys, permissions, rate limits and documentation, so partners and customers can connect their own systems to yours. Prepsto, a feedback and ticket platform Addanapp built, offers its own API. A partner API can also come with a portal where partners manage their keys."
+      ],
+      [
+        "What happens if a third-party API changes or goes down?",
+        "Addanapp builds integrations with retries, alerts and logs, so an outage is detected and failed exchanges can be replayed once the service returns. When a vendor changes its API, the fix is quoted as a fixed-price change request, or covered by support during the 12 months included in the Complete milestone."
+      ]
+    ],
+    "cta": {
+      "heading": "Get a fixed quote for your integration",
+      "text": "Tell us which systems need to talk and what your staff re-types today. We will reply with a fixed quote and a delivery date.",
+      "button": "Get a fixed quote"
+    }
+  },
+  "fr": {
+    "slug": "/fr/integration-api",
+    "title": "Intégration API sur mesure à Montréal | Addanapp",
+    "description": "Branchez Stripe, QuickBooks, Google et votre CRM pour ne plus ressaisir vos données. Soumission à prix fixe d'avance, facturée seulement à l'acceptation.",
+    "h1": "Intégration API : branchez Stripe, QuickBooks, Google et votre CRM",
+    "intro": [
+      "Addanapp développe des intégrations API qui font travailler vos systèmes ensemble : un paiement Stripe devient une écriture dans QuickBooks, un formulaire web devient un prospect dans votre CRM, une réservation arrive dans le bon calendrier. Votre équipe cesse de ressaisir les données, et les erreurs de copier-coller disparaissent.",
+      "Addanapp est une firme de développement logiciel montréalaise qui travaille en français et en anglais. Chaque intégration est développée avec l'aide de l'IA, approuvée par un ingénieur senior, soumissionnée à prix fixe et facturée seulement à l'acceptation. Voyez [nos tarifs](/fr/tarifs)."
+    ],
+    "sections": [
+      {
+        "h2": "Ce que comprend un projet d'intégration API",
+        "bullets": [
+          "**Connexions à des API tierces :** paiements (Stripe), comptabilité (QuickBooks), services Google, CRM et plateformes de courriel.",
+          "**Webhooks et événements,** pour qu'un système réagisse dès que quelque chose se passe dans un autre.",
+          "**Synchronisations planifiées** pour les systèmes qui ne peuvent pas envoyer d'événements.",
+          "**Votre propre API,** pour que partenaires et clients se branchent à votre plateforme en sécurité.",
+          "**Gestion des erreurs :** nouvelles tentatives, alertes et journal lisible de chaque échange.",
+          "**Documentation** de chaque flux, de la correspondance des champs et des accès."
+        ]
+      },
+      {
+        "h2": "Les intégrations courantes et ce qu'elles remplacent",
+        "bullets": [
+          "**Paiements vers la comptabilité :** chaque paiement Stripe crée ou solde l'écriture QuickBooks correspondante, au lieu d'une conciliation manuelle en fin de mois.",
+          "**Site web vers CRM :** les formulaires deviennent des contacts, avec leur provenance.",
+          "**Réservations vers calendriers et courriels :** confirmations et rappels partent tout seuls.",
+          "**Statut des commandes vers les clients :** les mises à jour s'affichent dans votre [portail client](/fr/developpement-portail-client) plutôt que par téléphone.",
+          "**API partenaires :** vos partenaires échangent des données par une API documentée. Prepsto, une plateforme de commentaires et de billets développée par Addanapp, en offre une."
+        ]
+      },
+      {
+        "h2": "Le déroulement d'un projet d'intégration",
+        "bullets": [
+          "**Cartographier les flux :** pour chaque champ, quel système fait foi, et que faire quand deux systèmes ne concordent pas.",
+          "**Vérifier les accès :** disponibilité de l'API, limites d'appels, comptes de test et frais d'API payants.",
+          "**Soumission à prix fixe et échéancier :** approuvés dans votre espace client privé. Pour une intégration simple, Addanapp vise une soumission en 2 jours ouvrables.",
+          "**Développement et révision :** sur des comptes de test; un ingénieur senior révise le code et teste les cas d'échec, pas seulement le scénario idéal.",
+          "**Acceptation avec de vraies données :** vous vérifiez les vrais dossiers qui circulent, lisez les notes de l'ingénieur et acceptez. La facture suit."
+        ]
+      },
+      {
+        "h2": "Le prix fixe appliqué aux intégrations",
+        "paragraphs": [
+          "Une intégration ajoutée à une application existante est souvent une petite modification avec sa propre soumission (exemple : 2 400 $, 6 jours). Les projets plus vastes suivent les étapes d'Addanapp, de 30 000 $ à 300 000 $ (CAD), chacune soumissionnée d'avance et facturée à l'acceptation. Vous pouvez arrêter après n'importe quelle étape et tout garder."
+        ],
+        "bullets": [
+          "**Lancement (30 000 $, environ 6 à 8 semaines) :** le flux le plus important de bout en bout, avec l'intégration dont il dépend, les comptes, les rôles et une administration de base, en production.",
+          "**Exploitation (+45 000 $, total 75 000 $) :** le cœur des intégrations (paiements, comptabilité, CRM, courriel), les notifications et les premiers rapports.",
+          "**Croissance (+75 000 $, total 150 000 $) :** un portail partenaires ou un deuxième groupe d'utilisateurs, une [plateforme de données](/fr/developpement-plateforme-donnees), l'automatisation, la performance, une revue de sécurité, un dossier Loi 25 et l'accessibilité WCAG 2.2 AA.",
+          "**Complet (+150 000 $, total 300 000 $) :** la migration des anciens systèmes, la surveillance, la documentation, la formation et 12 mois de soutien. Les API payantes sont facturées au coûtant."
+        ]
+      },
+      {
+        "h2": "Les erreurs à éviter avec les intégrations API",
+        "bullets": [
+          "**Aucun système qui fait foi.** Si deux systèmes modifient la même fiche client, doublons et conflits suivent.",
+          "**Ignorer les échecs.** Un webhook manqué ou un jeton expiré doit déclencher une alerte, pas faire disparaître une facture.",
+          "**Des clés dans le code.** Les accès vont dans un coffre sécurisé qui vous appartient.",
+          "**Tout synchroniser.** Ne transférez que les champs utiles : moins d'erreurs et moins de renseignements personnels exposés.",
+          "**Des chaînes d'automatisation non documentées.** Quand personne ne sait ce qui déclenche quoi, chaque changement devient risqué."
+        ]
+      },
+      {
+        "h2": "Comment choisir une firme d'intégration API",
+        "paragraphs": [
+          "Demandez comment les échecs sont détectés et relancés, à qui appartiennent les clés et les comptes, quelle documentation vous recevez et si les tests se font sur des comptes de test. Demandez si le prix est fixe. Les intégrations mènent souvent à de plus grands projets : il aide que la même équipe développe aussi des [plateformes SaaS](/fr/developpement-saas). Voyez 60 produits sur [addanapp.com/#work](https://addanapp.com/#work)."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Combien coûte une intégration API ?",
+        "Une intégration ajoutée à une application existante est généralement soumissionnée comme une petite modification à prix fixe; un exemple de soumission Addanapp : 2 400 $ pour 6 jours de travail. Les projets d'intégration plus vastes suivent des étapes à prix fixe à partir de 30 000 $ (CAD). Le prix est convenu d'avance et facturé seulement à l'acceptation."
+      ],
+      [
+        "Pouvez-vous intégrer un système qui n'a pas d'API ?",
+        "Souvent, oui, par d'autres moyens : exportations de fichiers planifiées, connexion directe à la base de données ou courriels structurés, selon ce que le fournisseur permet. Addanapp examine les options à l'étape de découverte et explique les compromis, y compris la fiabilité et l'entretien, par écrit avant de soumissionner."
+      ],
+      [
+        "Pouvez-vous créer une API pour nos partenaires ou nos clients ?",
+        "Oui. Addanapp développe des API sécurisées avec clés d'accès, permissions, limites d'appels et documentation, pour que partenaires et clients branchent leurs systèmes aux vôtres. Prepsto, une plateforme de commentaires et de billets développée par Addanapp, offre sa propre API. Un portail peut aussi permettre aux partenaires de gérer leurs clés."
+      ],
+      [
+        "Que se passe-t-il si une API tierce change ou tombe en panne ?",
+        "Addanapp intègre nouvelles tentatives, alertes et journaux : une panne est détectée et les échanges échoués peuvent être relancés au retour du service. Si un fournisseur modifie son API, la correction fait l'objet d'une soumission à prix fixe, ou du soutien de 12 mois inclus dans l'étape Complet."
+      ]
+    ],
+    "cta": {
+      "heading": "Obtenez une soumission à prix fixe pour votre intégration",
+      "text": "Dites-nous quels systèmes doivent communiquer et ce que votre équipe ressaisit aujourd'hui. Vous recevrez une soumission à prix fixe et une date de livraison.",
+      "button": "Obtenir une soumission"
+    }
+  }
+}

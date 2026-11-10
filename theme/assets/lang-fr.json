@@ -67,7 +67,7 @@
 "Activity": "Activité",
 "Add capability to the app you already run, whether we built it or not.": "Ajoutez des capacités à l'application que vous utilisez déjà, que nous l'ayons créée ou non.",
 "Add the fixed quote amount before sending the quote.": "Ajoutez le montant de la soumission avant de l'envoyer.",
-"AddAnApp - triple A software delivery service": "AddAnApp - service de livraison de logiciels triple A",
+"Custom Web App Development in Montréal | Addanapp": "Développement d'applications web sur mesure à Montréal | Addanapp",
 "Addanapp designs and builds <b>web apps, admin panels, client portals and data-heavy platforms</b>. AI accelerates every step, and an engineer reviews, tests and approves every line before it reaches you. <b>You pay for accepted results, not hours.</b>": "Addanapp conçoit et développe des <b>applications web, des panneaux d'administration, des portails clients et des plateformes riches en données</b>. L'IA accélère chaque étape, et un ingénieur revoit, teste et approuve chaque ligne avant qu'elle ne vous parvienne. <b>Vous payez pour des résultats acceptés, pas pour des heures.</b>",
 "Addanapp home": "Accueil Addanapp",
 "Addanapp is operated by Arkvital, Montréal, Québec. We follow Québec's Law 25, Canada's PIPEDA and the GDPR. These documents explain, in plain language, what we collect, why, who helps us, your rights, and the rules for using our website and client workspace.": "Addanapp est exploité par Arkvital, Montréal (Québec). Nous respectons la Loi 25 du Québec, la LPRPDE du Canada et le RGPD. Ces documents expliquent, en langage clair, ce que nous recueillons, pourquoi, qui nous aide, vos droits et les règles d'utilisation de notre site et de l'espace client.",
@@ -1107,5 +1107,14 @@
 "Eight programs, 32 modules and 288 drills": "Huit programmes, 32 modules et 288 exercices",
 "Labs for experiment peeking, metric trees, cohorts and pricing": "Laboratoires sur les tests consultés trop tôt, les arbres de métriques, les cohortes et la tarification",
 "22 sourced product leadership case files": "22 cas sourcés de leadership produit",
-"Product leadership": "Leadership produit"
+"Product leadership": "Leadership produit",
+  "See every service in detail": "Voir chaque service en détail",
+  "$30k to $300k, in fixed-price milestones": "De 30 k$ à 300 k$, en jalons à prix fixe",
+  "Stop after any milestone and keep everything": "Arrêtez après n’importe quel jalon et gardez tout",
+  "How milestone pricing works": "Comment fonctionne la tarification par jalons",
+  "Under $30k": "Moins de 30 k$",
+  "$30k – $75k": "30 k$ à 75 k$",
+  "$75k – $150k": "75 k$ à 150 k$",
+  "$150k – $300k": "150 k$ à 300 k$",
+  "$300k+": "300 k$ et plus"
 }

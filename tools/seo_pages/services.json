@@ -1,0 +1,190 @@
+{
+  "key": "services",
+  "service_type": "Custom software development",
+  "en": {
+    "slug": "/services",
+    "title": "Custom Software Development Services in Montréal | Addanapp",
+    "description": "Web apps, client portals, admin panels, APIs, data platforms and SaaS built in Montréal. AI-accelerated, senior-reviewed, fixed price per milestone.",
+    "h1": "Custom software development services in Montréal",
+    "intro": [
+      "Addanapp is a Montréal software consultancy that builds the software a business actually runs on: web apps, client portals, admin panels, APIs and integrations, data platforms and multi-tenant SaaS. Every service follows the same promise. You get a **fixed quote and an ETA before work starts**, and you are invoiced only when you accept the delivery.",
+      "Addanapp builds with AI to move faster, and senior engineers review, test and sign off every delivery. Code review and tests are included in every quote. Service is in English and French, in person in Montréal or remotely, for clients in Canada, the US and Europe. Larger projects are split into fixed-price milestones from $30,000 to $300,000; see [pricing](/pricing) for the full model."
+    ],
+    "sections": [
+      {
+        "h2": "Client portal development",
+        "paragraphs": [
+          "A client portal gives your customers or partners one secure place to log in, submit requests, upload documents, see status and pay. Addanapp builds client and partner portals with accounts and roles, notifications and a clear audit trail, designed to help you meet Québec Law 25 from day one.",
+          "Read more about [client portal development](/client-portal-development)."
+        ]
+      },
+      {
+        "h2": "Admin panel and back-office development",
+        "paragraphs": [
+          "An admin panel is where your team does the real work: managing users, orders, bookings, content and settings without touching a spreadsheet. Addanapp builds admin panels and back offices with role-based access, search, bulk actions, exports and reports. The studio back office in Health Booker and the admin side of PlanPlate are examples.",
+          "Read more about [admin panel development](/admin-panel-development)."
+        ]
+      },
+      {
+        "h2": "Fixed-price MVP development",
+        "paragraphs": [
+          "An MVP is the smallest version of your product that real users can use. Addanapp's MVP is the **Launch milestone at $30,000**, about 6–8 weeks: a discovery workshop, the one workflow that matters most built end to end, accounts and roles, a basic admin, and a live production release.",
+          "Read more about [fixed-price MVP development](/mvp-development)."
+        ]
+      },
+      {
+        "h2": "Data platforms, dashboards and pipelines",
+        "paragraphs": [
+          "A data platform turns scattered records into numbers your team trusts. Addanapp builds data pipelines, scheduled jobs, search and dashboards that handle high-throughput data, so reports stop depending on someone copying exports into a spreadsheet every Monday.",
+          "Read more about [data platform development](/data-platform-development)."
+        ]
+      },
+      {
+        "h2": "SaaS development",
+        "paragraphs": [
+          "A configurable multi-tenant SaaS lets one codebase serve many customers, each with its own settings. Addanapp builds SaaS products with per-customer settings, feature flags, white-labelling and usage billing. ArviStay (a hotel website builder) and Prepsto (a feedback and ticket platform with an API) are live examples.",
+          "Read more about [SaaS development](/saas-development)."
+        ]
+      },
+      {
+        "h2": "API integration development",
+        "paragraphs": [
+          "API integrations connect your software to the tools you already pay for. Addanapp builds and maintains integrations with Stripe, Google, QuickBooks, CRMs and email services, plus custom APIs so your own partners can connect to you.",
+          "Read more about [API integration development](/api-integration-development)."
+        ]
+      },
+      {
+        "h2": "Mobile-first apps, AI features and connected websites",
+        "paragraphs": [
+          "Addanapp also builds the pieces that sit around a core system:"
+        ],
+        "bullets": [
+          "**Mobile-first installable web apps** that work offline and use the camera and push notifications, without an app store.",
+          "**Responsible AI features**: document extraction, classification, smart search and assistants, with human-in-the-loop review so a person approves what matters.",
+          "**Websites wired to real systems**: bookings, forms and accounts that feed your back office instead of an inbox.",
+          "**Legacy rebuilds**: Parapeet, a 2023 app, was rebuilt from scratch with every player's progress kept. Privacy work for these projects is covered on the [Law 25 page](/law-25-compliant-apps)."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "What kind of software does Addanapp build?",
+        "Addanapp builds custom business software: web apps, client and partner portals, admin panels and back offices, APIs and integrations, data platforms with dashboards, multi-tenant SaaS, mobile-first installable web apps, responsible AI features and websites connected to real systems. Sixty live products are in use today, including PlanPlate, Prepsto, ArviStay and Health Booker."
+      ],
+      [
+        "How much does custom software development cost with Addanapp?",
+        "Projects run from $30,000 to $300,000 CAD, split into four fixed-price milestones: Launch ($30,000), Operate (+$45,000), Scale (+$75,000) and Complete (+$150,000). Each milestone has its own fixed quote and is invoiced only when you accept it. Small changes to an existing app get a fixed quote per request."
+      ],
+      [
+        "Does Addanapp use AI to write code?",
+        "Yes. Addanapp uses AI to speed up drafting code, tests and documentation. Senior engineers design the architecture, review every change, check security and sign off each delivery before it reaches you. Code review and tests are included in every quote. The full process is described on the how we work page."
+      ],
+      [
+        "Can Addanapp work in French and in person in Montréal?",
+        "Yes. Addanapp works in English and French, in person in Montréal or remotely. Clients are in Canada, the US and Europe. Each client gets a private workspace to submit requests, approve quotes, read progress notes written by the engineer and accept deliveries, in either language."
+      ],
+      [
+        "Can Addanapp take over or rebuild an existing app?",
+        "Yes. Addanapp can add features to an existing app with a fixed quote per request, or rebuild an older system. Parapeet, a 2023 app, was rebuilt from scratch with every player's progress kept. Data migration from old systems is part of the Complete milestone, and can also be quoted on its own."
+      ]
+    ],
+    "cta": {
+      "heading": "Tell us what you need built",
+      "text": "Describe the workflow or system you have in mind. You get a fixed quote and an ETA before any work starts, and you pay only for deliveries you accept. Read [how we work](/how-we-work) or browse [60 live products](https://addanapp.com/#work).",
+      "button": "Get a fixed quote"
+    }
+  },
+  "fr": {
+    "slug": "/fr/services",
+    "title": "Services de développement de logiciel sur mesure | Addanapp",
+    "description": "Applications web, portails clients, panneaux d'administration, API et SaaS conçus à Montréal. Accéléré par l'IA, validé par des seniors, à prix fixe.",
+    "h1": "Services de développement de logiciel sur mesure à Montréal",
+    "intro": [
+      "Addanapp est une firme montréalaise de développement logiciel. Nous concevons les outils sur lesquels une entreprise roule au quotidien : applications web, portails clients, panneaux d'administration, intégrations API, plateformes de données et SaaS multilocataires. Chaque service repose sur la même promesse : une **soumission à prix fixe et un délai avant le début des travaux**, et une facture seulement quand vous acceptez la livraison.",
+      "Nous utilisons l'IA pour avancer plus vite, et des ingénieurs seniors révisent, testent et approuvent chaque livraison. La revue de code et les tests sont inclus dans chaque soumission. Le service se fait en français et en anglais, en personne à Montréal ou à distance, pour des PME et des organisations au Canada, aux États-Unis et en Europe. Les projets de plus grande taille sont découpés en étapes à prix fixe, de 30 000 $ à 300 000 $ ; tous les détails sont sur la page [tarifs](/fr/tarifs)."
+    ],
+    "sections": [
+      {
+        "h2": "Développement de portail client",
+        "paragraphs": [
+          "Un portail client donne à vos clients ou partenaires un seul endroit sécurisé pour se connecter, faire une demande, déposer des documents, suivre l'avancement et payer. Addanapp développe des portails clients et partenaires avec comptes et rôles, notifications et journal d'activité, pensés dès le départ pour vous aider à respecter la Loi 25.",
+          "En savoir plus sur le [développement de portail client](/fr/developpement-portail-client)."
+        ]
+      },
+      {
+        "h2": "Développement de panneau d'administration",
+        "paragraphs": [
+          "Le panneau d'administration, c'est là où votre équipe travaille vraiment : gérer les utilisateurs, les commandes, les réservations, le contenu et les paramètres, sans fichier Excel partagé. Addanapp conçoit des panneaux d'administration et des back-offices avec accès par rôle, recherche, actions en lot, exportations et rapports. Le back-office des studios de Health Booker et l'administration de PlanPlate en sont des exemples.",
+          "En savoir plus sur le [développement de panneau d'administration](/fr/developpement-panneau-administration)."
+        ]
+      },
+      {
+        "h2": "Développement de MVP à prix fixe",
+        "paragraphs": [
+          "Un MVP, c'est la plus petite version de votre produit que de vrais utilisateurs peuvent utiliser. Chez Addanapp, le MVP correspond à l'**étape Lancement, à 30 000 $**, sur environ 6 à 8 semaines : atelier de découverte, le processus le plus important construit de bout en bout, comptes et rôles, administration de base et mise en production.",
+          "En savoir plus sur le [développement de MVP](/fr/developpement-mvp)."
+        ]
+      },
+      {
+        "h2": "Plateformes de données, tableaux de bord et pipelines",
+        "paragraphs": [
+          "Une plateforme de données transforme des informations éparpillées en chiffres fiables. Addanapp construit des pipelines de données, des tâches planifiées, de la recherche et des tableaux de bord capables de traiter de gros volumes, pour que vos rapports ne dépendent plus d'une exportation recopiée à la main chaque lundi.",
+          "En savoir plus sur le [développement de plateforme de données](/fr/developpement-plateforme-donnees)."
+        ]
+      },
+      {
+        "h2": "Développement SaaS",
+        "paragraphs": [
+          "Un SaaS multilocataire configurable permet à une seule base de code de servir plusieurs clients, chacun avec ses propres réglages. Addanapp développe des SaaS avec paramètres par client, drapeaux de fonctionnalités, marque blanche et facturation à l'usage. ArviStay (un créateur de sites d'hôtels) et Prepsto (une plateforme de rétroaction et de billets avec API) sont des exemples en ligne.",
+          "En savoir plus sur le [développement SaaS](/fr/developpement-saas)."
+        ]
+      },
+      {
+        "h2": "Intégration API",
+        "paragraphs": [
+          "Les intégrations API relient votre logiciel aux outils que vous payez déjà. Addanapp construit et entretient des intégrations avec Stripe, Google, QuickBooks, les CRM et les services de courriel, ainsi que des API sur mesure pour que vos partenaires puissent se brancher à vos systèmes.",
+          "En savoir plus sur l'[intégration API](/fr/integration-api)."
+        ]
+      },
+      {
+        "h2": "Applications mobiles, fonctions d'IA et sites web branchés",
+        "paragraphs": [
+          "Addanapp développe aussi les éléments qui gravitent autour d'un système central :"
+        ],
+        "bullets": [
+          "**Applications web installables, pensées pour le mobile** : mode hors ligne, appareil photo et notifications, sans passer par un magasin d'applications.",
+          "**Fonctions d'IA responsables** : extraction de documents, classification, recherche intelligente et assistants, avec une validation humaine pour ce qui compte.",
+          "**Sites web reliés à vos vrais systèmes** : réservations, formulaires et comptes qui alimentent votre back-office plutôt qu'une boîte de courriel.",
+          "**Refonte d'applications existantes** : Parapeet, une application de 2023, a été reconstruite à partir de zéro en conservant la progression de chaque joueur. La protection des renseignements personnels est traitée sur la page [Loi 25](/fr/applications-conformes-loi-25)."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Quels types de logiciels Addanapp développe-t-elle ?",
+        "Addanapp développe des logiciels sur mesure pour les entreprises : applications web, portails clients et partenaires, panneaux d'administration, intégrations API, plateformes de données avec tableaux de bord, SaaS multilocataires, applications web installables, fonctions d'IA responsables et sites web branchés à de vrais systèmes. Soixante produits sont en ligne et utilisés, dont PlanPlate, Prepsto, ArviStay et Health Booker."
+      ],
+      [
+        "Combien coûte un logiciel sur mesure avec Addanapp ?",
+        "Les projets vont de 30 000 $ à 300 000 $, découpés en quatre étapes à prix fixe : Lancement (30 000 $), Exploitation (+45 000 $), Croissance (+75 000 $) et Complet (+150 000 $). Chaque étape a sa propre soumission et n'est facturée qu'une fois acceptée. Les petites modifications d'une application existante reçoivent une soumission fixe par demande."
+      ],
+      [
+        "Addanapp utilise-t-elle l'IA pour écrire du code ?",
+        "Oui. L'IA accélère la rédaction du code, des tests et de la documentation. Des ingénieurs seniors conçoivent l'architecture, révisent chaque changement, vérifient la sécurité et approuvent chaque livraison avant qu'elle vous parvienne. La revue de code et les tests sont inclus dans chaque soumission. Le processus complet est décrit sur la page notre méthode."
+      ],
+      [
+        "Peut-on travailler en français et en personne à Montréal ?",
+        "Oui. Addanapp travaille en français et en anglais, en personne à Montréal ou à distance, avec des clients au Canada, aux États-Unis et en Europe. Chaque client dispose d'un espace de travail privé pour soumettre des demandes, approuver des soumissions, lire les notes d'avancement de l'ingénieur et accepter les livraisons."
+      ],
+      [
+        "Addanapp peut-elle reprendre ou refaire une application existante ?",
+        "Oui. Addanapp peut ajouter des fonctions à une application existante, avec une soumission fixe par demande, ou refaire un ancien système. Parapeet, une application de 2023, a été reconstruite de zéro en gardant la progression de chaque joueur. La migration des données est incluse dans l'étape Complet et peut aussi faire l'objet d'une soumission distincte."
+      ]
+    ],
+    "cta": {
+      "heading": "Parlez-nous de votre projet",
+      "text": "Décrivez le processus ou le système que vous avez en tête. Vous recevez une soumission à prix fixe et un délai avant le début des travaux, et vous ne payez que les livraisons acceptées. Découvrez [notre méthode](/fr/notre-methode) ou parcourez nos [60 produits en ligne](https://addanapp.com/#work).",
+      "button": "Obtenir une soumission"
+    }
+  }
+}

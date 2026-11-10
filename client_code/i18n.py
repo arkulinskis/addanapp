@@ -27,10 +27,16 @@ LANGS = [('en', 'English'), ('fr', 'Français'), ('ru', 'Русский'), ('lv'
 CODES = [c for c, _n in LANGS]
 NAMES = dict(LANGS)
 STORAGE_KEY = 'aa.lang'
-VERSION = '20'
+VERSION = '21'
 
 
 def _stored():
+  try:
+    for part in str(window.location.search or '').lstrip('?').split('&'):  # links from the French pages: /?lang=fr
+      if part.startswith('lang=') and part[5:] in CODES:
+        return part[5:]
+  except Exception:
+    pass
   try:
     v = window.localStorage.getItem(STORAGE_KEY)
   except Exception:
@@ -211,6 +217,10 @@ def set_lang(code):
       window.localStorage.setItem(STORAGE_KEY, code)
   except Exception:
     pass
+  if 'lang=' in (window.location.search or ''):
+    # came from a French page (/?lang=fr): drop the parameter, or the reload would pick it again
+    window.location.replace(window.location.pathname + window.location.hash)
+    return
   window.location.reload()
 
 

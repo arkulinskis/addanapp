@@ -1,0 +1,178 @@
+{
+  "key": "law-25",
+  "service_type": "Privacy-compliant application development",
+  "en": {
+    "slug": "/law-25-compliant-apps",
+    "title": "Law 25 Compliant Apps and Portals in Québec | Addanapp",
+    "description": "Build portals and apps that help meet Québec Law 25: privacy by default, consent, access logs, data export, retention and incident logging. Fixed price.",
+    "h1": "Law 25-ready apps and portals for Québec businesses",
+    "intro": [
+      "Québec's Law 25 changed how businesses must handle personal information, and much of that work happens inside software: the portal where clients log in, the admin panel where staff read records, the database where everything is kept. Addanapp builds web apps and [client portals](/client-portal-development) designed from the start to **help you meet Law 25**: privacy settings on by default, clear consent, access logs, data export and deletion, retention rules and incident logging.",
+      "This page is general information, not legal advice. Software can support compliance, but meeting Law 25 also depends on your policies, your people and your decisions; your legal advisor should confirm what applies to your organization."
+    ],
+    "sections": [
+      {
+        "h2": "What Québec's Law 25 is",
+        "paragraphs": [
+          "Law 25 is the common name for Québec's Act to modernize legislative provisions as regards the protection of personal information, adopted in 2021. Law 25 updated Québec's private-sector privacy law and gave the Commission d'accès à l'information (CAI) stronger enforcement powers, including significant penalties. Law 25's obligations were phased in over three years:"
+        ],
+        "bullets": [
+          "**September 2022**: a designated person in charge of the protection of personal information (by default, the person with the highest authority in the business), mandatory reporting of confidentiality incidents that present a risk of serious injury, and a register of all confidentiality incidents",
+          "**September 2023**: privacy impact assessments for certain projects, stricter consent rules, privacy by default for products and services offered to the public, published governance policies, and rules on retention and destruction of personal information",
+          "**September 2024**: data portability, the right for a person to obtain their computerized personal information in a structured, commonly used technological format"
+        ]
+      },
+      {
+        "h2": "Privacy by default and consent built into the software",
+        "paragraphs": [
+          "Law 25 asks that technological products and services offered to the public use the highest level of confidentiality by default, and that consent be clear, free, informed and requested for specific purposes. Addanapp builds these requirements into the screens themselves:"
+        ],
+        "bullets": [
+          "Optional data sharing, tracking and profiling switched **off** until the person turns them on",
+          "Consent requested separately for each purpose, in plain language, and stored with a date so you can show what was agreed",
+          "A privacy settings page where users can review and withdraw consent",
+          "Only the fields a workflow actually needs, so the app collects less personal information in the first place"
+        ]
+      },
+      {
+        "h2": "Access logs and a confidentiality incident register",
+        "paragraphs": [
+          "Since September 2022, businesses must keep a register of confidentiality incidents and report serious ones to the CAI and to the people affected. Finding out what happened is much easier when the software records it. Addanapp builds role-based access so staff see only what their job requires, plus **access logs** that record who viewed or changed personal information and when. Addanapp can also add an incident register to your admin panel, so the person in charge can record each incident, its assessment and the steps taken in one place."
+        ]
+      },
+      {
+        "h2": "Data export, deletion and retention rules",
+        "paragraphs": [
+          "Law 25 gives people rights over their information, including access, correction and, since September 2024, portability. Law 25 also expects personal information to be destroyed or anonymized once its purpose is achieved. Software can turn those rights into routine tasks instead of manual searches:"
+        ],
+        "bullets": [
+          "**Data export**: a person's records exported in a structured, common format such as CSV or JSON",
+          "**Correction and deletion**: requests handled from the admin panel, with a record of what was done",
+          "**Retention rules**: scheduled jobs that delete or anonymize records after the period you set"
+        ]
+      },
+      {
+        "h2": "Support for privacy impact assessments",
+        "paragraphs": [
+          "Law 25 requires a privacy impact assessment for any project to acquire, develop or overhaul an information system that involves personal information, and before personal information is communicated outside Québec. The assessment is your organization's responsibility, but much of its content is technical. For each Addanapp project, the engineers can document what personal information the system collects, why, where it is stored and hosted, who can access it, which third-party services receive it and how long it is kept. That technical file gives your person in charge and your advisors a solid starting point. In Addanapp's [pricing](/pricing), a Law 25 privacy file is part of the Scale milestone."
+        ]
+      },
+      {
+        "h2": "How Addanapp builds Law 25-ready software",
+        "paragraphs": [
+          "Addanapp treats privacy as a design requirement, not a final checklist. Senior engineers review every delivery for access rules and data handling before it reaches you, as described in [how we work](/how-we-work). Privacy is handled with Law 25, PIPEDA and GDPR in mind, which matters for clients serving customers in Canada, the US and Europe. Addanapp also offers a free [Québec Law 25 checklist](https://addanapp.com/#guides) to help you see where you stand before a project starts."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Does Law 25 apply to my business?",
+        "Law 25 applies broadly to businesses that collect, use or disclose personal information in the course of business in Québec, including information about clients, employees and partners. Whether and how each obligation applies depends on your situation, so confirm with a legal advisor. Addanapp's role is the software side: building systems that help you meet the obligations that apply."
+      ],
+      [
+        "Can software make my business Law 25 compliant?",
+        "Software alone cannot make a business compliant. Law 25 also requires a person in charge, governance policies, assessments and decisions that only your organization can make. Well-built software makes those obligations much easier to meet: privacy settings on by default, recorded consent, access logs, data export, retention rules and an incident register."
+      ],
+      [
+        "What is a privacy impact assessment under Law 25?",
+        "A privacy impact assessment is a review of the privacy risks of a project before it goes ahead. Law 25 requires one for projects that acquire, develop or overhaul an information system involving personal information, and before sending personal information outside Québec. Addanapp can document the technical facts your assessment needs: data collected, storage, access, third parties and retention."
+      ],
+      [
+        "Can Addanapp add Law 25 features to an existing app?",
+        "Yes. Addanapp can add consent records, access logs, data export, retention jobs or an incident register to an app you already use, with a fixed quote per request. For a larger system, the Law 25 privacy file is included in the Scale milestone. You are invoiced only when you accept each delivery."
+      ]
+    ],
+    "cta": {
+      "heading": "Plan a Law 25-ready portal or app",
+      "text": "Tell us what personal information your workflow handles. You get a fixed quote and an ETA before work starts, and you pay only for deliveries you accept. See [all services](/services) or [admin panel development](/admin-panel-development).",
+      "button": "Get a fixed quote"
+    }
+  },
+  "fr": {
+    "slug": "/fr/applications-conformes-loi-25",
+    "title": "Applications conformes à la Loi 25 au Québec | Addanapp",
+    "description": "Des portails et applications qui vous aident à respecter la Loi 25 : confidentialité par défaut, consentement, journaux d'accès, portabilité. Prix fixe.",
+    "h1": "Applications et portails prêts pour la Loi 25",
+    "intro": [
+      "La Loi 25 a changé la façon dont les entreprises du Québec doivent traiter les renseignements personnels, et une grande partie de ce travail se fait dans les logiciels : le portail où vos clients se connectent, le panneau d'administration où votre équipe consulte les dossiers, la base de données où tout est conservé. Addanapp développe des applications web et des [portails clients](/fr/developpement-portail-client) conçus dès le départ pour **vous aider à respecter la Loi 25** : confidentialité par défaut, consentement clair, journaux d'accès, exportation et suppression des données, règles de conservation et registre des incidents.",
+      "Cette page fournit de l'information générale et ne constitue pas un avis juridique. Un logiciel peut soutenir la conformité, mais le respect de la Loi 25 dépend aussi de vos politiques, de votre personnel et de vos décisions ; votre conseiller juridique doit confirmer ce qui s'applique à votre organisation."
+    ],
+    "sections": [
+      {
+        "h2": "La Loi 25 en bref",
+        "paragraphs": [
+          "La Loi 25 est le nom courant de la Loi modernisant des dispositions législatives en matière de protection des renseignements personnels, adoptée en 2021. La Loi 25 a mis à jour la loi québécoise sur la protection des renseignements personnels dans le secteur privé et donné à la Commission d'accès à l'information (CAI) des pouvoirs accrus, y compris des sanctions importantes. Ses obligations sont entrées en vigueur en trois temps :"
+        ],
+        "bullets": [
+          "**Septembre 2022** : un responsable de la protection des renseignements personnels (par défaut, la personne ayant la plus haute autorité dans l'entreprise), la déclaration obligatoire des incidents de confidentialité présentant un risque de préjudice sérieux et la tenue d'un registre de tous les incidents de confidentialité",
+          "**Septembre 2023** : les évaluations des facteurs relatifs à la vie privée (EFVP) pour certains projets, des règles de consentement plus strictes, la confidentialité par défaut pour les produits et services offerts au public, la publication de politiques de gouvernance et des règles de conservation et de destruction des renseignements",
+          "**Septembre 2024** : la portabilité des données, soit le droit d'obtenir ses renseignements personnels informatisés dans un format technologique structuré et couramment utilisé"
+        ]
+      },
+      {
+        "h2": "Confidentialité par défaut et consentement intégrés au logiciel",
+        "paragraphs": [
+          "La Loi 25 exige que les produits et services technologiques offerts au public assurent par défaut le plus haut niveau de confidentialité, et que le consentement soit manifeste, libre, éclairé et demandé à des fins précises. Addanapp intègre ces exigences directement dans les écrans :"
+        ],
+        "bullets": [
+          "Partage de données, suivi et profilage optionnels **désactivés** tant que la personne ne les active pas",
+          "Consentement demandé séparément pour chaque fin, en termes simples, et conservé avec la date pour prouver ce qui a été accepté",
+          "Une page de paramètres de confidentialité où l'utilisateur peut revoir et retirer son consentement",
+          "Seulement les champs dont le processus a réellement besoin, pour recueillir moins de renseignements personnels dès le départ"
+        ]
+      },
+      {
+        "h2": "Journaux d'accès et registre des incidents de confidentialité",
+        "paragraphs": [
+          "Depuis septembre 2022, les entreprises doivent tenir un registre des incidents de confidentialité et déclarer les incidents sérieux à la CAI et aux personnes concernées. Comprendre ce qui s'est passé est beaucoup plus simple quand le logiciel l'a enregistré. Addanapp met en place des accès par rôle pour que chaque employé ne voie que ce dont il a besoin, ainsi que des **journaux d'accès** qui indiquent qui a consulté ou modifié un renseignement personnel, et quand. Addanapp peut aussi ajouter un registre des incidents à votre panneau d'administration, pour que le responsable y consigne chaque incident, son évaluation et les mesures prises."
+        ]
+      },
+      {
+        "h2": "Exportation, suppression et conservation des données",
+        "paragraphs": [
+          "La Loi 25 donne aux personnes des droits sur leurs renseignements, dont l'accès, la rectification et, depuis septembre 2024, la portabilité. Elle prévoit aussi que les renseignements soient détruits ou anonymisés une fois leur finalité accomplie. Le logiciel peut transformer ces droits en tâches courantes plutôt qu'en recherches manuelles :"
+        ],
+        "bullets": [
+          "**Exportation** : les dossiers d'une personne exportés dans un format structuré et courant, comme CSV ou JSON",
+          "**Rectification et suppression** : demandes traitées depuis le panneau d'administration, avec une trace de ce qui a été fait",
+          "**Règles de conservation** : tâches planifiées qui suppriment ou anonymisent les dossiers après la période que vous fixez"
+        ]
+      },
+      {
+        "h2": "Soutien à l'évaluation des facteurs relatifs à la vie privée",
+        "paragraphs": [
+          "La Loi 25 exige une évaluation des facteurs relatifs à la vie privée (EFVP) pour tout projet d'acquisition, de développement ou de refonte d'un système d'information comportant des renseignements personnels, ainsi qu'avant de communiquer des renseignements à l'extérieur du Québec. L'EFVP relève de votre organisation, mais une bonne partie de son contenu est technique. Pour chaque projet, les ingénieurs d'Addanapp peuvent documenter les renseignements recueillis, leur raison d'être, leur lieu de stockage et d'hébergement, qui y a accès, quels services tiers les reçoivent et leur durée de conservation. Ce dossier technique donne à votre responsable et à vos conseillers une base solide. Dans nos [tarifs](/fr/tarifs), le dossier Loi 25 fait partie de l'étape Croissance."
+        ]
+      },
+      {
+        "h2": "Comment Addanapp construit des logiciels prêts pour la Loi 25",
+        "paragraphs": [
+          "Addanapp traite la protection des renseignements personnels comme une exigence de conception, pas comme une liste à cocher à la fin. Des ingénieurs seniors révisent chaque livraison, notamment les règles d'accès et le traitement des données, avant qu'elle vous parvienne, comme décrit dans [notre méthode](/fr/notre-methode). Nous tenons compte de la Loi 25, de la LPRPDE et du RGPD, ce qui compte pour les entreprises qui servent des clients au Canada, aux États-Unis et en Europe. Addanapp offre aussi une [liste de vérification Loi 25](https://addanapp.com/#guides) gratuite pour faire le point avant de lancer un projet."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "La Loi 25 s'applique-t-elle à mon entreprise ?",
+        "La Loi 25 s'applique largement aux entreprises qui recueillent, utilisent ou communiquent des renseignements personnels dans le cadre de leurs activités au Québec, qu'il s'agisse de clients, d'employés ou de partenaires. La façon dont chaque obligation s'applique dépend de votre situation ; confirmez-le avec un conseiller juridique. Le rôle d'Addanapp est le volet logiciel : construire des systèmes qui vous aident à respecter vos obligations."
+      ],
+      [
+        "Un logiciel peut-il rendre mon entreprise conforme à la Loi 25 ?",
+        "Un logiciel seul ne peut pas rendre une entreprise conforme. La Loi 25 exige aussi un responsable, des politiques de gouvernance, des évaluations et des décisions que seule votre organisation peut prendre. Un logiciel bien conçu facilite toutefois beaucoup le travail : confidentialité par défaut, consentements enregistrés, journaux d'accès, exportation des données, règles de conservation et registre des incidents."
+      ],
+      [
+        "Qu'est-ce qu'une EFVP selon la Loi 25 ?",
+        "L'évaluation des facteurs relatifs à la vie privée (EFVP) examine les risques d'un projet pour la vie privée avant qu'il aille de l'avant. La Loi 25 l'exige pour l'acquisition, le développement ou la refonte d'un système d'information comportant des renseignements personnels, et avant toute communication hors Québec. Addanapp peut documenter les faits techniques nécessaires : données recueillies, stockage, accès, tiers et conservation."
+      ],
+      [
+        "Addanapp peut-elle ajouter des fonctions Loi 25 à une application existante ?",
+        "Oui. Addanapp peut ajouter l'enregistrement des consentements, des journaux d'accès, l'exportation des données, des tâches de conservation ou un registre des incidents à une application que vous utilisez déjà, avec une soumission à prix fixe par demande. Pour un système plus important, le dossier Loi 25 est inclus dans l'étape Croissance. Vous n'êtes facturé qu'à l'acceptation de chaque livraison."
+      ]
+    ],
+    "cta": {
+      "heading": "Planifiez un portail ou une application prêts pour la Loi 25",
+      "text": "Dites-nous quels renseignements personnels votre processus traite. Vous recevez une soumission à prix fixe et un délai avant le début des travaux, et vous ne payez que les livraisons acceptées. Voyez [tous nos services](/fr/services) ou le [développement de panneau d'administration](/fr/developpement-panneau-administration).",
+      "button": "Obtenir une soumission"
+    }
+  }
+}

@@ -1,0 +1,185 @@
+{
+  "key": "admin-panel",
+  "service_type": "Admin panel development",
+  "en": {
+    "slug": "/admin-panel-development",
+    "title": "Admin Panel Development in Montréal | Addanapp",
+    "description": "Custom admin panels and back offices for your team: users, records, approvals and reports in one place. Fixed price per milestone, invoiced on acceptance.",
+    "h1": "Admin panel development: a back office your team actually wants to use",
+    "intro": [
+      "An admin panel, or back office, is the private side of your software where staff manage customers, orders, bookings, content, users and settings. A good admin panel replaces shared spreadsheets, direct database edits and copy-paste between tools. Addanapp is a Montréal software consultancy that builds custom admin panels for web apps, client portals and SaaS products, in English and French.",
+      "Every admin panel is built with AI-accelerated development, then reviewed, tested and signed off by senior engineers. You approve a fixed quote and an ETA before work starts, and you pay only when you accept the delivery."
+    ],
+    "sections": [
+      {
+        "h2": "What a custom admin panel does",
+        "paragraphs": [
+          "An admin panel is built around the tasks your team repeats every day. Typical admin panel features include:"
+        ],
+        "bullets": [
+          "**Users and roles**: invite staff, set who can see and change what, and remove access in one click.",
+          "**Search and filters** across customers, orders or cases, fast even on large tables.",
+          "**Record editing with validation and history**, so bad data is stopped at the door.",
+          "**Approval queues**: requests, refunds, sign-ups or AI suggestions waiting for a human decision.",
+          "**Bulk actions and CSV import and export** for the jobs nobody wants to do one row at a time.",
+          "**Reports and dashboards** that answer the questions managers ask every week.",
+          "**An audit log** showing who changed what, and when."
+        ]
+      },
+      {
+        "h2": "Signs your business needs an admin panel",
+        "paragraphs": [
+          "Most companies come to Addanapp for an admin panel when one of these is true:"
+        ],
+        "bullets": [
+          "A spreadsheet has become the real source of truth, and several people edit it at once.",
+          "A developer is asked to change data directly in the database because there is no screen for it.",
+          "Staff copy the same information between three or four tools.",
+          "Nobody can tell who changed a price, a status or a customer record."
+        ]
+      },
+      {
+        "h2": "How admin panel development works",
+        "paragraphs": [
+          "Addanapp starts by listing your team's tasks and ranking them by how often they happen. The screens used every hour get the most care; the ones used once a quarter stay simple. You then approve a fixed quote and an ETA. The engineer builds with AI acceleration and writes progress notes in your private workspace. A senior engineer reviews the code, runs the tests and signs off. You try the admin panel with your own team, and you are invoiced only when you accept it. See [how we work](/how-we-work) for the full method."
+        ]
+      },
+      {
+        "h2": "How fixed-price milestones apply to an admin panel",
+        "paragraphs": [
+          "Projects run from $30,000 to $300,000 CAD in fixed-price milestones, each quoted before it starts and invoiced on acceptance. You can stop after any milestone and keep the code, data and documentation. See the [pricing page](/pricing).",
+          "**Launch ($30,000)** already includes accounts, roles and a basic admin next to the main workflow. **Operate (+$45,000)** grows the admin panel with more workflows, notifications, first reports and [integrations](/api-integration-development) with payments, accounting, CRM and email. **Scale (+$75,000)** adds dashboards and a [data platform](/data-platform-development), automation, performance work, a security review, the Law 25 privacy file and WCAG 2.2 AA accessibility. **Complete (+$150,000)** covers migration from old systems, staff training, documentation, monitoring and 12 months of support. For an admin panel added to an existing app, a small change gets a fixed quote per request."
+        ]
+      },
+      {
+        "h2": "Design choices that make a back office fast",
+        "paragraphs": [
+          "A back office is used for hours at a time, so small details matter. Addanapp designs admin panels with tables that load quickly and keep your filters, clear empty and error states, sensible defaults, and confirmation only for actions that cannot be undone. Roles follow least privilege: people get the access their job needs, not more. Access logs and data export support privacy duties under Québec Law 25 (general information, not legal advice; see [Law 25-ready apps](/law-25-compliant-apps))."
+        ]
+      },
+      {
+        "h2": "Admin panel mistakes to avoid",
+        "paragraphs": [],
+        "bullets": [
+          "Building the admin panel last, after the customer-facing side, so staff live with workarounds.",
+          "Giving everyone full administrator rights because roles felt like extra work.",
+          "No audit log, which turns every data error into a guessing game.",
+          "Copying the old spreadsheet column by column instead of redesigning the workflow."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "How much does a custom admin panel cost?",
+        "A basic admin panel is part of the Launch milestone at $30,000 CAD, alongside the main workflow, accounts and roles. Richer admin panels with reports, integrations, dashboards and automation grow through the Operate and Scale milestones. Every milestone has a fixed quote agreed before work starts and is invoiced only when you accept the delivery."
+      ],
+      [
+        "Can you build an admin panel for an app we already have?",
+        "Yes. Addanapp can add an admin panel or back office to an existing app or database. A single feature gets a fixed quote and an ETA, usually within 2 business days. A full back office is planned as fixed-price milestones, each with its own quote agreed before work starts."
+      ],
+      [
+        "What is the difference between an admin panel and a dashboard?",
+        "An admin panel is where staff do the work: edit records, approve requests, manage users and settings. A dashboard is where managers read the results: totals, trends and alerts. Most back offices need both, and Addanapp builds them together so the numbers on the dashboard come from the same data your team edits."
+      ],
+      [
+        "Which real products include an Addanapp admin panel?",
+        "Examples from the 60 live products Addanapp has built include Health Booker, a multi-studio yoga booking marketplace with a studio back office; PlanPlate, a restaurant bookings platform; Prepsto, a feedback and ticket platform; and Good Landlord, which keeps landlord numbers and tenant records. The portfolio is at addanapp.com/#work."
+      ]
+    ],
+    "cta": {
+      "heading": "Replace the spreadsheet with a real back office",
+      "text": "Send us the three tasks your team spends the most time on. You get a fixed quote and an ETA before any work starts.",
+      "button": "Get a fixed quote"
+    }
+  },
+  "fr": {
+    "slug": "/fr/developpement-panneau-administration",
+    "title": "Panneau d'administration sur mesure à Montréal | Addanapp",
+    "description": "Panneau d'administration sur mesure pour votre équipe : utilisateurs, dossiers, approbations et rapports. Prix fixe par jalon, facturé à l'acceptation.",
+    "h1": "Développement de panneau d'administration : un back-office que votre équipe aime utiliser",
+    "intro": [
+      "Le panneau d'administration, ou back-office, est la partie privée de votre logiciel où vos employés gèrent clients, commandes, réservations, contenu, utilisateurs et paramètres. Un bon panneau remplace les fichiers Excel partagés, les retouches directes dans la base de données et les copier-coller entre outils. Addanapp, firme de développement logiciel à Montréal, conçoit des panneaux d'administration sur mesure pour des applications web, des portails clients et des produits SaaS, en français et en anglais.",
+      "Chaque panneau d'administration est développé avec l'aide de l'IA et approuvé par des ingénieurs seniors. Soumission à prix fixe et délai avant les travaux ; vous payez seulement à l'acceptation."
+    ],
+    "sections": [
+      {
+        "h2": "Ce que fait un panneau d'administration sur mesure",
+        "paragraphs": [
+          "Un panneau d'administration se construit autour des tâches que votre équipe répète chaque jour. On y trouve habituellement :"
+        ],
+        "bullets": [
+          "**Utilisateurs et rôles** : inviter des employés, décider qui voit et modifie quoi, retirer un accès en un clic.",
+          "**Recherche et filtres** sur les clients, commandes ou dossiers, rapides même sur de grands volumes.",
+          "**Modification des fiches avec validation et historique**, pour bloquer les données erronées dès la saisie.",
+          "**Files d'approbation** : demandes, remboursements, inscriptions ou suggestions de l'IA en attente d'une décision humaine.",
+                    "**Rapports et tableaux de bord** pour les questions hebdomadaires de la direction.",
+          "**Un journal d'audit** qui indique qui a modifié quoi, et quand."
+        ]
+      },
+      {
+        "h2": "Les signes que votre PME a besoin d'un panneau d'administration",
+        "paragraphs": [
+          "Les situations qui mènent le plus souvent à un panneau d'administration :"
+        ],
+        "bullets": [
+          "Un fichier Excel modifié par plusieurs personnes est devenu la vraie source de vérité.",
+          "Un développeur doit modifier la base de données directement, faute d'écran prévu.",
+          "Vos employés recopient la même information dans trois ou quatre outils.",
+          "Personne ne sait qui a changé un prix, un statut ou une fiche client."
+        ]
+      },
+      {
+        "h2": "Le développement d'un panneau d'administration, en pratique",
+        "paragraphs": [
+          "Addanapp dresse d'abord la liste des tâches de votre équipe, classées selon leur fréquence. Les écrans utilisés toutes les heures reçoivent le plus de soin ; ceux qui servent une fois par trimestre restent simples. Vous approuvez ensuite une soumission à prix fixe et un délai. L'ingénieur développe avec l'aide de l'IA et rédige des notes d'avancement dans votre espace privé. Un ingénieur senior révise le code, roule les tests et approuve la livraison. Vous essayez le panneau avec votre équipe et n'êtes facturé qu'à l'acceptation. Voir [notre méthode](/fr/notre-methode)."
+        ]
+      },
+      {
+        "h2": "Les jalons à prix fixe appliqués à un panneau d'administration",
+        "paragraphs": [
+          "Les projets vont de 30 000 $ à 300 000 $ (CAD) en jalons à prix fixe, chacun soumis avant de commencer et facturé à l'acceptation. Vous pouvez arrêter après n'importe quel jalon en gardant le code, les données et la documentation. Voir les [tarifs](/fr/tarifs).",
+          "**Lancement (30 000 $)** comprend déjà les comptes, les rôles et une administration de base à côté du processus principal. **Exploitation (+45 000 $)** enrichit le panneau avec d'autres processus, des notifications, les premiers rapports et des [intégrations](/fr/integration-api) (paiement, comptabilité, CRM, courriel). **Croissance (+75 000 $)** ajoute tableaux de bord et [plateforme de données](/fr/developpement-plateforme-donnees), automatisation, optimisation des performances, revue de sécurité, dossier Loi 25 et accessibilité WCAG 2.2 AA. **Complet (+150 000 $)** couvre la migration des anciens systèmes, la formation, la documentation, la surveillance et 12 mois de soutien. Pour une application existante, une petite modification reçoit une soumission à prix fixe par demande."
+        ]
+      },
+      {
+        "h2": "Des choix de conception qui rendent un back-office rapide",
+        "paragraphs": [
+          "On passe des heures dans un back-office : les détails comptent. Addanapp conçoit des panneaux d'administration avec des tableaux qui se chargent vite et retiennent vos filtres, des messages clairs pour les listes vides et les erreurs, des valeurs par défaut sensées et une confirmation seulement pour les actions irréversibles. Les rôles suivent le principe du moindre privilège. Les journaux d'accès et l'exportation des données soutiennent vos obligations liées à la Loi 25 (information générale, pas un avis juridique ; voir [applications conformes à la Loi 25](/fr/applications-conformes-loi-25))."
+        ]
+      },
+      {
+        "h2": "Les erreurs à éviter avec un panneau d'administration",
+        "paragraphs": [],
+        "bullets": [
+          "Construire le panneau en dernier et laisser l'équipe vivre de contournements.",
+          "Donner à tout le monde les pleins droits d'administrateur, faute de rôles.",
+          "Se passer de journal d'audit, ce qui transforme chaque erreur de données en devinette.",
+          "Recopier l'ancien fichier Excel colonne par colonne au lieu de repenser le processus."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Combien coûte un panneau d'administration sur mesure ?",
+        "Une administration de base fait partie du jalon Lancement à 30 000 $ (CAD), avec le processus principal, les comptes et les rôles. Un panneau plus complet, avec rapports, intégrations, tableaux de bord et automatisation, se construit dans les jalons Exploitation et Croissance. Chaque jalon est soumis à prix fixe d'avance et facturé après votre acceptation."
+      ],
+      [
+        "Pouvez-vous ajouter un panneau d'administration à une application existante ?",
+        "Oui. Addanapp peut ajouter un back-office à une application ou à une base de données existante. Une fonction isolée reçoit une soumission à prix fixe et un délai, habituellement en moins de 2 jours ouvrables. Un back-office complet se planifie en jalons à prix fixe, chacun avec sa propre soumission."
+      ],
+      [
+        "Quelle différence entre un panneau d'administration et un tableau de bord ?",
+        "Le panneau d'administration sert à faire le travail : modifier des fiches, approuver des demandes, gérer les utilisateurs et les paramètres. Le tableau de bord sert à lire les résultats : totaux, tendances et alertes. La plupart des back-offices ont besoin des deux, et Addanapp les construit ensemble, sur les mêmes données."
+      ],
+      [
+        "Quels produits réels comprennent un panneau d'administration Addanapp ?",
+        "Parmi les 60 produits en ligne conçus par Addanapp : Health Booker, une place de marché de réservation pour studios de yoga, avec leur back-office ; PlanPlate, une plateforme de réservation pour restaurants ; Prepsto, une plateforme de rétroaction et de billets ; et Good Landlord, qui tient les chiffres des propriétaires et les dossiers des locataires. Portfolio : addanapp.com/#work."
+      ]
+    ],
+    "cta": {
+      "heading": "Remplacez le fichier Excel par un vrai back-office",
+      "text": "Envoyez-nous les trois tâches qui prennent le plus de temps à votre équipe. Soumission à prix fixe et délai avant tout travail.",
+      "button": "Obtenir une soumission à prix fixe"
+    }
+  }
+}

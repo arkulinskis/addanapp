@@ -67,7 +67,7 @@
 "Activity": "Aktivitāte",
 "Add capability to the app you already run, whether we built it or not.": "Papildiniet lietotni, kas jums jau darbojas, neatkarīgi no tā, vai to veidojām mēs.",
 "Add the fixed quote amount before sending the quote.": "Pirms piedāvājuma nosūtīšanas norādiet fiksēto summu.",
-"AddAnApp - triple A software delivery service": "AddAnApp — AAA klases programmatūras piegāde",
+"Custom Web App Development in Montréal | Addanapp": "Pielāgotu tīmekļa lietotņu izstrāde Monreālā | Addanapp",
 "Addanapp designs and builds <b>web apps, admin panels, client portals and data-heavy platforms</b>. AI accelerates every step, and an engineer reviews, tests and approves every line before it reaches you. <b>You pay for accepted results, not hours.</b>": "Addanapp projektē un izstrādā <b>tīmekļa lietotnes, administrēšanas paneļus, klientu portālus un datu ietilpīgas platformas</b>. MI paātrina katru soli, un inženieris pārskata, testē un apstiprina katru rindu, pirms tā nonāk pie jums. <b>Jūs maksājat par pieņemtiem rezultātiem, nevis stundām.</b>",
 "Addanapp home": "Addanapp sākumlapa",
 "Addanapp is operated by Arkvital, Montréal, Québec. We follow Québec's Law 25, Canada's PIPEDA and the GDPR. These documents explain, in plain language, what we collect, why, who helps us, your rights, and the rules for using our website and client workspace.": "Addanapp pārvalda Arkvital, Monreālā, Kvebekā. Mēs ievērojam Kvebekas Likumu 25, Kanādas PIPEDA un VDAR. Šie dokumenti vienkāršā valodā izskaidro, ko mēs vācam, kāpēc, kas mums palīdz, jūsu tiesības un noteikumus mūsu vietnes un klienta darba telpas lietošanai.",
@@ -1105,5 +1105,14 @@
 "Eight programs, 32 modules and 288 drills": "Astoņas programmas, 32 moduļi un 288 vingrinājumi",
 "Labs for experiment peeking, metric trees, cohorts and pricing": "Laboratorijas par priekšlaicīgu eksperimentu rezultātu skatīšanu, metriku kokiem, kohortām un cenām",
 "22 sourced product leadership case files": "22 produktu vadības gadījumu izpētes ar avotiem",
-"Product leadership": "Produktu vadība"
+"Product leadership": "Produktu vadība",
+  "See every service in detail": "Katrs pakalpojums sīkāk",
+  "$30k to $300k, in fixed-price milestones": "No 30 000 $ līdz 300 000 $, posmos par fiksētu cenu",
+  "Stop after any milestone and keep everything": "Apstājieties pēc jebkura posma un paturiet visu",
+  "How milestone pricing works": "Kā darbojas cenas pa posmiem",
+  "Under $30k": "Līdz 30 000 $",
+  "$30k – $75k": "30 000–75 000 $",
+  "$75k – $150k": "75 000–150 000 $",
+  "$150k – $300k": "150 000–300 000 $",
+  "$300k+": "300 000 $ un vairāk"
 }

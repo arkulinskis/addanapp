@@ -17,7 +17,7 @@ from anvil.js import window
 from . import state, ui
 from .i18n import tp
 
-SEO_TITLE = tp("AddAnApp - triple A software delivery service")
+SEO_TITLE = tp("Custom Web App Development in Montréal | Addanapp")
 SEO_DESC = tp("Montréal software consultancy for web apps, admin panels, client portals and data platforms. "
               "AI-accelerated, human-validated, fixed quotes. Pay for results.")
 # Home-page sections that belong to a header link (the "chapter" lit up in the header).

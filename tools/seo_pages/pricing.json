@@ -1,0 +1,238 @@
+{
+  "key": "pricing",
+  "service_type": null,
+  "en": {
+    "slug": "/pricing",
+    "title": "Fixed-Price Software Development Pricing | Addanapp",
+    "description": "Custom software from $30,000 to $300,000 CAD in four fixed-price milestones. Pay only when you accept each delivery, and stop after any milestone.",
+    "h1": "Fixed-price software development pricing",
+    "intro": [
+      "Addanapp prices custom software in **fixed-price milestones**, not hours. A project runs from $30,000 to $300,000 CAD and is split into four milestones: Launch, Operate, Scale and Complete. Each milestone has its own fixed quote, agreed before it starts, and is invoiced only when you accept the delivery.",
+      "You can stop after any milestone and keep everything built so far: the code, the data and the documentation. There is no lock-in and no exit fee. Many clients stop after Launch with a working product in production. Below is what each milestone includes, who it suits, and how quotes, acceptance and stopping work."
+    ],
+    "sections": [
+      {
+        "h2": "Launch — $30,000",
+        "paragraphs": [
+          "**Total: $30,000. About 6–8 weeks.** Launch suits a business that needs one workflow out of spreadsheets and email and into a real app, or a founder who needs a fixed-price MVP in front of users. Launch ends with software live in production, not a prototype. Many clients stop here, satisfied."
+        ],
+        "bullets": [
+          "A discovery workshop to agree on scope, users and the one workflow that matters most",
+          "That workflow built end to end",
+          "Accounts and roles",
+          "A basic admin panel",
+          "Live in production, with code review and tests included"
+        ]
+      },
+      {
+        "h2": "Operate — +$45,000 (total $75,000)",
+        "paragraphs": [
+          "**Cumulative total: $75,000.** Operate suits a business whose Launch app is in daily use and now needs to connect to the rest of the company. Operate turns a single workflow into a system your team runs on, wired to the tools you already pay for."
+        ],
+        "bullets": [
+          "The next workflows on your roadmap",
+          "Integrations with payments, accounting, CRM and email (for example Stripe, QuickBooks, Google)",
+          "Notifications to staff and customers",
+          "First reports"
+        ]
+      },
+      {
+        "h2": "Scale — +$75,000 (total $150,000)",
+        "paragraphs": [
+          "**Cumulative total: $150,000.** Scale suits an organization opening the system to a second group of users, such as clients, partners or field staff, and handling more data and more scrutiny. Scale is where privacy, accessibility and performance get formal attention."
+        ],
+        "bullets": [
+          "A second user group: a [client or partner portal](/client-portal-development) or a staff app",
+          "A data platform and dashboards",
+          "Automation of repetitive work",
+          "Performance work",
+          "A security review",
+          "A Québec Law 25 privacy file (see [Law 25-ready apps](/law-25-compliant-apps))",
+          "WCAG 2.2 AA accessibility"
+        ]
+      },
+      {
+        "h2": "Complete — +$150,000 (total $300,000)",
+        "paragraphs": [
+          "**Cumulative total: $300,000.** Complete is the all-inclusive build. Complete suits an organization replacing old systems outright and wanting one accountable team for the full roadmap, the move off legacy software and the first year in operation. Third-party fees (hosting plan, payment processing, paid APIs) are billed at cost."
+        ],
+        "bullets": [
+          "The remaining roadmap",
+          "A mobile-first installable app",
+          "Migration of data from old systems",
+          "Staff training and documentation",
+          "Monitoring",
+          "12 months of support and maintenance"
+        ]
+      },
+      {
+        "h2": "How fixed quotes, acceptance and stopping work",
+        "paragraphs": [
+          "Every Addanapp milestone follows the same steps, inside a private client workspace where you submit requests, approve quotes, read progress notes written by the engineer and accept deliveries."
+        ],
+        "bullets": [
+          "**Fixed quote first.** Before a milestone starts, you get a written scope, a fixed price and an ETA. Nothing starts until you approve the quote.",
+          "**Build and review.** Addanapp builds with AI to move faster; senior engineers review, test and sign off the work before you see it.",
+          "**Acceptance-based invoicing.** You test the delivery. The milestone is invoiced only when you accept it.",
+          "**Stop after any milestone.** You keep the code, data and documentation built so far. No lock-in, no exit fee.",
+          "**Small changes outside a project.** A change to an existing app gets its own fixed quote per request, usually within 2 business days. A sample quote: $2,400, 6 days."
+        ]
+      },
+      {
+        "h2": "Why fixed-price milestones beat hourly billing",
+        "paragraphs": [
+          "Hourly billing puts the risk of slow work on the client: every surprise, rework or misunderstanding adds hours to your invoice. A fixed-price milestone puts that risk on Addanapp. The price is agreed before work starts, so the incentive is to deliver the agreed result well, not to log time.",
+          "Fixed-price milestones also make budgeting simple. You know the cost of the next step before you commit, and you decide after each delivery whether the next milestone is worth it. With hourly billing you often learn the real cost only when the money is spent. With milestones you pay for accepted results and can stop with a working product at $30,000, $75,000 or $150,000. See [how we work](/how-we-work) for the review and sign-off process behind each delivery."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "How much does custom software cost at Addanapp?",
+        "Custom software at Addanapp costs from $30,000 to $300,000 CAD, depending on how far you go. The four milestones are Launch ($30,000), Operate (+$45,000, total $75,000), Scale (+$75,000, total $150,000) and Complete (+$150,000, total $300,000). Each milestone has its own fixed quote and is invoiced only on acceptance."
+      ],
+      [
+        "Do I have to commit to all four milestones?",
+        "No. Each milestone is quoted and agreed on its own, and you decide after each delivery whether to continue. You can stop after any milestone and keep everything built so far, including the code, data and documentation. There is no lock-in and no exit fee. Many clients stop after Launch."
+      ],
+      [
+        "What happens if a delivery is not right?",
+        "A milestone is invoiced only when you accept the delivery. If something does not match the agreed scope, you say so in your workspace and Addanapp fixes it before you accept. Senior engineers review and test every delivery before it reaches you, so problems are usually caught before you see them."
+      ],
+      [
+        "What if I need something outside the agreed scope?",
+        "New ideas are welcome. A request outside the agreed milestone scope gets its own fixed quote and ETA, which you approve or decline in your workspace before any work starts. The original milestone price does not change unless you approve a new quote. Nothing is ever billed by the hour."
+      ],
+      [
+        "Are hosting and third-party services included in the price?",
+        "Third-party fees such as the hosting plan, payment processing and paid APIs are billed at cost, without markup, because they depend on your usage. The milestone price covers the design, building, code review, tests and delivery work. The Complete milestone also includes 12 months of support and maintenance."
+      ],
+      [
+        "Can I get a quote for a small change to an existing app?",
+        "Yes. Small changes to an existing app are quoted one request at a time, outside any project. You get a fixed price and an ETA, usually within 2 business days, and pay only when you accept the delivery. A sample quote: $2,400 for a change delivered in 6 days."
+      ]
+    ],
+    "cta": {
+      "heading": "Get a fixed quote for your first milestone",
+      "text": "Tell us about the workflow that matters most. You get a written scope, a fixed price and an ETA before work starts, and you pay only when you accept the delivery. Browse [all services](/services) or see [60 live products](https://addanapp.com/#work).",
+      "button": "Get a fixed quote"
+    }
+  },
+  "fr": {
+    "slug": "/fr/tarifs",
+    "title": "Tarifs de développement logiciel à prix fixe | Addanapp",
+    "description": "Logiciel sur mesure de 30 000 $ à 300 000 $ en quatre étapes à prix fixe. Vous payez seulement les livraisons acceptées et arrêtez quand vous voulez.",
+    "h1": "Tarifs de développement logiciel à prix fixe",
+    "intro": [
+      "Addanapp facture le développement de logiciel sur mesure par **étapes à prix fixe**, jamais à l'heure. Un projet coûte de 30 000 $ à 300 000 $ et se découpe en quatre étapes : Lancement, Exploitation, Croissance et Complet. Chaque étape fait l'objet de sa propre soumission, approuvée avant le début des travaux, et n'est facturée qu'une fois la livraison acceptée.",
+      "Vous pouvez arrêter après n'importe quelle étape et garder tout ce qui a été construit : le code, les données et la documentation. Aucun engagement forcé, aucuns frais de sortie. Beaucoup de PME s'arrêtent après le Lancement, avec un logiciel en production qui fait le travail. Voici ce que comprend chaque étape, à qui elle s'adresse, et comment fonctionnent les soumissions, l'acceptation et l'arrêt."
+    ],
+    "sections": [
+      {
+        "h2": "Lancement — 30 000 $",
+        "paragraphs": [
+          "**Total : 30 000 $. Environ 6 à 8 semaines.** Le Lancement s'adresse à l'entreprise qui veut sortir un processus d'Excel et des courriels pour le mettre dans une vraie application, ou à l'entrepreneur qui veut un MVP à prix fixe entre les mains de vrais utilisateurs. Le Lancement se termine par un logiciel en production, pas une maquette. Beaucoup de clients s'arrêtent ici, satisfaits."
+        ],
+        "bullets": [
+          "Un atelier de découverte pour s'entendre sur la portée, les utilisateurs et le processus le plus important",
+          "Ce processus construit de bout en bout",
+          "Comptes et rôles",
+          "Un panneau d'administration de base",
+          "Mise en production, revue de code et tests inclus"
+        ]
+      },
+      {
+        "h2": "Exploitation — +45 000 $ (total 75 000 $)",
+        "paragraphs": [
+          "**Total cumulatif : 75 000 $.** L'étape Exploitation s'adresse à l'entreprise dont l'application est utilisée tous les jours et qui doit maintenant la relier au reste de ses opérations. L'Exploitation transforme un processus unique en système central pour votre équipe, branché aux outils que vous payez déjà."
+        ],
+        "bullets": [
+          "Les prochains processus de votre feuille de route",
+          "Intégrations : paiements, comptabilité, CRM et courriel (par exemple Stripe, QuickBooks, Google)",
+          "Notifications au personnel et aux clients",
+          "Premiers rapports"
+        ]
+      },
+      {
+        "h2": "Croissance — +75 000 $ (total 150 000 $)",
+        "paragraphs": [
+          "**Total cumulatif : 150 000 $.** L'étape Croissance s'adresse à l'organisation qui ouvre son système à un deuxième groupe d'utilisateurs (clients, partenaires ou employés sur le terrain) et qui gère plus de données et plus d'exigences. C'est à l'étape Croissance que la protection des renseignements personnels, l'accessibilité et la performance sont traitées formellement."
+        ],
+        "bullets": [
+          "Un deuxième groupe d'utilisateurs : un [portail client ou partenaire](/fr/developpement-portail-client) ou une application pour le personnel",
+          "Une plateforme de données et des tableaux de bord",
+          "L'automatisation des tâches répétitives",
+          "Du travail de performance",
+          "Une revue de sécurité",
+          "Un dossier de conformité à la Loi 25 (voir [applications conformes à la Loi 25](/fr/applications-conformes-loi-25))",
+          "L'accessibilité WCAG 2.2 AA"
+        ]
+      },
+      {
+        "h2": "Complet — +150 000 $ (total 300 000 $)",
+        "paragraphs": [
+          "**Total cumulatif : 300 000 $.** L'étape Complet, c'est le projet clé en main. Elle s'adresse à l'organisation qui remplace ses anciens systèmes et veut une seule équipe responsable de toute la feuille de route, de la migration et de la première année d'exploitation. Les frais de tiers (forfait d'hébergement, traitement des paiements, API payantes) sont facturés au coûtant."
+        ],
+        "bullets": [
+          "Le reste de la feuille de route",
+          "Une application installable pensée pour le mobile",
+          "La migration des données de vos anciens systèmes",
+          "La formation du personnel et la documentation",
+          "La surveillance (monitoring)",
+          "12 mois de soutien et d'entretien"
+        ]
+      },
+      {
+        "h2": "Comment fonctionnent la soumission, l'acceptation et l'arrêt",
+        "paragraphs": [
+          "Chaque étape suit le même déroulement, dans un espace client privé où vous soumettez vos demandes, approuvez les soumissions, lisez les notes d'avancement rédigées par l'ingénieur et acceptez les livraisons."
+        ],
+        "bullets": [
+          "**La soumission d'abord.** Avant chaque étape, vous recevez une portée écrite, un prix fixe et un délai. Rien ne commence sans votre approbation.",
+          "**Développement et révision.** Addanapp développe avec l'IA pour aller plus vite ; des ingénieurs seniors révisent, testent et approuvent le travail avant que vous le voyiez.",
+          "**Facturation à l'acceptation.** Vous testez la livraison. L'étape n'est facturée qu'une fois acceptée.",
+          "**Arrêt possible après chaque étape.** Vous gardez le code, les données et la documentation. Aucun engagement forcé, aucuns frais de sortie.",
+          "**Petites modifications hors projet.** Une modification à une application existante reçoit sa propre soumission à prix fixe, généralement en 2 jours ouvrables. Exemple de soumission : 2 400 $, 6 jours."
+        ]
+      },
+      {
+        "h2": "Pourquoi le prix fixe par étape vaut mieux que le taux horaire",
+        "paragraphs": [
+          "Avec un taux horaire, c'est le client qui porte le risque : chaque imprévu, chaque reprise, chaque malentendu ajoute des heures à la facture. Avec une étape à prix fixe, c'est Addanapp qui porte ce risque. Le prix est convenu avant le début des travaux ; l'intérêt est donc de bien livrer le résultat promis, pas d'accumuler des heures.",
+          "Le prix fixe par étape simplifie aussi le budget. Vous connaissez le coût de la prochaine étape avant de vous engager, et vous décidez après chaque livraison si la suite en vaut la peine. Au taux horaire, on découvre souvent le vrai coût une fois l'argent dépensé. Par étapes, vous payez des résultats acceptés et pouvez arrêter avec un logiciel fonctionnel à 30 000 $, 75 000 $ ou 150 000 $. Pour le processus de révision derrière chaque livraison, consultez [notre méthode](/fr/notre-methode)."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Combien coûte un logiciel sur mesure chez Addanapp ?",
+        "Un logiciel sur mesure chez Addanapp coûte de 30 000 $ à 300 000 $, selon jusqu'où vous allez. Les quatre étapes sont Lancement (30 000 $), Exploitation (+45 000 $, total 75 000 $), Croissance (+75 000 $, total 150 000 $) et Complet (+150 000 $, total 300 000 $). Chaque étape a sa propre soumission à prix fixe et n'est facturée qu'à l'acceptation."
+      ],
+      [
+        "Dois-je m'engager pour les quatre étapes ?",
+        "Non. Chaque étape est soumise et approuvée séparément, et vous décidez après chaque livraison si vous continuez. Vous pouvez arrêter après n'importe quelle étape et garder tout ce qui a été construit, y compris le code, les données et la documentation. Aucun engagement forcé, aucuns frais de sortie. Beaucoup de clients s'arrêtent après le Lancement."
+      ],
+      [
+        "Que se passe-t-il si une livraison ne convient pas ?",
+        "Une étape n'est facturée qu'une fois la livraison acceptée. Si un élément ne correspond pas à la portée convenue, vous le signalez dans votre espace client et Addanapp le corrige avant votre acceptation. Des ingénieurs seniors révisent et testent chaque livraison avant de vous la remettre, ce qui permet de régler la plupart des problèmes en amont."
+      ],
+      [
+        "Et si j'ai besoin de quelque chose hors de la portée prévue ?",
+        "Les nouvelles idées sont les bienvenues. Une demande hors de la portée d'une étape reçoit sa propre soumission à prix fixe, avec un délai, que vous approuvez ou refusez dans votre espace client avant le début des travaux. Le prix de l'étape ne change pas sans votre approbation. Rien n'est jamais facturé à l'heure."
+      ],
+      [
+        "L'hébergement et les services de tiers sont-ils inclus ?",
+        "Les frais de tiers, comme le forfait d'hébergement, le traitement des paiements et les API payantes, sont facturés au coûtant, sans majoration, parce qu'ils dépendent de votre utilisation. Le prix de chaque étape couvre la conception, le développement, la revue de code, les tests et la livraison. L'étape Complet inclut aussi 12 mois de soutien et d'entretien."
+      ],
+      [
+        "Puis-je obtenir une soumission pour une petite modification ?",
+        "Oui. Les petites modifications d'une application existante sont soumises une demande à la fois, en dehors de tout projet. Vous recevez un prix fixe et un délai, généralement en 2 jours ouvrables, et vous ne payez qu'à l'acceptation de la livraison. Exemple de soumission : 2 400 $ pour une modification livrée en 6 jours."
+      ]
+    ],
+    "cta": {
+      "heading": "Obtenez une soumission pour votre première étape",
+      "text": "Parlez-nous du processus qui compte le plus pour vous. Vous recevez une portée écrite, un prix fixe et un délai avant le début des travaux, et vous ne payez qu'à l'acceptation. Voyez [tous nos services](/fr/services) ou nos [60 produits en ligne](https://addanapp.com/#work).",
+      "button": "Obtenir une soumission"
+    }
+  }
+}

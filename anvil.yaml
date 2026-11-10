@@ -210,7 +210,7 @@ db_schema:
     server: full
     title: Users
 dependencies: []
-metadata: {description: 'Montréal software consultancy for web apps, admin panels, client portals and data platforms. AI-accelerated, human-validated, fixed quotes. Pay for results.', logo_img: 'asset:apple-touch-icon.png', title: AddAnApp - triple A software delivery service}
+metadata: {description: 'Montréal software consultancy for web apps, admin panels, client portals and data platforms. AI-accelerated, human-validated, fixed quotes. Pay for results.', logo_img: 'asset:apple-touch-icon.png', title: Custom Web App Development in Montréal | Addanapp}
 name: Addanapp
 native_deps:
   head_html: |-
@@ -222,9 +222,12 @@ native_deps:
     (function () {
       var l = null;
       try { l = localStorage.getItem('aa.lang'); } catch (e) {}
+      /* ?lang=fr in the address (links from the French pages) picks the language and remembers it */
+      var q = /[?&]lang=(en|fr|ru|lv)(?![a-z])/.exec(location.search);
+      if (q) { l = q[1]; try { localStorage.setItem('aa.lang', l); } catch (e) {} }
       if (l === 'fr' || l === 'ru' || l === 'lv') {
         document.documentElement.lang = l;
-        window.aaLangPack = fetch('_/theme/lang-' + l + '.json?v=20').then(function (r) {
+        window.aaLangPack = fetch('_/theme/lang-' + l + '.json?v=21').then(function (r) {
           if (!r.ok) throw new Error('lang ' + r.status);
           return r.text();
         }).then(function (t) {
@@ -257,6 +260,10 @@ native_deps:
     <meta name="theme-color" content="#0B1220">
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
     <link rel="canonical" href="https://addanapp.com/">
+    <link rel="alternate" hreflang="en" href="https://addanapp.com/">
+    <link rel="alternate" hreflang="fr" href="https://addanapp.com/fr">
+    <link rel="alternate" hreflang="x-default" href="https://addanapp.com/">
+    <link rel="alternate" type="text/plain" title="For AI assistants" href="https://addanapp.com/llms.txt">
     <meta name="keywords" content="custom app development Montreal, web application development Montreal, software development company Montreal, développement d&#x27;applications sur mesure Montréal, agence de développement web Montréal, AI-assisted software development, admin panel development, client portal development, internal tools, MVP development Montreal, fixed price app development, API integration, SaaS development, mobile-first web apps, PWA development, Québec, Canada">
     <meta name="author" content="Addanapp">
     <meta name="geo.region" content="CA-QC">
@@ -2094,6 +2101,26 @@ native_deps:
      ]
     }
     </script>
+    <!-- For crawlers and AI assistants that don't run JavaScript: what this page says, in plain HTML.
+         Keep it last in the head: browsers with JavaScript ignore it. -->
+    <noscript>
+    <h1>Custom web app development in Montréal</h1>
+    <p>Addanapp is a Montréal software consultancy that builds web apps, admin panels, client portals, data platforms and SaaS products. The work is AI-accelerated and every delivery is reviewed and signed off by senior engineers. Projects run from $30,000 to $300,000 in fixed-price milestones, each invoiced only when you accept it, and you can stop after any milestone. Service in English and French, in person in Montréal or remotely.</p>
+    <ul>
+    <li><a href="https://addanapp.com/services">Services</a></li>
+    <li><a href="https://addanapp.com/client-portal-development">Client portal development</a></li>
+    <li><a href="https://addanapp.com/admin-panel-development">Admin panel and back-office development</a></li>
+    <li><a href="https://addanapp.com/mvp-development">Fixed-price MVP development</a></li>
+    <li><a href="https://addanapp.com/data-platform-development">Data platforms and dashboards</a></li>
+    <li><a href="https://addanapp.com/saas-development">SaaS development</a></li>
+    <li><a href="https://addanapp.com/api-integration-development">API and integration development</a></li>
+    <li><a href="https://addanapp.com/pricing">Pricing: fixed-price milestones from $30,000 to $300,000</a></li>
+    <li><a href="https://addanapp.com/how-we-work">How we work: AI-accelerated, senior-reviewed</a></li>
+    <li><a href="https://addanapp.com/law-25-compliant-apps">Law 25-ready apps for Québec</a></li>
+    <li><a href="https://addanapp.com/about">About Addanapp</a></li>
+    <li><a href="https://addanapp.com/fr">En français : développement d'applications web à Montréal</a></li>
+    </ul>
+    </noscript>
 package_name: Addanapp
 runtime_options:
   client_version: '3'

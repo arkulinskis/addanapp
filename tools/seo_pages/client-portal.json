@@ -1,0 +1,190 @@
+{
+  "key": "client-portal",
+  "service_type": "Client portal development",
+  "en": {
+    "slug": "/client-portal-development",
+    "title": "Client Portal Development in Montréal | Addanapp",
+    "description": "Custom client portals built in Montréal: secure logins, documents, requests and status in one place. Fixed-price milestones, paid only when you accept.",
+    "h1": "Client portal development: one secure place for your clients to work with you",
+    "intro": [
+      "A client portal is a private website where your clients sign in to see their files, send requests, follow the status of their work and pay invoices, without email chains or phone tag. Addanapp is a Montréal software consultancy that builds custom client portals and partner portals for businesses in Canada, the US and Europe, in English and French.",
+      "Every client portal is built with AI-accelerated development and signed off by senior engineers. You get a fixed quote and an ETA before work starts, and you are invoiced only when you accept the delivery."
+    ],
+    "sections": [
+      {
+        "h2": "What a custom client portal includes",
+        "paragraphs": [
+          "A client portal is built around the work you already do with clients, not around a generic template. Most client portal projects combine a few of these building blocks:"
+        ],
+        "bullets": [
+          "**Accounts and roles**: each client company sees only its own data, and their managers and staff can have different rights.",
+          "**Requests**: clients submit a request, attach files and follow its status until it is closed.",
+          "**Status and progress**: orders, projects, cases or bookings, updated by your team and visible to the client.",
+          "**Invoices and payments** through Stripe, synced with QuickBooks or your CRM when needed.",
+          "**A staff side** where your team answers, assigns and reports, usually inside an [admin panel](/admin-panel-development).",
+          "**English and French** interfaces, with WCAG 2.2 AA accessibility as the target."
+        ]
+      },
+      {
+        "h2": "How client portal development works, step by step",
+        "paragraphs": [
+          "Addanapp runs client portal projects through a private workspace where you submit requests, approve quotes, read progress notes written by the engineer and accept deliveries. The steps are the same for every milestone:"
+        ],
+        "bullets": [
+          "**1. Discovery workshop**: we map who uses the portal, what they need to do and which workflow matters most.",
+          "**2. Fixed quote and ETA**: you approve a fixed price and date before any work starts.",
+          "**3. Build**: AI-accelerated development, with progress notes in your workspace as the portal takes shape.",
+          "**4. Senior review**: a senior engineer reviews the code, runs the tests and signs off the delivery.",
+          "**5. Acceptance**: you try the portal yourself. You are invoiced only when you accept it."
+        ]
+      },
+      {
+        "h2": "How fixed-price milestones apply to a client portal",
+        "paragraphs": [
+          "Client portal projects run from $30,000 to $300,000 CAD, split into fixed-price milestones. Each milestone has its own quote, agreed before it starts, and you can stop after any milestone and keep the code, data and documentation. Full details are on the [pricing page](/pricing).",
+          "**Launch ($30,000, about 6 to 8 weeks)** suits a portal-first project: the one client workflow that matters most, built end to end, with accounts, roles, a basic admin and a live portal. **Operate (+$45,000)** adds the next workflows, payments, accounting, CRM and email [integrations](/api-integration-development), notifications and first reports. **Scale (+$75,000)** is where a portal is often added to an existing staff app as a second user group, along with dashboards, automation, a security review, the Law 25 privacy file and WCAG 2.2 AA work. **Complete (+$150,000)** covers the remaining roadmap, an installable mobile app, data migration, training, documentation, monitoring and 12 months of support."
+        ]
+      },
+      {
+        "h2": "Client portals, privacy and Québec Law 25",
+        "paragraphs": [
+          "A client portal stores personal information, so privacy has to be designed in from the start. Addanapp builds client portals with privacy by default, role-based access, access logs, data export and deletion, and retention rules, which helps you meet Québec Law 25, PIPEDA and GDPR expectations. This is general information, not legal advice. Read more on [Law 25-ready apps](/law-25-compliant-apps)."
+        ]
+      },
+      {
+        "h2": "Client portal mistakes to avoid",
+        "paragraphs": [
+          "Most client portals that fail do so for the same few reasons:"
+        ],
+        "bullets": [
+          "Building every feature at once instead of the one workflow clients use every week.",
+          "Forgetting the staff side: if your team cannot answer requests quickly, clients go back to email.",
+          "Treating permissions as a detail. Each client must see only their own data, and that must be tested.",
+          "Launching in English only when part of your clientele works in French."
+        ]
+      },
+      {
+        "h2": "How to choose a client portal developer",
+        "paragraphs": [
+          "Ask any firm the same questions. Is the price fixed per stage, before work starts? Who reviews the code, and are tests included? Do you own the code and data, and can you stop without an exit fee? Can they show live products? Addanapp has 60 live products in use, including PlanPlate, Health Booker and Prepsto; see the [portfolio](https://addanapp.com/#work) and [how we work](/how-we-work)."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "How much does a client portal cost?",
+        "A client portal from Addanapp starts with the Launch milestone at $30,000 CAD, which delivers the most important client workflow, accounts and roles, a basic admin and a live portal in about 6 to 8 weeks. Larger portals grow through fixed-price milestones up to $300,000 CAD. Each milestone is quoted before it starts and invoiced only when you accept it."
+      ],
+      [
+        "Can a client portal connect to the systems we already use?",
+        "Yes. Addanapp connects client portals to tools such as Stripe for payments, QuickBooks for accounting, Google services, CRMs and email. Integrations are usually part of the Operate milestone, so the portal shows clients up-to-date orders, invoices and status without your team copying data by hand between systems."
+      ],
+      [
+        "Can you add a client portal to an app we already have?",
+        "Yes. Adding a portal for clients or partners to an existing staff app is a common project. A small addition gets a fixed quote per request. A full portal for a second user group is typically part of the Scale milestone, with its own fixed quote agreed before work starts."
+      ],
+      [
+        "Who owns the client portal code and data?",
+        "You do. You can stop after any milestone and keep everything built so far, including the code, the data and the documentation. There is no lock-in and no exit fee. Third-party fees, such as the hosting plan or payment processing, are billed at cost."
+      ]
+    ],
+    "cta": {
+      "heading": "Plan your client portal",
+      "text": "Tell us who your clients are and the one thing they most need to do online. You get a fixed quote and an ETA before any work starts.",
+      "button": "Get a fixed quote"
+    }
+  },
+  "fr": {
+    "slug": "/fr/developpement-portail-client",
+    "title": "Développement de portail client à Montréal | Addanapp",
+    "description": "Portail client sur mesure à Montréal : connexion sécurisée, documents, demandes et suivi au même endroit. Prix fixe par étape, payé à l'acceptation.",
+    "h1": "Développement de portail client : un espace sécurisé pour travailler avec vos clients",
+    "intro": [
+      "Un portail client est un site privé où vos clients se connectent pour consulter leurs documents, envoyer des demandes, suivre leurs dossiers et payer leurs factures, sans chaînes de courriels. Addanapp est une firme de développement logiciel de Montréal qui conçoit des portails clients et partenaires sur mesure pour des PME au Canada, aux États-Unis et en Europe, en français comme en anglais.",
+      "Chaque portail client est développé avec l'aide de l'IA et approuvé par des ingénieurs seniors. Vous recevez une soumission à prix fixe et un délai avant les travaux, et n'êtes facturé qu'à l'acceptation de la livraison."
+    ],
+    "sections": [
+      {
+        "h2": "Ce que comprend un portail client sur mesure",
+        "paragraphs": [
+          "Un portail client se construit autour de votre façon de travailler, pas d'un gabarit générique. Les éléments les plus courants :"
+        ],
+        "bullets": [
+          "**Comptes et rôles** : chaque entreprise cliente ne voit que ses propres données, avec des droits selon la personne.",
+          "**Demandes** : le client soumet une demande, joint des fichiers et en suit l'état jusqu'à la fermeture.",
+          "**Suivi** : commandes, projets, dossiers ou réservations, visibles par le client.",
+          "**Factures et paiements** par Stripe, synchronisés avec QuickBooks ou votre CRM au besoin.",
+          "**Un côté employés** pour répondre et assigner, souvent dans un [panneau d'administration](/fr/developpement-panneau-administration).",
+          "**Interface en français et en anglais**, avec l'accessibilité WCAG 2.2 AA comme cible."
+        ]
+      },
+      {
+        "h2": "Le développement d'un portail client, étape par étape",
+        "paragraphs": [
+          "Chaque projet se déroule dans un espace de travail privé où vous soumettez vos demandes, approuvez les soumissions, lisez les notes de l'ingénieur et acceptez les livraisons. Les étapes, à chaque jalon :"
+        ],
+        "bullets": [
+          "**1. Atelier de découverte** : qui utilise le portail, pour quoi faire, et quel processus compte le plus.",
+          "**2. Soumission à prix fixe** : vous approuvez un prix et une date avant que le travail commence.",
+          "**3. Développement** : accéléré par l'IA, avec des notes d'avancement.",
+          "**4. Révision senior** : un ingénieur senior révise le code, roule les tests et approuve la livraison.",
+          "**5. Acceptation** : vous essayez le portail ; la facture suit votre acceptation."
+        ]
+      },
+      {
+        "h2": "Les jalons à prix fixe appliqués à un portail client",
+        "paragraphs": [
+          "Un projet de portail client va de 30 000 $ à 300 000 $ (CAD), en jalons à prix fixe soumis d'avance. Vous pouvez arrêter après n'importe quel jalon en gardant le code, les données et la documentation. Détails sur la page [tarifs](/fr/tarifs).",
+          "**Lancement (30 000 $, environ 6 à 8 semaines)** convient à un projet centré sur le portail : le processus client principal livré de bout en bout, avec comptes, rôles, administration de base et mise en ligne. **Exploitation (+45 000 $)** ajoute d'autres processus, les [intégrations](/fr/integration-api) (paiement, comptabilité, CRM, courriel), les notifications et les premiers rapports. **Croissance (+75 000 $)** est souvent le moment d'ajouter un portail à une application interne existante, avec tableaux de bord, automatisation, revue de sécurité, dossier Loi 25 et accessibilité WCAG 2.2 AA. **Complet (+150 000 $)** couvre le reste de la feuille de route, l'application mobile installable, la migration des données, la formation, la documentation, la surveillance et 12 mois de soutien."
+        ]
+      },
+      {
+        "h2": "Portail client, confidentialité et Loi 25",
+        "paragraphs": [
+          "Un portail client contient des renseignements personnels : la confidentialité doit être prévue dès la conception. Addanapp conçoit ses portails avec la confidentialité par défaut, des accès selon les rôles, des journaux d'accès, l'exportation et la suppression des données ainsi que des règles de conservation, ce qui vous aide face à la Loi 25, à la LPRPDE et au RGPD. Information générale, pas un avis juridique. Voir aussi nos [applications conformes à la Loi 25](/fr/applications-conformes-loi-25)."
+        ]
+      },
+      {
+        "h2": "Les erreurs à éviter avec un portail client",
+        "paragraphs": [
+          "Les causes d'échec les plus fréquentes :"
+        ],
+        "bullets": [
+          "Tout vouloir dès le départ au lieu du processus que vos clients utilisent chaque semaine.",
+          "Oublier le côté employés : si votre équipe ne peut pas répondre rapidement, les clients reviennent au courriel.",
+          "Négliger les permissions : chaque client ne doit voir que ses données, tests à l'appui.",
+          "Lancer en anglais seulement alors qu'une partie de votre clientèle travaille en français."
+        ]
+      },
+      {
+        "h2": "Comment choisir une firme pour votre portail client",
+        "paragraphs": [
+          "Le prix est-il fixe par étape, avant le début des travaux ? Qui révise le code, et les tests sont-ils inclus ? Le code et les données vous appartiennent-ils, et pouvez-vous arrêter sans frais de sortie ? Addanapp compte 60 produits en ligne, dont PlanPlate, Health Booker et Prepsto. Consultez le [portfolio](https://addanapp.com/#work) et [notre méthode](/fr/notre-methode)."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Combien coûte un portail client ?",
+        "Un portail client chez Addanapp commence par le jalon Lancement à 30 000 $ (CAD) : en environ 6 à 8 semaines, le processus client principal, les comptes et les rôles, une administration de base et la mise en production. Les portails plus importants progressent par jalons à prix fixe jusqu'à 300 000 $. Chaque jalon fait l'objet d'une soumission préalable et n'est facturé qu'après votre acceptation."
+      ],
+      [
+        "Le portail client peut-il se connecter à nos systèmes actuels ?",
+        "Oui. Addanapp relie les portails clients à des outils comme Stripe pour les paiements, QuickBooks pour la comptabilité, les services Google, les CRM et le courriel. Ces intégrations font généralement partie du jalon Exploitation, et vos clients voient des données à jour sans saisie manuelle."
+      ],
+      [
+        "Pouvez-vous ajouter un portail client à une application existante ?",
+        "Oui, c'est un projet fréquent. Un petit ajout reçoit une soumission à prix fixe par demande. Un portail complet pour un second groupe d'utilisateurs fait habituellement partie du jalon Croissance, avec sa propre soumission convenue avant le début des travaux."
+      ],
+      [
+        "À qui appartiennent le code et les données du portail ?",
+        "À vous. Vous pouvez arrêter après n'importe quel jalon et garder tout ce qui a été construit : le code, les données et la documentation. Sans dépendance ni frais de sortie. Les frais de tiers, comme l'hébergement ou le traitement des paiements, sont facturés au coût réel."
+      ]
+    ],
+    "cta": {
+      "heading": "Planifiez votre portail client",
+      "text": "Dites-nous ce que vos clients ont le plus besoin de faire en ligne. Soumission à prix fixe et délai avant tout travail.",
+      "button": "Obtenir une soumission à prix fixe"
+    }
+  }
+}

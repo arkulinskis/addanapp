@@ -1,0 +1,115 @@
+{
+  "key": "fr-home",
+  "service_type": "Web application development",
+  "en": null,
+  "fr": {
+    "slug": "/fr",
+    "title": "Développement d'applications web à Montréal | Addanapp",
+    "description": "Firme montréalaise de développement logiciel : applications web, portails clients et panneaux d'administration à prix fixe, payés seulement à l'acceptation.",
+    "h1": "Développement d'applications web à Montréal, à prix fixe",
+    "intro": [
+      "Addanapp est une firme de développement logiciel à Montréal. Nous concevons des applications web, des portails clients, des panneaux d'administration, des intégrations API, des plateformes de données et des SaaS pour les PME et les organisations qui veulent un logiciel sur mesure sans facture à l'heure. Vous recevez une **soumission à prix fixe et un délai avant le début des travaux**, et vous ne payez que les livraisons que vous acceptez.",
+      "Nous développons avec l'IA pour aller plus vite, et des ingénieurs seniors révisent, testent et approuvent chaque livraison. Le service se fait en français et en anglais, en personne à Montréal ou à distance, pour des clients au Canada, aux États-Unis et en Europe. Soixante produits que nous avons construits sont en ligne et utilisés aujourd'hui."
+    ],
+    "sections": [
+      {
+        "h2": "Une firme de développement logiciel montréalaise",
+        "paragraphs": [
+          "Addanapp construit les logiciels sur lesquels une entreprise roule au quotidien : l'outil qui remplace le fichier Excel partagé, le portail où vos clients font leurs demandes, le back-office où votre équipe gère les réservations, les commandes et les dossiers. Notre approche est simple : un prix connu d'avance, un travail révisé par des ingénieurs seniors, et une facture seulement quand le résultat vous convient.",
+          "Nous travaillons avec des propriétaires d'entreprise, des directeurs des opérations et des responsables TI qui ont un budget et un problème concret à régler. Si vous hésitez encore entre construire et acheter, nos [guides gratuits](https://addanapp.com/#guides) comprennent une grille de coûts sur trois ans et un modèle de description de projet d'une page."
+        ]
+      },
+      {
+        "h2": "Nos services de développement d'applications web",
+        "paragraphs": [
+          "Chaque service suit la même méthode et le même modèle de prix fixe. Voyez la [vue d'ensemble des services](/fr/services) ou allez directement au besoin qui vous concerne :"
+        ],
+        "bullets": [
+          "**[Portail client](/fr/developpement-portail-client)** : un espace sécurisé où vos clients ou partenaires se connectent, font des demandes, déposent des documents et suivent l'avancement",
+          "**[Panneau d'administration](/fr/developpement-panneau-administration)** : un back-office pour gérer utilisateurs, commandes, réservations et contenu, avec accès par rôle et rapports",
+          "**[MVP à prix fixe](/fr/developpement-mvp)** : votre produit en production en 6 à 8 semaines environ, pour 30 000 $",
+          "**[Plateforme de données](/fr/developpement-plateforme-donnees)** : pipelines, tâches planifiées, recherche et tableaux de bord fiables",
+          "**[Développement SaaS](/fr/developpement-saas)** : SaaS multilocataire avec paramètres par client, drapeaux de fonctionnalités, marque blanche et facturation à l'usage",
+          "**[Intégration API](/fr/integration-api)** : connexions avec Stripe, Google, QuickBooks, les CRM et le courriel",
+          "**[Applications conformes à la Loi 25](/fr/applications-conformes-loi-25)** : confidentialité par défaut, consentement, journaux d'accès et exportation des données",
+          "**Aussi** : applications web installables pensées pour le mobile (hors ligne, appareil photo, notifications), fonctions d'IA responsables avec validation humaine, et sites web branchés à vos vrais systèmes"
+        ]
+      },
+      {
+        "h2": "Notre méthode : l'IA accélère, les ingénieurs seniors approuvent",
+        "paragraphs": [
+          "Chez Addanapp, l'IA sert à rédiger plus vite le code, les tests et la documentation. Les ingénieurs seniors, eux, conçoivent l'architecture, révisent chaque changement, vérifient la sécurité et approuvent chaque livraison. L'IA ne décide de rien et n'approuve jamais son propre travail.",
+          "Chaque client dispose d'un espace de travail privé pour soumettre ses demandes, approuver les soumissions, lire les notes d'avancement rédigées par l'ingénieur et accepter les livraisons. Pour une fonction simple, la soumission arrive en 2 jours ouvrables. La revue de code et les tests sont toujours inclus. Tous les détails sont dans [notre méthode](/fr/notre-methode)."
+        ]
+      },
+      {
+        "h2": "Des tarifs à prix fixe, par étapes",
+        "paragraphs": [
+          "Un projet Addanapp coûte de 30 000 $ à 300 000 $ et se découpe en quatre étapes à prix fixe. Chaque étape a sa propre soumission, approuvée avant le début des travaux, et n'est facturée qu'une fois acceptée. Vous pouvez arrêter après n'importe quelle étape et garder le code, les données et la documentation : aucun engagement forcé, aucuns frais de sortie."
+        ],
+        "bullets": [
+          "**Lancement — 30 000 $** : atelier de découverte, le processus le plus important construit de bout en bout, comptes et rôles, administration de base, mise en production. Beaucoup de clients s'arrêtent ici.",
+          "**Exploitation — +45 000 $ (total 75 000 $)** : processus suivants, intégrations (paiements, comptabilité, CRM, courriel), notifications, premiers rapports.",
+          "**Croissance — +75 000 $ (total 150 000 $)** : deuxième groupe d'utilisateurs, plateforme de données, automatisation, performance, revue de sécurité, dossier Loi 25, accessibilité WCAG 2.2 AA.",
+          "**Complet — +150 000 $ (total 300 000 $)** : le reste de la feuille de route, application installable, migration des données, formation, documentation, surveillance et 12 mois de soutien.",
+          "**Petites modifications** : une soumission à prix fixe par demande, par exemple 2 400 $ pour 6 jours de travail. Voyez tous les [tarifs](/fr/tarifs)."
+        ]
+      },
+      {
+        "h2": "Notre portfolio : 60 produits en ligne",
+        "paragraphs": [
+          "Addanapp a construit 60 produits en ligne et utilisés aujourd'hui. Quelques exemples :"
+        ],
+        "bullets": [
+          "**PlanPlate** : une plateforme de réservations pour restaurants",
+          "**Prepsto** : une plateforme de rétroaction et de billets, avec API",
+          "**ArviStay** : un créateur de sites web pour hôtels",
+          "**Health Booker** : une place de marché de réservation pour plusieurs studios de yoga, avec back-office pour les studios",
+          "**AutoAgile** : un tableau agile pour des équipes humaines et des agents d'IA",
+          "**Good Landlord** : les chiffres des propriétaires et les dossiers des locataires",
+          "**Service Request** : un tableau de petits travaux de quartier",
+          "**Fillfox** : un créateur de formulaires",
+          "**Parapeet** : une application de 2023 reconstruite de zéro, en conservant la progression de chaque joueur",
+          "Voyez le [portfolio complet](https://addanapp.com/#work), qui comprend aussi Sheetsmith et VitalRPA."
+        ]
+      },
+      {
+        "h2": "Loi 25, accessibilité et service bilingue",
+        "paragraphs": [
+          "Les logiciels d'Addanapp sont conçus pour vous aider à respecter la Loi 25 sur la protection des renseignements personnels, en tenant compte aussi de la LPRPDE et du RGPD. Les interfaces visent l'accessibilité WCAG 2.2 AA. Tout le travail se fait en français ou en anglais, selon votre préférence, en personne à Montréal ou à distance. Notre [liste de vérification Loi 25](https://addanapp.com/#guides) est offerte gratuitement."
+        ]
+      }
+    ],
+    "faq": [
+      [
+        "Combien coûte le développement d'une application web à Montréal avec Addanapp ?",
+        "Chez Addanapp, un projet coûte de 30 000 $ à 300 000 $, découpé en quatre étapes à prix fixe : Lancement (30 000 $), Exploitation (+45 000 $), Croissance (+75 000 $) et Complet (+150 000 $). Chaque étape a sa propre soumission et n'est facturée qu'à l'acceptation. Les petites modifications d'une application existante reçoivent une soumission fixe par demande."
+      ],
+      [
+        "Addanapp travaille-t-elle en français ?",
+        "Oui. Addanapp travaille en français et en anglais, en personne à Montréal ou à distance. Les soumissions, les notes d'avancement et les livraisons sont rédigées dans la langue de votre choix, dans votre espace client privé. Nous servons des clients au Canada, aux États-Unis et en Europe."
+      ],
+      [
+        "Comment Addanapp utilise-t-elle l'IA ?",
+        "Addanapp utilise l'IA pour rédiger plus vite le code, les tests et la documentation. Des ingénieurs seniors conçoivent l'architecture, révisent chaque changement, vérifient la sécurité et approuvent chaque livraison avant qu'elle vous parvienne. L'IA n'approuve jamais son propre travail. La revue de code et les tests sont inclus dans chaque soumission."
+      ],
+      [
+        "Quand est-ce que je paie ?",
+        "Vous payez seulement quand vous acceptez une livraison. Avant chaque étape ou demande, vous recevez une soumission à prix fixe et un délai ; rien ne commence sans votre approbation. Une fois la livraison testée et acceptée dans votre espace client, elle est facturée. Les frais de tiers, comme l'hébergement, sont facturés au coûtant."
+      ],
+      [
+        "Puis-je arrêter un projet en cours de route ?",
+        "Oui. Vous pouvez arrêter après n'importe quelle étape et garder tout ce qui a été construit : le code, les données et la documentation. Il n'y a aucun engagement forcé ni frais de sortie. Beaucoup de clients s'arrêtent après l'étape Lancement, avec un logiciel en production qui répond à leur besoin principal."
+      ],
+      [
+        "Addanapp peut-elle reprendre une application existante ?",
+        "Oui. Addanapp peut ajouter des fonctions à une application existante, avec une soumission à prix fixe par demande, ou reconstruire un ancien système. Parapeet, une application de 2023, a été refaite de zéro en conservant la progression de chaque joueur. La migration des données fait partie de l'étape Complet."
+      ]
+    ],
+    "cta": {
+      "heading": "Obtenez une soumission à prix fixe",
+      "text": "Décrivez le processus ou le système dont vous avez besoin. Vous recevez une portée écrite, un prix fixe et un délai avant le début des travaux, et vous ne payez que les livraisons acceptées.",
+      "button": "Obtenir une soumission"
+    }
+  }
+}
