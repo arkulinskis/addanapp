@@ -1,0 +1,14 @@
+<article class="ap-post" anvil:dom-node="art">
+  <header><b>🎬 Pitch video</b><span class="angle" anvil:dom-node="meta"></span><span class="ap-links" anvil:dom-node="yt"></span>
+    <label class="ap-chk"><input type="checkbox" anvil:dom-node="pub" anvil:on-dom:change="self.pub_change"><span anvil:dom-node="pub_lbl">Published</span></label></header>
+  <div class="ap-kit-media">
+    <div anvil:dom-node="player"><button type="button" class="ap-kit-play" anvil:dom-node="play" anvil:on-dom:click="self.play_click"><img anvil:dom-node="thumb" alt=""><span class="go" anvil:dom-node="go">▶ Play</span></button></div>
+    <div class="small muted" anvil:dom-node="where"></div>
+  </div>
+  <div class="ap-kit-row" anvil:name="titles_row"><div class="k">Title <span class="muted">first one recommended</span></div>
+    <div role="list"><anvil-component type="RepeatingPanel" name="titles" prop:item_template="Addanapp.Items.ApKitTitle" prop:role='["contents"]'></anvil-component></div></div>
+  <div class="ap-kit-row" anvil:name="desc_row"><div class="k">Description <anvil-component type="Button" name="desc_button" prop:text="Copy" prop:role='["aa-btn", "sm", "ghost"]'></anvil-component></div><div class="ap-kit-text" anvil:dom-node="desc"></div></div>
+  <div class="ap-kit-row" anvil:name="tags_row"><div class="k"><span anvil:dom-node="tags_k">Tags</span> <anvil-component type="Button" name="tags_button" prop:text="Copy" prop:role='["aa-btn", "sm", "ghost"]'></anvil-component></div><div class="ap-kit-text" anvil:dom-node="tags"></div></div>
+  <div class="ap-kit-row" anvil:name="pin_row"><div class="k">Pinned comment <anvil-component type="Button" name="pin_button" prop:text="Copy" prop:role='["aa-btn", "sm", "ghost"]'></anvil-component></div><div class="ap-kit-text" anvil:dom-node="pin"></div></div>
+  <div class="ap-kit-row small muted" anvil:dom-node="foot"></div>
+</article>

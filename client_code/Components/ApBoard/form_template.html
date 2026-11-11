@@ -1,0 +1,5 @@
+<div class="ap-board">
+  <div class="ap-grid-tools"><label class="small muted" for="ap-order">Order in each row</label><anvil-component type="DropDown" name="order_dd"></anvil-component>
+    <span class="small muted">Click a row's title to fold it. Click an app for its details.</span></div>
+  <anvil-component type="RepeatingPanel" name="lanes" prop:item_template="Addanapp.Items.ApLane" prop:role='["contents"]'></anvil-component>
+</div>

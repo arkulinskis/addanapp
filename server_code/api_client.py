@@ -6,7 +6,7 @@ import anvil.users
 import anvil.tables as tables
 from anvil.tables import app_tables
 
-from . import serial
+from . import apps_core, serial
 from .common import (current_user, rid, by_id, clean, now, next_ref, add_note, touch, notify_admins,
                      KINDS, PRIORITIES, OPEN_STATUSES, KIND_LABEL, PRIORITY_LABEL)
 from .i18n_server import set_user_lang
@@ -21,7 +21,9 @@ def get_me(lang=None):
   touch(u)
   if lang:
     set_user_lang(u, lang)  # notification emails go out in this language
-  return serial.me(u)
+  d = serial.me(u)
+  d['apps'] = apps_core.has_portfolio(u)  # an app portfolio (#apps) to show in the menu
+  return d
 
 
 @anvil.server.callable

@@ -6,6 +6,8 @@
     #login  #signup                                      the landing page with the sign-in box on top
     #portal  #new  #r/<request id>  #account             a client's workspace (signed in)
     #admin[/requests|clients|leads|tools]                the consultant console (admins)
+    #apps[/view[/arg]]  #app/<key>                       a client's app portfolio board (the client + consultants;
+                                                         views: board grid posts bizdev money youtube dossier notes)
 
 Links in templates are plain <a href="#work">; code calls router.go("r/" + rid).
 Anvil keeps the Shell layout between pages; show() tells it which page is open (Shell.refresh).
@@ -138,14 +140,14 @@ def show():
         state.remember_after(route)
         return open_auth('login')
     else:
-        title = _private(head, arg)
+        title = _private(head, arg, parts)
         if title is None:
             return
         ui.set_meta(title + " | Addanapp", None, private=True)
     window.UI_READY = True  # tests and screenshots wait for this
 
 
-def _private(head, arg):
+def _private(head, arg, parts=()):
     if head == 'portal':
         from .Pages.Portal import Portal
         _open('portal', Portal(), nav='portal')
@@ -162,6 +164,27 @@ def _private(head, arg):
         from .Pages.Account import Account
         _open('account', Account(), nav='account')
         return tp('Account')
+    if head == 'apps':
+        if not (state.me() or {}).get('apps'):
+            go(state.home_route())
+            return None
+        from .Pages.Apps import Apps
+        sub = parts[2] if len(parts) > 2 else None
+        page = _r["page"]
+        if isinstance(page, Apps):  # another view of the open board: no new page, no reload
+            page.show_view(arg, sub)
+            if _r["shell"] is not None:
+                _r["shell"].refresh(nav='apps', public=False)
+        else:
+            _open('apps', Apps(view=arg, arg=sub), nav='apps')
+        return tp('Apps')
+    if head == 'app' and arg:
+        if not (state.me() or {}).get('apps'):
+            go(state.home_route())
+            return None
+        from .Pages.AppDetail import AppDetail
+        _open('app', AppDetail(key=arg), nav='apps')
+        return tp('App')
     if head == 'admin':
         if not state.is_admin():
             go('portal')

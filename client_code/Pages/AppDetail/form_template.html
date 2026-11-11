@@ -1,0 +1,76 @@
+<anvil-form layout="Addanapp.Layouts.Shell">
+<anvil-block slot="content">
+<div class="app-page ap"><div class="aa-wrap ap-detail">
+  <a class="ap-back" href="#apps">← All apps</a>
+  <div class="empty" anvil:name="missing"><h3>That app isn't in this portfolio</h3><div class="empty-p"><a href="#apps">Back to the board</a></div></div>
+  <div anvil:name="page">
+    <div class="ap-title"><h1><anvil-component type="Label" name="name" prop:role='["t"]'></anvil-component></h1>
+      <span class="ap-stage" anvil:dom-node="stage"></span>
+      <anvil-component type="Button" name="refresh_button" prop:text="Refresh" prop:role='["aa-btn", "sm", "ghost", "ic-refresh"]'></anvil-component>
+      <anvil-component type="Button" name="park_button" prop:role='["aa-btn", "sm", "ghost"]'></anvil-component></div>
+    <div class="ap-sub"><span anvil:dom-node="sub"></span><span class="ap-chips" anvil:dom-node="chips"></span></div>
+    <p class="ap-desc" anvil:dom-node="desc"></p>
+    <div class="ap-heroes" anvil:dom-node="heroes"><img anvil:dom-node="desk" alt=""><img class="ph" anvil:dom-node="phone" alt=""></div>
+    <div class="ap-links" anvil:dom-node="links"></div>
+    <div class="ap-live" anvil:dom-node="live"></div>
+    <div class="ap-pc" anvil:name="jobs_line" role="status"><span class="dot" anvil:name="jobs_dot"></span><anvil-component type="Label" name="jobs_text" prop:role='["t"]'></anvil-component></div>
+
+    <div class="ap-box" anvil:name="guess_box"><h3>🔎 Found a live Anvil site</h3><p class="small"><span anvil:dom-node="guess_text"></span></p>
+      <div class="row"><anvil-component type="Button" name="guess_button" prop:text="Use this link" prop:role='["aa-btn", "sm", "accent"]'></anvil-component></div></div>
+    <div class="ap-box" anvil:name="followup_box"><h3>🔗 New link saved</h3><p class="small">Claude still has to add it to the app's Privacy &amp; Terms page and README, then redeploy. In Claude Code, say “/app-board finish”.</p>
+      <div class="row"><anvil-component type="Button" name="followup_copy" prop:text="Copy “/app-board finish”" prop:role='["aa-btn", "sm", "ghost"]'></anvil-component></div></div>
+    <div class="ap-box merge" anvil:name="branch_box"><h3><anvil-component type="Label" name="branch_head" prop:role='["t"]'></anvil-component></h3>
+      <div role="list"><anvil-component type="RepeatingPanel" name="branches" prop:item_template="Addanapp.Items.ApLi" prop:role='["contents"]'></anvil-component></div>
+      <p class="ap-hint"><anvil-component type="Label" name="branch_hint" prop:role='["t"]'></anvil-component></p>
+      <div class="row"><anvil-component type="Button" name="branch_button" prop:text="Re-check branches" prop:role='["aa-btn", "sm", "ghost", "ic-refresh"]'></anvil-component></div></div>
+
+    <h2 class="ap-sec-h">Checklist <span class="small">click a step: empty → ✓ done → – not needed → empty · “auto” = found by the PC's checks</span></h2>
+    <anvil-component type="LinearPanel" name="steps_holder" prop:role='["contents"]'></anvil-component>
+
+    <div class="ap-cols" style="margin-top:16px">
+      <div>
+        <div class="ap-box claude"><h3>Changes for Claude</h3>
+          <p class="small muted">Write what should change. It becomes a request in your workspace; Claude makes it when you type <span class="mono" anvil:dom-node="run_cmd"></span> in Claude Code, then marks it Ready for review.</p>
+          <div role="list"><anvil-component type="RepeatingPanel" name="changes" prop:item_template="Addanapp.Items.ApLi" prop:role='["contents"]'></anvil-component></div>
+          <div class="f" style="margin:10px 0 0"><anvil-component type="TextArea" name="change_box" prop:placeholder="e.g. Make the start button bigger on phones. Fix the French menu labels."></anvil-component></div>
+          <div class="row"><anvil-component type="Button" name="change_button" prop:text="Ask Claude" prop:role='["aa-btn", "sm", "accent", "ic-sparkle"]'></anvil-component>
+            <anvil-component type="Button" name="fix_legal" prop:text="+ Fix legal" prop:role='["aa-btn", "sm", "ghost"]'></anvil-component>
+            <anvil-component type="Button" name="fix_seo" prop:text="+ Fix SEO" prop:role='["aa-btn", "sm", "ghost"]'></anvil-component>
+            <anvil-component type="Button" name="copy_run" prop:role='["aa-btn", "sm", "ghost"]'></anvil-component></div>
+          <details anvil:name="done_box"><summary class="small muted">Done before</summary><div class="ap-pre" anvil:dom-node="done"></div></details>
+        </div>
+        <div class="ap-box" anvil:name="idea_box"><h3>💡 Idea for Prepsto</h3>
+          <p class="small muted">An improvement for this app. It lands in the app's Prepsto feedback inbox as a new ticket, sent by your PC with Claude's Prepsto key.</p>
+          <div class="f" style="margin:0"><anvil-component type="TextArea" name="idea_box_text" prop:placeholder="e.g. Let people save their plan as a PDF."></anvil-component></div>
+          <div class="row"><anvil-component type="DropDown" name="idea_kind"></anvil-component>
+            <anvil-component type="Button" name="idea_button" prop:text="Send to Prepsto" prop:role='["aa-btn", "sm", "accent"]'></anvil-component>
+            <anvil-component type="Button" name="tickets_button" prop:text="Load open tickets" prop:role='["aa-btn", "sm", "ghost"]'></anvil-component></div>
+          <p class="ap-hint" anvil:dom-node="tickets_head"></p>
+          <div role="list"><anvil-component type="RepeatingPanel" name="tickets" prop:item_template="Addanapp.Items.ApLi" prop:role='["contents"]'></anvil-component></div></div>
+        <div class="ap-box"><h3>Notes (just for you)</h3>
+          <div class="f" style="margin:0"><anvil-component type="TextArea" name="notes_box" prop:placeholder="e.g. Admin panel: delete-user button broken on phone…"></anvil-component></div>
+          <p class="ap-hint">Saved when you click outside the box.</p></div>
+        <div class="ap-box"><h3>Links</h3>
+          <div class="f"><span class="lbl">Live address: the custom domain once it works, otherwise the xyz.anvil.app address</span><anvil-component type="TextBox" name="url_box" prop:placeholder="https://myapp.com  or  https://myapp.anvil.app"></anvil-component></div>
+          <div class="f"><span class="lbl">Anvil editor link (anvil.works/build/apps/…)</span><anvil-component type="TextBox" name="editor_box" prop:placeholder="https://anvil.works/build/apps/ABC123"></anvil-component></div>
+          <div class="row"><anvil-component type="Button" name="links_button" prop:text="Save links" prop:role='["aa-btn", "sm"]'></anvil-component></div>
+          <p class="ap-hint">Your PC writes them into apps.json (so Claude Code knows them too) and checks the site.</p></div>
+        <div class="ap-box"><h3 anvil:dom-node="commits_h">Recent commits</h3><div role="list" class="ap-commits"><anvil-component type="RepeatingPanel" name="commits" prop:item_template="Addanapp.Items.ApCommit" prop:role='["contents"]'></anvil-component></div>
+          <p class="ap-hint" anvil:dom-node="folder"></p></div>
+      </div>
+      <div>
+        <div class="ap-box" anvil:name="video_box"><h3>🎬 YouTube video</h3><p class="small" anvil:dom-node="video_line"></p>
+          <div class="row"><a class="aa-btn sm ghost" anvil:dom-node="video_kit">Upload kit and posts</a></div></div>
+        <div class="ap-box" anvil:name="posts_box"><h3>📣 Posts &amp; videos</h3><p class="small" anvil:dom-node="posts_line"></p>
+          <div class="row"><a class="aa-btn sm ghost" anvil:dom-node="posts_link">Open the posts and scripts</a></div></div>
+        <div class="ap-box" anvil:name="biz_box"><h3>🎯 Biz dev</h3><p class="small" anvil:dom-node="biz_line"></p>
+          <div class="row"><a class="aa-btn sm ghost" anvil:dom-node="biz_plan">Open the plan</a><a class="aa-btn sm ghost" href="#apps/bizdev/outreach-log">Log outreach</a></div></div>
+        <div class="ap-box" anvil:name="money_box"><h3>💵 Monetization</h3><anvil-component type="LinearPanel" name="money_holder" prop:role='["contents"]'></anvil-component></div>
+        <anvil-component type="LinearPanel" name="findings_holder" prop:role='["contents"]'></anvil-component>
+      </div>
+    </div>
+  </div>
+  <anvil-component type="Timer" name="poll_timer" prop:interval="0"></anvil-component>
+</div></div>
+</anvil-block>
+</anvil-form>

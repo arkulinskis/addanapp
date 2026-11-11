@@ -1,5 +1,111 @@
 allow_embedding: false
 db_schema:
+  app_docs:
+    client: none
+    columns:
+    - admin_ui: {width: 200}
+      name: client
+      target: users
+      type: link_single
+    - admin_ui: {width: 200}
+      name: name
+      type: string
+    - admin_ui: {width: 200}
+      name: text
+      type: string
+    - admin_ui: {width: 200}
+      name: data
+      type: simpleObject
+    - admin_ui: {width: 200}
+      name: updated
+      type: datetime
+    server: full
+    title: App docs
+  app_jobs:
+    client: none
+    columns:
+    - admin_ui: {width: 200}
+      name: client
+      target: users
+      type: link_single
+    - admin_ui: {width: 200}
+      name: kind
+      type: string
+    - admin_ui: {width: 200}
+      name: key
+      type: string
+    - admin_ui: {width: 200}
+      name: args
+      type: simpleObject
+    - admin_ui: {width: 200}
+      name: status
+      type: string
+    - admin_ui: {width: 200}
+      name: created
+      type: datetime
+    - admin_ui: {width: 200}
+      name: started
+      type: datetime
+    - admin_ui: {width: 200}
+      name: finished
+      type: datetime
+    - admin_ui: {width: 200}
+      name: result
+      type: simpleObject
+    - admin_ui: {width: 200}
+      name: error
+      type: string
+    - admin_ui: {width: 200}
+      name: by
+      target: users
+      type: link_single
+    server: full
+    title: App jobs
+  app_projects:
+    client: none
+    columns:
+    - admin_ui: {width: 200}
+      name: client
+      target: users
+      type: link_single
+    - admin_ui: {width: 200}
+      name: key
+      type: string
+    - admin_ui: {width: 200}
+      name: name
+      type: string
+    - admin_ui: {width: 200}
+      name: card
+      type: simpleObject
+    - admin_ui: {width: 200}
+      name: state
+      type: simpleObject
+    - admin_ui: {width: 200}
+      name: promo
+      type: simpleObject
+    - admin_ui: {width: 200}
+      name: video_kit
+      type: simpleObject
+    - admin_ui: {width: 200}
+      name: hero
+      type: media
+    - admin_ui: {width: 200}
+      name: hero_phone
+      type: media
+    - admin_ui: {width: 200}
+      name: thumb
+      type: media
+    - admin_ui: {width: 200}
+      name: media_v
+      type: simpleObject
+    - admin_ui: {width: 200}
+      name: updated
+      type: datetime
+    - admin_ui: {width: 200}
+      name: state_updated
+      type: datetime
+    server: full
+    title: App projects
   leads:
     client: none
     columns:
@@ -251,9 +357,11 @@ native_deps:
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="_/theme/icons.css?v=58ea88e510">
-    <link rel="stylesheet" href="_/theme/app.css?v=b8016a7081">
+    <link rel="stylesheet" href="_/theme/app.css?v=a0aad73010">
     <script src="_/theme/app-kit.js?v=5b52a77799"></script>
     <script src="_/theme/aa.js?v=4606a6b288"></script>
+    <link rel="stylesheet" href="_/theme/apps.css?v=0aeebca0b7">
+    <script src="_/theme/apps.js?v=affbcee05d" defer></script>
     <link rel="icon" type="image/svg+xml" href="_/theme/logo.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="_/theme/favicon-32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="_/theme/apple-touch-icon.png">

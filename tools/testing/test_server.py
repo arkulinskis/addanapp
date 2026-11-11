@@ -169,4 +169,136 @@ assert "Demo data loaded" in call("admin_seed_demo")
 assert "already" in call("admin_seed_demo")
 assert len(call("admin_overview")["requests"]) >= 9
 assert "Removed demo data" in call("admin_clear_demo")
+# ---------------------------------------------------------------------------------- apps (portfolio board)
+import base64  # noqa: E402
+S = anvil.server
+ep = S.ENDPOINTS["/apps/v1/:action"]
+
+
+def api(action, body=None, key="aal_local_test_key", origin="http://localhost:3030"):
+    S.ORIGIN[0] = origin
+    S.request.headers = {"Authorization": "Bearer " + key} if key else {}
+    S.request.body = json.dumps(body or {})
+    S.request.query_params = {}
+    resp = ep(action=action)
+    S.ORIGIN[0] = "https://app-test.anvil.app"
+    return resp.status, json.loads(resp.body)
+
+
+as_user(admin)
+problem("apps_board", has="No client")
+assert api("hello", {"client": "pf@example.com"}, key="")[0] == 401, "no key, no entry"
+assert api("hello", {"client": "pf@example.com"}, key="wrong")[0] == 401
+assert api("hello", {"client": "pf@example.com"}, origin="https://addanapp.com")[0] == 401, "the test key only works locally"
+assert api("hello", {"client": "nobody@example.com"})[0] == 400, "unknown client without create"
+PH = [{"id": "build", "name": "Build", "items": [{"id": "github", "label": "Code on GitHub"}]},
+      {"id": "promote", "name": "Promote", "items": [{"id": "linkedin", "label": "LinkedIn post"}, {"id": "admin", "label": "Admin tested"}]}]
+card = {"name": "Snack App", "desc": "Snack App: orders for cafés", "auto": {"github": True}, "url": "https://snack.example",
+        "live": {"ok": False, "status": 502, "checked": now.isoformat()}, "seo": {"missing": ["robots.txt"], "checks": {}},
+        "branches": [{"name": "forms", "ahead": 2, "base": "master", "compare_url": "https://github.com/x/compare"}],
+        "youtube": {"public": True, "published": "2026-11-02", "url": "https://youtu.be/x"}, "watch": True,
+        "commits": [{"msg": "c%d" % i} for i in range(12)]}
+st, res = api("push", {"client": "PF@example.com", "create": {"name": "Arkvital", "company": "Arkvital"},
+                       "meta": {"phases": PH, "refreshed_at": now.isoformat(), "errors": ["GitHub: rate limited"]},
+                       "projects": [{"key": "snack", "name": "Snack App", "card": card, "state_seed": {"notes": "hi", "x": 1},
+                                     "promo": {"items": [{"id": "li1", "kind": "linkedin", "title": "a", "text": "Post"}]}},
+                                    {"key": "gh:old", "name": "Old", "card": {}}],
+                       "docs": [{"name": "bizdev/README", "text": "# Plans\n\n- [Snack](apps/snack.md) **now**\n\n| a | b |\n|---|---|\n| 1 | 2 |"},
+                                {"name": "bizdev/apps/snack", "text": "# Snack\n\nSell to cafés."},
+                                {"name": "bizdev/index", "data": {"apps": [{"key": "snack", "name": "Snack App", "rank": 1, "wave": "1"}]}},
+                                {"name": "worker", "data": {"seen": "spoof"}}]})
+assert st == 200 and res["added"] == 2, res
+pf = T.users.get(email="pf@example.com")
+assert pf is not None and pf["is_admin"] is False and pf["company"] == "Arkvital", "the portfolio's client account is made"
+assert T.app_projects.get(key="snack")["state"] == {"notes": "hi"}, "only the browser-owned parts of the old state are seeded"
+assert api("push", {"client": "pf@example.com", "projects": [], "keep": ["snack"]})[1]["removed"] == 1
+png = base64.b64encode(b"\x89PNG fake").decode()
+assert api("media", {"client": "pf@example.com", "key": "snack", "field": "hero", "type": "image/png", "data": png, "v": "1"})[0] == 200
+assert api("media", {"client": "pf@example.com", "key": "snack", "field": "evil", "data": png})[0] == 400
+assert T.app_projects.get(key="snack")["hero"] is not None
+
+me = call("get_me")
+assert me["apps"] is True, "consultants see the Apps menu once a portfolio exists"
+b = call("apps_board")
+p = b["projects"][0]
+assert b["client"]["name"] == "Arkvital" and len(b["clients"]) == 1
+assert p["desc"] == "orders for cafés" and p["stage"] == "promote" and p["next"] == "LinkedIn post"
+assert p["items"]["github"] == {"v": "done", "auto": True}
+assert p["posted"]["yt-video"] == "2026-11-02", "a public pitch video counts as published"
+assert p["hero"] is not None and "commits" not in p
+types = {n["type"] for n in b["notes"]}
+assert {"error", "down", "seo", "merge"} <= types, types
+assert b["worker"]["online"] is False, "the worker doc can't be spoofed through push"
+full = call("apps_project", "snack")
+assert len(full["commits"]) == 8 and full["promo"]["items"][0]["text"] == "Post"
+problem("apps_project", "nope", has="isn't in this portfolio")
+
+r = call("apps_tick", "snack", "linkedin")
+assert r["project"]["items"]["linkedin"]["v"] == "done" and r["project"]["stage"] == "promote"
+r = call("apps_tick", "snack", "admin")
+assert r["project"]["stage"] == "launched"
+assert call("apps_tick", "snack", "admin")["project"]["items"]["admin"]["v"] == "na"
+problem("apps_tick", "snack", "bogus", has="Unknown step")
+r = call("apps_set_state", "snack", {"posted": {"li1": True}, "notes": "remember", "parked": True})
+assert r["project"]["stage"] == "parked" and r["project"]["posted"]["li1"] and r["project"]["notes"] == "remember"
+call("apps_set_state", "snack", {"parked": False, "posted": {"li1": False}})
+
+problem("apps_add_change", "snack", "short", has="sentence")
+r = call("apps_add_change", "snack", "Make the order button bigger on phones.")
+req = T.requests.get(project="snack")
+assert req["status"] == "in_progress" and req["client"] == pf and req["kind"] == "change"
+assert r["project"]["changes_todo"][0]["ref"] == req["ref"]
+assert any(n["type"] == "changes" and n["prompt"] == "/app-board run snack" for n in r["notes"])
+
+problem("apps_queue", "nope", has="Unknown job")
+problem("apps_queue", "refresh", None, {"actions": []}, has="Tick")
+problem("apps_queue", "link", "snack", {"field": "url", "value": "not a url"}, has="web address")
+j1 = call("apps_queue", "refresh", None, {"actions": ["live", "hacked"]})
+assert j1["args"] == {"actions": ["live"]}
+assert call("apps_queue", "refresh", None, {"actions": ["github"]})["id"] == j1["id"], "one refresh waiting at a time"
+j2 = call("apps_queue", "link", "snack", {"field": "url", "value": "https://snack.example"})
+jobs = call("apps_jobs")
+assert len(jobs["jobs"]) == 2
+
+st, cl = api("claim", {"client": "pf@example.com", "host": "PC"})
+assert cl["job"]["id"] == j1["id"] and cl["job"]["status"] == "running"
+assert call("apps_jobs")["worker"]["online"] is True, "a claim is a heartbeat"
+assert api("finish", {"client": "pf@example.com", "id": j1["id"], "ok": True, "result": {"n": 1}})[0] == 200
+assert call("apps_jobs", [j1["id"]])["jobs"][0]["status"] == "done"
+assert call("apps_cancel_job", j2["id"])["status"] == "cancelled"
+assert api("claim", {"client": "pf@example.com"})[1]["job"] is None
+
+d = call("apps_dismiss", "seo:snack", "x")
+assert d == {"seo:snack": "x"} and call("apps_dismiss", "seo:snack", "x") == {}
+bz = call("apps_bizdev", "README")
+assert '<a href="#apps/bizdev/apps.snack">Snack</a>' in bz["html"] and "<b>now</b>" in bz["html"] and "<table>" in bz["html"]
+assert call("apps_bizdev", "apps.snack")["html"].startswith("<h2>Snack")
+assert call("apps_bizdev", "../../etc")["name"] == "README"
+assert "<script>" not in M["apps_core"].markdown("<script>alert(1)</script>"), "plans are escaped"
+assert call("apps_bizdev_plan", "snack")["html"] == "<p>Sell to cafés.</p>"
+problem("apps_add_outreach", {"date": "2026-11-11"}, has="at least")
+problem("apps_add_outreach", {"date": "11/11", "app": "Snack"}, has="date")
+assert len(call("apps_add_outreach", {"app": "Snack App", "channel": "Email", "result": "no reply"})["rows"]) == 1
+
+st, pl = api("pull", {"client": "pf@example.com"})
+assert pl["states"]["snack"]["notes"] == "remember" and pl["changes"][0]["key"] == "snack" and len(pl["outreach"]["rows"]) == 1
+api("push", {"client": "pf@example.com", "outreach_rows": [pl["outreach"]["rows"][0], ["2026-11-01", "Snack App", "Walk-in"]]})
+assert len(call("apps_add_outreach", {"app": "x", "who": "y"})["rows"]) == 3, "the PC's rows are merged without doubles"
+assert api("state", {"client": "pf@example.com", "key": "snack", "set": {"checks": {"admin": "done"}}})[1]["state"]["checks"]["admin"] == "done"
+st, ch = api("changes", {"client": "pf@example.com"})
+cid = ch["changes"][0]["id"]
+assert api("done", {"client": "pf@example.com", "id": cid, "summary": "Bigger button, pushed to master."})[0] == 200
+assert req["status"] == "review" and T.notes.get(request=req, kind="validated") is not None
+assert api("changes", {"client": "pf@example.com"})[1]["changes"] == [], "changes in review aren't Claude's to do"
+assert api("change", {"client": "pf@example.com", "key": "snack", "text": "Add a French menu to the app."})[1]["ref"]
+assert len(api("board", {"client": "pf@example.com"})[1]["projects"]) == 1
+
+as_user(ana)
+assert call("get_me")["apps"] is False
+problem("apps_board", has="no app portfolio")
+problem("apps_tick", "snack", "admin", has="no app portfolio")
+as_user(pf)
+assert call("apps_board")["client"]["name"] == "Arkvital", "the client sees their own portfolio"
+assert call("apps_board", M["common"].rid(ana))["client"]["name"] == "Arkvital", "client_id is ignored for clients"
+
 print("ALL OK")

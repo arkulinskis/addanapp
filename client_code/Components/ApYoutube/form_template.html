@@ -1,0 +1,37 @@
+<div class="ap-youtube">
+  <div class="ap-yt-top">
+    <h2 anvil:dom-node="channel"></h2><span class="small muted" anvil:dom-node="when"></span>
+    <anvil-component type="Button" name="update_button" prop:text="Update numbers" prop:role='["aa-btn", "sm", "ghost", "ic-refresh"]'></anvil-component>
+    <a class="aa-btn sm ghost" anvil:dom-node="studio" target="_blank" rel="noopener">YouTube Studio ↗</a>
+    <span style="flex:1"></span>
+    <div class="pills" role="group" aria-label="Period"><anvil-component type="RepeatingPanel" name="days" prop:item_template="Addanapp.Items.Pill" prop:role='["contents"]'></anvil-component></div>
+  </div>
+  <p class="ap-hint" anvil:dom-node="conn"></p>
+  <div class="empty" anvil:name="none"><div class="ico"><i class="ic ic-play"></i></div><h3>No YouTube numbers yet</h3><div class="empty-p">Press Update numbers: your PC fetches them from the channel (about 15 seconds).</div></div>
+  <div anvil:name="body">
+    <div class="ap-yt-tiles"><anvil-component type="RepeatingPanel" name="tiles" prop:item_template="Addanapp.Items.ApYtTile" prop:role='["contents"]'></anvil-component></div>
+    <div class="ap-yt-grid">
+      <div class="ap-yt-card"><h3>Views per day</h3><p class="sub" anvil:dom-node="views_sub"></p><div class="ap-chart" anvil:dom-node="views_chart"></div></div>
+      <div class="ap-yt-card"><h3 anvil:dom-node="subs_h">Subscribers</h3><p class="sub" anvil:dom-node="subs_sub"></p><div class="ap-chart" anvil:dom-node="subs_chart"></div></div>
+      <div class="ap-yt-card" anvil:name="watch_card"><h3>Watch time per day</h3><p class="sub" anvil:dom-node="watch_sub"></p><div class="ap-chart" anvil:dom-node="watch_chart"></div></div>
+      <div class="ap-yt-card"><h3>Views by app</h3><p class="sub">All-time views of each app's public videos. Click an app to list its videos below.</p>
+        <div class="ap-legend"><span><i style="background:var(--ap-s1)"></i>Pitch videos</span><span><i style="background:var(--ap-s2)"></i>Reels</span><span><i style="background:var(--ap-s3)"></i>Other</span></div>
+        <div class="ap-bars"><anvil-component type="RepeatingPanel" name="app_bars" prop:item_template="Addanapp.Items.ApBar" prop:role='["contents"]'></anvil-component></div>
+        <anvil-component type="Button" name="all_apps_button" prop:role='["aa-btn", "sm", "ghost"]'></anvil-component></div>
+      <div class="ap-yt-card" anvil:name="src_card"><h3>Where viewers come from</h3><p class="sub">Traffic sources, last 12 months</p>
+        <div class="ap-bars"><anvil-component type="RepeatingPanel" name="src_bars" prop:item_template="Addanapp.Items.ApBar" prop:role='["contents"]'></anvil-component></div></div>
+      <div class="ap-yt-card" anvil:name="country_card"><h3>Countries</h3><p class="sub">Views, last 12 months</p>
+        <div class="ap-bars"><anvil-component type="RepeatingPanel" name="country_bars" prop:item_template="Addanapp.Items.ApBar" prop:role='["contents"]'></anvil-component></div></div>
+      <div class="ap-yt-card" anvil:name="device_card"><h3>Devices</h3><p class="sub">Views, last 12 months</p>
+        <div class="ap-bars"><anvil-component type="RepeatingPanel" name="device_bars" prop:item_template="Addanapp.Items.ApBar" prop:role='["contents"]'></anvil-component></div></div>
+    </div>
+    <div class="ap-yt-card">
+      <div class="ap-yt-top"><h3 style="margin:0">Videos</h3>
+        <div class="pills" role="group" aria-label="Kind"><anvil-component type="RepeatingPanel" name="kinds" prop:item_template="Addanapp.Items.Pill" prop:role='["contents"]'></anvil-component></div>
+        <anvil-component type="Button" name="app_filter_button" prop:role='["aa-btn", "sm", "ghost"]'></anvil-component>
+        <span class="small muted" anvil:dom-node="vid_count"></span></div>
+      <div class="ap-yt-scroll" anvil:dom-node="table"></div>
+      <anvil-component type="Button" name="all_vids_button" prop:role='["aa-btn", "sm", "ghost"]'></anvil-component>
+    </div>
+  </div>
+</div>

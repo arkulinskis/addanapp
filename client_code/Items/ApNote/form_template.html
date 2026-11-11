@@ -1,0 +1,10 @@
+<div class="ap-note" anvil:dom-node="box">
+  <div class="head"><a anvil:dom-node="app"></a><b anvil:dom-node="title"></b><span class="ap-stage" anvil:dom-node="stage"></span></div>
+  <div class="desc" anvil:dom-node="desc"></div>
+  <div class="prompt" anvil:dom-node="prompt" title="Paste this into Claude Code"></div>
+  <div class="acts">
+    <anvil-component type="Button" name="copy_button" prop:text="Copy for Claude" prop:role='["aa-btn", "sm", "accent"]'></anvil-component>
+    <anvil-component type="RepeatingPanel" name="acts" prop:item_template="Addanapp.Items.ApAct" prop:role='["contents"]'></anvil-component>
+    <anvil-component type="Button" name="dismiss_button" prop:role='["aa-btn", "sm", "ghost"]'></anvil-component>
+  </div>
+</div>

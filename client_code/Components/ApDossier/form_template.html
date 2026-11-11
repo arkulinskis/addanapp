@@ -1,0 +1,50 @@
+<div class="ap-dossier">
+  <nav class="ap-dos-nav" aria-label="Dossiers">
+    <anvil-component type="Button" name="prev_button" prop:text="←" prop:role='["aa-btn", "sm", "ghost"]'></anvil-component>
+    <anvil-component type="DropDown" name="pick_dd"></anvil-component>
+    <anvil-component type="Button" name="next_button" prop:text="→" prop:role='["aa-btn", "sm", "ghost"]'></anvil-component>
+    <span class="pos" anvil:dom-node="pos"></span>
+    <anvil-component type="Button" name="refresh_button" prop:text="Refresh" prop:role='["aa-btn", "sm", "ghost", "ic-refresh"]'></anvil-component>
+    <a class="aa-btn sm ghost" anvil:dom-node="open">Open the app page</a>
+    <span class="spacer"></span>
+    <label class="small muted" for="ap-dos-order">Order</label><anvil-component type="DropDown" name="order_dd"></anvil-component>
+    <span class="small muted">Flip with ← →</span>
+  </nav>
+  <div class="empty" anvil:name="none"><h3>No apps match the search</h3></div>
+  <div anvil:name="page">
+    <div class="ap-dos-top">
+      <div class="ap-dos-shot" anvil:dom-node="shot"><img class="desk" anvil:dom-node="desk" alt=""><img class="phone" anvil:dom-node="phone" alt=""><div class="none" anvil:dom-node="noshot">No screenshot yet. The PC takes one once the app is live.</div></div>
+      <div>
+        <h2 class="ap-pane-h" anvil:dom-node="name"></h2>
+        <div class="ap-sub"><span class="ap-dot" anvil:dom-node="dot" role="img"></span><span class="ap-stage" anvil:dom-node="stage"></span><span class="ap-wave" anvil:dom-node="wave"></span><span anvil:dom-node="rank"></span><span class="ap-chips" anvil:dom-node="chips"></span></div>
+        <p class="ap-desc" anvil:dom-node="desc"></p>
+        <div class="ap-links" anvil:dom-node="links"></div>
+        <div class="ap-live" anvil:dom-node="live"></div>
+        <div class="ap-facts" role="list"><anvil-component type="RepeatingPanel" name="facts" prop:item_template="Addanapp.Items.ApFact" prop:role='["contents"]'></anvil-component></div>
+        <div class="ap-quick" anvil:dom-node="quick"></div>
+      </div>
+    </div>
+    <h3 class="ap-sec-h">Status <span class="small">click a step: empty → ✓ done → – not needed → empty</span></h3>
+    <anvil-component type="LinearPanel" name="steps_holder" prop:role='["contents"]'></anvil-component>
+    <div class="ap-cols" style="margin-top:14px">
+      <div><div class="ap-box"><h3>Recent commits</h3><div role="list" class="ap-commits"><anvil-component type="RepeatingPanel" name="commits" prop:item_template="Addanapp.Items.ApCommit" prop:role='["contents"]'></anvil-component></div>
+        <p class="ap-hint" anvil:dom-node="folder"></p></div>
+        <div class="ap-box" anvil:name="changes_box"><h3>Changes for Claude</h3><div role="list"><anvil-component type="RepeatingPanel" name="changes" prop:item_template="Addanapp.Items.ApLi" prop:role='["contents"]'></anvil-component></div></div>
+        <div class="ap-box" anvil:name="notes_box"><h3>Your notes</h3><div class="ap-pre" anvil:dom-node="notes"></div></div></div>
+      <anvil-component type="LinearPanel" name="findings_holder" prop:role='["contents"]'></anvil-component>
+    </div>
+    <h3 class="ap-sec-h">Business development</h3>
+    <div class="ap-cols">
+      <div class="ap-md" anvil:dom-node="plan"></div>
+      <div><div class="ap-box"><h3>Outreach for this app <a class="small" href="#apps/bizdev/outreach-log">Log outreach</a></h3><div class="ap-log" anvil:dom-node="log"></div></div></div>
+    </div>
+    <h3 class="ap-sec-h">Monetization</h3>
+    <anvil-component type="LinearPanel" name="money_holder" prop:role='["contents"]'></anvil-component>
+    <h3 class="ap-sec-h">Posts &amp; videos</h3>
+    <anvil-component type="LinearPanel" name="posts_holder" prop:role='["contents"]'></anvil-component>
+    <nav class="ap-dos-nav" style="margin-top:18px" aria-label="Previous and next dossier">
+      <anvil-component type="Button" name="prev2_button" prop:role='["aa-btn", "sm", "ghost"]'></anvil-component><span class="spacer"></span>
+      <anvil-component type="Button" name="next2_button" prop:role='["aa-btn", "sm", "ghost"]'></anvil-component>
+    </nav>
+  </div>
+</div>

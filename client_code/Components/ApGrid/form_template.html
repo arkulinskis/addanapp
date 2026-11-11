@@ -1,0 +1,12 @@
+<div class="ap-gridview">
+  <div class="ap-grid-tools">
+    <anvil-component type="DropDown" name="stage_dd"></anvil-component>
+    <anvil-component type="DropDown" name="show_dd"></anvil-component>
+    <anvil-component type="DropDown" name="step_dd"></anvil-component>
+    <anvil-component type="DropDown" name="stepv_dd"></anvil-component>
+    <anvil-component type="Label" name="count" prop:role='["t"]'></anvil-component>
+    <anvil-component type="Button" name="clear_button" prop:text="Clear filters" prop:role='["aa-btn", "sm", "ghost"]'></anvil-component>
+  </div>
+  <p class="ap-hint">Click a column title to sort (again to reverse). Click a square: empty → ✓ done → – not needed → empty. Pale squares were found automatically. Click an app for its details.</p>
+  <div anvil:dom-node="host"></div>
+</div>

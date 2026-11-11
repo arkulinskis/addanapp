@@ -47,7 +47,7 @@
   try {
     if (location.hash !== '#home') { window.UI_READY = false; location.hash = '#home'; await until(() => window.UI_READY, 'home'); }
     await signInAdmin();
-    ok($('.aa-shell').classList.contains('mode-app') && $$('.aa-nav-app a').filter(vis).length === 4, 'console: signed in, consultant menu');
+    ok($('.aa-shell').classList.contains('mode-app') && [4, 5].includes($$('.aa-nav-app a').filter(vis).length), 'console: signed in, consultant menu (5 with Apps)');
     // tools: demo data
     await page('#admin/tools', () => btn('Load demo data'), 'tools');
     await click('Load demo data');

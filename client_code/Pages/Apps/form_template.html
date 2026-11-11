@@ -1,0 +1,25 @@
+<anvil-form layout="Addanapp.Layouts.Shell">
+<anvil-block slot="content">
+<div class="app-page ap"><div class="aa-wrap ap-wrap">
+  <div class="page-head">
+    <div><h1><anvil-component type="Label" name="title" prop:role='["t"]'></anvil-component></h1>
+      <div class="ph-sub"><anvil-component type="Label" name="sub" prop:role='["t"]'></anvil-component></div>
+      <div class="ap-stats" role="list" aria-label="Portfolio numbers"><anvil-component type="RepeatingPanel" name="stats" prop:item_template="Addanapp.Items.ApStat" prop:role='["contents"]'></anvil-component></div></div>
+    <div class="ap-tools">
+      <anvil-component type="DropDown" name="client_dd"></anvil-component>
+      <anvil-component type="TextBox" name="search_box" prop:placeholder="Search apps"></anvil-component>
+      <anvil-component type="Button" name="refresh_button" prop:text="Refresh all" prop:role='["aa-btn", "sm", "ghost", "ic-refresh"]'></anvil-component>
+    </div>
+  </div>
+  <div class="ap-pc" anvil:name="pc_line" role="status"><span class="dot" anvil:name="pc_dot"></span><anvil-component type="Label" name="pc_text" prop:role='["t"]'></anvil-component></div>
+  <nav class="tabs-line ap-tabs" aria-label="Views"><anvil-component type="RepeatingPanel" name="tabs" prop:item_template="Addanapp.Items.ApTab" prop:role='["contents"]'></anvil-component></nav>
+  <div class="empty" anvil:name="nothing">
+    <div class="ico"><i class="ic ic-layout"></i></div>
+    <h3>No apps to show yet</h3>
+    <div class="empty-p">The board fills in once the PC link has sent the portfolio (APP_MAKER\board\addanapp_link.py).</div>
+  </div>
+  <anvil-component type="LinearPanel" name="view_holder" prop:role='["contents"]'></anvil-component>
+  <anvil-component type="Timer" name="poll_timer" prop:interval="0"></anvil-component>
+</div></div>
+</anvil-block>
+</anvil-form>

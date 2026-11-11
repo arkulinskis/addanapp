@@ -77,15 +77,16 @@ class Shell(ShellTemplate):
             return
         c = state.counts() or {}
         nav = self._nav
+        apps = [("#apps", "apps", "layout", tp("Apps"), 0, False)] if me.get("apps") else []
         if me.get("is_admin"):
-            links = [("#admin", "admin", "inbox", tp("Requests"), c.get("unread", 0), False),
+            links = [("#admin", "admin", "inbox", tp("Requests"), c.get("unread", 0), False)] + apps + [
                      ("#admin/clients", "admin/clients", "users", tp("Clients"), 0, False),
                      ("#admin/leads", "admin/leads", "mail", tp("Leads"), c.get("leads", 0), False),
                      ("#admin/tools", "admin/tools", "sliders", tp("Tools"), 0, False),
                      ("#account", "account", "user", tp("Account"), 0, True),
                      ("#home", "", "globe", tp("Website"), 0, True)]
         else:
-            links = [("#portal", "portal", "grid", tp("Dashboard"), c.get("unread", 0), False),
+            links = [("#portal", "portal", "grid", tp("Dashboard"), c.get("unread", 0), False)] + apps + [
                      ("#new", "new", "plus", tp("New request"), 0, False),
                      ("#account", "account", "user", tp("Account"), 0, False),
                      ("#home", "", "globe", tp("Website"), 0, True)]

@@ -1,0 +1,27 @@
+<div class="ap-bizdev">
+  <p class="ap-hint">Go-to-market plans for every app, ranked into waves. Start with “Start here”, then the Wave 1 plans, and log every message you send in the Outreach log. Ask Claude Code to change a plan (APP_MAKER\bizdev\_build.py).</p>
+  <div class="ap-split">
+    <nav class="ap-list" aria-label="Biz dev documents"><anvil-component type="RepeatingPanel" name="docs" prop:item_template="Addanapp.Items.ApListBtn" prop:role='["contents"]'></anvil-component></nav>
+    <section>
+      <div class="ap-links" anvil:dom-node="links"></div>
+      <div class="ap-md" anvil:dom-node="md"></div>
+      <div anvil:name="log_part">
+        <h2 class="ap-pane-h">Outreach log</h2>
+        <div class="ap-stats"><span class="ap-stat" anvil:dom-node="log_stats"></span></div>
+        <div class="ap-log-form">
+          <div class="f"><span class="lbl">Date</span><anvil-component type="TextBox" name="date_box"></anvil-component></div>
+          <div class="f"><span class="lbl">App</span><anvil-component type="DropDown" name="app_dd"></anvil-component></div>
+          <div class="f"><span class="lbl">Channel</span><anvil-component type="TextBox" name="channel_box" prop:placeholder="Reddit, email, walk-in…"></anvil-component></div>
+          <div class="f"><span class="lbl">Who</span><anvil-component type="TextBox" name="who_box" prop:placeholder="r/excel, Café X, Jane at Studio Y"></anvil-component></div>
+          <div class="f"><span class="lbl">Message type</span><anvil-component type="TextBox" name="type_box" prop:placeholder="advice DM, post…"></anvil-component></div>
+          <div class="f"><span class="lbl">Result</span><anvil-component type="DropDown" name="result_dd"></anvil-component></div>
+          <div class="f wide"><span class="lbl">Next step</span><anvil-component type="TextBox" name="next_box" prop:placeholder="Follow up Thursday"></anvil-component></div>
+          <div class="f wide"><span class="lbl">Notes (what they said, in their words)</span><anvil-component type="TextBox" name="notes_box"></anvil-component></div>
+          <div class="wide"><anvil-component type="Button" name="add_button" prop:text="Add to log" prop:role='["aa-btn", "accent", "ic-plus"]'></anvil-component></div>
+        </div>
+        <div class="ap-log" anvil:dom-node="log"></div>
+        <p class="ap-hint" anvil:dom-node="log_none"></p>
+      </div>
+    </section>
+  </div>
+</div>

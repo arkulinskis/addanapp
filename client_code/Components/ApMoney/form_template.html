@@ -1,0 +1,8 @@
+<div class="ap-money">
+  <p class="ap-hint">The monetization plan for every app: what stays free, what goes behind the paywall, 2-3 ways to charge, and which free apps are traffic drivers for a paid one with the same buyer. Prices are starting points to test; check competitors first. Ask Claude Code to change a plan (APP_MAKER\money\_build.py).</p>
+  <div class="ap-pills pills" role="group" aria-label="Show"><anvil-component type="RepeatingPanel" name="chips" prop:item_template="Addanapp.Items.Pill" prop:role='["contents"]'></anvil-component></div>
+  <details class="ap-m-flow" anvil:dom-node="flow"><summary><b>Who sends people to whom</b> <span class="muted small">free apps feeding a paid one</span></summary>
+    <div role="list"><anvil-component type="RepeatingPanel" name="flow_list" prop:item_template="Addanapp.Items.ApLi" prop:role='["contents"]'></anvil-component></div></details>
+  <anvil-component type="RepeatingPanel" name="groups" prop:item_template="Addanapp.Items.ApMoneyGroup" prop:role='["contents"]'></anvil-component>
+  <div class="empty" anvil:name="none"><div class="ico"><i class="ic ic-receipt"></i></div><h3>No plans yet</h3><div class="empty-p">Run python money/_build.py in APP_MAKER, then the PC link sends them.</div></div>
+</div>

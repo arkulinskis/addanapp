@@ -38,6 +38,12 @@ def admin_update_request(request_id, changes=None, note=None):
   r = by_id(app_tables.requests, request_id)
   if r is None:
     raise Exception("Request not found.")
+  update_request_as(u, r, changes, note)
+  return payload(r, u)
+
+
+def update_request_as(u, r, changes=None, note=None):
+  """The work of admin_update_request, as consultant u (the Apps API uses it for Claude's notes)."""
   changes = changes or {}
   t = now()
   ch = {}
@@ -123,7 +129,7 @@ def admin_update_request(request_id, changes=None, note=None):
     elif client_visible:
       notify_client(r, lambda tr: (tr("{ref}: progress update", ref=r['ref']), tr("Update on {title}", title=r['title']),
                                    [f(tr) for f in client_visible]))
-  return payload(r, u)
+  return r
 
 
 @anvil.server.callable

@@ -9,6 +9,7 @@ description: Context, workflow and recipes for Addanapp (addanapp.com), the user
 - **Landing page** (`#home`): hero with a live request mock, hours vs outcomes, the 5-step AI + human method, capabilities, a **portfolio**: 3 projects picked at random on every visit + Shuffle + "See all 53 products in depth" (→ `#work`, the full index grouped by category with filters; the user's own apps), the **YouTube** section (`#youtube`: channel youtube.com/@addanapp + click-to-play Addanapp film), client workspace preview, engagement models, the **partner deck** download (`#partners`), commitments, a bilingual Montréal section, FAQ, project-brief form (→ leads).
 - **Client workspace** (`#portal`, `#new`, `#r/<id>`, `#account`): clients submit requests (feature, fix, integration, new app…), approve fixed quotes, follow progress notes, accept deliveries or request changes.
 - **Consultant console** (`#admin`): every request as a list or Kanban board; progress notes (update, milestone, human-validated, question, internal), status, progress %, quote, scope, ETA; clients; leads; demo data.
+- **Apps** (`#apps[/view[/arg]]`, `#app/<key>`, since 2026-11-11): a client's app portfolio board, the user's former App Board (Arkvital is the client). Facts come from the PC worker (`APP_MAKER/board/addanapp_link.py`) through `/_/api/apps/v1/*` (`apps_sync.py`, key hash in `KEY_HASHES`); clicks are stored here; "Changes for Claude" are requests with project = app key. README "Apps" section has the details; UI test `tools/ui/apps.js`.
 - Lifecycle: Submitted → Scoping → Quote ready → In progress → Ready for review → Delivered (+ On hold, Closed). Internal notes never reach clients; client-visible notes and status changes are emailed.
 
 **Where it lives:**
@@ -67,7 +68,7 @@ theme/assets/            app.css (design system + "Native Anvil Forms layer" at 
 tools/                   check.py, ui_test.py + ui/*.js, i18n_check.py, assets.py, build_icons.py, testing/
 ```
 
-**Tables:** `users` (+ name, company, phone, color, role, is_admin, is_demo, email_notifications, last_seen, lang, legal_*), `requests`, `notes`, `leads`.
+**Tables:** `users` (+ name, company, phone, color, role, is_admin, is_demo, email_notifications, last_seen, lang, legal_*), `requests`, `notes`, `leads`, `app_projects`, `app_docs`, `app_jobs` (Apps).
 
 ## How things are done here (native Forms)
 
@@ -131,6 +132,8 @@ tools/                   check.py, ui_test.py + ui/*.js, i18n_check.py, assets.p
 - Placeholder business facts to confirm with the user before relying on them: hello@addanapp.com, 2-day quotes, 1–3 week features, 24-month lead retention.
 - `python -I` hides PyYAML: run tools/check.py without `-I` (ui_test.py with `-I`).
 - The header's frosted glass lives on `.aa-header::before`, not on `.aa-header`: a `backdrop-filter` (or filter/transform) on the header traps the full-screen burger menu (`position: fixed`) inside the 60px bar. Fixed 2026-10-26.
+
+- **Apps gotchas (2026-11-11):** `state.store_get` returns JS objects for dicts: keep dicts with `apps_data.sget/sset` (JSON text). Dense UI (grid squares, step strips, charts, tables) is drawn by `theme/assets/apps.js` with textContent; notification text and biz dev plans are HTML built server-side from escaped text (`apps_core.notes`, `apps_core.markdown`) and set with innerHTML. Pushes from the PC never overwrite `state` (clicks) except to seed an app that has none.
 
 ## Privacy & Terms (legal kit)
 

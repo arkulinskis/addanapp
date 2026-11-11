@@ -1,0 +1,10 @@
+<div class="ap-findings">
+  <div class="ap-box" anvil:name="legal_box"><h3>Legal <anvil-component type="Label" name="legal_state" prop:role='["t"]'></anvil-component></h3>
+    <div role="list"><anvil-component type="RepeatingPanel" name="legal_list" prop:item_template="Addanapp.Items.ApLi" prop:role='["contents"]'></anvil-component></div></div>
+  <div class="ap-box" anvil:name="seo_box"><h3>SEO <anvil-component type="Label" name="seo_state" prop:role='["t"]'></anvil-component></h3>
+    <div role="list"><anvil-component type="RepeatingPanel" name="seo_list" prop:item_template="Addanapp.Items.ApLi" prop:role='["contents"]'></anvil-component></div></div>
+  <div class="ap-box" anvil:name="db_box"><h3>Database <anvil-component type="Label" name="db_state" prop:role='["t"]'></anvil-component></h3>
+    <div role="list"><anvil-component type="RepeatingPanel" name="db_list" prop:item_template="Addanapp.Items.ApLi" prop:role='["contents"]'></anvil-component></div>
+    <p class="ap-hint"><anvil-component type="Label" name="db_hint" prop:role='["t"]'></anvil-component></p>
+    <div class="row"><anvil-component type="Button" name="schema_button" prop:text="Re-check the database" prop:role='["aa-btn", "sm", "ghost", "ic-database"]'></anvil-component></div></div>
+</div>

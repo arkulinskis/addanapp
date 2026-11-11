@@ -5,7 +5,7 @@
                                                keyboard checks) and the translations (i18n.js, once each in fr, ru and lv)
     python -I tools/ui_test.py --shots DIR     also screenshots of every page (desktop + phone; Addanapp is light-only) into DIR
     python -I tools/ui_test.py --stop          stop the local server afterwards
-    python -I tools/ui_test.py --only a11y.js  one script (flow.js, phone.js, admin.js, a11y.js or i18n.js)
+    python -I tools/ui_test.py --only a11y.js  one script (flow.js, phone.js, admin.js, a11y.js, i18n.js or apps.js)
 
 The server runs this folder's app files (no build step): container "<key>-dev" on http://localhost:<PORT>, data in the
 Docker volume "<key>-data" (accounts made by tests stay there; `docker volume rm <key>-data` to start clean).
@@ -130,7 +130,8 @@ def main():
     failed = False
     only = args[args.index("--only") + 1] if "--only" in args else None  # e.g. --only a11y.js
     runs = [("flow.js", "1280,1000", None), ("phone.js", "390,844", None), ("admin.js", "1280,1000", None),
-            ("a11y.js", "1280,1000", None), ("i18n.js", "1280,1000", "fr"), ("i18n.js", "390,844", "ru"), ("i18n.js", "1280,1000", "lv")]
+            ("a11y.js", "1280,1000", None), ("i18n.js", "1280,1000", "fr"), ("i18n.js", "390,844", "ru"), ("i18n.js", "1280,1000", "lv"),
+            ("apps.js", "1280,1000", None)]
     for script, window, lang in runs:
         if only and script != only:
             continue
@@ -153,6 +154,12 @@ def main():
             log = drive(None, window, dest / ("member" + tag), [(n + tag, h, None) for n, h in member], seed=True)
             problems = [l for l in log.splitlines() if "TIMEOUT" in l or "EXCEPTION" in l]
             for p_ in problems[:5]:
+                print("  shots: " + p_[:300])
+            # the Apps area (apps.js signs in as the consultant and makes sure there is a portfolio first)
+            views = ["board", "grid", "notes", "posts", "bizdev", "money", "youtube", "dossier"]
+            log = drive("apps.js", window, dest / ("apps" + tag), [("apps_" + v + tag, "#apps/" + v, None) for v in views] +
+                        [("app_detail" + tag, "window.__lastApp", None)])
+            for p_ in [l for l in log.splitlines() if "TIMEOUT" in l or "EXCEPTION" in l][:5]:
                 print("  shots: " + p_[:300])
         print("screenshots in", dest)
     if "--stop" in args:

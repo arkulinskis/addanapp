@@ -1,0 +1,10 @@
+<div class="ap-notes">
+  <div class="ap-pills pills" role="group" aria-label="Show"><anvil-component type="RepeatingPanel" name="chips" prop:item_template="Addanapp.Items.Pill" prop:role='["contents"]'></anvil-component></div>
+  <div class="ap-grid-tools">
+    <anvil-component type="Button" name="copy_all_button" prop:role='["aa-btn", "sm", "ghost"]'></anvil-component>
+    <anvil-component type="CheckBox" name="show_dismissed"></anvil-component>
+    <span class="small muted">Copy one, paste it into Claude Code, then do the next. Dismissed ones come back when something about them changes.</span>
+  </div>
+  <anvil-component type="RepeatingPanel" name="groups" prop:item_template="Addanapp.Items.ApNoteGroup" prop:role='["contents"]'></anvil-component>
+  <div class="empty" anvil:name="none"><div class="ico"><i class="ic ic-check-circle"></i></div><h3>Nothing needs you right now</h3><div class="empty-p" anvil:dom-node="none_p"></div></div>
+</div>

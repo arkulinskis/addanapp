@@ -1,0 +1,9 @@
+<section class="ap-lane" anvil:dom-node="lane">
+  <button type="button" class="ap-lane-head" anvil:dom-node="head" anvil:on-dom:click="self.head_click">
+    <h2><span anvil:dom-node="name"></span><span class="n" anvil:dom-node="n"></span></h2><p anvil:dom-node="desc"></p><i class="ic ic-chev-down chev" aria-hidden="true"></i>
+  </button>
+  <div class="ap-lane-cards" anvil:name="cards_box">
+    <anvil-component type="RepeatingPanel" name="cards" prop:item_template="Addanapp.Items.ApCard" prop:role='["contents"]'></anvil-component>
+    <div class="ap-none" anvil:name="none">Nothing here.</div>
+  </div>
+</section>

@@ -1,0 +1,14 @@
+<div class="ap-posts">
+  <p class="ap-hint" anvil:dom-node="intro"></p>
+  <div class="ap-split">
+    <nav class="ap-list" aria-label="Apps with posts"><anvil-component type="RepeatingPanel" name="apps" prop:item_template="Addanapp.Items.ApListBtn" prop:role='["contents"]'></anvil-component>
+      <p class="ap-hint" anvil:dom-node="none_list"></p></nav>
+    <section>
+      <h2 class="ap-pane-h"><anvil-component type="Label" name="name" prop:role='["t"]'></anvil-component></h2>
+      <div class="ap-links" anvil:dom-node="links"></div>
+      <p class="ap-hint" anvil:name="warn"><span anvil:dom-node="warn_text"></span></p>
+      <div class="ap-stats"><span class="ap-stat" anvil:dom-node="count"></span></div>
+      <anvil-component type="LinearPanel" name="pane" prop:role='["contents"]'></anvil-component>
+    </section>
+  </div>
+</div>
