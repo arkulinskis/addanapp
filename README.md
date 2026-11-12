@@ -9,15 +9,18 @@ Addanapp is the website and client platform for a Montréal software consultancy
 | **Landing page** (`#home`) | The marketing site: hero with a live request mock, "hours vs outcomes" comparison, the 5-step AI + human method, capabilities, portfolio (three projects picked at random, a Shuffle button and a link to the full index), the YouTube channel with the Addanapp film, client workspace preview, engagement models, a partner-deck download for agencies, commitments, a bilingual Montréal section, FAQ and a project-brief form. |
 | **Client workspace** (`#portal`) | Clients sign up and submit requests (feature, fix, integration, new app…), approve fixed quotes, follow progress notes, accept deliveries or request changes. |
 | **Consultant console** (`#admin`) | Every request across clients as a list or Kanban board. Post progress notes (update, milestone, human-validated, question, internal), set status, progress %, fixed quote, scope summary and ETA. Also manage clients, website leads and demo data. |
-| **Apps** (`#apps`, `#app/<key>`) | A client's app portfolio board (the user's App Board, moved here from their PC on 2026-11-11; Arkvital is the first client). Views: Board (a lane per stage), Checklist grid, Posts, Biz dev, Money, YouTube, Dossiers, Notifications; one page per app with its checklist, "Changes for Claude" (they become requests), a Prepsto idea box, notes and links. Only that client and consultants see it. |
+| **Apps** (`#apps`, `#app/<key>`) | A client's app portfolio board (the user's App Board, moved here from their PC on 2026-11-11; the apps are spread over six made-up test clients by category). Views: Board (a lane per stage), Checklist grid, Posts, Biz dev, Money, YouTube, Dossiers, Notifications; one page per app with its checklist, "Changes for Claude" (they become requests), a Prepsto idea box, notes and links. Only that client and consultants see it. |
 
 Other routes: `#work` (full portfolio: every project, with what we built, its film and its link), `#guides[/<slug>]` (the free PDF guides, unlocked with an email), `#r/<id>` (one request), `#new`, `#account`, `#privacy`, `#login`, `#signup`.
 
 ## Apps: the portfolio board (since 2026-11-11)
 
-The App Board that ran on the user's PC (`APP_MAKER/board`) now lives here. A client with an app portfolio (Arkvital,
-account `arkulinskis+arkvital@gmail.com`, made by the first push; its owner sets a password with "Forgot your password?")
-gets an **Apps** link in the workspace menu; consultants see every portfolio (a client picker appears when there are two).
+The App Board that ran on the user's PC (`APP_MAKER/board`) now lives here. The apps are split over six made-up client
+companies by category, for realistic testing (`APP_MAKER/board/clients.json`): Northgate Commerce Group (business
+platforms), Brightloom Studio (creator tools), Pixel Harbor Games (games + mobile), Halo Reality Labs (VR), Cedarpoint
+Learning, Meridian Digital (websites; the default for new apps). Their accounts are `arkulinskis+<id>@gmail.com`, made by
+the first push with no password ("Forgot your password?" sets one). A client with a portfolio gets an **Apps** link in
+the workspace menu and sees only its own apps, plans and videos; consultants see every portfolio with a client picker.
 
 - **Who writes what.** The user's PC worker (`APP_MAKER/board/addanapp_link.py worker`) sends the facts it checks
   (GitHub, live sites, SEO, schema, legal, the app standard, screenshots, posts, video kits, biz dev + money plans,

@@ -80,7 +80,7 @@ def apps_board(client_id=None):
   phases = core.phases_of(m)
   out = {
     'client': _summary(client), 'is_admin': bool(u['is_admin']),
-    'clients': [dict(_summary(c), n=n) for c, n in core.portfolio_clients()] if u['is_admin'] else [],
+    'clients': sorted([dict(_summary(c), n=n) for c, n in core.portfolio_clients()], key=lambda x: x['name'].lower()) if u['is_admin'] else [],
     'phases': phases, 'lanes': core.lanes(phases), 'items': core.flat_items(phases), 'short': core.SHORT,
     'projects': vs, 'stats': core.stats(vs), 'notes': core.notes(vs, m),
     'note_types': [{'id': i, 'name': n, 'desc': d, 'icon': core.NOTE_ICONS.get(i, 'bell')} for i, n, d in core.NOTE_TYPES],

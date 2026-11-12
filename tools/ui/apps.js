@@ -47,7 +47,7 @@
   }
   async function api(action, body) {
     const r = await fetch(location.origin + '/_/api/apps/v1/' + action, {method: 'POST', headers: {Authorization: 'Bearer aal_local_test_key',
-      'Content-Type': 'application/json'}, body: JSON.stringify(Object.assign({client: 'arkulinskis+arkvital@gmail.com'}, body || {}))});
+      'Content-Type': 'application/json'}, body: JSON.stringify(Object.assign({client: 'arkulinskis+uitest@gmail.com'}, body || {}))});
     return [r.status, await r.json()];
   }
   function sample() {
@@ -84,10 +84,13 @@
   try {
     if (location.hash !== '#home') { window.UI_READY = false; location.hash = '#home'; await until(() => window.UI_READY, 'home'); }
     await signInAdmin();
-    let [st, hello] = await api('hello', {create: {name: 'Arkvital', company: 'Arkvital'}});
+    let [st] = await api('hello', {create: {name: 'UI Test Client', company: 'UI Test Co'}});
     ok(st === 200, 'PC API: the local test key works');
-    if (!hello.apps) {
-      [st] = await api('push', sample());
+    const hasApps = $$('.aa-nav-app a').some((a) => a.getAttribute('href') === '#apps');
+    if (!hasApps) {  // an empty local database: give the test client a small portfolio
+      const s = sample();
+      s.create = {name: 'UI Test Client', company: 'UI Test Co'};
+      [st] = await api('push', s);
       ok(st === 200, 'PC API: a sample portfolio was sent');
       location.reload();
       await until(() => window.UI_READY, 'reload after the sample', 60000);
