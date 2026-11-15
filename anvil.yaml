@@ -333,7 +333,7 @@ native_deps:
       if (q) { l = q[1]; try { localStorage.setItem('aa.lang', l); } catch (e) {} }
       if (l === 'fr' || l === 'ru' || l === 'lv') {
         document.documentElement.lang = l;
-        window.aaLangPack = fetch('_/theme/lang-' + l + '.json?v=21').then(function (r) {
+        window.aaLangPack = fetch('_/theme/lang-' + l + '.json?v=22').then(function (r) {
           if (!r.ok) throw new Error('lang ' + r.status);
           return r.text();
         }).then(function (t) {
@@ -1731,6 +1731,22 @@ native_deps:
          "position": 42,
          "item": {
           "@type": "SoftwareApplication",
+          "name": "Master Investor",
+          "url": "https://master-investor.anvil.app",
+          "description": "Free investing lessons from a first index fund to how quants work. Nine tracks and 54 short lessons cover valuing a company, where data comes from, portfolio risk, trading and factor models, each ending with question cards whose answers stay hidden until you reveal them, plus seven calculators and a library of data sources and GitHub projects.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "EdTech, Investing, Finance, Learning & guides",
+          "applicationCategory": "EducationalApplication",
+          "operatingSystem": "Web"
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 43,
+         "item": {
+          "@type": "SoftwareApplication",
           "name": "Subsudo",
           "url": "https://subsudo.com",
           "description": "A virtual fight club. Shadow-box one round with your phone in your fist or in front of your laptop camera, send it as a sealed call-out to anyone in the world, and three automatic judges score the bout.",
@@ -1754,7 +1770,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 43,
+         "position": 44,
          "item": {
           "@type": "SoftwareApplication",
           "name": "QuickyBricks",
@@ -1780,7 +1796,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 44,
+         "position": 45,
          "item": {
           "@type": "SoftwareApplication",
           "name": "ToonyLoony",
@@ -1806,7 +1822,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 45,
+         "position": 46,
          "item": {
           "@type": "SoftwareApplication",
           "name": "BusyBun",
@@ -1832,7 +1848,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 46,
+         "position": 47,
          "item": {
           "@type": "SoftwareApplication",
           "name": "DoremiRoad",
@@ -1858,7 +1874,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 47,
+         "position": 48,
          "item": {
           "@type": "SoftwareApplication",
           "name": "City Fun Time",
@@ -1884,7 +1900,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 48,
+         "position": 49,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Mafia Camp",
@@ -1910,7 +1926,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 49,
+         "position": 50,
          "item": {
           "@type": "SoftwareApplication",
           "name": "PhotoHunt",
@@ -1936,7 +1952,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 50,
+         "position": 51,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Campfire",
@@ -1952,7 +1968,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 51,
+         "position": 52,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Snackpuncher",
@@ -1978,7 +1994,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 52,
+         "position": 53,
          "item": {
           "@type": "SoftwareApplication",
           "name": "WallTracer",
@@ -2004,7 +2020,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 53,
+         "position": 54,
          "item": {
           "@type": "SoftwareApplication",
           "name": "MrBigStage",
@@ -2030,7 +2046,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 54,
+         "position": 55,
          "item": {
           "@type": "SoftwareApplication",
           "name": "VRtoToon",
@@ -2056,7 +2072,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 55,
+         "position": 56,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Topameal",
@@ -2082,7 +2098,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 56,
+         "position": 57,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Logsteps",
@@ -2108,7 +2124,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 57,
+         "position": 58,
          "item": {
           "@type": "SoftwareApplication",
           "name": "PoundFighter",
@@ -2134,7 +2150,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 58,
+         "position": 59,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Parapeet",
@@ -2160,7 +2176,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 59,
+         "position": 60,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Dilettante",
@@ -2176,7 +2192,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 60,
+         "position": 61,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Arkvital",

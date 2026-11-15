@@ -405,6 +405,12 @@ PROJECTS: list = [  # each project: a dict of plain values (see the first one)
     'built': ['Eight programs, 32 modules and 288 drills', 'Labs for experiment peeking, metric trees, cohorts and pricing', '22 sourced product leadership case files'],
     'tags': ['EdTech', 'Product leadership', 'Certification'], 'color': '#2340A8', 'bg': '#F4F5F7', 'art': 'shot',
   },
+  {
+    'key': 'masterinvestor', 'name': 'Master Investor', 'domain': 'master-investor.anvil.app', 'cat': 'learn',
+    'blurb': 'Free investing lessons from a first index fund to how quants work. Nine tracks and 54 short lessons cover valuing a company, where data comes from, portfolio risk, trading and factor models, each ending with question cards whose answers stay hidden until you reveal them, plus seven calculators and a library of data sources and GitHub projects.',
+    'built': ['Nine tracks, 54 lessons and 432 reveal-the-answer cards', 'Spaced-repetition practice and a placement check', 'Seven calculators, from DCF to option payoffs'],
+    'tags': ['EdTech', 'Investing', 'Finance'], 'color': '#0B7A3E', 'bg': '#FFFFFF', 'art': 'shot',
+  },
 ]
 
 # One-minute films on the Addanapp YouTube channel (youtube.com/@addanapp); ids from APP_MAKER/youtube/manifest.json.

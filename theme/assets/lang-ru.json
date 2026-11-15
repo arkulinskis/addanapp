@@ -1119,5 +1119,10 @@
   "$30k – $75k": "$30–75 тыс.",
   "$75k – $150k": "$75–150 тыс.",
   "$150k – $300k": "$150–300 тыс.",
-  "$300k+": "$300 тыс. и больше"
+  "$300k+": "$300 тыс. и больше",
+"Free investing lessons from a first index fund to how quants work. Nine tracks and 54 short lessons cover valuing a company, where data comes from, portfolio risk, trading and factor models, each ending with question cards whose answers stay hidden until you reveal them, plus seven calculators and a library of data sources and GitHub projects.": "Бесплатные уроки инвестирования: от первого индексного фонда до работы квантов. Девять курсов и 54 коротких урока о том, как оценить компанию, откуда берутся данные, о риске портфеля, трейдинге и факторных моделях; каждый урок заканчивается карточками, ответ на которых скрыт, пока вы его не откроете. Плюс семь калькуляторов и библиотека источников данных и проектов на GitHub.",
+"Nine tracks, 54 lessons and 432 reveal-the-answer cards": "Девять курсов, 54 урока и 432 карточки со скрытым ответом",
+"Spaced-repetition practice and a placement check": "Интервальное повторение и тест уровня",
+"Seven calculators, from DCF to option payoffs": "Семь калькуляторов, от DCF до выплат по опционам",
+"Investing": "Инвестиции"
 }

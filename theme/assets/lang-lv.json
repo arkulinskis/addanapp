@@ -1114,5 +1114,10 @@
   "$30k – $75k": "30 000–75 000 $",
   "$75k – $150k": "75 000–150 000 $",
   "$150k – $300k": "150 000–300 000 $",
-  "$300k+": "300 000 $ un vairāk"
+  "$300k+": "300 000 $ un vairāk",
+"Free investing lessons from a first index fund to how quants work. Nine tracks and 54 short lessons cover valuing a company, where data comes from, portfolio risk, trading and factor models, each ending with question cards whose answers stay hidden until you reveal them, plus seven calculators and a library of data sources and GitHub projects.": "Bezmaksas investēšanas nodarbības no pirmā indeksu fonda līdz kvantu darbam. Deviņi kursi un 54 īsas nodarbības par uzņēmuma vērtēšanu, datu avotiem, portfeļa risku, tirdzniecību un faktoru modeļiem; katra beidzas ar kartītēm, kuru atbilde paliek apslēpta, līdz jūs to atklājat. Klāt septiņi kalkulatori un datu avotu un GitHub projektu bibliotēka.",
+"Nine tracks, 54 lessons and 432 reveal-the-answer cards": "Deviņi kursi, 54 nodarbības un 432 kartītes ar apslēptu atbildi",
+"Spaced-repetition practice and a placement check": "Atkārtošana ar intervāliem un līmeņa tests",
+"Seven calculators, from DCF to option payoffs": "Septiņi kalkulatori, no DCF līdz opciju izmaksām",
+"Investing": "Investēšana"
 }

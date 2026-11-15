@@ -1116,5 +1116,10 @@
   "$30k – $75k": "30 k$ à 75 k$",
   "$75k – $150k": "75 k$ à 150 k$",
   "$150k – $300k": "150 k$ à 300 k$",
-  "$300k+": "300 k$ et plus"
+  "$300k+": "300 k$ et plus",
+"Free investing lessons from a first index fund to how quants work. Nine tracks and 54 short lessons cover valuing a company, where data comes from, portfolio risk, trading and factor models, each ending with question cards whose answers stay hidden until you reveal them, plus seven calculators and a library of data sources and GitHub projects.": "Des leçons d’investissement gratuites, du premier fonds indiciel jusqu’au travail des quants. Neuf parcours et 54 courtes leçons couvrent l’évaluation d’une entreprise, l’origine des données, le risque d’un portefeuille, le trading et les modèles à facteurs ; chacune se termine par des cartes dont la réponse reste cachée jusqu’à ce que vous la révéliez, avec sept calculatrices et une bibliothèque de sources de données et de projets GitHub.",
+"Nine tracks, 54 lessons and 432 reveal-the-answer cards": "Neuf parcours, 54 leçons et 432 cartes à réponse cachée",
+"Spaced-repetition practice and a placement check": "Entraînement par répétition espacée et test de niveau",
+"Seven calculators, from DCF to option payoffs": "Sept calculatrices, du DCF aux gains d’options",
+"Investing": "Investissement"
 }
