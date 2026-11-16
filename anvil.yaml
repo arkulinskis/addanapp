@@ -1,5 +1,26 @@
 allow_embedding: false
 db_schema:
+  app_docs:
+    client: none
+    columns:
+    - admin_ui: {width: 200}
+      name: client
+      target: users
+      type: link_single
+    - admin_ui: {width: 200}
+      name: name
+      type: string
+    - admin_ui: {width: 200}
+      name: text
+      type: string
+    - admin_ui: {width: 200}
+      name: data
+      type: simpleObject
+    - admin_ui: {width: 200}
+      name: updated
+      type: datetime
+    server: full
+    title: App docs
   app_health:
     client: none
     columns:
@@ -30,58 +51,6 @@ db_schema:
     indexes: []
     server: full
     title: App health
-  error_log:
-    client: none
-    columns:
-    - admin_ui: {order: 0, width: 200}
-      name: when
-      type: datetime
-    - admin_ui: {order: 1, width: 120}
-      name: source
-      type: string
-    - admin_ui: {order: 2, width: 160}
-      name: kind
-      type: string
-    - admin_ui: {order: 3, width: 300}
-      name: message
-      type: string
-    - admin_ui: {order: 4, width: 300}
-      name: traceback
-      type: string
-    - admin_ui: {order: 5, width: 200}
-      name: page
-      type: string
-    - admin_ui: {order: 6, width: 120}
-      name: session
-      type: string
-    - admin_ui: {order: 7, width: 200}
-      name: user
-      target: users
-      type: link_single
-    indexes: []
-    server: full
-    title: Error log
-  app_docs:
-    client: none
-    columns:
-    - admin_ui: {width: 200}
-      name: client
-      target: users
-      type: link_single
-    - admin_ui: {width: 200}
-      name: name
-      type: string
-    - admin_ui: {width: 200}
-      name: text
-      type: string
-    - admin_ui: {width: 200}
-      name: data
-      type: simpleObject
-    - admin_ui: {width: 200}
-      name: updated
-      type: datetime
-    server: full
-    title: App docs
   app_jobs:
     client: none
     columns:
@@ -167,6 +136,37 @@ db_schema:
       type: datetime
     server: full
     title: App projects
+  error_log:
+    client: none
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: when
+      type: datetime
+    - admin_ui: {order: 1, width: 120}
+      name: source
+      type: string
+    - admin_ui: {order: 2, width: 160}
+      name: kind
+      type: string
+    - admin_ui: {order: 3, width: 300}
+      name: message
+      type: string
+    - admin_ui: {order: 4, width: 300}
+      name: traceback
+      type: string
+    - admin_ui: {order: 5, width: 200}
+      name: page
+      type: string
+    - admin_ui: {order: 6, width: 120}
+      name: session
+      type: string
+    - admin_ui: {order: 7, width: 200}
+      name: user
+      target: users
+      type: link_single
+    indexes: []
+    server: full
+    title: Error log
   leads:
     client: none
     columns:
@@ -2311,6 +2311,11 @@ runtime_options:
   client_version: '3'
   server_spec: {base: python314}
   version: 3
+secrets:
+  status_signing_key:
+    type: secret
+    value:
+      UV5HLS5HLXNYFBGM: {? '' : K+brZha6DBd8jAADY9Aimi48/x0hiX4lOqW4FCbfz22nANsVIsoOXq1wKJ6lEaFfIj7Dl4t8U7szVHhnIkaF4OaYskDGfDqlm+2tmQwOsqCOHJ6kosm0aSeMC0G8egbxMp+Dq5q0ELDtM5ycl3RQeQeqYzHehmeFnp+Rvdw9qKS5Nm4pyXNE/IlFGpzh71TYKwj9s+xnENX9uD2ggDo8YcYhvh1OrpxbvDfuNWJGVyM5Wy90SzPQyan9JtXuOIwBhxYJ3lc7XCADdTul/fPYiyaZSS4LjaN8CtUeyrMe0//ueEWoWehkJoLWdxrgNan99yzqBNqlCu8rclQGpeM6tykkIiTF9RwVPte8Zzzxw0G5a2Gzh5kyPy/zYmALO4nmmXvXc1+qwyfXVnvTt4rRc7SsUUsHYH3jJD8tNUml01N/ISfs6cNFg15cq0Dq+6/QY7l7FLakoCLoSTc0/oKFJNS30gfbm2mGsyVZpwjJnOsR3tA6GX5h7cm+cP6LlwHwErkPLy5ewWmPlsbWttxTbziX9cU7xlg0A1hfBs1wklIbXtvLn/2TBxZ9r9Q8DoUQs18dvfw2tKtxyrSYn3/2LP5TdOQ5Z/PDCeRi74pQ972n7TC62YuQ1ohlD8aGM6zNweAR+ilDUS3V/AgZx0+cjMKZEpcCPoSg639H8qDgu0Y0rKNGVVF9s8vPf+xSjzmAryLw2oEBqgg1/kU3Z1JW1hUBSQT94hib0AvYU8WacgwjLKdLCdxUBd8iKag7dnbjozLYHRo1a/NGI6ZeufJlJRi/S6egbA8OOG/JWnwREKjD8v/44lYsA1R3AC8OVGAGS6zEhbB3Q2SAADJSdbezJ2tV42AxbQlym6S5DG0aFl6XTQSjUYNk4UAMtRneFYjXz498Sw2I6PAHp1woC59MiW3TH+kg2VDLJByFdlqSGzruGy+GTOI5T1dbhu46hhGfFJUvTG12GnOofIE8UtmChwFCofp2IRxS/GaeGZXnqhHebcjkswvOZVE8WNvnvLQUJiLB/qEts/63mXbspxDCQIahw+Eul6wwLWvobtOvz1vXmpUL6RgcY1Uubcouonz2xxe//ll6lMezOQ15ATjwX1A3PWD+C06be8zM3AVIcNT10xy7stNN3uPXaksijvXmj3fMSEaXXIAxg0itjv+/q3Fn8OEP35LnHx8rlJaalLF6bmYdbYv1c42dZ+S5zOdBJ0rgf4Tdq5q+4uilsdWLMupM1722sGtMkiituv3cXQwXay6CJspJiI33pB5v3ZSaNLmbjS2Pnw5CtcQqCHYEp9srOL6dOkOooVD2hX8v7sm0yXaTYpnpfzfUJvseI40eZRPNNftS9Jo9hXJkOmhR4wOrfW6EpfE9KSWoudl63gQzzqSSkJdO+8rJFWk086vBwGlgz/IP6Dm6x07MghWgE5BNsF0VbhCiSOAO0imUjpK51QwrkUxGPar/q7jPibGG3LpXRORj8oOqIkikHJi5bARfN8Zzlh1iR2YBKSWThoEfs3RD1WM+QpXghu4UCnbhWtj2Uczsw87uX2VXBfoB5cZRsKELnh6C/O1rRa2P4kEUZFBMJOEBKHOzCOFcTg==}
 services:
 - client_config: {enable_v2: true}
   server_config: {auto_create_missing_columns: true}
