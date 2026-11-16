@@ -26,6 +26,8 @@ sys.path[:0] = [str(HERE / "mock"), str(_tmp)]
 import anvil.email  # noqa: E402
 import anvil.server  # noqa: E402
 import anvil.users  # noqa: E402
+import anvil.secrets  # noqa: E402
+anvil.secrets.SECRETS["admin_emails"] = "admin@example.com"  # the App Secret, faked
 from anvil.tables import app_tables as T  # noqa: E402
 
 M = {p.stem: importlib.import_module("app." + p.stem) for p in sorted((PROJECT / "server_code").glob("*.py"))}
@@ -65,7 +67,7 @@ def person(email, name=None, **kw):
 
 
 # ---------------------------------------------------------------------------------- accounts
-admin = person("arkulinskis@gmail.com", "The Consultant")
+admin = person("admin@example.com", "The Consultant")
 ana = person("ana@example.com", "Ana Client", company="Bistro Ana")
 bob = person("bob.stone@example.com")
 

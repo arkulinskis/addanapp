@@ -30,14 +30,14 @@
     const pw = 'Hb-local-admin-Kq7-2026';
     location.hash = '#login';
     await until(() => vis($('.auth input[type=email]')), 'sign-in box');
-    type($('.auth input[type=email]'), 'arkulinskis@gmail.com'); type($('.auth input[type=password]'), pw);
+    type($('.auth input[type=email]'), 'admin@example.com'); type($('.auth input[type=password]'), pw);
     await click('Sign in', '.auth');
     await until(() => (location.hash === '#admin' && window.UI_READY) || vis($('.auth .anvil-role-msg-error')), 'signed in or error', 30000);
     if (location.hash !== '#admin') {  // no consultant account in this local database yet: create it
       await click('Create a workspace', '.auth');
       await until(() => vis($('.auth input[autocomplete=name]')), 'sign-up fields');
       type($('.auth input[autocomplete=name]'), 'Local Consultant');
-      type($('.auth input[type=email]'), 'arkulinskis@gmail.com'); type($('.auth input[type=password]'), pw);
+      type($('.auth input[type=email]'), 'admin@example.com'); type($('.auth input[type=password]'), pw);
       const tick = $('.auth input[type=checkbox]'); if (tick && !tick.checked) tick.click();
       await click('Create workspace', '.auth');
     }

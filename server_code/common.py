@@ -9,9 +9,10 @@ import anvil.tz
 from anvil.tables import app_tables
 
 from .i18n_server import Tr, user_lang
+from . import AdminAccess
 
 # Anyone signing up with one of these emails becomes a consultant (admin) automatically.
-ADMIN_EMAILS = {"arkulinskis@gmail.com"}
+ADMIN_EMAILS = AdminAccess.ADMIN_EMAILS  # from the App Secret `admin_emails`
 
 SITE_URL = "https://addanapp.com"
 SITE_NAME = "Addanapp"

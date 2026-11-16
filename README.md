@@ -51,7 +51,7 @@ the workspace menu and sees only its own apps, plans and videos; consultants see
 
 1. In the Anvil editor, pull `master` from GitHub (or clone the repo as a new app).
 2. Accept the **data table schema** from `anvil.yaml` (4 tables: `users`, `requests`, `notes`, `leads`). The `users.lang` column stores each person's language for emails.
-3. Run the app and create a workspace with **arkulinskis@gmail.com**. Emails listed in `ADMIN_EMAILS` (`server_code/common.py`) become consultants automatically. Other consultants can be promoted from **Console → Clients**.
+3. Run the app and create a workspace with **your admin email** (App Secret `admin_emails`). Emails listed in `ADMIN_EMAILS` (`server_code/common.py`) become consultants automatically. Other consultants can be promoted from **Console → Clients**.
 4. Optional: **Console → Tools → Load demo data** adds 3 fictional clients and 8 requests at every stage. Demo clients can't sign in and never get email.
 
 Services used: Data Tables, Users (email + password, sign-up on, no email confirmation, Continue with Google), Google, Email.
