@@ -92,7 +92,7 @@ def ensure_defaults(u):
     ch['email_notifications'] = True
   if u['created'] is None:
     ch['created'] = u['signed_up'] or now()
-  is_listed = (u['email'] or '').strip().lower() in ADMIN_EMAILS
+  is_listed = AdminAccess.may_promote(u)
   if is_listed and not u['is_admin']:
     ch['is_admin'] = True
   if not u['role']:
