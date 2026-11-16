@@ -27,6 +27,9 @@ def make_view(view, arg):
     if view == 'dossier':
         from ...Components.ApDossier import ApDossier
         return ApDossier(arg=arg)
+    if view == 'health':
+        from ...Components.ApHealth import ApHealth
+        return ApHealth()
     if view == 'notes':
         from ...Components.ApNotes import ApNotes
         return ApNotes()
@@ -37,7 +40,7 @@ def make_view(view, arg):
 class Apps(AppsTemplate):
     """#apps[/view[/arg]]: a client's app portfolio board (the App Board that ran on the user's PC until 2026-11-11).
     Views: board (a lane per stage), grid (every step as a tick square), posts, bizdev, money, youtube, dossier (one app
-    per page), notes (what needs the user or Claude). The data loads once (apps_data) and is shared by the views; the
+    per page), notes (what needs the user or Claude), health (every app's status report; consultants only). The data loads once (apps_data) and is shared by the views; the
     router calls show_view() to switch without reloading. Jobs for the PC (refresh, links, ideas) are polled here."""
 
     def __init__(self, view=None, arg=None, **properties):
@@ -69,7 +72,8 @@ class Apps(AppsTemplate):
     def _views(self):
         b = apps_data.board() or {}
         mods = b.get('modules') or apps_data.MODULE_VIEWS
-        return [v for v in apps_data.VIEWS if v[0] not in apps_data.MODULE_VIEWS or v[0] in mods]
+        return [v for v in apps_data.VIEWS if (v[0] not in apps_data.MODULE_VIEWS or v[0] in mods)
+                and (v[0] != 'health' or state.is_admin())]  # App health: consultants only
 
     def _head(self):
         b = apps_data.board() or {}

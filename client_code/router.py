@@ -7,7 +7,7 @@
     #portal  #new  #r/<request id>  #account             a client's workspace (signed in)
     #admin[/requests|clients|leads|tools]                the consultant console (admins)
     #apps[/view[/arg]]  #app/<key>                       a client's app portfolio board (the client + consultants;
-                                                         views: board grid posts bizdev money youtube dossier notes)
+                                                         views: board grid posts bizdev money youtube dossier notes health)
 
 Links in templates are plain <a href="#work">; code calls router.go("r/" + rid).
 Anvil keeps the Shell layout between pages; show() tells it which page is open (Shell.refresh).

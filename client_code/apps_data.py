@@ -16,7 +16,7 @@ from . import state, ui
 
 VIEWS = [('board', 'Board', 'columns'), ('grid', 'Checklist grid', 'grid'), ('posts', 'Posts', 'message'),
          ('bizdev', 'Biz dev', 'target'), ('money', 'Money', 'receipt'), ('youtube', 'YouTube', 'play'),
-         ('dossier', 'Dossiers', 'file'), ('notes', 'Notifications', 'bell')]
+         ('dossier', 'Dossiers', 'file'), ('notes', 'Notifications', 'bell'), ('health', 'App health', 'activity')]
 MODULE_VIEWS = ('posts', 'bizdev', 'money', 'youtube')
 STAGE_COLOR = {'build': '--ap-build', 'deploy': '--ap-deploy', 'test': '--ap-test', 'promote': '--ap-promote',
                'standard': '--ap-standard', 'components': '--ap-components', 'launched': '--ap-launched', 'parked': '--ap-parked'}

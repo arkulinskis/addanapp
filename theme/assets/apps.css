@@ -315,3 +315,29 @@
   .ap-tools > * { flex: 1 1 100%; }
   .ap-tools :is(select.anvil-form-control, select.form-control) { width: 100%; max-width: none; }
 }
+
+/* App health (#apps/health, Components/ApHealth) */
+.ap-health .ap-yt-top { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; margin-bottom: 4px; }
+.ap-health .ap-yt-top h2 { margin: 0; font-size: 1.15rem; }
+.ap-ah-warn { background: var(--red-soft); color: var(--ink); border-radius: 10px; padding: 10px 12px; margin: 8px 0 12px; font-size: .85rem; }
+.ap-ah-attn { background: var(--amber-soft); border-radius: 12px; padding: 10px 14px; margin-bottom: 14px; }
+.ap-ah-attn .sub { font-size: .76rem; color: var(--muted); margin: 0 0 6px; }
+.ap-ah-attn h3 { font-size: .95rem; margin: 0 0 6px; }
+.ap-ah-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.ap-ah-list li { font-size: .84rem; padding: 6px 0; border-top: 1px solid rgba(0, 0, 0, .06); }
+.ap-ah-list li:first-child { border-top: 0; }
+.ap-ah-ghead { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 10px; margin-bottom: 4px; }
+.ap-ah-names { display: flex; flex-wrap: wrap; gap: 4px 12px; }
+.ap-ah-names a { color: var(--accent-d); text-decoration: none; white-space: nowrap; }
+.ap-ah-names a:hover { text-decoration: underline; }
+.ap-ah-links { display: inline-flex; gap: 6px; flex-wrap: wrap; white-space: nowrap; }
+.ap-ah-scroll { overflow-x: auto; }
+.ap-ah-table { width: 100%; border-collapse: collapse; font-size: .82rem; }
+.ap-ah-table th, .ap-ah-table td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); vertical-align: middle; }
+.ap-ah-table thead th { font-weight: 600; color: var(--muted); font-size: .74rem; }
+.ap-ah-table tbody th { font-weight: 600; color: var(--ink); white-space: nowrap; }
+.ap-ah-table .n { text-align: right; font-variant-numeric: tabular-nums; }
+.ap-health .chip.warn { background: var(--amber-soft); color: #8A5A12; }
+.ap-health .chip.bad { background: var(--red-soft); color: #A82E2E; }
+.ap-health .chip:not(.human):not(.warn):not(.bad) { background: var(--slate-soft); color: var(--muted); }
+.ap-health .chip .ic { font-size: .8em; }

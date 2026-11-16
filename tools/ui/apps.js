@@ -101,7 +101,7 @@
     // board
     await page('#apps/board', () => $$('.ap-card').length >= 2, 'board');
     ok($$('.aa-nav-app a').filter(vis).some((a) => a.getAttribute('href') === '#apps' && txt(a).startsWith('Apps')), 'menu: Apps link for the consultant');
-    ok($$('.ap-tabs a').length === 8 && $('.ap-tabs a.on') && txt($('.ap-tabs a.on')).startsWith('Board'), 'board: 8 view tabs, Board lit');
+    ok($$('.ap-tabs a').length === 9 && $('.ap-tabs a.on') && txt($('.ap-tabs a.on')).startsWith('Board'), 'board: 9 view tabs (App health for consultants), Board lit');
     ok($$('.ap-stat').length >= 6 && $$('.ap-lane').length >= 4, 'board: header numbers and stage lanes');
     const nCards = $$('.ap-card').length;
     const head = $$('.ap-lane-head').find((h) => h.getAttribute('aria-expanded') === 'true' && h.closest('.ap-lane').querySelector('.ap-card'));
@@ -194,6 +194,13 @@
     await click('Ask Claude');
     await until(() => $$('.ap-box.claude .ap-li').length === nChanges + 1, 'the change is listed');
     ok(true, 'app: notes save and Ask Claude makes a request');
+    // app health (consultants): the sample apps' made-up addresses don't answer, so every row ends as "No answer"
+    await page('#apps/health', () => $('.ap-health') && $$('.ap-ah-table tbody tr').length >= 1, 'health');
+    ok($$('.ap-health .ap-yt-tile').length === 6, 'health: six number tiles');
+    await click('Check all apps', '.ap-health');
+    await until(() => $$('.ap-ah-table tbody .chip').length && $$('.ap-ah-table tbody .chip').every((c) => !/Not checked/.test(txt(c))), 'every app checked', 120000);
+    ok(/No answer|Reporting|Not published|No signing key/.test(txt($('.ap-ah-table tbody'))), 'health: each app has a status (' + txt($('.ap-ah-table tbody .chip')) + ')');
+    ok($$('.ap-ah-names a').some((x) => x.target === '_blank' && /^http/.test(x.getAttribute('href'))) && $$('.ap-ah-table a').some((x) => /Open app/.test(txt(x))), 'health: failing apps link to the app (sign in there)');
     say('PASSED');
     return {ok: true, log};
   } catch (e) {

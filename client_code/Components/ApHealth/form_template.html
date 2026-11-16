@@ -1,0 +1,27 @@
+<div class="ap-health">
+  <div class="ap-yt-top">
+    <h2>App health</h2><span class="small muted" anvil:dom-node="when"></span>
+    <anvil-component type="Button" name="check_button" prop:text="Check all apps" prop:role='["aa-btn", "sm", "ic-refresh"]'></anvil-component>
+    <span class="small muted" anvil:dom-node="progress" role="status" aria-live="polite"></span>
+  </div>
+  <p class="ap-hint" anvil:dom-node="intro">Each app's own admin status report (users, database rows, errors), fetched with Addanapp's signed request, so no sign-in to every app is needed.</p>
+  <div class="ap-ah-warn" anvil:dom-node="key_warn" hidden>Addanapp's signing key is missing. In the Anvil editor: App Secrets → create <b>status_signing_key</b> with the text of <code>%USERPROFILE%\.addanapp\status_signing_key.json</code>.</div>
+  <div class="ap-yt-tiles"><anvil-component type="RepeatingPanel" name="tiles" prop:item_template="Addanapp.Items.ApYtTile" prop:role='["contents"]'></anvil-component></div>
+  <div class="ap-yt-grid">
+    <div class="ap-yt-card"><h3>Sign-ups per day</h3><p class="sub">All apps together, last 30 days</p><div class="ap-chart" anvil:dom-node="signups_chart"></div></div>
+    <div class="ap-yt-card"><h3>Users by app</h3><p class="sub" anvil:dom-node="users_sub">Accounts (demo accounts left out)</p><anvil-component type="RepeatingPanel" name="user_bars" prop:item_template="Addanapp.Items.ApBar" prop:role='["contents"]'></anvil-component></div>
+    <div class="ap-yt-card"><h3>Database rows by app</h3><p class="sub" anvil:dom-node="rows_sub">Rows across every data table</p><anvil-component type="RepeatingPanel" name="row_bars" prop:item_template="Addanapp.Items.ApBar" prop:role='["contents"]'></anvil-component></div>
+    <div class="ap-yt-card"><h3>Errors by app</h3><p class="sub">Uncaught errors in the last 7 days</p><anvil-component type="RepeatingPanel" name="error_bars" prop:item_template="Addanapp.Items.ApBar" prop:role='["contents"]'></anvil-component><p class="ap-hint" anvil:dom-node="no_errors" hidden>No errors reported in the last 7 days.</p></div>
+  </div>
+  <div class="ap-ah-attn" anvil:dom-node="attn_box" hidden>
+    <h3>Needs you</h3><p class="sub">Grouped by what to do. Each app name opens the app (sign in there); the table below also links each Anvil editor.</p>
+    <ul class="ap-ah-list" anvil:dom-node="attn"></ul>
+  </div>
+  <div class="ap-yt-card ap-ah-tablecard">
+    <h3>Every app</h3>
+    <div class="ap-ah-scroll"><table class="ap-ah-table" anvil:dom-node="table"><caption class="sr-only">Status of every app</caption>
+      <thead><tr><th scope="col">App</th><th scope="col">Status</th><th scope="col" class="n">Users</th><th scope="col" class="n">Active 7d</th><th scope="col" class="n">Sign-ups 7d</th><th scope="col" class="n">Rows</th><th scope="col" class="n">Errors 24h</th><th scope="col">Checked</th><th scope="col"><span class="sr-only">Links</span></th></tr></thead>
+      <tbody anvil:dom-node="tbody"></tbody></table></div>
+  </div>
+  <anvil-component type="Timer" name="run_timer" prop:interval="0"></anvil-component>
+</div>

@@ -54,6 +54,11 @@ def copy_app():
     subprocess.run(["docker", "cp", "-", NAME + ":/apps/MainApp/"], input=buf.getvalue(), capture_output=True, check=True)
 
 
+# App health signs its requests with this key (the user's own copy; the live app has it as an App Secret).
+_KEYFILE = pathlib.Path.home() / ".addanapp" / "status_signing_key.json"
+SIGNING = ["--secret", "status_signing_key=" + _KEYFILE.read_text(encoding="utf-8").strip()] if _KEYFILE.exists() else []
+
+
 def start(restart=False):
     if restart:
         sh("docker", "rm", "-f", NAME, check=False)
@@ -62,7 +67,7 @@ def start(restart=False):
         sh("docker", "volume", "rm", KEY + "-app", check=False)  # fresh copy: no files left over from old versions
         sh("docker", "create", "--name", NAME, "-p", "%d:%d" % (PORT, PORT), "-v", KEY + "-app:/apps/MainApp",
            "-v", KEY + "-data:/anvil-data", IMAGE, "--app", "MainApp", "--origin", URL,
-           "--auto-migrate", "--secret", "admin_emails=admin@example.com")  # new tables/columns apply to the local database (--ignore-invalid-schema would block that)
+           "--auto-migrate", "--secret", "admin_emails=admin@example.com", *SIGNING)  # new tables/columns apply to the local database (--ignore-invalid-schema would block that)
         copy_app()
         sh("docker", "start", NAME)
         print("starting the App Server ...")
