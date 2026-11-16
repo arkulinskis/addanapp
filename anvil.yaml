@@ -1,5 +1,26 @@
 allow_embedding: false
 db_schema:
+  app_docs:
+    client: none
+    columns:
+    - admin_ui: {width: 200}
+      name: client
+      target: users
+      type: link_single
+    - admin_ui: {width: 200}
+      name: name
+      type: string
+    - admin_ui: {width: 200}
+      name: text
+      type: string
+    - admin_ui: {width: 200}
+      name: data
+      type: simpleObject
+    - admin_ui: {width: 200}
+      name: updated
+      type: datetime
+    server: full
+    title: App docs
   app_health:
     client: none
     columns:
@@ -30,58 +51,6 @@ db_schema:
     indexes: []
     server: full
     title: App health
-  error_log:
-    client: none
-    columns:
-    - admin_ui: {order: 0, width: 200}
-      name: when
-      type: datetime
-    - admin_ui: {order: 1, width: 120}
-      name: source
-      type: string
-    - admin_ui: {order: 2, width: 160}
-      name: kind
-      type: string
-    - admin_ui: {order: 3, width: 300}
-      name: message
-      type: string
-    - admin_ui: {order: 4, width: 300}
-      name: traceback
-      type: string
-    - admin_ui: {order: 5, width: 200}
-      name: page
-      type: string
-    - admin_ui: {order: 6, width: 120}
-      name: session
-      type: string
-    - admin_ui: {order: 7, width: 200}
-      name: user
-      target: users
-      type: link_single
-    indexes: []
-    server: full
-    title: Error log
-  app_docs:
-    client: none
-    columns:
-    - admin_ui: {width: 200}
-      name: client
-      target: users
-      type: link_single
-    - admin_ui: {width: 200}
-      name: name
-      type: string
-    - admin_ui: {width: 200}
-      name: text
-      type: string
-    - admin_ui: {width: 200}
-      name: data
-      type: simpleObject
-    - admin_ui: {width: 200}
-      name: updated
-      type: datetime
-    server: full
-    title: App docs
   app_jobs:
     client: none
     columns:
@@ -167,6 +136,37 @@ db_schema:
       type: datetime
     server: full
     title: App projects
+  error_log:
+    client: none
+    columns:
+    - admin_ui: {order: 0, width: 200}
+      name: when
+      type: datetime
+    - admin_ui: {order: 1, width: 120}
+      name: source
+      type: string
+    - admin_ui: {order: 2, width: 160}
+      name: kind
+      type: string
+    - admin_ui: {order: 3, width: 300}
+      name: message
+      type: string
+    - admin_ui: {order: 4, width: 300}
+      name: traceback
+      type: string
+    - admin_ui: {order: 5, width: 200}
+      name: page
+      type: string
+    - admin_ui: {order: 6, width: 120}
+      name: session
+      type: string
+    - admin_ui: {order: 7, width: 200}
+      name: user
+      target: users
+      type: link_single
+    indexes: []
+    server: full
+    title: Error log
   leads:
     client: none
     columns:
@@ -2311,6 +2311,10 @@ runtime_options:
   client_version: '3'
   server_spec: {base: python314}
   version: 3
+secrets:
+  status_signing_key:
+    type: secret
+    value: {UV5HLS5HLXNYFBGM: ''}
 services:
 - client_config: {enable_v2: true}
   server_config: {auto_create_missing_columns: true}
