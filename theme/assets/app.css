@@ -1240,6 +1240,9 @@ anvil-dropzone { display: contents; }
 
 /* chips from Labels (ui.chip): the dot and an optional icon come from roles */
 .anvil-role-chip { display: inline-flex !important; }
+/* .anvil-label { padding: 0 } above would strip the chip padding; put it back, roomier at the sides */
+.anvil-label.anvil-role-chip { padding: 6px 12px; }
+.board .kc .ref .anvil-label.anvil-role-chip { padding: 3px 8px; }
 .anvil-role-chip > :is(.anvil-label-text, .label-text) { display: inline; }
 .anvil-role-chip-dot::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; flex: none; }
 .anvil-role-chip-ic::before { content: ""; display: inline-block; width: 13px; height: 13px; flex: none; background: currentColor;
