@@ -5,7 +5,7 @@ from ... import apps_data, apps_fmt
 
 
 class ApFindings(ApFindingsTemplate):
-    """An app's legal, SEO and database findings (from the PC's last check). show(project), recheck=False hides the
+    """An app's legal, SEO and database findings (legal from the PC's update; SEO and database from the last Refresh). show(project), recheck=False hides the
     database button (the dossier)."""
 
     def __init__(self, project=None, recheck=True, **properties):
@@ -63,4 +63,4 @@ class ApFindings(ApFindingsTemplate):
 
     @handle("schema_button", "click")
     def schema_button_click(self, **event_args):
-        apps_data.queue('schema', self.p.get('key'))
+        apps_data.refresh_one(self.p.get('key'), ['schema'])

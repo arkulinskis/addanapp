@@ -1,16 +1,16 @@
-"""Apps: the HTTP API for the PC worker and Claude (APP_MAKER/board/addanapp_link.py and board_cli.py).
+"""Apps: the HTTP API for the PC's one-shot update and Claude (APP_MAKER/board/addanapp_link.py and board_cli.py).
 
     POST|GET <origin>/_/api/apps/v1/<action>      Authorization: Bearer <PC link key>      JSON in, JSON out
 
 The key lives only on the user's PC (~/.addanapp/apps-link.json); this file keeps its SHA-256, never the key. The
 key may act for any portfolio, so every call names the client by email ("client" in the body or the query).
 
-  hello    who am I, heartbeat                         push     app facts, docs, steps (creates the client if new)
+  hello    who am I                                     push     app facts, docs, steps (creates the client if new)
   media    one screenshot / thumbnail (base64)         pull     what people changed here: states, changes, outreach
   board    the board as the pages see it (no media)    state    set checks / notes / parked / posted (board_cli tick)
   changes  open "Changes for Claude"                   change   queue a change (board_cli add)
   done     Claude finished a change: note + Ready for review
-  claim    the next job for the PC (and a heartbeat)   finish   a job's result
+Nothing here is called on a timer: the PC only calls when someone runs the update (no worker since 2026-11-16).
 """
 import base64
 import hashlib
@@ -24,8 +24,9 @@ import anvil.tables as tables
 from anvil.tables import app_tables
 
 from . import apps_core as core
+from . import apps_refresh as rf
 from .api_admin import update_request_as
-from .api_apps import job_dict, OUTREACH_FIELDS
+from .api_apps import OUTREACH_FIELDS
 from .common import AVATAR_COLORS, admins, by_id, clean, now, rid
 
 # SHA-256 of the PC link key (python APP_MAKER/board/addanapp_link.py key shows how to make a new one).
@@ -90,10 +91,6 @@ def find_client(email, create=None):
                                   color=random.choice(AVATAR_COLORS))
 
 
-def _heartbeat(client, host=''):
-  core.set_doc(client, 'worker', data={'seen': now().isoformat(), 'host': clean(host, 80)})
-
-
 def _state_seed(seed):
   return {k: seed[k] for k in core.MANAGED_STATE if k in seed}
 
@@ -101,7 +98,6 @@ def _state_seed(seed):
 # ---------------------------------------------------------------- actions
 
 def a_hello(b, client):
-  _heartbeat(client, b.get('host', ''))
   return {'ok': True, 'client': {'id': rid(client), 'name': client['name'], 'company': client['company']},
           'apps': len(app_tables.app_projects.search(client=client))}
 
@@ -120,6 +116,14 @@ def a_push(b, client):
     for col in ('card', 'promo', 'video_kit'):
       if col in p:
         ch[col] = p[col]
+    if r is not None and 'card' in ch:
+      ch['card'] = rf.keep_server_facts(r['card'] or {}, ch['card'] or {})
+      links = dict((r['state'] or {}).get('links') or {})
+      done = [f for f, v in links.items() if (ch['card'].get(f) or '') == (v or '')]
+      if done:  # the PC has copied these links into apps.json
+        st = dict(r['state'] or {})
+        st['links'] = {f: v for f, v in links.items() if f not in done}
+        ch['state'] = st
     if r is None:
       seed = _state_seed(p.get('state_seed') or {})
       app_tables.app_projects.add_row(client=client, key=key, state=seed, state_updated=t, media_v={}, **ch)
@@ -280,29 +284,8 @@ def a_done(b, client):
   return {'ok': True, 'status': req['status']}
 
 
-def a_claim(b, client):
-  _heartbeat(client, b.get('host', ''))
-  for j in app_tables.app_jobs.search(tables.order_by('created', ascending=True), client=client, status='queued'):
-    j.update(status='running', started=now())
-    return {'job': job_dict(j)}
-  # a job left "running" for 15 minutes: the PC stopped; offer it again
-  for j in app_tables.app_jobs.search(client=client, status='running'):
-    if j['started'] is not None and (now() - j['started']).total_seconds() > 900:
-      j.update(status='queued')
-  return {'job': None}
-
-
-def a_finish(b, client):
-  j = by_id(app_tables.app_jobs, b.get('id'))
-  if j is None or j['client'] != client:
-    raise ValueError("No such job.")
-  j.update(status='done' if b.get('ok') else 'failed', finished=now(), result=b.get('result') or {},
-           error=clean(b.get('error'), 2000))
-  return {'ok': True}
-
-
 ACTIONS = {'hello': a_hello, 'push': a_push, 'media': a_media, 'pull': a_pull, 'board': a_board, 'state': a_state,
-           'changes': a_changes, 'change': a_change, 'done': a_done, 'claim': a_claim, 'finish': a_finish}
+           'changes': a_changes, 'change': a_change, 'done': a_done}
 
 
 @anvil.server.http_endpoint('/apps/v1/:action', methods=['GET', 'POST'])

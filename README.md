@@ -22,20 +22,27 @@ Learning, Meridian Digital (websites; the default for new apps). Their accounts 
 the first push with no password ("Forgot your password?" sets one). A client with a portfolio gets an **Apps** link in
 the workspace menu and sees only its own apps, plans and videos; consultants see every portfolio with a client picker.
 
-- **Who writes what.** The user's PC worker (`APP_MAKER/board/addanapp_link.py worker`) sends the facts it checks
-  (GitHub, live sites, SEO, schema, legal, the app standard, screenshots, posts, video kits, biz dev + money plans,
-  YouTube numbers). People here tick steps, write notes, park apps, tick Posted, dismiss notifications, add outreach
-  rows and ask for changes. Changes are ordinary **requests** (kind `change`, project = the app key) that start In
-  progress; Claude marks them Ready for review (`board_cli.py done`), the client accepts them.
-- **Work for the PC** (refresh, links into apps.json, Prepsto ideas and tickets, branch/schema re-checks, YouTube
-  numbers) is queued in `app_jobs`; the worker asks for jobs every 10 s. The header says whether the PC is connected.
+- **Who writes what.** Nothing runs on a timer (the PC worker and its job queue were removed on 2026-11-16).
+  **Refresh** (all apps, or one app's button) checks from here, `server_code/apps_refresh.py`: GitHub (commits,
+  branches to merge, anvil.yaml tables), live site + SEO and the `<name>.anvil.app` guess, the live database vs the code,
+  and mentions on arkvital.com / addanapp.com. The browser sends `apps_refresh` 3 apps per call with a progress line; each
+  call stops after 24 s (Anvil's limit is 30 s). Those facts go into the card with `card.server.at`; a PC push with older
+  facts keeps them (`keep_server_facts`). Links typed on the board, Prepsto ideas/tickets and YouTube **Update numbers**
+  (public counts) are server calls too. The PC's **one-shot update** (`APP_MAKER/board/addanapp_link.py sync`, or
+  "Update Addanapp.bat") sends what only the PC has: the standard audit, legal status, screenshots, posts, video kits,
+  biz dev + money plans, YouTube Analytics, new apps. People here tick steps, write notes, park apps, tick Posted,
+  dismiss notifications, add outreach rows and ask for changes. Changes are ordinary **requests** (kind `change`,
+  project = the app key) that start In progress; Claude marks them Ready for review (`board_cli.py done`), the client accepts them.
+- **App Secrets for Refresh**: `github_token` (fine-grained, read-only: Contents, Metadata, Pull requests), `prepsto_key`
+  (Claude's Prepsto API key), `youtube_api_key` (Google API key, YouTube Data API v3 only). A missing one gives a message
+  naming it. Links typed on the board live in `state.links` until the PC's `pull` writes them into apps.json.
 - **The PC API**: `/_/api/apps/v1/<action>` (`server_code/apps_sync.py`) with `Authorization: Bearer <key>`. Only the
   key's SHA-256 is in the code (`KEY_HASHES`); the key is in `~/.addanapp/apps-link.json` on the PC. The local App
   Server also accepts the test key `aal_local_test_key` (tests only; never on addanapp.com).
 - **Tables**: `app_projects` (card = facts, state = clicks, screenshots, posts, video kit), `app_docs` (steps, plans,
-  outreach log, YouTube numbers, dismissed notifications, worker heartbeat), `app_jobs`.
-- **Code**: `server_code/apps_core.py` (stages, tags, notifications, markdown), `api_apps.py` (browser), `apps_sync.py`
-  (PC); `client_code/apps_data.py` (shared state), `Pages/Apps` (the views' frame), `Pages/AppDetail`,
+  outreach log, YouTube numbers, dismissed notifications), `app_jobs` (unused since 2026-11-16, kept for its old rows).
+- **Code**: `server_code/apps_core.py` (stages, tags, notifications, markdown), `api_apps.py` (browser), `apps_refresh.py`
+  (Refresh, links, Prepsto, YouTube from here), `apps_sync.py` (PC); `client_code/apps_data.py` (shared state), `Pages/Apps` (the views' frame), `Pages/AppDetail`,
   `Components/Ap*` (views and shared blocks), `Items/Ap*`; `theme/assets/apps.css` and `apps.js` (draws the grid,
   step strips, charts and tables with textContent only). The Apps area is in English only.
 

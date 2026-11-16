@@ -4,7 +4,7 @@ from anvil.js import window
 from ._anvil_designer import AppsTemplate
 from ... import apps_data, apps_fmt, router, state, ui
 
-BOOT_HINT = "Start it on the PC: double-click “Start App Board link.bat” in APP_MAKER\\board."
+PC_HINT = "Audit, legal, screenshots, posts and new apps come from the PC: double-click Update Addanapp.bat in APP_MAKER\\board."
 
 
 def make_view(view, arg):
@@ -41,18 +41,19 @@ class Apps(AppsTemplate):
     """#apps[/view[/arg]]: a client's app portfolio board (the App Board that ran on the user's PC until 2026-11-11).
     Views: board (a lane per stage), grid (every step as a tick square), posts, bizdev, money, youtube, dossier (one app
     per page), notes (what needs the user or Claude), health (every app's status report; consultants only). The data loads once (apps_data) and is shared by the views; the
-    router calls show_view() to switch without reloading. Jobs for the PC (refresh, links, ideas) are polled here."""
+    router calls show_view() to switch without reloading. Refresh all checks every app from here, a few per call,
+    with a progress line; nothing polls."""
 
     def __init__(self, view=None, arg=None, **properties):
         super().__init__(**properties)
         self.view, self.arg, self.part = '', None, None
-        self._seen_jobs: dict = {}
         state.set_control_attr(self.search_box, "type", "search")
         state.set_control_attr(self.search_box, "aria-label", "Search apps")
         state.set_control_attr(self.client_dd, "aria-label", "Whose portfolio")
         state.heading(self.title, 1)
         self.search_box.text = apps_data.query()
         apps_data.listen(self._changed)
+        apps_data.set_progress(self._progress)
         self.nothing.visible = False
         b = apps_data.load()
         if b is None or not b.get('projects'):
@@ -60,7 +61,6 @@ class Apps(AppsTemplate):
             return
         self._head()
         self.show_view(view, arg)
-        self._poll_plan()
 
     def _empty(self):
         self.title.text, self.sub.text = "Apps", ""
@@ -92,19 +92,23 @@ class Apps(AppsTemplate):
 
     def _pc(self):
         b = apps_data.board() or {}
-        w = b.get('worker') or {}
-        jobs = apps_data.pending()
-        self.pc_dot.classes["on"] = bool(w.get('online'))
-        if w.get('online'):
-            txt = "Your PC is connected" + (" (%s)" % w['host'] if w.get('host') else "")
-        elif w.get('seen'):
-            txt = "Your PC link is off (last seen %s), so refreshes wait until it's on. %s" % (apps_fmt.ago(w['seen']), BOOT_HINT)
-        else:
-            txt = "Your PC hasn't connected yet. " + BOOT_HINT
-        if jobs:
-            names = ', '.join(apps_data.WHAT.get(j['kind'], j['kind']) + ((' ' + j['key']) if j.get('key') else '') for j in jobs[:3])
-            txt += " · %s: %s" % (apps_fmt.plural(len(jobs), 'job') + (' running' if any(j['status'] == 'running' for j in jobs) else ' waiting'), names)
-        self.pc_text.text = txt
+        self.pc_dot.classes["on"] = False
+        parts = []
+        if b.get('refreshed_at'):
+            parts.append("Facts checked " + apps_fmt.ago(b['refreshed_at']))
+        if b.get('pc_at'):
+            parts.append("last PC update " + apps_fmt.ago(b['pc_at']))
+        self.pc_text.text = (" · ".join(parts) + ". " if parts else "") + PC_HINT
+
+    def _progress(self, done, total):
+        """Refresh all's progress line (apps_data.ask_refresh)."""
+        if done is None:
+            self._pc()
+            self.refresh_button.enabled = True
+            return
+        self.refresh_button.enabled = False
+        self.pc_dot.classes["on"] = True
+        self.pc_text.text = "Refreshing: %d of %d apps checked…" % (done, total)
 
     def _tabs(self):
         n_notes = len(apps_data.active_notes())
@@ -137,7 +141,6 @@ class Apps(AppsTemplate):
         self._tabs()
         if self.part is not None and hasattr(self.part, 'redraw'):
             self.part.redraw(key)
-        self._poll_plan()
 
     # ---------------------------------------------------------------- actions
     @handle("search_box", "change")
@@ -156,39 +159,4 @@ class Apps(AppsTemplate):
 
     @handle("refresh_button", "click")
     def refresh_button_click(self, **event_args):
-        from ...Dialogs.ApRefresh import ApRefresh
-        acts = alert(ApRefresh(key=None), buttons=[], large=False, role="aa-dialog", dismissible=True)
-        if acts:
-            apps_data.queue('refresh', None, {'actions': acts})
-
-    # ---------------------------------------------------------------- jobs for the PC
-    def _poll_plan(self):
-        self.poll_timer.interval = 5 if apps_data.pending() else 60
-
-    @handle("poll_timer", "tick")
-    def poll_timer_tick(self, **event_args):
-        if router.current().split('/')[0] != 'apps':
-            self.poll_timer.interval = 0
-            return
-        before = [j['id'] for j in apps_data.pending()]
-        res = apps_data.call('apps_jobs', before or None)
-        if res is ui.FAIL or apps_data.board() is None:
-            return
-        b = apps_data.board()
-        b['worker'] = res['worker']
-        finished = [j for j in res['jobs'] if j['status'] not in ('queued', 'running')]
-        still = [j for j in res['jobs'] if j['status'] in ('queued', 'running')]
-        b['jobs'] = still
-        if finished:
-            for j in finished:
-                what = apps_data.WHAT.get(j['kind'], 'Job') + ((' · ' + j['key']) if j.get('key') else '')
-                if j['status'] == 'done':
-                    errs = (j.get('result') or {}).get('errors') or []
-                    state.toast(what + (": done, with problems (see Notifications)" if errs else ": done"), "ok")
-                elif j['status'] == 'failed':
-                    state.toast(what + " failed: " + (j.get('error') or 'no details'), "error")
-            if apps_data.load(force=True) is not None:
-                self._changed(None)
-                return
-        self._pc()
-        self._poll_plan()
+        apps_data.ask_refresh(None)

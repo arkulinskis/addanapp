@@ -27,11 +27,7 @@ class ApAct(ApActTemplate):
         it = self.item
         do, key = it.get('do'), it.get('key') or None
         if do in ('refresh', 'refresh-all'):
-            from ...Dialogs.ApRefresh import ApRefresh
-            k = key if do == 'refresh' else None
-            acts = alert(ApRefresh(key=k), buttons=[], large=False, role="aa-dialog", dismissible=True)
-            if acts:
-                apps_data.queue('refresh', k, {'actions': acts})
+            apps_data.ask_refresh(key if do == 'refresh' else None)
         elif do == 'posts':
             router.go("apps/posts/" + (key or ''))
         elif do in ('grid-merge', 'grid-schema'):

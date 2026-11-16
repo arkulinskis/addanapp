@@ -13,7 +13,6 @@
     <div class="ap-heroes" anvil:dom-node="heroes"><img anvil:dom-node="desk" alt=""><img class="ph" anvil:dom-node="phone" alt=""></div>
     <div class="ap-links" anvil:dom-node="links"></div>
     <div class="ap-live" anvil:dom-node="live"></div>
-    <div class="ap-pc" anvil:name="jobs_line" role="status"><span class="dot" anvil:name="jobs_dot"></span><anvil-component type="Label" name="jobs_text" prop:role='["t"]'></anvil-component></div>
 
     <div class="ap-box" anvil:name="guess_box"><h3>🔎 Found a live Anvil site</h3><p class="small"><span anvil:dom-node="guess_text"></span></p>
       <div class="row"><anvil-component type="Button" name="guess_button" prop:text="Use this link" prop:role='["aa-btn", "sm", "accent"]'></anvil-component></div></div>
@@ -24,7 +23,7 @@
       <p class="ap-hint"><anvil-component type="Label" name="branch_hint" prop:role='["t"]'></anvil-component></p>
       <div class="row"><anvil-component type="Button" name="branch_button" prop:text="Re-check branches" prop:role='["aa-btn", "sm", "ghost", "ic-refresh"]'></anvil-component></div></div>
 
-    <h2 class="ap-sec-h">Checklist <span class="small">click a step: empty → ✓ done → – not needed → empty · “auto” = found by the PC's checks</span></h2>
+    <h2 class="ap-sec-h">Checklist <span class="small">click a step: empty → ✓ done → – not needed → empty · “auto” = found by Refresh or the PC's update</span></h2>
     <anvil-component type="LinearPanel" name="steps_holder" prop:role='["contents"]'></anvil-component>
 
     <div class="ap-cols" style="margin-top:16px">
@@ -40,7 +39,7 @@
           <details anvil:name="done_box"><summary class="small muted">Done before</summary><div class="ap-pre" anvil:dom-node="done"></div></details>
         </div>
         <div class="ap-box" anvil:name="idea_box"><h3>💡 Idea for Prepsto</h3>
-          <p class="small muted">An improvement for this app. It lands in the app's Prepsto feedback inbox as a new ticket, sent by your PC with Claude's Prepsto key.</p>
+          <p class="small muted">An improvement for this app. It lands in the app's Prepsto feedback inbox as a new ticket, sent with Claude's Prepsto key.</p>
           <div class="f" style="margin:0"><anvil-component type="TextArea" name="idea_box_text" prop:placeholder="e.g. Let people save their plan as a PDF."></anvil-component></div>
           <div class="row"><anvil-component type="DropDown" name="idea_kind"></anvil-component>
             <anvil-component type="Button" name="idea_button" prop:text="Send to Prepsto" prop:role='["aa-btn", "sm", "accent"]'></anvil-component>
@@ -54,7 +53,7 @@
           <div class="f"><span class="lbl">Live address: the custom domain once it works, otherwise the xyz.anvil.app address</span><anvil-component type="TextBox" name="url_box" prop:placeholder="https://myapp.com  or  https://myapp.anvil.app"></anvil-component></div>
           <div class="f"><span class="lbl">Anvil editor link (anvil.works/build/apps/…)</span><anvil-component type="TextBox" name="editor_box" prop:placeholder="https://anvil.works/build/apps/ABC123"></anvil-component></div>
           <div class="row"><anvil-component type="Button" name="links_button" prop:text="Save links" prop:role='["aa-btn", "sm"]'></anvil-component></div>
-          <p class="ap-hint">Your PC writes them into apps.json (so Claude Code knows them too) and checks the site.</p></div>
+          <p class="ap-hint">Saved here and the site is checked at once; the PC's next update copies them into apps.json (so Claude Code knows them too).</p></div>
         <div class="ap-box"><h3 anvil:dom-node="commits_h">Recent commits</h3><div role="list" class="ap-commits"><anvil-component type="RepeatingPanel" name="commits" prop:item_template="Addanapp.Items.ApCommit" prop:role='["contents"]'></anvil-component></div>
           <p class="ap-hint" anvil:dom-node="folder"></p></div>
       </div>
@@ -70,7 +69,6 @@
       </div>
     </div>
   </div>
-  <anvil-component type="Timer" name="poll_timer" prop:interval="0"></anvil-component>
 </div></div>
 </anvil-block>
 </anvil-form>

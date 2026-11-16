@@ -1,8 +1,9 @@
 """Apps: the browser's API for a client's app portfolio board (#apps, #app/<key>). See apps_core.py for the data.
 
 Who may see a portfolio: its client and Addanapp consultants. Consultants pick the client (client_id); a client always
-sees their own. Facts come from the PC worker (apps_sync.py); here people tick steps, write notes, ask Claude for
-changes (requests) and queue work for the PC (app_jobs).
+sees their own. Facts come from two places: Refresh here (apps_refresh.py: GitHub, live site + SEO, schema,
+mentions, Prepsto, YouTube public numbers; only when someone presses it) and the PC's one-shot update (apps_sync.py:
+audit, legal, screenshots, posts, plans, new apps). Here people tick steps, write notes and ask Claude for changes.
 """
 import datetime
 
@@ -11,12 +12,10 @@ import anvil.tables as tables
 from anvil.tables import app_tables
 
 from . import apps_core as core
+from . import apps_refresh as rf
 from .common import current_user, by_id, rid, clean, now, add_note, touch
 from .api_client import create_request_row
 
-JOB_KINDS = ('refresh', 'link', 'idea', 'ideas', 'branches', 'schema', 'yt')
-REFRESH_ACTIONS = ('github', 'live', 'schema', 'mentions', 'audit', 'hero')
-WORKER_ONLINE_S = 120
 
 
 def _client(client_id=None):
@@ -34,7 +33,7 @@ def _client(client_id=None):
     return u, c
   owners = sorted(core.portfolio_clients(), key=lambda x: -x[1])
   if not owners:
-    raise Exception("No client has an app portfolio yet. Start the PC link (APP_MAKER/board) to send one.")
+    raise Exception("No client has an app portfolio yet. Send one from the PC: python APP_MAKER/board/addanapp_link.py sync")
   return u, owners[0][0]
 
 
@@ -43,29 +42,6 @@ def _row(client, key):
   if r is None:
     raise Exception("That app isn't in this portfolio.")
   return r
-
-
-def worker_state(client):
-  w = core.doc_data(client, 'worker', {}) or {}
-  seen = core.parse_iso(w.get('seen'))
-  online = seen is not None and (now() - seen).total_seconds() < WORKER_ONLINE_S
-  return {'seen': w.get('seen') or '', 'ago': core.ago(w.get('seen')) if seen else '', 'online': online,
-          'host': w.get('host') or ''}
-
-
-def _jobs(client, limit=20):
-  rows = app_tables.app_jobs.search(tables.order_by('created', ascending=False), client=client)
-  out = []
-  for j in rows:
-    if len(out) >= limit:
-      break
-    out.append(job_dict(j))
-  return out
-
-
-def job_dict(j):
-  return {'id': rid(j), 'kind': j['kind'], 'key': j['key'] or '', 'status': j['status'], 'args': j['args'] or {},
-          'created': j['created'], 'finished': j['finished'], 'error': j['error'] or '', 'result': j['result'] or {}}
 
 
 def _summary(client):
@@ -85,11 +61,10 @@ def apps_board(client_id=None):
     'projects': vs, 'stats': core.stats(vs), 'notes': core.notes(vs, m),
     'note_types': [{'id': i, 'name': n, 'desc': d, 'icon': core.NOTE_ICONS.get(i, 'bell')} for i, n, d in core.NOTE_TYPES],
     'dismissed': core.doc_data(client, 'dismissed', {}) or {},
-    'refreshed_at': m.get('refreshed_at') or '', 'refreshed_ago': core.ago(m.get('refreshed_at')),
-    'errors': m.get('errors') or [], 'money_meta': m.get('money_meta') or {}, 'actions': m.get('actions') or {},
-    'all_default': m.get('all_default') or [], 'modules': m.get('modules') or list(core.MODULES),
-    'seo_labels': core.SEO_LABELS, 'std_labels': core.STD_LABELS,
-    'worker': worker_state(client), 'jobs': [j for j in _jobs(client) if j['status'] in ('queued', 'running')],
+    'refreshed_at': core.latest(m.get('refreshed_at'), m.get('server_refreshed_at')),
+    'pc_at': m.get('pushed_at') or '', 'errors': core.errors_of(m), 'money_meta': m.get('money_meta') or {},
+    'actions': rf.ACTIONS, 'all_default': list(rf.ACTIONS), 'batch': rf.BATCH,
+    'modules': m.get('modules') or list(core.MODULES), 'seo_labels': core.SEO_LABELS, 'std_labels': core.STD_LABELS,
   }
   return out
 
@@ -103,16 +78,8 @@ def apps_project(key, client_id=None):
   v = core.view(r, core.phases_of(m), core.changes_by_key(client), full=True)
   v['promo'] = r['promo'] or {}
   v['video_kit'] = r['video_kit'] or {}
-  v['ideas'] = _last_ideas(client, key)
+  v['ideas'] = ((r['card'] or {}).get('server') or {}).get('ideas')
   return v
-
-
-def _last_ideas(client, key):
-  for j in app_tables.app_jobs.search(tables.order_by('created', ascending=False), client=client, kind='ideas', key=key):
-    if j['status'] == 'done':
-      return dict(j['result'] or {}, checked=j['finished'])
-    break
-  return None
 
 
 def _redraw(client, r):
@@ -185,66 +152,57 @@ def apps_add_change(key, text, client_id=None):
 
 
 @anvil.server.callable
-def apps_queue(kind, key=None, args=None, client_id=None):
-  """Work for the PC worker. Same job already waiting -> that one. Returns the job."""
-  u, client = _client(client_id)
-  if kind not in JOB_KINDS:
-    raise Exception("Unknown job.")
-  args = dict(args or {})
-  if key:
-    _row(client, key)
-  if kind == 'refresh':
-    acts = [a for a in (args.get('actions') or []) if a in REFRESH_ACTIONS]
-    if not acts:
-      raise Exception("Tick at least one thing to check.")
-    args = {'actions': acts}
-  elif kind == 'link':
-    field = args.get('field')
-    value = clean(args.get('value'), 300)
-    if field not in ('url', 'anvil_editor'):
-      raise Exception("Unknown link.")
-    if value and not (value.startswith('https://') or value.startswith('http://')) or ' ' in value:
-      raise Exception("That doesn't look like a web address (it should start with https://).")
-    args = {'field': field, 'value': value}
-  elif kind == 'idea':
-    text = clean(args.get('text'), 4000)
-    if len(text) < 3:
-      raise Exception("Write the idea first.")
-    args = {'text': text, 'kind': args.get('kind') if args.get('kind') in ('idea', 'bug', 'question') else 'idea'}
-  else:
-    args = {}
-  for j in app_tables.app_jobs.search(client=client, kind=kind, key=key or '', status='queued'):
-    if (j['args'] or {}) == args or kind not in ('link', 'idea'):
-      j['args'] = args
-      return job_dict(j)
-  j = app_tables.app_jobs.add_row(client=client, kind=kind, key=key or '', args=args, status='queued', created=now(), by=u)
-  return job_dict(j)
+def apps_refresh(keys, actions, first=False, last=False, whole=False, client_id=None):
+  """Check these apps now, from here (rf.BATCH at a time; the browser sends the batches one after another).
+  first: a new run (its problems replace the last run's); whole: every app (sets the board's "checked" time at the end)."""
+  _u, client = _client(client_id)
+  acts = [a for a in (actions or []) if a in rf.ACTIONS]
+  if not acts:
+    raise Exception("Tick at least one thing to check.")
+  keys = [str(k) for k in (keys or [])][:rf.BATCH]
+  rows = [_row(client, k) for k in keys]
+  errors = rf.refresh(rows, acts)
+  m = dict(core.meta(client))
+  m['server_errors'] = ([] if first else list(m.get('server_errors') or [])) + errors
+  if whole and last:
+    m['server_refreshed_at'] = rf.now_iso()
+  core.set_doc(client, 'meta', data=m)
+  phases, ch = core.phases_of(m), core.changes_by_key(client)
+  vs, _m = core.views(client)
+  return {'projects': [core.view(r, phases, ch) for r in rows], 'errors': errors, 'stats': core.stats(vs),
+          'notes': core.notes(vs, m), 'all_errors': core.errors_of(m),
+          'refreshed_at': core.latest(m.get('refreshed_at'), m.get('server_refreshed_at'))}
 
 
 @anvil.server.callable
-def apps_jobs(job_ids=None, client_id=None):
-  """Waiting / running jobs (or the given ones) + whether the PC is connected."""
+def apps_save_link(key, field, value, client_id=None):
+  """The live address or Anvil editor link, typed on the board. Shown at once; the PC's next update writes apps.json."""
   _u, client = _client(client_id)
-  if job_ids:
-    out = []
-    for jid in job_ids[:30]:
-      j = by_id(app_tables.app_jobs, jid)
-      if j is not None and j['client'] == client:
-        out.append(job_dict(j))
-  else:
-    out = [j for j in _jobs(client) if j['status'] in ('queued', 'running')]
-  return {'jobs': out, 'worker': worker_state(client)}
+  r = _row(client, key)
+  rf.save_link(r, field, clean(value, 300))
+  return _redraw(client, r)
 
 
 @anvil.server.callable
-def apps_cancel_job(job_id, client_id=None):
+def apps_send_idea(key, text, kind='idea', client_id=None):
+  """An improvement idea (or bug / question) for the app's Prepsto inbox, sent with Claude's Prepsto key."""
   _u, client = _client(client_id)
-  j = by_id(app_tables.app_jobs, job_id)
-  if j is None or j['client'] != client:
-    raise Exception("That job doesn't exist.")
-  if j['status'] == 'queued':
-    j.update(status='cancelled', finished=now())
-  return job_dict(j)
+  r = _row(client, key)
+  return rf.send_idea(r['card'] or {}, clean(text, 4000), kind)
+
+
+@anvil.server.callable
+def apps_tickets(key, client_id=None):
+  """The app's open Prepsto tickets, kept on the card until the next check."""
+  _u, client = _client(client_id)
+  r = _row(client, key)
+  card = dict(r['card'] or {})
+  ideas = rf.open_tickets(card)
+  srv = dict(card.get('server') or {})
+  srv['ideas'] = ideas
+  card['server'] = srv
+  r['card'] = card
+  return ideas
 
 
 @anvil.server.callable
@@ -320,8 +278,18 @@ def apps_add_outreach(row, client_id=None):
 
 
 @anvil.server.callable
+def apps_youtube_update(client_id=None):
+  """Fresh public numbers from YouTube (an API key: views, likes, comments, subscribers). Analytics stay the PC's."""
+  _u, client = _client(client_id)
+  d = core.doc_row(client, 'youtube')
+  data = rf.youtube_numbers((d['data'] if d is not None else None) or {})
+  core.set_doc(client, 'youtube', data=data)
+  return apps_youtube(client_id)
+
+
+@anvil.server.callable
 def apps_youtube(client_id=None):
-  """The channel numbers the PC fetched (youtube/stats.py): latest, history, analytics."""
+  """The channel numbers: from the PC's update (youtube/stats.py, with Analytics) and Update numbers here."""
   _u, client = _client(client_id)
   d = core.doc_row(client, 'youtube')
   data = (d['data'] if d is not None else None) or {}

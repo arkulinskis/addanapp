@@ -3,13 +3,16 @@
     load(force)            the whole board in one server call (apps_board), kept while you move between views
     client_id()            which client's portfolio a consultant is looking at (remembered in this browser)
     tick / set_state / set_posted / add_change   change something; the server sends the app back redrawn
-    queue(kind, key, args) work for the user's PC (refresh, link, idea, ideas, branches, schema, yt)
+    refresh(keys, acts)    check apps now from addanapp.com (GitHub, live site, schema, mentions), a few at a time
+    save_link / send_idea / load_tickets   links, Prepsto ideas and tickets, straight to the server
     listen(fn)             the open page redraws when something changed (one listener: the current page)
-Facts come from the PC worker (APP_MAKER/board/addanapp_link.py); see server_code/apps_core.py.
+Facts: Refresh here (server_code/apps_refresh.py) + the PC's one-shot update (APP_MAKER/board/addanapp_link.py sync).
+Nothing polls: the server is only called when someone clicks.
 """
 import json
 
 import anvil.js
+import anvil.server
 from anvil.js import window
 
 from . import state, ui
@@ -174,33 +177,91 @@ def add_change(key, text):
     return res
 
 
-WHAT = {'refresh': 'Refresh', 'link': 'Saving the link', 'idea': 'Sending the idea', 'ideas': 'Loading its tickets',
-        'branches': 'Checking branches', 'schema': 'Checking the database', 'yt': 'Updating YouTube numbers'}
-
-
-def queue(kind, key=None, args=None):
-    """Ask the PC to do something. The page polls until it's done (Pages/Apps, Pages/AppDetail)."""
-    job = call('apps_queue', kind, key, args)
-    if job is ui.FAIL:
-        return None
+def refresh(keys, acts, whole=False, progress=None):
+    """Check these apps now (the server checks a few at a time; each batch is one call, so there's no waiting loop).
+    progress(done, total) is called before each batch. -> the problems found, or None when a call failed."""
     b = board()
-    if b is not None:
-        b['jobs'] = [j for j in b.get('jobs') or [] if j['id'] != job['id']] + [job]
-        online = (b.get('worker') or {}).get('online')
-    else:
-        online = True
-    state.toast(WHAT.get(kind, 'Job') + (": your PC is on it." if online else
-                                         ": waiting for your PC (it runs when the PC link is on)."), "ok")
-    changed()
-    return job
+    if b is None or not keys:
+        return None
+    n = b.get('batch') or 3
+    errors = []
+    for i in range(0, len(keys), n):
+        if progress:
+            progress(i, len(keys))
+        args = ('apps_refresh', keys[i:i + n], acts, i == 0, i + n >= len(keys), whole)
+        if progress:  # the page shows its own progress line instead of the spinner
+            with anvil.server.no_loading_indicator:
+                res = call(*args)
+        else:
+            res = call(*args)
+        if res is ui.FAIL:
+            return None
+        for p in res['projects']:
+            b['projects'] = [p if x['key'] == p['key'] else x for x in b['projects']]
+        b['stats'], b['notes'], b['errors'] = res['stats'], res['notes'], res['all_errors']
+        b['refreshed_at'] = res.get('refreshed_at') or b.get('refreshed_at')
+        errors += res['errors']
+    _d["full"] = {}
+    return errors
 
 
-def jobs():
-    return (board() or {}).get('jobs') or []
+def refresh_report(errors, what):
+    if errors is None:
+        return
+    state.toast(what + (": done, %d problem%s (see Notifications)" % (len(errors), '' if len(errors) == 1 else 's') if errors else ": done"),
+                "error" if errors else "ok")
 
 
-def pending(key=None):
-    return [j for j in jobs() if j['status'] in ('queued', 'running') and (key is None or j.get('key') == key)]
+def refresh_one(key, acts):
+    errs = refresh([key], acts)
+    refresh_report(errs, "Refreshed " + ((project(key) or {}).get('name') or key))
+    if errs is not None:
+        changed(key)
+    return errs
+
+
+def set_progress(fn):
+    """The Apps page's progress line for Refresh all: fn(done, total), fn(None, None) when finished."""
+    _d["progress"] = fn
+
+
+def ask_refresh(key=None):
+    """Refresh one app (key) or every app: ask what to check, then check it now. -> the problems, or None."""
+    from anvil import alert
+    from .Dialogs.ApRefresh import ApRefresh
+    acts = alert(ApRefresh(key=key), buttons=[], large=False, role="aa-dialog", dismissible=True)
+    if not acts:
+        return None
+    if key:
+        return refresh_one(key, acts)
+    fn = _d.get("progress")
+    errs = refresh([p['key'] for p in (board() or {}).get('projects') or []], acts, whole=True, progress=fn)
+    if fn:
+        fn(None, None)
+    refresh_report(errs, "Refreshed every app")
+    if errs is not None:
+        changed()
+    return errs
+
+
+def save_link(key, field, value):
+    res = call('apps_save_link', key, field, value)
+    if res is not ui.FAIL:
+        put(res)
+        changed(key)
+        state.toast("Link saved. The PC's next update copies it into apps.json.", "ok")
+    return res
+
+
+def send_idea(key, text, kind):
+    res = call('apps_send_idea', key, text, kind)
+    if res is not ui.FAIL:
+        state.toast("Sent to Prepsto as a new %s" % (res.get('kind') or 'ticket'), "ok")
+    return res
+
+
+def load_tickets(key):
+    return call('apps_tickets', key)
 
 
 def copy(text, what="Copied"):

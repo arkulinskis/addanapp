@@ -145,10 +145,16 @@
 
     // posts
     await page('#apps/posts', () => $$('.ap-post').length >= 2, 'posts');
-    const box = $$('.ap-post input[type=checkbox]').find((b) => !b.checked);
+    const unticked = () => $$('.ap-post input[type=checkbox]').find((b) => !b.checked);
+    if (!unticked()) {  // earlier runs left every post ticked
+      $$('.ap-post input[type=checkbox]')[0].click();
+      await until(unticked, 'an unticked post');
+    }
+    const box = unticked();
     box.click();
     await until(() => box.closest('.ap-post') === null || $$('.ap-post.posted').length >= 1, 'posted tick');
-    const again = $$('.ap-post.posted input[type=checkbox]')[0]; again.click();
+    const again = $$('.ap-post.posted input[type=checkbox]')[0];
+    if (again) again.click();  // a ticked post can leave the list (depends on what earlier runs left in the database)
     await sleep(1200);
     ok(true, 'posts: Posted ticks and unticks');
 
@@ -194,6 +200,21 @@
     await click('Ask Claude');
     await until(() => $$('.ap-box.claude .ap-li').length === nChanges + 1, 'the change is listed');
     ok(true, 'app: notes save and Ask Claude makes a request');
+    ok(!/PC is on it|Waiting for your PC/.test(txt($('.ap-detail'))), 'app: no PC job line');
+    // Refresh runs on the server now (apps_refresh.py): only the live check, so no GitHub token is needed locally
+    await click('Refresh', '.ap-title');
+    await until(() => $$('.ap-refresh-list input[type=checkbox]').length === 4, 'refresh dialog with the four server checks');
+    await click('Untick all');
+    const liveBox = $$('.ap-refresh-list label').find((l) => /^Live site/.test(txt(l))).querySelector('input');
+    liveBox.click();
+    await click('Refresh', '.dlg-acts');
+    await until(() => /Refreshed .*: done/.test(document.body.textContent), 'refreshed toast', 40000);
+    ok(/checked/.test(txt($('.ap-live'))), 'app: Refresh checks the live site at once (no PC)');
+    const urlBox = $$('input').find((i) => i.placeholder && i.placeholder.startsWith('https://myapp.com'));
+    type(urlBox, 'https://ui-test-app.example');
+    await click('Save links');
+    await until(() => /Link saved/.test(document.body.textContent), 'link saved toast', 40000);
+    ok(vis($$('.ap-box').find((b) => /New link saved/.test(txt(b)))), 'app: a saved link shows at once with the follow-up for Claude');
     // app health (consultants): the sample apps' made-up addresses don't answer, so every row ends as "No answer"
     await page('#apps/health', () => $('.ap-health') && $$('.ap-ah-table tbody tr').length >= 1, 'health');
     ok($$('.ap-health .ap-yt-tile').length === 6, 'health: six number tiles');

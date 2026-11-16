@@ -23,8 +23,9 @@ def country(code):
 
 
 class ApYoutube(ApYoutubeTemplate):
-    """#apps/youtube: the channel's numbers (the PC fetches them with youtube/stats.py): subscribers, views, watch time
-    over time, views by app, traffic sources, countries, devices and every video. Update asks the PC for fresh numbers."""
+    """#apps/youtube: the channel's numbers: subscribers, views, watch time over time, views by app, traffic sources,
+    countries, devices and every video. The PC's update sends everything (youtube/stats.py, with Analytics); Update
+    numbers fetches fresh public counts from YouTube here (an API key, no sign-in)."""
 
     def __init__(self, **properties):
         super().__init__(**properties)
@@ -273,4 +274,9 @@ class ApYoutube(ApYoutubeTemplate):
 
     @handle("update_button", "click")
     def update_button_click(self, **event_args):
-        apps_data.queue('yt')
+        res = apps_data.call('apps_youtube_update')
+        if res is not ui.FAIL:
+            self.y = res
+            self.redraw()
+            self._charts()
+            state.toast("YouTube numbers updated", "ok")

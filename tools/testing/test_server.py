@@ -230,7 +230,7 @@ assert p["posted"]["yt-video"] == "2026-11-02", "a public pitch video counts as 
 assert p["hero"] is not None and "commits" not in p
 types = {n["type"] for n in b["notes"]}
 assert {"error", "down", "seo", "merge"} <= types, types
-assert b["worker"]["online"] is False, "the worker doc can't be spoofed through push"
+assert "worker" not in b and T.app_docs.get(client=T.users.get(email="pf@example.com"), name="worker") is None, "the worker doc can't be pushed"
 full = call("apps_project", "snack")
 assert len(full["commits"]) == 8 and full["promo"]["items"][0]["text"] == "Post"
 problem("apps_project", "nope", has="isn't in this portfolio")
@@ -252,23 +252,129 @@ assert req["status"] == "in_progress" and req["client"] == pf and req["kind"] ==
 assert r["project"]["changes_todo"][0]["ref"] == req["ref"]
 assert any(n["type"] == "changes" and n["prompt"] == "/app-board run snack" for n in r["notes"])
 
-problem("apps_queue", "nope", has="Unknown job")
-problem("apps_queue", "refresh", None, {"actions": []}, has="Tick")
-problem("apps_queue", "link", "snack", {"field": "url", "value": "not a url"}, has="web address")
-j1 = call("apps_queue", "refresh", None, {"actions": ["live", "hacked"]})
-assert j1["args"] == {"actions": ["live"]}
-assert call("apps_queue", "refresh", None, {"actions": ["github"]})["id"] == j1["id"], "one refresh waiting at a time"
-j2 = call("apps_queue", "link", "snack", {"field": "url", "value": "https://snack.example"})
-jobs = call("apps_jobs")
-assert len(jobs["jobs"]) == 2
+# Refresh from addanapp.com itself (apps_refresh.py): fake web replies, no network
+RF = M["apps_refresh"]
+WEB = {}
+HITS = []
 
-st, cl = api("claim", {"client": "pf@example.com", "host": "PC"})
-assert cl["job"]["id"] == j1["id"] and cl["job"]["status"] == "running"
-assert call("apps_jobs")["worker"]["online"] is True, "a claim is a heartbeat"
-assert api("finish", {"client": "pf@example.com", "id": j1["id"], "ok": True, "result": {"n": 1}})[0] == 200
-assert call("apps_jobs", [j1["id"]])["jobs"][0]["status"] == "done"
-assert call("apps_cancel_job", j2["id"])["status"] == "cancelled"
-assert api("claim", {"client": "pf@example.com"})[1]["job"] is None
+
+def fake_http(url, headers=None, limit=600000, method="GET", body=None):
+    HITS.append((method, url, body))
+    for prefix in sorted(WEB, key=len, reverse=True):
+        if url.startswith(prefix):
+            v = WEB[prefix]
+            if isinstance(v, Exception):
+                raise v
+            st, data = v
+            return st, data if isinstance(data, str) else json.dumps(data)
+    return 404, ""
+
+
+RF.http = fake_http
+problem("apps_refresh", ["snack"], [], has="Tick")
+problem("apps_refresh", ["snack"], ["github"], has="github_token")
+anvil.secrets.SECRETS["github_token"] = "ghp_test"
+r = T.app_projects.get(key="snack")
+r["card"] = dict(r["card"], repo="me/snack", source="apps.json", key="snack")
+YAML = "db_schema:\n  orders:\n    client: none\n    columns:\n    - admin_ui: {order: 0, width: 200}\n      name: item\n      type: string\n    - name: qty\n      type: number\n    server: full\n"
+WEB.update({
+    "https://api.github.com/repos/me/snack/commits": (200, [{"sha": "abc1234567", "html_url": "u", "commit": {"message": "Fix menu\n\nmore",
+                                                          "committer": {"date": "2026-11-16T10:00:00Z"}, "author": {"name": "Ark"}}}]),
+    "https://api.github.com/repos/me/snack/branches": (200, [{"name": "master", "commit": {"sha": "m1"}}, {"name": "forms", "commit": {"sha": "f1"}},
+                                                            {"name": "old", "commit": {"sha": "m1"}}]),
+    "https://api.github.com/repos/me/snack/pulls": (200, []),
+    "https://api.github.com/repos/me/snack/compare/master...forms": (200, {"ahead_by": 3, "behind_by": 0, "commits": [{"commit": {"message": "Forms", "committer": {"date": "2026-11-15"}}}]}),
+    "https://api.github.com/repos/me/snack/compare/master...old": (200, {"ahead_by": 0, "behind_by": 2, "commits": []}),
+    "https://api.github.com/repos/me/snack/contents/anvil.yaml": (200, {"content": base64.b64encode(YAML.encode()).decode()}),
+    "https://api.github.com/repos/me/snack": (200, {"full_name": "me/snack", "default_branch": "master", "description": "Orders for cafés",
+                                                   "html_url": "https://github.com/me/snack", "pushed_at": "2026-11-16T10:00:00Z"}),
+    "https://snack.example/robots.txt": (200, "User-agent: *"),
+    "https://snack.example/sitemap.xml": (200, "<urlset></urlset>"),
+    "https://snack.example/_/api/schema-check": (200, {"tables": {"orders": ["item"]}}),
+    "https://snack.example": (200, '<title>Snack</title><meta name="description" content="Orders for cafes, fast and simple">'
+                                   '<link rel="canonical" href="x"><meta property="og:title"><meta property="og:image">'),
+    "https://arkvital.com/": (200, "<a href='https://snack.example'>Snack</a>"),
+    "https://addanapp.com/": (500, ""),
+})
+res = call("apps_refresh", ["snack"], ["github", "live", "schema", "mentions", "hacked"], True, True, True)
+p = res["projects"][0]
+assert p["pushed_at"] == "2026-11-16T10:00:00Z" and p["desc"] == "Orders for cafés"
+assert [b["name"] for b in p["branches"]] == ["forms"] and p["branches_merged"] == ["old"], p["branches"]
+assert p["live"]["ok"] and p["seo"]["missing"] == [] and p["auto"]["seo"] and p["auto"]["anvil"] and p["auto"]["domain"]
+assert p["schema"]["state"] == "mismatch" and p["schema"]["missing_columns"] == ["orders.qty"], p["schema"]
+assert p["auto"]["arkvital"] is True and "addanapp" not in p["auto"], "a site that doesn't answer isn't counted"
+assert RF.tables_of(YAML) == {"orders": ["item", "qty"]}
+card = T.app_projects.get(key="snack")["card"]
+assert card["server"]["at"] and card["server"]["branches_raw"][0]["sha"] == "f1" and card["server"]["schema_exp"]["tables"]
+assert T.app_docs.get(client=pf, name="meta")["data"]["server_refreshed_at"] and call("apps_board")["refreshed_at"]
+assert M["apps_core"].latest("2026-01-01T00:00:00+00:00", "2026-02-01T00:00:00+00:00", "") == "2026-02-01T00:00:00+00:00"
+n = len(HITS)
+call("apps_refresh", ["snack"], ["github"])
+assert not any("/compare/" in h[1] for h in HITS[n:]), "unchanged branches aren't compared again"
+WEB["https://api.github.com/repos/me/snack"] = (500, "")
+res = call("apps_refresh", ["snack"], ["github"], True)
+assert res["errors"] and "GitHub answered 500" in res["errors"][0] and res["projects"][0]["pushed_at"], "a failed check keeps the last facts"
+assert any(n_["type"] == "error" for n_ in res["notes"])
+WEB["https://api.github.com/repos/me/snack"] = (401, "")
+assert "github_token" in call("apps_refresh", ["snack"], ["github"], True)["errors"][0]
+WEB["https://api.github.com/repos/me/snack"] = (200, {"full_name": "me/snack", "default_branch": "master", "html_url": "h", "pushed_at": "2026-11-16T11:00:00Z"})
+call("apps_refresh", ["snack"], ["github"], True)
+problem("apps_refresh", ["nope"], ["live"], has="isn't in this portfolio")
+
+# a PC push with older facts keeps what Refresh found; newer facts win
+old_card = dict(T.app_projects.get(key="snack")["card"])
+api("push", {"client": "pf@example.com", "projects": [{"key": "snack", "name": "Snack App",
+                                                         "card": dict(old_card, pushed_at="2020-01-01", facts_at="2020-01-01T00:00:00+00:00", legal={"ok": True})}]})
+c2 = T.app_projects.get(key="snack")["card"]
+assert c2["pushed_at"] == "2026-11-16T11:00:00Z" and c2["legal"] == {"ok": True} and c2["server"], "older PC facts don't overwrite"
+api("push", {"client": "pf@example.com", "projects": [{"key": "snack", "name": "Snack App",
+                                                         "card": dict(old_card, pushed_at="2030-01-01", facts_at="2030-01-01T00:00:00+00:00")}]})
+assert T.app_projects.get(key="snack")["card"]["pushed_at"] == "2030-01-01", "newer PC facts win"
+
+# links typed on the board: shown at once, cleared once the PC has copied them
+problem("apps_save_link", "snack", "url", "not a url", has="web address")
+problem("apps_save_link", "snack", "evil", "https://x.example", has="Unknown link")
+WEB["https://snack2.example"] = (200, "<title>Snack 2</title>")
+r = call("apps_save_link", "snack", "url", "https://snack2.example")
+assert r["project"]["url"] == "https://snack2.example" and r["project"]["url_followup"] and r["project"]["live"]["ok"]
+assert T.app_projects.get(key="snack")["state"]["links"] == {"url": "https://snack2.example"}
+assert api("pull", {"client": "pf@example.com"})[1]["states"]["snack"]["links"]["url"] == "https://snack2.example", "the PC sees it"
+api("push", {"client": "pf@example.com", "projects": [{"key": "snack", "name": "Snack App", "card": dict(old_card, url="https://snack2.example")}]})
+assert T.app_projects.get(key="snack")["state"]["links"] == {}, "copied into apps.json -> no longer an override"
+
+# Prepsto, with Claude's key as an App Secret
+problem("apps_send_idea", "snack", "Save as PDF", has="no Prepsto")
+r = T.app_projects.get(key="snack")
+r["card"] = dict(r["card"], prepsto="abc123")
+problem("apps_send_idea", "snack", "Save as PDF", has="prepsto_key")
+anvil.secrets.SECRETS["prepsto_key"] = "pk_test"
+problem("apps_send_idea", "snack", "x", has="Write the idea")
+WEB["https://prepsto.com/_/api/v1/tickets"] = (200, {"ticket": {"url": "https://prepsto.com/t/1", "kind": "bug"}, "total": 1,
+                                                     "tickets": [{"id": "t1", "message": "Broken", "kind": "bug", "status": "open"}]})
+WEB["https://prepsto.com/_/api/v1/links"] = (200, {"links": [{"code": "abc123", "id": "L1"}]})
+assert call("apps_send_idea", "snack", "Save as PDF", "bug") == {"url": "https://prepsto.com/t/1", "kind": "bug"}
+sent = [h for h in HITS if h[0] == "POST" and "prepsto" in h[1]][-1]
+assert sent[2]["link"] == "abc123" and sent[2]["kind"] == "bug" and sent[2]["page_url"] == "https://snack2.example"
+t = call("apps_tickets", "snack")
+assert t["total"] == 1 and t["tickets"][0]["message"] == "Broken" and "link=L1" in HITS[-1][1]
+assert call("apps_project", "snack")["ideas"]["total"] == 1, "the last tickets stay on the app"
+
+# YouTube public numbers with an API key
+problem("apps_youtube_update", has="No YouTube numbers yet")
+api("push", {"client": "pf@example.com", "docs": [{"name": "youtube", "data": {"latest": {"channel": {"id": "UC1", "subscribers": 1},
+                                                    "videos": [{"id": "v1", "views": 3, "app": "snack"}, {"id": "v2", "views": 9, "privacy": "private"}]},
+                                                    "history": {}, "analytics": {"daily": [1]}}}]})
+problem("apps_youtube_update", has="youtube_api_key")
+anvil.secrets.SECRETS["youtube_api_key"] = "AIza_test"
+WEB["https://www.googleapis.com/youtube/v3/channels"] = (200, {"items": [{"statistics": {"subscriberCount": "12", "viewCount": "400", "videoCount": "2"}}]})
+WEB["https://www.googleapis.com/youtube/v3/videos"] = (200, {"items": [{"id": "v1", "statistics": {"viewCount": "50", "likeCount": "4"}, "status": {"privacyStatus": "public"}}]})
+y = call("apps_youtube_update")
+vids = {v["id"]: v for v in y["latest"]["videos"]}
+assert y["latest"]["channel"]["subscribers"] == 12 and vids["v1"]["views"] == 50 and vids["v1"]["app"] == "snack"
+assert vids["v2"]["views"] == 9, "a private video keeps the PC's numbers"
+assert y["analytics"] == {"daily": [1]} and list(y["history"].values())[0]["videos"]["v1"][0] == 50
+WEB["https://www.googleapis.com/youtube/v3/channels"] = (403, {"error": {"message": "API key not valid"}})
+problem("apps_youtube_update", has="API key not valid")
 
 d = call("apps_dismiss", "seo:snack", "x")
 assert d == {"seo:snack": "x"} and call("apps_dismiss", "seo:snack", "x") == {}

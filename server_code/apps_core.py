@@ -3,12 +3,13 @@
 Shared logic for the browser API (api_apps.py) and the PC / Claude HTTP API (apps_sync.py).
 
 Data (all rows belong to one client, a `users` row):
-  app_projects  one row per app: `card` = the facts the PC worker found (GitHub, live site, SEO, schema, legal,
-                standard audit, videos, biz dev and money plans; written by the worker, never by the browser),
-                `state` = what people click here (checks, notes, parked, posted), screenshots, posts, video kit
-  app_docs      per client: meta (steps, refresh time, errors), bizdev/* plans, outreach log, youtube stats,
-                dismissed notifications, worker heartbeat
-  app_jobs      work for the PC worker (refresh, links, Prepsto ideas, YouTube numbers), done when the PC is on
+  app_projects  one row per app: `card` = the facts: the PC's one-shot update sends them (standard audit, legal,
+                videos, biz dev and money plans, and its own GitHub/live checks), Refresh here rewrites the
+                GitHub / live / SEO / schema / mentions parts (apps_refresh.py, card['server']); `state` = what
+                people click here (checks, notes, parked, posted, links typed on the board), screenshots, posts, video kit
+  app_docs      per client: meta (steps, refresh times, errors), bizdev/* plans, outreach log, youtube stats,
+                dismissed notifications
+  app_jobs      unused since 2026-11-16 (the PC worker's job queue; Refresh runs here now). Left for its old rows.
   requests      "Changes for Claude" are ordinary requests with project = the app key (kind 'change')
 
 The PC side lives in APP_MAKER/board/addanapp_link.py.
@@ -89,6 +90,21 @@ def ago(s):
   if sec < 86400 * 45:
     return '%dd ago' % round(sec / 86400)
   return d.strftime('%Y-%m-%d')
+
+
+def latest(*isos):
+  """The most recent of some ISO times ('' when none)."""
+  best = None
+  for s in isos:
+    d = parse_iso(s)
+    if d is not None and (best is None or d > best[0]):
+      best = (d, s)
+  return best[1] if best else ''
+
+
+def errors_of(m):
+  """Problems to show: the PC update's and the last Refresh run's."""
+  return list(m.get('errors') or []) + list(m.get('server_errors') or [])
 
 
 def plural(n, word, many=None):
@@ -278,9 +294,12 @@ CARD_FIELDS = ('key', 'name', 'source', 'repo', 'url', 'url_kind', 'domain_plann
 
 
 def view(row, phases, changes, full=False, media=True):
-  """One app as the pages show it: the worker's facts + the browser's state, with the steps worked out."""
-  card = row['card'] or {}
+  """One app as the pages show it: the facts + the browser's state, with the steps worked out."""
   state = row['state'] or {}
+  card = dict(row['card'] or {})
+  for f, val in (state.get('links') or {}).items():  # typed on the board, not in apps.json yet
+    if f in ('url', 'anvil_editor'):
+      card[f] = val
   auto = auto_of(card, state)
   v = {k: card.get(k) for k in CARD_FIELDS}
   v['key'], v['name'] = row['key'], row['name'] or card.get('name') or row['key']
@@ -359,11 +378,11 @@ def notes(vs, m):
     n['sig'] = str(n.get('sig') if n.get('sig') is not None else n['prompt'])
     out.append(n)
 
-  for e in m.get('errors') or []:
+  for e in errors_of(m):
     e = str(e)
     add({'type': 'error', 'k': e[:80], 'title': e.split(':')[0][:60] or 'Problem', 'desc': esc(e),
-         'prompt': 'The App Board refresh reported this problem: "%s". Find out why (APP_MAKER/board/server.py and the tool it '
-                   'names) and fix it, or tell me what I need to do.' % e, 'acts': [{'label': 'Refresh all', 'do': 'refresh-all'}]})
+         'prompt': 'The App Board refresh reported this problem: "%s". Find out why (Addanapp server_code/apps_refresh.py for '
+                   'Refresh on the site, APP_MAKER/board for the PC update) and fix it, or tell me what I need to do.' % e, 'acts': [{'label': 'Refresh all', 'do': 'refresh-all'}]})
   for v in vs:
     n, k = v['name'], v['key']
     base = {'key': k, 'name': n, 'stage': v['stage'], 'stage_name': v['stage_name']}

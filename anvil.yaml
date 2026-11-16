@@ -418,7 +418,7 @@ native_deps:
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="_/theme/icons.css?v=58ea88e510">
-    <link rel="stylesheet" href="_/theme/app.css?v=a0aad73010">
+    <link rel="stylesheet" href="_/theme/app.css?v=def0f496ec">
     <script src="_/theme/app-kit.js?v=5b52a77799"></script>
     <script src="_/theme/aa.js?v=4606a6b288"></script>
     <link rel="stylesheet" href="_/theme/apps.css?v=c47f5a6f22">

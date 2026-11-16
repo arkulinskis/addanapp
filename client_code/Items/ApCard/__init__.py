@@ -49,9 +49,6 @@ class ApCard(ApCardTemplate):
         ref = self.dom_nodes["ref"]
         ref.setAttribute("title", "Refresh %s: choose what to check" % p['name'])
         ref.setAttribute("aria-label", "Refresh " + p['name'])
-        if apps_data.pending(p['key']):
-            ref.classList.add("spin")
-            card.classList.add("busy")
         js = apps_data.js()
         if js:
             js.segs(self.dom_nodes["segs"], apps_data.segs(p))
@@ -61,7 +58,4 @@ class ApCard(ApCardTemplate):
     def ref_click(self, event):
         event.stopPropagation()
         event.preventDefault()
-        from ...Dialogs.ApRefresh import ApRefresh
-        acts = alert(ApRefresh(key=self.item['key']), buttons=[], large=False, role="aa-dialog", dismissible=True)
-        if acts:
-            apps_data.queue('refresh', self.item['key'], {'actions': acts})
+        apps_data.ask_refresh(self.item['key'])

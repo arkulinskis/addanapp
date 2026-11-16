@@ -236,7 +236,4 @@ class ApDossier(ApDossierTemplate):
 
     @handle("refresh_button", "click")
     def refresh_button_click(self, **event_args):
-        from ...Dialogs.ApRefresh import ApRefresh
-        acts = alert(ApRefresh(key=self.key), buttons=[], large=False, role="aa-dialog", dismissible=True)
-        if acts:
-            apps_data.queue('refresh', self.key, {'actions': acts})
+        apps_data.ask_refresh(self.key)

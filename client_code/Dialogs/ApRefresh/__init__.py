@@ -3,14 +3,13 @@ from anvil import *
 from ._anvil_designer import ApRefreshTemplate
 from ... import apps_data
 
-NOTES = {'hero': 'About 20 seconds per app (only apps whose site answers)',
-         'schema': 'Needs the site to answer',
+NOTES = {'schema': 'Needs the site to answer',
          'live': 'Also tries the <name>.anvil.app guess for apps with no link'}
 
 
 class ApRefresh(ApRefreshTemplate):
-    """Choose what the PC checks: GitHub, live site + SEO, database schema, mentions, the standard audit, a new
-    screenshot. key = one app, or None for every app. alert() returns the ticked action ids, or None."""
+    """Choose what to check now, from addanapp.com: GitHub, live site + SEO, database schema, mentions (the server's
+    apps_refresh.ACTIONS). key = one app, or None for every app. alert() returns the ticked action ids, or None."""
 
     def __init__(self, key=None, **properties):
         super().__init__(**properties)
@@ -18,7 +17,10 @@ class ApRefresh(ApRefreshTemplate):
         acts = b.get('actions') or {}
         p = apps_data.project(key) if key else None
         self.heading.text = "Refresh " + (p['name'] if p else "every app")
-        self.intro.text = "Tick what to check. Unticked parts keep what the last check found. Your PC does the work."
+        n = len(b.get('projects') or [])
+        self.intro.text = ("Tick what to check. Unticked parts keep what the last check found. Addanapp checks it now" +
+                           ("." if key else ", a few apps at a time (about %d seconds for %d apps)." % (max(10, n * 3), n)) +
+                           " The standard audit, legal and screenshots come from your PC's one-shot update (Update Addanapp.bat).")
         defaults = list(acts.keys()) if key else (b.get('all_default') or [])
         self.checks: dict = {}
         for aid, label in acts.items():

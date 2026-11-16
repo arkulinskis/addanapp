@@ -10,7 +10,7 @@ SOURCE = {'github': ' · on GitHub, not in apps.json', 'board': ' · added on th
 
 class AppDetail(AppDetailTemplate):
     """#app/<key>: one app of the portfolio in full (the old App Board's side drawer): screenshots, live check,
-    branches to merge, the checklist, Changes for Claude (requests), an idea for Prepsto, notes, links (the PC writes
+    branches to merge, the checklist, Changes for Claude (requests), an idea for Prepsto, notes, links (the PC's update copies
     them into apps.json), commits, and summaries of its video, posts, biz dev plan, money plan and findings."""
 
     def __init__(self, key, **properties):
@@ -71,7 +71,6 @@ class AppDetail(AppDetailTemplate):
         if js:
             js.links(self.dom_nodes["links"], apps_data.links(p))
             js.chips(self.dom_nodes["chips"], p.get('tags') or [])
-        self._jobs()
         # banners
         self.guess_box.visible = bool(p.get('guess_url'))
         if p.get('guess_url'):
@@ -172,55 +171,14 @@ class AppDetail(AppDetailTemplate):
         except Exception:
             return False
 
-    # ---------------------------------------------------------------- jobs for this app
-    def _jobs(self):
-        b = apps_data.board() or {}
-        w = b.get('worker') or {}
-        mine = apps_data.pending(self.key)
-        self.jobs_line.visible = bool(mine) or not w.get('online')
-        self.jobs_dot.classes["on"] = bool(w.get('online'))
-        if mine:
-            self.jobs_text.text = ("Your PC is on it: " if w.get('online') else "Waiting for your PC: ") + ', '.join(apps_data.WHAT.get(j['kind'], j['kind']) for j in mine)
-        else:
-            self.jobs_text.text = "Your PC link is off, so refreshes and links wait until it's on."
-        self.poll_timer.interval = 4 if mine else 0
-
-    @handle("poll_timer", "tick")
-    def poll_timer_tick(self, **event_args):
-        if router.current().split('/')[0] != 'app':
-            self.poll_timer.interval = 0
-            return
-        ids = [j['id'] for j in apps_data.pending(self.key)]
-        if not ids:
-            self.poll_timer.interval = 0
-            return
-        res = apps_data.call('apps_jobs', ids)
-        if res is ui.FAIL:
-            return
-        b = apps_data.board()
-        b['worker'] = res['worker']
-        left = [j for j in res['jobs'] if j['status'] in ('queued', 'running')]
-        done = [j for j in res['jobs'] if j['status'] not in ('queued', 'running')]
-        b['jobs'] = [j for j in b.get('jobs') or [] if j['id'] not in [x['id'] for x in done]]
-        for j in done:
-            if j['status'] == 'failed':
-                state.toast(apps_data.WHAT.get(j['kind'], 'Job') + " failed: " + (j.get('error') or 'no details'), "error")
-            else:
-                state.toast(apps_data.WHAT.get(j['kind'], 'Job') + ": done", "ok")
-        if done:
-            apps_data.load(force=True)
-            self._load_full()
-            self.redraw()
-        elif not left:
-            self.poll_timer.interval = 0
-
     # ---------------------------------------------------------------- actions
     @handle("refresh_button", "click")
     def refresh_button_click(self, **event_args):
-        from ...Dialogs.ApRefresh import ApRefresh
-        acts = alert(ApRefresh(key=self.key), buttons=[], large=False, role="aa-dialog", dismissible=True)
-        if acts:
-            apps_data.queue('refresh', self.key, {'actions': acts})
+        apps_data.ask_refresh(self.key)
+
+    @handle("branch_button", "click")
+    def branch_button_click(self, **event_args):
+        apps_data.refresh_one(self.key, ['github'])
 
     @handle("park_button", "click")
     def park_button_click(self, **event_args):
@@ -256,17 +214,20 @@ class AppDetail(AppDetailTemplate):
 
     @handle("guess_button", "click")
     def guess_button_click(self, **event_args):
-        apps_data.queue('link', self.key, {'field': 'url', 'value': self.p['guess_url']})
+        apps_data.save_link(self.key, 'url', self.p['guess_url'])
 
     @handle("idea_button", "click")
     def idea_button_click(self, **event_args):
         text = (self.idea_box_text.text or '').strip()
-        if apps_data.queue('idea', self.key, {'text': text, 'kind': self.idea_kind.selected_value or 'idea'}):
+        if apps_data.send_idea(self.key, text, self.idea_kind.selected_value or 'idea') is not ui.FAIL:
             self.idea_box_text.text = ''
 
     @handle("tickets_button", "click")
     def tickets_button_click(self, **event_args):
-        apps_data.queue('ideas', self.key)
+        res = apps_data.load_tickets(self.key)
+        if res is not ui.FAIL:
+            self.f['ideas'] = res
+            self.redraw()
 
     @handle("notes_box", "lost_focus")
     def notes_box_lost_focus(self, **event_args):
@@ -285,8 +246,8 @@ class AppDetail(AppDetailTemplate):
                 if not confirm("%s is live on its own domain, %s. Switch its live address back to the Anvil address %s?" % (p['name'], p['url'], url)):
                     self.url_box.text = p['url']
                     return
-            apps_data.queue('link', self.key, {'field': 'url', 'value': url})
+            apps_data.save_link(self.key, 'url', url)
         if ed != (p.get('anvil_editor') or ''):
-            apps_data.queue('link', self.key, {'field': 'anvil_editor', 'value': ed})
+            apps_data.save_link(self.key, 'anvil_editor', ed)
         if url == (p.get('url') or '') and ed == (p.get('anvil_editor') or ''):
             state.toast("Nothing changed", "ok")
