@@ -110,7 +110,8 @@ def _apps():
     for r in app_tables.app_projects.search():
         card = r["card"] or {}
         url = card.get("url")
-        anvil_app = card.get("anvil_editor") or ".anvil.app" in str(url)  # websites (arkvital.com) have no report
+        # every apps.json app is an Anvil app (own domains too: adorablescience.com); websites (arkvital.com) aren't
+        anvil_app = card.get("source") == "apps.json" or card.get("anvil_editor") or ".anvil.app" in str(url)
         if r["key"] and url and str(url).startswith("http") and anvil_app and r["key"] not in seen:
             seen[r["key"]] = {"key": r["key"], "name": r["name"] or card.get("name") or r["key"], "url": str(url).rstrip("/"),
                               "editor": card.get("anvil_editor") or None}
@@ -191,13 +192,13 @@ def health_check(keys):
     stamp = _now()
     for a, (status, code, ms, report) in zip(todo, results):
         row = app_tables.app_health.get(key=a["key"])
-        data = {"name": a["name"], "url": a["url"], "checked": stamp, "status": status, "http": code, "ms": ms}
-        if report is not None or row is None:
-            data["report"] = report          # a failed check keeps the last good numbers
         if row is None:
-            row = app_tables.app_health.add_row(key=a["key"], **data)
+            row = app_tables.app_health.add_row(key=a["key"], name=a["name"], url=a["url"], checked=stamp,
+                                                status=status, http=code, ms=ms, report=report)
         else:
-            row.update(**data)
+            row.update(name=a["name"], url=a["url"], checked=stamp, status=status, http=code, ms=ms)
+            if report is not None:           # a failed check keeps the last good numbers
+                row["report"] = report
         out.append(_row_dict(a, row))
     return out
 
