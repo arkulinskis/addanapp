@@ -1,10 +1,10 @@
 <div class="ap-dossier">
   <nav class="ap-dos-nav" aria-label="Dossiers">
-    <anvil-component type="Button" name="prev_button" prop:text="←" prop:role='["aa-btn", "sm", "ghost"]'></anvil-component>
+    <anvil-component type="Button" name="prev_button" prop:text="←" prop:role='["aa-btn","sm","ghost"]'></anvil-component>
     <anvil-component type="DropDown" name="pick_dd"></anvil-component>
-    <anvil-component type="Button" name="next_button" prop:text="→" prop:role='["aa-btn", "sm", "ghost"]'></anvil-component>
+    <anvil-component type="Button" name="next_button" prop:text="→" prop:role='["aa-btn","sm","ghost"]'></anvil-component>
     <span class="pos" anvil:dom-node="pos"></span>
-    <anvil-component type="Button" name="refresh_button" prop:text="Refresh" prop:role='["aa-btn", "sm", "ghost", "ic-refresh"]'></anvil-component>
+    <anvil-component type="Button" name="refresh_button" prop:text="Refresh" prop:role='["aa-btn","sm","ghost","ic-refresh"]'></anvil-component>
     <a class="aa-btn sm ghost" anvil:dom-node="open">Open the app page</a>
     <span class="spacer"></span>
     <label class="small muted" for="ap-dos-order">Order</label><anvil-component type="DropDown" name="order_dd"></anvil-component>
@@ -13,7 +13,7 @@
   <div class="empty" anvil:name="none"><h3>No apps match the search</h3></div>
   <div anvil:name="page">
     <div class="ap-dos-top">
-      <div class="ap-dos-shot" anvil:dom-node="shot"><img class="desk" anvil:dom-node="desk" alt=""><img class="phone" anvil:dom-node="phone" alt=""><div class="none" anvil:dom-node="noshot">No screenshot yet. The PC takes one once the app is live.</div></div>
+      <div class="ap-dos-shot" anvil:dom-node="shot"><img class="desk" anvil:dom-node="desk" alt /><img class="phone" anvil:dom-node="phone" alt /><div class="none" anvil:dom-node="noshot">No screenshot yet. The PC takes one once the app is live.</div></div>
       <div>
         <h2 class="ap-pane-h" anvil:dom-node="name"></h2>
         <div class="ap-sub"><span class="ap-dot" anvil:dom-node="dot" role="img"></span><span class="ap-stage" anvil:dom-node="stage"></span><span class="ap-wave" anvil:dom-node="wave"></span><span anvil:dom-node="rank"></span><span class="ap-chips" anvil:dom-node="chips"></span></div>
@@ -43,8 +43,8 @@
     <h3 class="ap-sec-h">Posts &amp; videos</h3>
     <anvil-component type="LinearPanel" name="posts_holder" prop:role='["contents"]'></anvil-component>
     <nav class="ap-dos-nav" style="margin-top:18px" aria-label="Previous and next dossier">
-      <anvil-component type="Button" name="prev2_button" prop:role='["aa-btn", "sm", "ghost"]'></anvil-component><span class="spacer"></span>
-      <anvil-component type="Button" name="next2_button" prop:role='["aa-btn", "sm", "ghost"]'></anvil-component>
+      <anvil-component type="Button" name="prev2_button" prop:role='["aa-btn","sm","ghost"]'></anvil-component><span class="spacer"></span>
+      <anvil-component type="Button" name="next2_button" prop:role='["aa-btn","sm","ghost"]'></anvil-component>
     </nav>
   </div>
 </div>
