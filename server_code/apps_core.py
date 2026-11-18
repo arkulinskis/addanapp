@@ -30,7 +30,7 @@ MANAGED_STATE = ('checks', 'notes', 'parked', 'posted')  # what the browser owns
 SHORT = {'github': 'GitHub', 'anvil': 'Anvil', 'domain': 'Domain', 'legal': 'Legal', 'seo': 'SEO', 'admin': 'Admin',
          'usability': 'Usability', 'tech': 'Tech', 'linkedin': 'LinkedIn', 'social': 'Social', 'youtube': 'YouTube',
          'arkvital': 'arkvital', 'addanapp': 'addanapp', 'std_map': 'Map', 'std_schema': 'Schema',
-         'std_prepsto': 'Prepsto', 'std_devlink': 'Dev link', 'std_parent': 'Parent', 'forms': 'Forms'}
+         'std_prepsto': 'Prepsto', 'std_devlink': 'Dev link', 'std_parent': 'Parent'}
 SEO_LABELS = [('title', 'Page title'), ('description', 'Meta description'), ('canonical', 'Canonical link'),
               ('share', 'Share tags (og:title + og:image)'), ('robots', 'robots.txt'), ('sitemap', 'sitemap.xml')]
 STD_LABELS = {'map': 'Code map (APP_MAP.md)', 'youtube': 'Watch section with the YouTube video',
@@ -45,7 +45,7 @@ NOTE_TYPES = [
   ('merge', 'Branches to merge', 'GitHub branches with work that master doesn’t have yet. You merge them on GitHub; the live app follows master.'),
   ('legal', 'Legal needs work', 'The Privacy & Terms page isn’t in good standing.'),
   ('seo', 'SEO gaps', 'Things search engines look for that the live site is missing.'),
-  ('standard', 'App standard', 'Quick fixes from the app standard. (Forms conversions are left out: that’s /app-forms.)'),
+  ('standard', 'App standard', 'Quick fixes from the app standard.'),
   ('guess', 'Found on Anvil?', 'An Anvil site with this app’s name answers. If it’s yours, save it as the app’s live link.'),
   ('video', 'Pitch video ready to upload', 'The pitch video is made but not published on YouTube yet.'),
   ('moved', 'Moved to a new domain', 'The app moved address. Videos and reels made before the move show the old one: make fresh ones, then upload them.'),
@@ -251,16 +251,6 @@ def changes_text(changes):
 
 def tags_of(v):
   t = []
-  s = v.get('structure') or ''
-  if s and s != 'missing':
-    if s == 'forms':
-      t.append({'text': '◧ Forms', 'cls': 'ok', 'title': 'Native Anvil Forms: Layouts + components, as Anvil prescribes'})
-    elif v.get('forms_branch'):
-      t.append({'text': '◧ Forms on branch', 'cls': 'merge', 'title': 'Converted to Forms on branch forms, not merged yet'})
-    elif s == 'classic':
-      t.append({'text': '◧ Classic Forms', 'cls': '', 'title': 'Old Anvil designer Forms, no Layouts yet: /app-forms converts it'})
-    else:
-      t.append({'text': '◧ JavaScript', 'cls': '', 'title': 'JavaScript pages front end: /app-forms converts it to native Anvil Forms'})
   m = v.get('money')
   if m:
     t.append({'text': m.get('role_icon', '') + ' ' + ('traffic' if m.get('role') == 'traffic' else (m.get('role_label') or '').lower()),
@@ -289,8 +279,8 @@ def tags_of(v):
 
 CARD_FIELDS = ('key', 'name', 'source', 'repo', 'url', 'url_kind', 'domain_planned', 'anvil_editor', 'github_url',
                'github_missing', 'pushed_at', 'branch', 'branches', 'branches_merged', 'live', 'seo', 'schema', 'legal',
-               'guess_url', 'guess_title', 'url_followup', 'folder', 'local', 'layout', 'old_urls', 'moved', 'structure',
-               'forms_branch', 'standard_problems', 'watch', 'youtube', 'video', 'promo', 'bizdev', 'money', 'prepsto')
+               'guess_url', 'guess_title', 'url_followup', 'folder', 'local', 'layout', 'old_urls', 'moved',
+               'standard_problems', 'watch', 'youtube', 'video', 'promo', 'bizdev', 'money', 'prepsto')
 
 
 def view(row, phases, changes, full=False, media=True):
@@ -350,12 +340,10 @@ def stats(vs):
   by: dict = {}
   for v in vs:
     by[v['stage']] = by.get(v['stage'], 0) + 1
-  forms = len([v for v in vs if v.get('structure') == 'forms'])
-  known = len([v for v in vs if v.get('structure')])
   return [('projects', len(vs)), ('live', len([v for v in vs if (v.get('live') or {}).get('ok')])),
           ('to deploy', by.get('build', 0) + by.get('deploy', 0)), ('to test', by.get('test', 0)),
           ('to promote', by.get('promote', 0)), ('to standard', by.get('standard', 0)),
-          ('native Forms', '%d/%d' % (forms, known)), ('launched', by.get('launched', 0))]
+          ('launched', by.get('launched', 0))]
 
 
 # ---------------------------------------------------------------- notifications
