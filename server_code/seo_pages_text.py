@@ -1464,7 +1464,8 @@ PAGES = {
    "h1": "Fixed-price software development pricing",
    "intro": [
     "Addanapp prices custom software in **fixed-price milestones**, not hours. A project runs from $30,000 to $300,000 CAD and is split into four milestones: Launch, Operate, Scale and Complete. Each milestone has its own fixed quote, agreed before it starts, and is invoiced only when you accept the delivery.",
-    "You can stop after any milestone and keep everything built so far: the code, the data and the documentation. There is no lock-in and no exit fee. Many clients stop after Launch with a working product in production. Below is what each milestone includes, who it suits, and how quotes, acceptance and stopping work."
+    "You can stop after any milestone and keep everything built so far: the code, the data and the documentation. There is no lock-in and no exit fee. Many clients stop after Launch with a working product in production. Below is what each milestone includes, who it suits, and how quotes, acceptance and stopping work.",
+    "Want a number before you write anything? The [60-second ballpark estimator](https://addanapp.com/#estimate) maps seven quick answers to these same milestone prices. It is a ballpark from this page, not a quote."
    ],
    "sections": [
     {
@@ -1581,7 +1582,8 @@ PAGES = {
    "h1": "Tarifs de développement logiciel à prix fixe",
    "intro": [
     "Addanapp facture le développement de logiciel sur mesure par **étapes à prix fixe**, jamais à l'heure. Un projet coûte de 30 000 $ à 300 000 $ et se découpe en quatre étapes : Lancement, Exploitation, Croissance et Complet. Chaque étape fait l'objet de sa propre soumission, approuvée avant le début des travaux, et n'est facturée qu'une fois la livraison acceptée.",
-    "Vous pouvez arrêter après n'importe quelle étape et garder tout ce qui a été construit : le code, les données et la documentation. Aucun engagement forcé, aucuns frais de sortie. Beaucoup de PME s'arrêtent après le Lancement, avec un logiciel en production qui fait le travail. Voici ce que comprend chaque étape, à qui elle s'adresse, et comment fonctionnent les soumissions, l'acceptation et l'arrêt."
+    "Vous pouvez arrêter après n'importe quelle étape et garder tout ce qui a été construit : le code, les données et la documentation. Aucun engagement forcé, aucuns frais de sortie. Beaucoup de PME s'arrêtent après le Lancement, avec un logiciel en production qui fait le travail. Voici ce que comprend chaque étape, à qui elle s'adresse, et comment fonctionnent les soumissions, l'acceptation et l'arrêt.",
+    "Envie d'un chiffre avant d'écrire quoi que ce soit? L'[estimateur en 60 secondes](/?lang=fr#estimate) associe sept réponses rapides aux mêmes prix par étape. C'est un ordre de grandeur tiré de cette page, pas une soumission."
    ],
    "sections": [
     {

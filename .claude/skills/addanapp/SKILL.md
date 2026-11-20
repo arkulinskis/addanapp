@@ -11,6 +11,11 @@ description: Context, workflow and recipes for Addanapp (addanapp.com), the user
 - **Consultant console** (`#admin`): every request as a list or Kanban board; progress notes (update, milestone, human-validated, question, internal), status, progress %, quote, scope, ETA; clients; leads; demo data.
 - **Apps** (`#apps[/view[/arg]]`, `#app/<key>`, since 2026-11-11): a client's app portfolio board, the user's former App Board (six made-up clients by category, APP_MAKER/board/clients.json; logins arkulinskis+<id>@gmail.com). Facts come from Refresh here (`apps_refresh.py`: GitHub, live/SEO, schema, mentions, Prepsto, YouTube public numbers; App Secrets `github_token`, `prepsto_key`, `youtube_api_key`; only on click, nothing polls) and from the PC's one-shot update (`APP_MAKER/board/addanapp_link.py sync`: audit, legal, screenshots, posts, plans, new apps) through `/_/api/apps/v1/*` (`apps_sync.py`, key hash in `KEY_HASHES`); clicks are stored here; "Changes for Claude" are requests with project = app key. README "Apps" section has the details; UI test `tools/ui/apps.js`.
 - Lifecycle: Submitted → Scoping → Quote ready → In progress → Ready for review → Delivered (+ On hold, Closed). Internal notes never reach clients; client-visible notes and status changes are emailed.
+- **Trust features (2026-11-20, README "Trust features"):** `#estimate` ballpark estimator (client_code/estimate.py, prices
+  ONLY from tools/seo_pages/pricing.json: change a price there and in estimate.py together); sign-off records (table
+  `signoffs`, server_code/signoff.py: client requests can't go to review without a complete one; App Board requests skip
+  it) with the public `#signoff/sample`; locked quotes + change orders (table `change_orders`, server_code/quotes.py:
+  after approval `quote_amount` only changes through a change order the client approved). Styles in theme/assets/trust.css.
 
 **Where it lives:**
 - App repo **github.com/arkulinskis/addanapp**, branch `master`; Anvil pulls master. Live: https://addanapp.com (domain assumed in `SITE_URL`, server_code/common.py, and the head tags).
@@ -68,7 +73,7 @@ theme/assets/            app.css (design system + "Native Anvil Forms layer" at 
 tools/                   check.py, ui_test.py + ui/*.js, i18n_check.py, assets.py, build_icons.py, testing/
 ```
 
-**Tables:** `users` (+ name, company, phone, color, role, is_admin, is_demo, email_notifications, last_seen, lang, legal_*), `requests`, `notes`, `leads`, `app_projects`, `app_docs`, `app_jobs` (Apps).
+**Tables:** `users` (+ name, company, phone, color, role, is_admin, is_demo, email_notifications, last_seen, lang, legal_*), `requests`, `notes`, `leads`, `signoffs`, `change_orders`, `app_projects`, `app_docs`, `app_jobs` (Apps).
 
 ## How things are done here (native Forms)
 
@@ -116,6 +121,15 @@ tools/                   check.py, ui_test.py + ui/*.js, i18n_check.py, assets.p
 - **SEO:** title/meta/OG/JSON-LD live in `anvil.yaml → native_deps.head_html` and `metadata`; each route sets its own `<title>`; private pages are `noindex`.
 
 ## Gotchas
+
+- **Lines the server writes with amounts and dates** (approval "Quote approved by X · $2,400 · ETA Nov 14", change orders,
+  "Signed off by X: 10/10 checks · 38 tests", "Delivery accepted by X · 6/6 criteria passed") are stored in English and
+  translated for display by `_RICH` in i18n.server_text (money and dates converted). Change the wording in quotes.py /
+  signoff.py / api_client.py and the regex + pack key together. NoteItem translates only kinds `validated` and `change`.
+- The locked-quote rule is "an approval note exists" (status note quoted -> in_progress); the seed writes one for demo
+  requests that are in progress or later. Old demo data (before 2026-11-20) has none: Remove + Load demo data refreshes it.
+- `client_code/estimate.py` and `signoff_data.py` are imported by server modules (one package in Anvil); the server test
+  copies them next to server_code (test_server.py top).
 
 - **Continue with Google** (`Dialogs/AuthBox.google_button_click`; strings in lang-*.json): `login_with_google()` returns None for someone without an account, so the code then calls `signup_with_google()`; on the sign-up view it needs the Privacy & Terms tick first. Needs `use_google` + the Google service in anvil.yaml.
 - Portfolio previews: SVG on a 400×250 canvas; `_phone()` content goes past the bottom edge, so keep phone UI above y≈248, and a coloured phone screen needs `rx="17"` from y=22 (redraw the notch). Check new art large before shipping: text easily spills out of shapes.

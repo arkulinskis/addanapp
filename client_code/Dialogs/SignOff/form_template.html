@@ -1,0 +1,21 @@
+<div class="dlg so-dlg">
+  <h3 class="dlg-h" data-t>Sign off this delivery</h3>
+  <div class="small muted dlg-sub" data-t>Your name goes on the record the client sees. Tick only what you checked yourself.</div>
+  <anvil-component type="Label" name="error" prop:role='["msg-error"]' prop:visible="false"></anvil-component>
+  <div class="so-dlg-sec">
+    <div class="so-dlg-head"><h4 data-t>The 10 checks</h4><anvil-component type="Button" name="all_button" prop:text="Tick all 10" prop:role='["aa-link"]'></anvil-component></div>
+    <div class="so-ticks"><anvil-component type="RepeatingPanel" name="checks" prop:item_template="Addanapp.Items.SoCheck" prop:role='["contents"]'></anvil-component></div>
+  </div>
+  <div class="so-dlg-sec">
+    <div class="so-dlg-head"><h4 data-t>Acceptance criteria</h4></div>
+    <div class="small muted" data-t>From the request. Tick each one you tested against the delivery.</div>
+    <div class="so-ticks"><anvil-component type="RepeatingPanel" name="criteria" prop:item_template="Addanapp.Items.SoCheck" prop:role='["contents"]'></anvil-component></div>
+  </div>
+  <label class="f so-tests"><span class="lbl" data-t>Automated tests passing</span><anvil-component type="TextBox" name="tests_box" prop:type="number" prop:placeholder="e.g. 38"></anvil-component></label>
+  <label class="f"><span class="lbl" data-t>Reviewer note (the client sees it)</span><anvil-component type="TextArea" name="note_box" prop:placeholder="What you reviewed, what you fixed, anything to watch."></anvil-component></label>
+  <div class="so-status"><anvil-component type="Label" name="status_label" prop:role='["t"]'></anvil-component></div>
+  <div class="dlg-acts">
+    <anvil-component type="Button" name="cancel_button" prop:text="Cancel" prop:role='["aa-btn", "ghost"]'></anvil-component>
+    <anvil-component type="Button" name="save_button" prop:text="Save sign-off" prop:role='["aa-btn", "green"]'></anvil-component>
+  </div>
+</div>

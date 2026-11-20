@@ -21,6 +21,8 @@ PROJECT = HERE.parents[1]
 _tmp = pathlib.Path(tempfile.mkdtemp())
 shutil.copytree(PROJECT / "server_code", _tmp / "app")
 (_tmp / "app" / "__init__.py").write_text("")
+for _shared in ("estimate.py", "signoff_data.py"):  # pure client modules the server imports (one package in Anvil)
+    shutil.copy(PROJECT / "client_code" / _shared, _tmp / "app" / _shared)
 os.environ["ANVIL_APP_YAML"] = str(PROJECT / "anvil.yaml")  # the mock's tables follow the app's own schema
 sys.path[:0] = [str(HERE / "mock"), str(_tmp)]
 import anvil.email  # noqa: E402
@@ -143,9 +145,13 @@ assert all(not n["internal"] for n in seen["notes"]), "clients never see interna
 r = call("client_action", rid, "approve_quote", "")
 assert r["request"]["status"] == "in_progress"
 as_user(admin)
+problem("admin_update_request", rid, {"status": "review"}, None, has="Sign off")
+checks = {k: True for k in M["signoff"].CHECK_KEYS}
+assert call("admin_save_signoff", rid, {"checks": checks, "criteria": [{"text": "Works as described", "ok": True}], "tests": 38})["signoff_ready"]
 assert call("admin_update_request", rid, {"status": "review", "progress": 100}, None)["request"]["status"] == "review"
 as_user(ana)
-assert call("client_action", rid, "accept", "")["request"]["status"] == "delivered"
+problem("client_action", rid, "accept", "", [False], has="Tick every")
+assert call("client_action", rid, "accept", "", [True])["request"]["status"] == "delivered"
 
 as_user(admin)
 people = call("admin_clients")

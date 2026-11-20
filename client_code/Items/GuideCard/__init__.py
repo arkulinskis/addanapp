@@ -26,6 +26,8 @@ class GuideCard(GuideCardTemplate):
         self.dom_nodes["title"].textContent = tp(it['title'])
         self.dom_nodes["hook"].textContent = tp(it['hook'])
         self.inside.items = [{"text": tp(x)} for x in it['inside']]
+        if it['slug'] != 'ai-built-human-signed':
+            self.dom_nodes["sample"].style.display = "none"
         unlocked = bool(it.get('url'))
         self.want_button.visible = not unlocked
         self.download.visible = unlocked

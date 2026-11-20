@@ -25,6 +25,7 @@ class LeadCard(LeadCardTemplate):
         email.setAttribute("href", mailto)
         self.dom_nodes["company"].textContent = (" · " + lead["company"]) if lead["company"] else ''
         ui.chip(self.c_guide, tp('Free guides') if guide else '', 'ai')
+        ui.chip(self.c_est, tp('Estimator') if lead['source'] == 'estimate' else '', 'accent', ico='receipt')
         ui.chip(self.c_tips, tp('Wants tips') if lead['source'] == 'guide+news' else '', 'human')
         ui.chip(self.c_kind, tp(lead["kind"]) if lead["kind"] else '', 'outline')
         ui.chip(self.c_budget, tp('Budget: {budget}', budget=tp(lead["budget"])) if lead["budget"] else '', 'outline')

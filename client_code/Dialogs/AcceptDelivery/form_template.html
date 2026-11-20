@@ -1,0 +1,14 @@
+<div class="dlg ad-dlg">
+  <h3 class="dlg-h" data-t>Accept this delivery</h3>
+  <div class="small muted dlg-sub" data-t>Tick each acceptance criterion you tested and saw working. Anything left unticked becomes a change request instead.</div>
+  <anvil-component type="Label" name="error" prop:role='["msg-error"]' prop:visible="false"></anvil-component>
+  <div class="so-ticks ad-ticks"><anvil-component type="RepeatingPanel" name="crits" prop:item_template="Addanapp.Items.SoCheck" prop:role='["contents"]'></anvil-component></div>
+  <div class="ad-count"><anvil-component type="Label" name="count_label" prop:role='["t"]'></anvil-component></div>
+  <div anvil:name="changes_part">
+    <label class="f"><span class="lbl" data-t>What should change?</span><anvil-component type="TextArea" name="comment_box"></anvil-component></label>
+  </div>
+  <div class="dlg-acts">
+    <anvil-component type="Button" name="cancel_button" prop:text="Cancel" prop:role='["aa-btn", "ghost"]'></anvil-component>
+    <anvil-component type="Button" name="ok_button" prop:role='["aa-btn", "green"]'></anvil-component>
+  </div>
+</div>

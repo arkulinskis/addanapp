@@ -1,0 +1,42 @@
+---
+custom_component: true
+help_text: A delivery's sign-off record (engineer, the 10 checks, tests, each acceptance criterion, note) with Print.
+properties:
+- default_value: null
+  description: The record (serial.signoff on the server, or signoff_data.sample_record())
+  name: record
+  type: object
+toolbox_item:
+  group: Addanapp
+  title: Sign-off record
+---
+<div class="so-host">
+<section class="so-card" anvil:dom-node="card">
+  <div class="so-head">
+    <div class="so-seal" aria-hidden="true"><i class="ic ic-shield"></i></div>
+    <div class="so-who">
+      <h3 class="so-title" data-t>Sign-off record</h3>
+      <div class="so-by"><anvil-component type="Label" name="by_label" prop:role='["t"]'></anvil-component></div>
+    </div>
+    <anvil-component type="Button" name="print_button" prop:text="Print" prop:role='["aa-btn", "ghost", "sm", "ic-printer", "so-print"]'></anvil-component>
+  </div>
+  <div class="so-stats">
+    <div class="so-stat"><b anvil:dom-node="n_checks"></b><span data-t>checks passed</span></div>
+    <div class="so-stat"><b anvil:dom-node="n_tests"></b><span data-t>automated tests pass</span></div>
+    <div class="so-stat"><b anvil:dom-node="n_crit"></b><span data-t>acceptance criteria met</span></div>
+  </div>
+  <div class="so-cols">
+    <div>
+      <h4 class="so-h" data-t>The 10 checks</h4>
+      <div class="so-list" role="list"><anvil-component type="RepeatingPanel" name="checks" prop:item_template="Addanapp.Items.SoLine" prop:role='["contents"]'></anvil-component></div>
+    </div>
+    <div>
+      <h4 class="so-h" data-t>Acceptance criteria</h4>
+      <div class="so-list" role="list"><anvil-component type="RepeatingPanel" name="criteria" prop:item_template="Addanapp.Items.SoLine" prop:role='["contents"]'></anvil-component></div>
+      <div class="so-client" anvil:name="client_part"><anvil-component type="Label" name="client_label" prop:role='["t"]'></anvil-component></div>
+    </div>
+  </div>
+  <div class="so-note" anvil:name="note_part"><anvil-component type="Label" name="note_label" prop:role='["t"]'></anvil-component></div>
+  <div class="so-foot"><anvil-component type="Label" name="foot_label" prop:role='["t"]'></anvil-component></div>
+</section>
+</div>

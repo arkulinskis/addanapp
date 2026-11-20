@@ -41,3 +41,20 @@ def note(n, viewer):
     'status_from': n['status_from'], 'status_to': n['status_to'],
     'status_to_label': STATUS_LABEL.get(n['status_to'], n['status_to'] or ''), 'progress': n['progress'],
   }
+
+
+def signoff(row):
+  """A sign-off record (server_code/signoff.py) for the browser, or None."""
+  if row is None:
+    return None
+  from . import signoff_data
+  checks = row['checks'] or {}
+  crit = [{'text': c.get('text') or '', 'ok': bool(c.get('ok'))} for c in (row['criteria'] or [])]
+  client = row['client_criteria']
+  return {
+    'reviewer': person(row['reviewer']), 'checks': {k: bool(checks.get(k)) for k in signoff_data.CHECK_KEYS},
+    'criteria': crit, 'tests': int(row['tests'] or 0), 'note': row['note'] or '', 'created': row['created'],
+    'accepted': row['accepted'],
+    'client_criteria': [{'text': c.get('text') or '', 'ok': bool(c.get('ok'))} for c in client] if client else None,
+    'complete': signoff_data.is_complete(checks, crit),
+  }

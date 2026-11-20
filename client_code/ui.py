@@ -52,6 +52,7 @@ NOTE_CHIP = {
   'validated': (tp('AI-built · human-validated'), 'human', 'shield'),
   'question': (tp('Question'), 'amber', 'help'),
   'internal': (tp('Internal'), 'amber', 'lock'),
+  'change': (tp('Change order'), 'amber', 'receipt'),
 }
 
 

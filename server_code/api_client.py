@@ -6,7 +6,7 @@ import anvil.users
 import anvil.tables as tables
 from anvil.tables import app_tables
 
-from . import apps_core, serial
+from . import apps_core, serial, quotes, signoff
 from .common import (current_user, rid, by_id, clean, now, next_ref, add_note, touch, notify_admins,
                      KINDS, PRIORITIES, OPEN_STATUSES, KIND_LABEL, PRIORITY_LABEL)
 from .i18n_server import set_user_lang
@@ -55,7 +55,10 @@ def poll_counts():
   if u['is_admin']:
     return {'unread': len(app_tables.requests.search(admin_unread=True)),
             'leads': len([l for l in app_tables.leads.search(status='new') if not is_quiet_guide_lead(l)])}
-  return {'unread': len(app_tables.requests.search(client=u, client_unread=True))}
+  mine = list(app_tables.requests.search(client=u))
+  pending = quotes.pending_map(mine)  # a change order waiting for their OK counts as "needs you" too
+  unread = {rid(r) for r in mine if r['client_unread']} | set(pending.keys())
+  return {'unread': len(unread), 'changes': len(pending)}
 
 
 # ---------------------------------------------------------------- requests
@@ -73,22 +76,32 @@ def payload(r, u):
   admin = bool(u['is_admin'])
   notes = app_tables.notes.search(tables.order_by('created', ascending=True), request=r)
   out = [serial.note(n, u) for n in notes if admin or not n['internal']]
-  return {'request': serial.request(r, admin), 'notes': out, 'is_admin': admin}
+  orders = [quotes.order(c) for c in quotes.orders_of(r)]
+  approval = quotes.approval_note(r) if r['quote_amount'] is not None else None
+  so = signoff.row_of(r)
+  return {'request': serial.request(r, admin), 'notes': out, 'is_admin': admin,
+          'locked': approval is not None, 'approved_at': approval['created'] if approval is not None else None,
+          'change_orders': orders, 'pending_change': next((c for c in orders if c['status'] == 'pending'), None),
+          'signoff': serial.signoff(so), 'needs_signoff': signoff.needs(r), 'signoff_ready': signoff.ready(r, so)}
 
 
 @anvil.server.callable
 def my_requests():
   u = current_user()
   rows = app_tables.requests.search(tables.order_by('last_activity', ascending=False), client=u)
+  rows = list(rows)
   reqs = [serial.request(r, False) for r in rows]
+  pending = quotes.pending_map(rows)
+  for d in reqs:
+    d['pending_change'] = pending.get(d['id'])
   stats = {
     'open': len([r for r in reqs if r['status'] in OPEN_STATUSES]),
-    'action': len([r for r in reqs if r['status'] in ('quoted', 'review')]),
+    'action': len([r for r in reqs if r['status'] in ('quoted', 'review') or r['pending_change']]),
     'in_progress': len([r for r in reqs if r['status'] == 'in_progress']),
     'delivered': len([r for r in reqs if r['status'] == 'delivered']),
     'total': len(reqs),
   }
-  return {'requests': reqs, 'stats': stats}
+  return {'requests': reqs, 'stats': stats, 'budget': quotes.budget(rows)}
 
 
 def _validate_request(data):
@@ -158,7 +171,9 @@ def _set_status(r, u, status, body=''):
 
 
 @anvil.server.callable
-def client_action(request_id, action, comment=''):
+def client_action(request_id, action, comment='', criteria=None):
+  """A client's step on their request. criteria = the client's tick per acceptance criterion (accept and
+  request_changes, when the delivery has a sign-off record)."""
   u = current_user()
   r = _load(request_id, u)
   comment = clean(comment, 8000)
@@ -177,24 +192,40 @@ def client_action(request_id, action, comment=''):
   elif action == 'approve_quote':
     if r['status'] != 'quoted':
       raise Exception("There's no quote waiting for approval on this request.")
-    _set_status(r, u, 'in_progress', f"Quote approved by {name}" + (f": {comment}" if comment else ''))
+    # the approval records the amount and ETA the client agreed to; from now on the quote is locked (quotes.py)
+    _set_status(r, u, 'in_progress', quotes.approval_line(name, r) + (f": {comment}" if comment else ''))
     r['admin_unread'] = True
     notify_admins(lambda tr: (
       tr("{ref}: quote approved", ref=r['ref']), tr("{name} approved the quote for {ref}", name=name, ref=r['ref']),
-      [f"<b>{r['title']}</b>", tr("The request moved to In progress. Time to build.")]), path)
+      [f"<b>{r['title']}</b>", tr("Approved amount: {amount}. The quote is now locked: changes go through a change order.",
+                                  amount=tr.money(r['quote_amount'])),
+       tr("The request moved to In progress. Time to build.")]), path)
   elif action == 'accept':
     if r['status'] != 'review':
       raise Exception("This request isn't ready for review yet.")
-    _set_status(r, u, 'delivered', f"Delivery accepted by {name}" + (f": {comment}" if comment else ''))
+    so = signoff.row_of(r)
+    passed, n_crit = '', 0
+    if so is not None and not u['is_admin']:
+      result = signoff.client_result(so, criteria)
+      if not result or not all(c['ok'] for c in result):
+        raise Exception("Tick every acceptance criterion to accept the delivery, or request changes.")
+      so.update(client_criteria=result, accepted=now())
+      n_crit = len(result)
+      passed = " · %d/%d criteria passed" % (n_crit, n_crit)
+    _set_status(r, u, 'delivered', f"Delivery accepted by {name}" + passed + (f": {comment}" if comment else ''))
     r['admin_unread'] = True
     notify_admins(lambda tr: (
       tr("{ref}: delivery accepted", ref=r['ref']), tr("{name} accepted {ref}", name=name, ref=r['ref']),
-      [f"<b>{r['title']}</b>", tr("Accepted. It can be invoiced now.")]), path)
+      [f"<b>{r['title']}</b>"] + ([tr("Every acceptance criterion passed ({n}/{n}).", n=n_crit)] if passed else []) +
+      [tr("Accepted. It can be invoiced now.")]), path)
   elif action == 'request_changes':
     if r['status'] != 'review':
       raise Exception("This request isn't in review.")
     if len(comment) < 3:
       raise Exception("Tell us what should change.")
+    so = signoff.row_of(r)
+    if so is not None and criteria is not None and not u['is_admin']:
+      so['client_criteria'] = signoff.client_result(so, criteria)  # which criteria didn't pass (shown on the record)
     _set_status(r, u, 'in_progress', "Changes requested")
     add_note(r, u, 'comment', comment)
     r['admin_unread'] = True
@@ -209,6 +240,32 @@ def client_action(request_id, action, comment=''):
     notify_admins(lambda tr: (
       tr("{ref}: withdrawn", ref=r['ref']), tr("{name} withdrew {ref}", name=name, ref=r['ref']),
       [f"<b>{r['title']}</b>", comment]), path)
+  elif action in ('approve_change', 'decline_change'):
+    if r['client'] != u:
+      raise Exception("Only the client can approve or decline a change order.")
+    co = quotes.pending_of(r)
+    if co is None:
+      raise Exception("There's no change order waiting on this request.")
+    t = now()
+    if action == 'approve_change':
+      new_eta = co['eta_after'] if co['eta_after'] and co['eta_after'] != co['eta_before'] else None
+      r.update(quote_amount=co['amount_after'], eta=co['eta_after'], updated=t, last_activity=t, admin_unread=True)
+      co.update(status='approved', decided=t, decided_by=u)
+      add_note(r, u, 'status', quotes.approved_line(name, co))
+      notify_admins(lambda tr: (
+        tr("{ref}: change order approved", ref=r['ref']), tr("{name} approved the change order on {ref}", name=name, ref=r['ref']),
+        [f"<b>{r['title']}</b>", tr("New total: {amount}.", amount=tr.money(co['amount_after']))] +
+        ([tr("New ETA: {date}.", date=tr.date(new_eta))] if new_eta else [])), path)
+    else:
+      co.update(status='declined', decided=t, decided_by=u)
+      add_note(r, u, 'status', quotes.declined_line(name))
+      if comment:
+        add_note(r, u, 'comment', comment)
+      r.update(last_activity=t, admin_unread=True)
+      notify_admins(lambda tr: (
+        tr("{ref}: change order declined", ref=r['ref']), tr("{name} declined the change order on {ref}", name=name, ref=r['ref']),
+        [f"<b>{r['title']}</b>", tr("The approved price and ETA stay as they were.")] +
+        ([comment[:800].replace('\n', '<br>')] if comment else [])), path)
   else:
     raise Exception("Unknown action.")
   return payload(r, u)

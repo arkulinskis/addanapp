@@ -6,7 +6,7 @@ import anvil.server
 import anvil.tables as tables
 from anvil.tables import app_tables
 
-from . import serial
+from . import serial, quotes, signoff
 from .common import (require_admin, rid, by_id, clean, now, add_note, notify_client, ensure_defaults,
                      STATUSES, STATUS_LABEL, PRIORITIES, ADMIN_NOTE_KINDS, LEAD_STATUSES, OPEN_STATUSES)
 from .api_client import payload, create_request_row
@@ -38,6 +38,10 @@ def admin_update_request(request_id, changes=None, note=None):
   r = by_id(app_tables.requests, request_id)
   if r is None:
     raise Exception("Request not found.")
+  new_status = (changes or {}).get('status')
+  if new_status == 'review' and r['status'] != 'review' and signoff.needs(r) and not signoff.ready(r):
+    # "Signed off by senior engineers" is a record, not a promise: no sign-off, no review (App Board requests skip it)
+    raise Exception("Sign off the delivery first: tick the 10 checks and every acceptance criterion, then mark it ready.")
   update_request_as(u, r, changes, note)
   return payload(r, u)
 
@@ -61,7 +65,11 @@ def update_request_as(u, r, changes=None, note=None):
     qa = float(qa) if qa not in (None, '') else None
     if qa is not None and qa < 0:
       raise Exception("Quotes can't be negative.")
-    if qa != r['quote_amount']:
+    same = (qa is None and r['quote_amount'] is None) or (
+      qa is not None and r['quote_amount'] is not None and int(round(qa)) == int(round(r['quote_amount'])))
+    if not same:
+      if quotes.locked(r):
+        raise Exception("The client approved this quote, so it's locked. Send a change order to change the price.")
       ch['quote_amount'] = qa
   if 'quote_note' in changes:
     qn = clean(changes['quote_note'], 4000)
@@ -79,6 +87,8 @@ def update_request_as(u, r, changes=None, note=None):
   new_status = changes.get('status')
   if new_status and new_status not in STATUSES:
     raise Exception("Unknown status.")
+  if new_status in ('new', 'scoping', 'quoted') and new_status != r['status'] and quotes.locked(r):
+    raise Exception("The client approved this quote. To change scope or price, send a change order.")
   if new_status == 'quoted' and (ch.get('quote_amount', r['quote_amount']) is None):
     raise Exception("Add the fixed quote amount before sending the quote.")
 
@@ -152,6 +162,10 @@ def admin_delete_request(request_id):
     return False
   for n in app_tables.notes.search(request=r):
     n.delete()
+  for tab in (quotes.table(), signoff.table()):
+    if tab is not None:
+      for x in tab.search(request=r):
+        x.delete()
   r.delete()
   return True
 
@@ -241,3 +255,76 @@ def admin_update_lead(lead_id, status=None, delete=False):
   if status in LEAD_STATUSES:
     l['status'] = status
   return True
+
+
+# ---------------------------------------------------------------- change orders (quotes.py)
+
+@anvil.server.callable
+def admin_send_change_order(request_id, amount, eta=None, reason=''):
+  """After the client approved a quote, a change of price or ETA is a change order the client approves first."""
+  u = require_admin()
+  r = by_id(app_tables.requests, request_id)
+  if r is None:
+    raise Exception("Request not found.")
+  t = quotes.table()
+  if t is None:
+    raise Exception("Change orders need a database update first: accept the schema change in the Anvil editor.")
+  if r['status'] in ('delivered', 'declined'):
+    raise Exception("This request is closed. New work goes in a new request.")
+  if not quotes.locked(r):
+    raise Exception("There's no approved quote to change yet. Until the client approves it, edit the quote itself.")
+  if quotes.pending_of(r) is not None:
+    raise Exception("A change order is already waiting for the client. Withdraw it first to send a different one.")
+  try:
+    amount = float(amount)
+  except (TypeError, ValueError):
+    raise Exception("Enter the new total price.")
+  if amount < 0:
+    raise Exception("Quotes can't be negative.")
+  if eta is not None and not isinstance(eta, datetime.date):
+    eta = None
+  reason = clean(reason, 2000)
+  if len(reason) < 10:
+    raise Exception("Explain the change in a sentence (10 characters or more): the client approves it on that basis.")
+  same_price = int(round(amount)) == int(round(r['quote_amount'] or 0))
+  if same_price and (eta is None or eta == r['eta']):
+    raise Exception("Change the price or the ETA: otherwise there's nothing for the client to approve.")
+  stamp = now()
+  co = t.add_row(request=r, by=u, amount_before=r['quote_amount'], amount_after=amount, eta_before=r['eta'],
+                 eta_after=eta or r['eta'], reason=reason, status='pending', created=stamp, decided=None, decided_by=None)
+  add_note(r, u, 'change', quotes.sent_line(co))
+  r.update(last_activity=stamp, updated=stamp, client_unread=True)
+  delta = amount - (r['quote_amount'] or 0)
+  new_eta = co['eta_after'] if co['eta_after'] != co['eta_before'] else None
+
+  def build(tr):
+    lines = []
+    if not same_price:
+      lines.append(tr("Your engineer proposes a change order: {delta} (new total {total}).",
+                      delta=('+' if delta >= 0 else '-') + tr.money(abs(delta)), total=tr.money(amount)))
+    if new_eta:
+      lines.append(tr("New ETA: {date}.", date=tr.date(new_eta)))
+    lines.append(tr("Why: {reason}", reason=reason[:800].replace('<', '&lt;').replace('\n', '<br>')))
+    lines.append(tr("Nothing changes unless you approve it in your workspace. If you keep the original scope, the approved price and ETA stay."))
+    return (tr("{ref}: a change order needs your OK", ref=r['ref']), r['title'], lines)
+  notify_client(r, build)
+  return payload(r, u)
+
+
+@anvil.server.callable
+def admin_cancel_change_order(request_id):
+  """Withdraw a change order the client hasn't decided on yet (a typo, or the scope worked out after all)."""
+  u = require_admin()
+  r = by_id(app_tables.requests, request_id)
+  if r is None:
+    raise Exception("Request not found.")
+  co = quotes.pending_of(r)
+  if co is None:
+    raise Exception("There's no change order waiting on this request.")
+  stamp = now()
+  co.update(status='withdrawn', decided=stamp, decided_by=u)
+  add_note(r, u, 'status', quotes.withdrawn_line(u['name']))
+  r.update(last_activity=stamp, updated=stamp, client_unread=True)
+  notify_client(r, lambda tr: (tr("{ref}: progress update", ref=r['ref']), tr("Update on {title}", title=r['title']),
+                               [tr("The change order was withdrawn. The approved price and ETA stay as they were.")]))
+  return payload(r, u)

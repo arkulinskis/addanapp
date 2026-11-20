@@ -11,7 +11,32 @@ Addanapp is the website and client platform for a Montréal software consultancy
 | **Consultant console** (`#admin`) | Every request across clients as a list or Kanban board. Post progress notes (update, milestone, human-validated, question, internal), set status, progress %, fixed quote, scope summary and ETA. Also manage clients, website leads and demo data. |
 | **Apps** (`#apps`, `#app/<key>`) | A client's app portfolio board (the user's App Board, moved here from their PC on 2026-11-11; the apps are spread over six made-up test clients by category). Views: Board (a lane per stage), Checklist grid, Posts, Biz dev, Money, YouTube, Dossiers, Notifications; one page per app with its checklist, "Changes for Claude" (they become requests), a Prepsto idea box, notes and links. Only that client and consultants see it. |
 
-Other routes: `#work` (full portfolio: every project, with what we built, its film and its link), `#guides[/<slug>]` (the free PDF guides, unlocked with an email), `#r/<id>` (one request), `#new`, `#account`, `#privacy`, `#login`, `#signup`.
+Other routes: `#work` (full portfolio: every project, with what we built, its film and its link), `#guides[/<slug>]` (the free PDF guides, unlocked with an email), `#estimate[/<code>]` (the 60-second ballpark estimator), `#signoff/sample` (a public sample sign-off record), `#r/<id>` (one request), `#new`, `#account`, `#privacy`, `#login`, `#signup`.
+
+## Trust features (2026-11-20)
+
+- **Ballpark estimator** (`#estimate`, Engagements menu, a button under the engagements, a line on `/pricing` + `/fr/tarifs`):
+  seven one-tap questions (`client_code/estimate.py`, pure Python shared with the server) map to the published milestone
+  prices only (Launch $30,000 / Operate $75,000 / Scale $150,000 / Complete $300,000; a change = per-request quote, sample
+  $2,400 in 6 days; a takeover = audit first). The result updates live (milestone, price, path, why, what's included,
+  "ballpark, not a quote"); the address follows the answers (`#estimate/a0110000`), so **Copy link** reopens it in any
+  language. **Send as a brief** = a lead with source `estimate`; the server recomputes the estimate from the code and
+  writes "Estimator: Operate (~$75,000). Answers: ..." into the message (LeadCard shows an "Estimator" chip).
+- **Sign-off record** (`server_code/signoff.py`, table `signoffs`, `client_code/signoff_data.py`): before a client request
+  can move to Ready for review, the consultant signs it off (Dialogs/SignOff: the 10 checks from guide 03, each
+  acceptance criterion, tests passing, a note). A complete record posts a "Signed off by ..." note and emails the client;
+  the client sees the green record (Components/SignoffCard, with Print). **Accept delivery** opens Dialogs/AcceptDelivery:
+  a tick per criterion; anything unticked turns it into "Request changes" with those criteria written in. A changed
+  delivery must be signed off again. App Board requests (portfolio clients) skip all of this. Public sample:
+  `#signoff/sample` (linked from the hero's "100% human-reviewed" stamp, method step 04 and guide 03's card).
+- **Locked quotes + change orders** (`server_code/quotes.py`, table `change_orders`): once the client approves a quote
+  (the approval note records amount and ETA), the amount can't be edited. The consultant sends a change order
+  (Dialogs/ChangeOrder: new total, new ETA, reason); the client gets an amber banner with **Keep the original scope /
+  Approve change**; declining (or the consultant withdrawing it) leaves price and ETA untouched. Details shows the approved
+  quote, every change order and the total; the Portal has a "No surprises" strip (approved & in progress, accepted,
+  waiting for your OK, hours billed 0). Every step is a timeline line with before and after.
+- New tables are read through guards: until the Schema Mismatch is accepted, the app works as before (no sign-off guard,
+  no change orders).
 
 ## Apps: the portfolio board (since 2026-11-11)
 
@@ -51,7 +76,8 @@ the workspace menu and sees only its own apps, plans and videos; consultants see
 `Submitted → Scoping → Quote ready → In progress → Ready for review → Delivered` (plus `On hold` and `Closed`).
 
 - The consultant sets the fixed quote and ETA, then moves the request to **Quote ready**. The client clicks **Approve quote** and it moves to In progress.
-- The consultant marks it **Ready for review**. The client clicks **Accept delivery** (it becomes Delivered and can be invoiced) or **Request changes** (it goes back to In progress with their comment).
+- After approval the quote is **locked**: a price or ETA change is a change order the client approves first.
+- The consultant **signs off** the delivery (10 checks + each acceptance criterion), then marks it **Ready for review**. The client ticks each criterion and clicks **Accept delivery** (it becomes Delivered and can be invoiced) or **Request changes** (it goes back to In progress with their comment and the criteria that didn't pass).
 - Internal notes are never sent to clients. Client-visible notes and status changes are emailed to the client, and client actions are emailed to consultants.
 
 ## Getting it running in Anvil
@@ -112,13 +138,15 @@ client_code/
   router.py        #addresses -> page Forms (same addresses as before), sign-in rules, page titles
   Layouts/Shell/   header (chapter links + menus, language switch, account menu, burger), footer, unread-count timer
   Pages/           Landing (all the marketing copy, in the template), Work, Guides, Privacy, Portal, NewRequest,
-                   RequestDetail, Account, Admin
+                   RequestDetail, Account, Admin, Estimate (#estimate), SignoffSample (#signoff/sample)
   Components/      Avatar, Progress, Seg (one-of-several buttons), RequestForm (also in the console's dialog), Shot (a
-                   project's SVG preview or screenshot)
+                   project's SVG preview or screenshot), SignoffCard (a sign-off record), BudgetStrip (Portal sums)
   Items/           RepeatingPanel rows: ShowcaseCard, WorkGroup/WorkRow/WorkDetail, ProofLink, LangLink, Tick, Tag, Pill,
                    Tile, AttnRow, RequestRow, BoardColumn/BoardCard, Step, NoteItem, KvRow, GuideCard, GuideLink,
-                   PersonCard, LeadCard, AppNavLink, SegOption
-  Dialogs/         AuthBox (sign in / create workspace), PromptText, NewForClient
+                   PersonCard, LeadCard, AppNavLink, SegOption, EstQuestion, SoLine, SoCheck
+  Dialogs/         AuthBox (sign in / create workspace), PromptText, NewForClient, SignOff, AcceptDelivery, ChangeOrder
+  estimate.py      the estimator's questions, prices (from the pricing page) and share code; pure, the server uses it too
+  signoff_data.py  the 10 sign-off checks, acceptance criteria parsing, the public sample; pure, shared with the server
   i18n.py          translations: t(), tp(), plurals, apply() for templates, dates and money per language
   content.py       films, partner decks, free guides, project-brief choices (data; the copy is in the templates)
   portfolio.py     portfolio projects, films (VIDEOS), the SVG preview "engine" (art_*), random picks
@@ -130,9 +158,12 @@ server_code/
   serial.py        rows → client-safe dicts (clients never see internal notes or other clients)
   api_client.py    profile, my requests, create, comment / approve / accept / request changes / withdraw
   api_admin.py     overview, update request + notes, clients, leads
-  api_public.py    project-brief form, sitemap
-  seed.py          demo data
-theme/assets/      app.css (design system + the layer that styles Anvil's components), theme.css (loading spinner),
+  api_public.py    project-brief form (+ the estimator's briefs), sitemap
+  signoff.py       sign-off records (admin_save_signoff, the "sign off before review" guard, the client's criteria)
+  quotes.py        locked quotes, change orders (admin_send/cancel_change_order are in api_admin), the Portal sums
+  seed.py          demo data (incl. sign-offs on delivered/review requests and one pending change order)
+theme/assets/      app.css (design system + the layer that styles Anvil's components), trust.css (estimator, sign-off,
+                   change orders, budget strip, print), theme.css (loading spinner),
                    icons.css (made by tools/build_icons.py from app-kit.js), app-kit.js (icons, storage, template translator,
                    accessibility glue), aa.js (scroll reveal, smooth scroll, page meta, header spy, film player),
                    lang-fr/ru/lv.json, logo, og-image
@@ -161,11 +192,12 @@ What this project uses besides its own code. Generated by `APP_MAKER/tools/libra
 | Name | How it gets in | Used here for |
 |---|---|---|
 | [YouTube embeds](https://developers.google.com/youtube/player_parameters) | Outside web service | Plays a YouTube video inside the page (the privacy-friendlier youtube-nocookie address). |
+| [YouTube Data API](https://developers.google.com/youtube/v3) | Outside web service | Uploads videos, captions and thumbnails to a YouTube channel. |
 | [Google Fonts](https://fonts.google.com) | Loaded from a CDN | Instrument Serif, Inter, JetBrains Mono, PT Serif |
 
 **Built into the browser:** localStorage, Clipboard, IntersectionObserver.
 
-**Anvil platform:** Anvil, Anvil Data Tables, Anvil JS bridge (anvil.js), Anvil Users, Anvil Google service, Anvil Email, Anvil Media, Anvil timezones (anvil.tz).
+**Anvil platform:** Anvil, Anvil Data Tables, Anvil Email, Anvil JS bridge (anvil.js), Anvil Secrets, Anvil Users, Anvil Google service, Anvil HTTP, Anvil timezones (anvil.tz), Anvil Media.
 
 **Build and test tools (not shipped):** axe-core, Node.js, Headless Chrome (DevTools Protocol).
 

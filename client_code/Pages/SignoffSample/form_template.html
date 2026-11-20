@@ -1,0 +1,31 @@
+<anvil-form layout="Addanapp.Layouts.Shell">
+<anvil-block slot="content">
+<div class="app-page so-page"><div class="aa-wrap">
+  <div class="so-intro">
+    <span class="chip outline so-tag"><i class="ic ic-eye s14" aria-hidden="true"></i> <x-t data-t>Sample from our demo workspace</x-t></span>
+    <h1 data-t>What “signed off” means <em>here.</em></h1>
+    <p class="so-lead" data-t>Every delivery reaches you with a record like this one: the engineer who reviewed it, the 10 checks from our free guide, the automated tests, and each of your acceptance criteria. Then you tick the criteria yourself before you accept.</p>
+  </div>
+  <div class="so-req">
+    <span class="chip mono">AA-1042</span>
+    <span class="chip outline" data-t>Integration / API</span>
+    <b data-t>Deposits for large-party reservations</b>
+    <span class="small muted" data-t>Bistro Laurier (demo client)</span>
+  </div>
+  <anvil-component type="Addanapp.Components.SignoffCard" name="card"></anvil-component>
+  <section class="so-try" aria-labelledby="so-try-h">
+    <div>
+      <h2 id="so-try-h" data-t>Your turn: <em>accept it criterion by criterion.</em></h2>
+      <p data-t>In your workspace, “Accept delivery” asks you to tick each acceptance criterion. Leave one unticked and it becomes a change request with that criterion already written in. Try it here: nothing is sent.</p>
+      <anvil-component type="Label" name="try_result" prop:role='["t"]'></anvil-component>
+    </div>
+    <anvil-component type="Button" name="try_button" prop:text="Try “Accept delivery”" prop:role='["aa-btn", "green", "lg"]'></anvil-component>
+  </section>
+  <div class="so-ctas">
+    <a class="aa-btn accent" href="#estimate"><x-t data-t>Get a ballpark in 60 seconds</x-t> <span class="arr">&rarr;</span></a>
+    <a class="aa-btn ghost" href="#guides/ai-built-human-signed" data-t>Read guide 03: AI-Built, Human-Signed</a>
+    <a class="aa-btn ghost" href="#home/contact" data-t>Start a project</a>
+  </div>
+</div></div>
+</anvil-block>
+</anvil-form>

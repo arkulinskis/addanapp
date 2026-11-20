@@ -50,4 +50,5 @@ class NoteItem(NoteItemTemplate):
             self.kind_chip.visible = False
         self.dom_nodes["time"].textContent = when
         self.dom_nodes["time"].setAttribute("title", title)
-        self.body.text = n['body']
+        # sign-off and change-order lines are written by the server in English with amounts and dates
+        self.body.text = i18n.server_text(n['body']) if n['kind'] in ('validated', 'change') else n['body']

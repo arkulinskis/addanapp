@@ -1,0 +1,69 @@
+<anvil-form layout="Addanapp.Layouts.Shell">
+<anvil-block slot="content">
+<div class="app-page est-page"><div class="aa-wrap">
+  <div class="est-head">
+    <h1 data-t>Get a ballpark in <em>60 seconds.</em></h1>
+    <p class="est-lead" data-t>Seven one-tap questions. The price comes straight from our published milestone prices and changes as you answer.</p>
+  </div>
+  <div class="est">
+    <div class="est-qs">
+      <anvil-component type="RepeatingPanel" name="qs" prop:item_template="Addanapp.Items.EstQuestion" prop:role='["contents"]'></anvil-component>
+      <a class="est-peek" href="#est-result" anvil:dom-node="peek" anvil:on-dom:click="self.peek_click"><span data-t>Your ballpark</span> <b anvil:dom-node="peek_val"></b> <span class="arr" aria-hidden="true">&darr;</span></a>
+    </div>
+    <div class="est-res" id="est-result">
+      <div class="est-card">
+        <div class="est-top">
+          <h2 class="est-name"><anvil-component type="Label" name="res_name" prop:role='["t"]'></anvil-component></h2>
+          <div class="est-price"><anvil-component type="Label" name="res_price" prop:role='["t"]'></anvil-component></div>
+          <div class="est-sub"><anvil-component type="Label" name="res_sub" prop:role='["t"]'></anvil-component></div>
+        </div>
+        <div class="est-path" anvil:name="path_part" aria-hidden="true">
+          <span class="est-ms" anvil:dom-node="p0"><b anvil:dom-node="p0n"></b><i anvil:dom-node="p0p"></i></span>
+          <span class="est-ms" anvil:dom-node="p1"><b anvil:dom-node="p1n"></b><i anvil:dom-node="p1p"></i></span>
+          <span class="est-ms" anvil:dom-node="p2"><b anvil:dom-node="p2n"></b><i anvil:dom-node="p2p"></i></span>
+          <span class="est-ms" anvil:dom-node="p3"><b anvil:dom-node="p3n"></b><i anvil:dom-node="p3p"></i></span>
+        </div>
+        <div anvil:name="why_part">
+          <h3 class="est-h" data-t>Why this milestone</h3>
+          <div class="est-why" role="list"><anvil-component type="RepeatingPanel" name="why" prop:item_template="Addanapp.Items.Tick" prop:role='["contents"]'></anvil-component></div>
+        </div>
+        <div>
+          <h3 class="est-h"><anvil-component type="Label" name="inc_title" prop:role='["t"]'></anvil-component></h3>
+          <div class="est-inc" role="list"><anvil-component type="RepeatingPanel" name="included" prop:item_template="Addanapp.Items.Tick" prop:role='["contents"]'></anvil-component></div>
+        </div>
+        <div class="est-stop" anvil:name="stop_part"><i class="ic ic-flag s16" aria-hidden="true"></i><x-t data-t>Stop after any milestone and keep everything: code, data and documentation.</x-t></div>
+        <div class="est-note"><i class="ic ic-help s16" aria-hidden="true"></i><x-t data-t>Ballpark from our published prices, not a quote. Your fixed quote comes after a short brief, and nothing starts until you approve it.</x-t></div>
+        <div class="est-acts">
+          <anvil-component type="Button" name="copy_button" prop:text="Copy link" prop:role='["aa-btn", "ghost", "ic-link"]'></anvil-component>
+          <anvil-component type="Button" name="brief_button" prop:text="Send as a brief" prop:role='["aa-btn", "accent", "ic-mail"]'></anvil-component>
+        </div>
+        <div class="est-more"><a href="/pricing" data-t>How milestone pricing works</a></div>
+      </div>
+
+      <div class="est-brief lp-form" anvil:name="brief_part">
+        <div anvil:name="brief_body">
+          <h3 class="est-bh" data-t>Send this estimate as a brief</h3>
+          <div class="small muted est-bsub" data-t>An engineer replies within two business days with questions or a fixed quote. Your answers go with it.</div>
+          <anvil-component type="Label" name="brief_error" prop:role='["msg-error"]' prop:visible="false"></anvil-component>
+          <div class="row2">
+            <label class="f"><span class="lbl" data-t>Name</span><anvil-component type="TextBox" name="b_name" prop:placeholder="Jane Tremblay"></anvil-component></label>
+            <label class="f"><span class="lbl" data-t>Work email</span><anvil-component type="TextBox" name="b_email" prop:type="email" prop:placeholder="jane@company.com"></anvil-component></label>
+          </div>
+          <label class="f"><span class="lbl"><x-t data-t>Company</x-t> <span class="opt" data-t>(optional)</span></span><anvil-component type="TextBox" name="b_company" prop:placeholder="Company Inc."></anvil-component></label>
+          <label class="f"><span class="lbl" data-t>In one sentence, what should it do?</span><anvil-component type="TextArea" name="b_message" prop:height="90" prop:placeholder="e.g. Replace our order spreadsheet with an app for 12 staff and our wholesale customers."></anvil-component></label>
+          <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" anvil:dom-node="b_hp" class="hp" />
+          <label class="check est-consent"><input type="checkbox" anvil:dom-node="b_consent" /><span data-t>I agree that Addanapp may contact me about this request. See our <a href="javascript:void(0)" data-lk-open="privacy">privacy policy</a>.</span></label>
+          <anvil-component type="Button" name="b_send" prop:text="Send brief" prop:role='["aa-btn", "accent", "block"]'></anvil-component>
+        </div>
+        <div class="ok" anvil:name="brief_ok">
+          <div class="seal"><i class="ic ic-check"></i></div>
+          <h3 data-t>Brief received. Thank you.</h3>
+          <p class="muted" data-t>An engineer will reply within two business days. In the meantime, you can create a workspace and submit the request in full.</p>
+          <a href="#signup" class="aa-btn"><x-t data-t>Create a workspace</x-t> <span class="arr">&rarr;</span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></div>
+</anvil-block>
+</anvil-form>

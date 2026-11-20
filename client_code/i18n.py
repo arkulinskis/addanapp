@@ -27,7 +27,7 @@ LANGS = [('en', 'English'), ('fr', 'Français'), ('ru', 'Русский'), ('lv'
 CODES = [c for c, _n in LANGS]
 NAMES = dict(LANGS)
 STORAGE_KEY = 'aa.lang'
-VERSION = '22'
+VERSION = '23'
 
 
 def _stored():
@@ -177,6 +177,47 @@ _PATTERNS = [
   (r'^Removed demo data \((\d+) requests\)\.$', 'Removed demo data ({n} requests).', ['n']),
 ]
 _QUOTE = r'^Fixed quote: \$([\d,]+)(?: · ETA ([A-Z][a-z]{2}) (\d{1,2}))?$'
+# Locked quotes, change orders and sign-offs (server_code/quotes.py, signoff.py) write lines with amounts and dates:
+# (regex, English key, [(placeholder, kind)]) with kind 'text', 'money' ('$2,400'), 'signed' ('+$600') or 'date' ('Nov 14').
+# A last group ': ...' (a comment or reason someone typed) is kept as typed.
+_M = r'([+-]?\$[\d,]+)'
+_D = r'([A-Z][a-z]{2} \d{1,2}|—)'
+_RICH = [
+  (r'^Quote approved by (.+?) · ' + _M + r' · ETA ' + _D + r'(: [\s\S]*)?$', 'Quote approved by {name} · {amount} · ETA {date}',
+   [('name', 'text'), ('amount', 'money'), ('date', 'date')]),
+  (r'^Quote approved by (.+?) · ' + _M + r'(: [\s\S]*)?$', 'Quote approved by {name} · {amount}', [('name', 'text'), ('amount', 'money')]),
+  (r'^Change order: ' + _M + r', new total ' + _M + r', new ETA ' + _D + r'(: [\s\S]*)?$',
+   'Change order: {delta}, new total {total}, new ETA {date}', [('delta', 'money'), ('total', 'money'), ('date', 'date')]),
+  (r'^Change order: ' + _M + r', new total ' + _M + r'(: [\s\S]*)?$', 'Change order: {delta}, new total {total}',
+   [('delta', 'money'), ('total', 'money')]),
+  (r'^Change order: new ETA ' + _D + r'(: [\s\S]*)?$', 'Change order: new ETA {date}', [('date', 'date')]),
+  (r'^Change order approved by (.+?): ' + _M + ' → ' + _M + ' · ETA ' + _D + ' → ' + _D + '$',
+   'Change order approved by {name}: {before} → {after} · ETA {from} → {to}',
+   [('name', 'text'), ('before', 'money'), ('after', 'money'), ('from', 'date'), ('to', 'date')]),
+  (r'^Change order approved by (.+?): ' + _M + ' → ' + _M + '$', 'Change order approved by {name}: {before} → {after}',
+   [('name', 'text'), ('before', 'money'), ('after', 'money')]),
+  (r'^Change order approved by (.+?): ETA ' + _D + ' → ' + _D + '$', 'Change order approved by {name}: ETA {from} → {to}',
+   [('name', 'text'), ('from', 'date'), ('to', 'date')]),
+  (r'^Change order declined by (.+?): the original scope stays$', 'Change order declined by {name}: the original scope stays',
+   [('name', 'text')]),
+  (r'^Change order withdrawn by (.+)$', 'Change order withdrawn by {name}', [('name', 'text')]),
+  (r'^Signed off by (.+?): (\d+)/(\d+) checks · (\d+) tests$', 'Signed off by {name}: {n}/{total} checks · {tests} tests',
+   [('name', 'text'), ('n', 'text'), ('total', 'text'), ('tests', 'text')]),
+  (r'^Delivery accepted by (.+?) · (\d+)/(\d+) criteria passed(: [\s\S]*)?$', 'Delivery accepted by {name} · {ok}/{n} criteria passed',
+   [('name', 'text'), ('ok', 'text'), ('n', 'text')]),
+]
+
+
+def _rich_value(v, kind):
+  if kind in ('money', 'signed'):
+    sign = '-' if v.startswith('-') else ('+' if v.startswith('+') else '')
+    return sign + money(int(v.lstrip('+-').lstrip('$').replace(',', '')))
+  if kind == 'date':
+    if v == '—':
+      return v
+    mon, d = v.split(' ')
+    return t('{month} {day}', month=month(MONTHS.index(mon) + 1), day=int(d)) if mon in MONTHS else v
+  return v
 
 
 def server_text(msg):
@@ -185,6 +226,15 @@ def server_text(msg):
     return msg
   if msg in _pack:
     return t(msg)
+  for pat, key, names in _RICH:
+    m = re.match(pat, msg)
+    if m:
+      g = m.groups()
+      kw = {}
+      for i, (name, kind) in enumerate(names):
+        kw[name] = _rich_value(g[i], kind)
+      rest = g[len(names)] if len(g) > len(names) else ''
+      return t(key, **kw) + (rest or '')
   m = re.match(_QUOTE, msg)
   if m:
     out = t('Fixed quote: {amount}', amount=money(int(m.group(1).replace(',', ''))))

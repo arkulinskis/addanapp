@@ -20,8 +20,8 @@
             <span><i class="ic ic-check"></i><x-t data-t>You own 100% of the code</x-t></span>
           </div>
         </div>
-        <div role="img" aria-label="Example: a feature request tracked in the Addanapp client workspace, from fixed quote to AI draft, human validation and client review." data-ta="aria-label" class="lp-mock rv d2">
-          <div class="win">
+        <div class="lp-mock rv d2">
+          <div class="win" role="img" aria-label="Example: a feature request tracked in the Addanapp client workspace, from fixed quote to AI draft, human validation and client review." data-ta="aria-label">
             <div class="bar"><i></i><i></i><i></i><span class="url">addanapp.com · workspace</span></div>
             <div class="body">
               <div class="top">
@@ -45,7 +45,7 @@
               <span style="display:flex;gap:6px"><span data-t class="aa-btn sm ghost" style="pointer-events:none">Request changes</span><span data-t class="aa-btn sm green" style="pointer-events:none">Accept delivery</span></span></div>
             </div>
           </div>
-          <div class="stamp"><div class="seal"><i class="ic ic-shield"></i></div><div><b data-t>100% human-reviewed</b><x-t data-t>Every AI draft is signed off by a senior engineer.</x-t></div></div>
+          <a class="stamp" href="#signoff/sample"><div class="seal"><i class="ic ic-shield"></i></div><div><b data-t>100% human-reviewed</b><x-t data-t>Every AI draft is signed off by a senior engineer.</x-t> <span class="stamp-more"><x-t data-t>See a sample sign-off record</x-t> &rarr;</span></div></a>
         </div>
       </div>
       <div class="lp-proof">
@@ -104,7 +104,7 @@
           <div class="lp-step rv d0"><div class="num"><span>01</span><span data-t class="who c">You</span></div><div class="ico"><i class="ic ic-message"></i></div><h3 data-t>Brief</h3><p data-t>Describe the outcome you need in your workspace, in plain language. Screenshots and links welcome.</p></div>
           <div class="lp-step rv d1"><div class="num"><span>02</span><span data-t class="who h">Human</span></div><div class="ico"><i class="ic ic-target"></i></div><h3 data-t>Scope &amp; fixed quote</h3><p data-t>An engineer writes acceptance criteria, flags risks and sends a fixed price with an ETA. Nothing starts until you approve.</p></div>
           <div class="lp-step rv d2"><div class="num"><span>03</span><span data-t class="who a">AI + engineer</span></div><div class="ico"><i class="ic ic-sparkle"></i></div><h3 data-t>Accelerated build</h3><p data-t>AI agents draft code, tests, migrations and docs under an engineer's direction. Days, not months.</p></div>
-          <div class="lp-step rv d3"><div class="num"><span>04</span><span data-t class="who h">Human</span></div><div class="ico"><i class="ic ic-shield"></i></div><h3 data-t>Validation</h3><p data-t>Line-by-line review, security and privacy checks, and tests against your acceptance criteria on real devices.</p></div>
+          <div class="lp-step rv d3"><div class="num"><span>04</span><span data-t class="who h">Human</span></div><div class="ico"><i class="ic ic-shield"></i></div><h3 data-t>Validation</h3><p data-t>Line-by-line review, security and privacy checks, and tests against your acceptance criteria on real devices.</p><a class="lp-step-more" href="#signoff/sample"><x-t data-t>See a sample sign-off record</x-t> <span class="arr">&rarr;</span></a></div>
           <div class="lp-step rv d4 hl"><div class="num"><span>05</span><span data-t class="who c">You</span></div><div class="ico"><i class="ic ic-badge"></i></div><h3 data-t>Accept, then pay</h3><p data-t>Try it on staging. Accept it, or ask for changes within scope at no extra cost. Then you're invoiced.</p></div>
         </div>
         <div class="lp-stats">
@@ -274,6 +274,10 @@
           <div data-t class="price">Reserved monthly capacity</div><p data-t>A senior engineer for your roadmap, with AI leverage behind them and your request queue always moving.</p>
           <ul><li><i class="ic ic-check"></i><span data-t>Priority request queue</span></li><li><i class="ic ic-check"></i><span data-t>Monthly roadmap review</span></li><li><i class="ic ic-check"></i><span data-t>Fix-first response on production issues</span></li><li><i class="ic ic-check"></i><span data-t>Pause or stop any month</span></li></ul>
           <a href="#home/contact" class="aa-btn ghost block"><x-t data-t>Talk to us</x-t> <span class="arr">→</span></a></div>
+        </div>
+        <div class="eng-more rv">
+          <div class="eng-lock"><i class="ic ic-lock" aria-hidden="true"></i><x-t data-t>Quotes lock when you approve them. Any change is a change order you approve first.</x-t></div>
+          <a href="#estimate" class="aa-btn accent"><i class="ic ic-calc s18" aria-hidden="true"></i> <x-t data-t>Get a ballpark in 60 seconds</x-t> <span class="arr">→</span></a>
         </div>
       </div>
     </section>

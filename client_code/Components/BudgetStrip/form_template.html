@@ -1,0 +1,26 @@
+---
+custom_component: true
+help_text: The client's "no surprises" budget line on the Portal (approved, accepted, waiting for their OK, hours billed).
+properties:
+- default_value: null
+  description: "{approved, accepted, waiting, waiting_n, hours} from my_requests"
+  name: budget
+  type: object
+toolbox_item:
+  group: Addanapp
+  title: Budget strip
+---
+<div class="bs-host">
+<section class="bs" aria-label="No surprises: your budget" data-ta="aria-label">
+  <div class="bs-head">
+    <b class="bs-title" data-t>No surprises</b>
+    <span class="bs-sub" data-t>Fixed prices only. A price changes only through a change order you approve.</span>
+  </div>
+  <div class="bs-grid">
+    <div class="bs-item"><span class="bs-l" data-t>Approved &amp; in progress</span><b class="bs-v" anvil:dom-node="approved"></b></div>
+    <div class="bs-item"><span class="bs-l" data-t>Accepted</span><b class="bs-v" anvil:dom-node="accepted"></b></div>
+    <div class="bs-item" anvil:dom-node="wait_box"><span class="bs-l" data-t>Waiting for your OK</span><b class="bs-v" anvil:dom-node="waiting"></b></div>
+    <div class="bs-item"><span class="bs-l" data-t>Hours billed</span><b class="bs-v" anvil:dom-node="hours"></b></div>
+  </div>
+</section>
+</div>

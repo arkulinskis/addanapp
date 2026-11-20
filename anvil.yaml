@@ -136,6 +136,47 @@ db_schema:
       type: datetime
     server: full
     title: App projects
+  change_orders:
+    client: none
+    columns:
+    - admin_ui: {width: 200}
+      name: request
+      target: requests
+      type: link_single
+    - admin_ui: {width: 200}
+      name: by
+      target: users
+      type: link_single
+    - admin_ui: {width: 200}
+      name: amount_before
+      type: number
+    - admin_ui: {width: 200}
+      name: amount_after
+      type: number
+    - admin_ui: {width: 200}
+      name: eta_before
+      type: date
+    - admin_ui: {width: 200}
+      name: eta_after
+      type: date
+    - admin_ui: {width: 200}
+      name: reason
+      type: string
+    - admin_ui: {width: 200}
+      name: status
+      type: string
+    - admin_ui: {width: 200}
+      name: created
+      type: datetime
+    - admin_ui: {width: 200}
+      name: decided
+      type: datetime
+    - admin_ui: {width: 200}
+      name: decided_by
+      target: users
+      type: link_single
+    server: full
+    title: Change orders
   error_log:
     client: none
     columns:
@@ -302,6 +343,40 @@ db_schema:
       type: bool
     server: full
     title: Requests
+  signoffs:
+    client: none
+    columns:
+    - admin_ui: {width: 200}
+      name: request
+      target: requests
+      type: link_single
+    - admin_ui: {width: 200}
+      name: reviewer
+      target: users
+      type: link_single
+    - admin_ui: {width: 200}
+      name: checks
+      type: simpleObject
+    - admin_ui: {width: 200}
+      name: criteria
+      type: simpleObject
+    - admin_ui: {width: 200}
+      name: tests
+      type: number
+    - admin_ui: {width: 200}
+      name: note
+      type: string
+    - admin_ui: {width: 200}
+      name: client_criteria
+      type: simpleObject
+    - admin_ui: {width: 200}
+      name: created
+      type: datetime
+    - admin_ui: {width: 200}
+      name: accepted
+      type: datetime
+    server: full
+    title: Sign-offs
   users:
     client: none
     columns:
@@ -394,7 +469,7 @@ native_deps:
       if (q) { l = q[1]; try { localStorage.setItem('aa.lang', l); } catch (e) {} }
       if (l === 'fr' || l === 'ru' || l === 'lv') {
         document.documentElement.lang = l;
-        window.aaLangPack = fetch('_/theme/lang-' + l + '.json?v=22').then(function (r) {
+        window.aaLangPack = fetch('_/theme/lang-' + l + '.json?v=23').then(function (r) {
           if (!r.ok) throw new Error('lang ' + r.status);
           return r.text();
         }).then(function (t) {
@@ -417,11 +492,12 @@ native_deps:
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="_/theme/icons.css?v=58ea88e510">
+    <link rel="stylesheet" href="_/theme/icons.css?v=e87dbe5761">
     <link rel="stylesheet" href="_/theme/app.css?v=def0f496ec">
-    <script src="_/theme/app-kit.js?v=5b52a77799"></script>
+    <script src="_/theme/app-kit.js?v=47e15a3b50"></script>
     <script src="_/theme/aa.js?v=4606a6b288"></script>
     <link rel="stylesheet" href="_/theme/apps.css?v=c47f5a6f22">
+    <link rel="stylesheet" href="_/theme/trust.css?v=fcf96dccca">
     <script src="_/theme/apps.js?v=affbcee05d" defer></script>
     <link rel="icon" type="image/svg+xml" href="_/theme/logo.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="_/theme/favicon-32.png">

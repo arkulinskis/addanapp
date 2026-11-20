@@ -4,12 +4,18 @@ from datetime import timedelta
 import anvil.server
 from anvil.tables import app_tables
 
+from . import estimate
 from .common import clean, now, notify_admins, send_email, SITE_URL
 from .i18n_server import Tr
 
 
+LEAD_SOURCES = ('website', 'estimate')  # where a project brief came from (anything else counts as the website form)
+
+
 @anvil.server.callable
 def submit_lead(data):
+  """A project brief from the website: the contact form, or the ballpark estimator (#estimate) with its answers.
+  The estimate is recomputed here from the share code (client_code/estimate.py), never taken from the browser."""
   data = data or {}
   if clean(data.get('website')):
     return True  # honeypot filled: silently ignore bots
@@ -27,12 +33,21 @@ def submit_lead(data):
   recent = [l for l in app_tables.leads.search(email=email) if l['created'] and now() - l['created'] < timedelta(hours=1)]
   if len(recent) >= 3:
     raise Exception("We've received your briefs. An engineer will be in touch shortly.")
-  app_tables.leads.add_row(name=name, email=email, company=clean(data.get('company'), 120), kind=clean(data.get('kind'), 80),
-                           budget=clean(data.get('budget'), 40), message=message, status='new', created=now(),
-                           source='website')
-  company, kind, budget = clean(data.get('company')), clean(data.get('kind')), clean(data.get('budget'))
+  source = data.get('source') if data.get('source') in LEAD_SOURCES else 'website'
+  kind, budget = clean(data.get('kind'), 80), clean(data.get('budget'), 40)
+  if source == 'estimate':
+    answers = estimate.decode(clean(data.get('estimate'), 20))
+    res = estimate.result(answers)
+    kind = estimate.LEAD_KIND.get(answers['need'], kind)
+    budget = estimate.LEAD_BUDGET.get(res['key'], budget)
+    message = (message + "\n\nEstimator: " + estimate.headline(res) + ". Answers: " + estimate.summary(answers) +
+               ". Link: " + SITE_URL + "/#estimate/" + estimate.encode(answers))[:5000]
+  company = clean(data.get('company'), 120)
+  app_tables.leads.add_row(name=name, email=email, company=company, kind=kind, budget=budget, message=message,
+                           status='new', created=now(), source=source)
   notify_admins(lambda tr: (
-    tr("New project brief from {name}", name=name), tr("New project brief"),
+    tr("New project brief from {name}", name=name),
+    tr("New project brief (from the estimator)") if source == 'estimate' else tr("New project brief"),
     [f"<b>{name}</b> · {email} · {company or tr('no company')}",
      f"{tr(kind)} · " + tr("Budget: {budget}", budget=tr(budget)),
      message[:1500].replace('\n', '<br>')]), 'admin/leads')

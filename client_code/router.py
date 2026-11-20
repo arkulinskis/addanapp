@@ -3,6 +3,8 @@
     #home[/section]   the landing page, scrolled to a section (approach, services, work, youtube, workspace, engage,
                       partners, guides, faq, contact, montreal)
     #work  #guides[/slug]  #privacy                      public pages
+    #estimate[/<code>]                                   the 60-second ballpark estimator (code = the answers)
+    #signoff/sample                                      a public sample sign-off record
     #login  #signup                                      the landing page with the sign-in box on top
     #portal  #new  #r/<request id>  #account             a client's workspace (signed in)
     #admin[/requests|clients|leads|tools]                the consultant console (admins)
@@ -129,6 +131,18 @@ def show():
         ui.set_meta(tp("Free guides for business owners | Addanapp"),
                     tp("Five free PDF guides: when a spreadsheet has become an app, a one-page app brief template, buying AI-built "
                        "software, build vs buy with a 3-year cost worksheet, and a Québec Law 25 checklist."))
+    elif head == 'estimate':
+        from .Pages.Estimate import Estimate
+        _open('estimate', Estimate(code=arg), nav='engage', public=True)
+        ui.set_meta(tp("Software cost estimator: a ballpark in 60 seconds | Addanapp"),
+                    tp("Seven one-tap questions give a ballpark from Addanapp's published fixed-price milestones: Launch $30,000, "
+                       "Operate $75,000, Scale $150,000, Complete $300,000. Share it, or send it as a brief."))
+    elif head == 'signoff':
+        from .Pages.SignoffSample import SignoffSample
+        _open('signoff', SignoffSample(), nav='approach', public=True)
+        ui.set_meta(tp("A sample sign-off record | Addanapp"),
+                    tp("What 'signed off by senior engineers' means at Addanapp: the engineer, the 10 checks, the tests and "
+                       "each acceptance criterion, on a sample delivery from our demo workspace."))
     elif head == 'privacy':
         from .Pages.Privacy import Privacy
         _open('privacy', Privacy(), public=True)

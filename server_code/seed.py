@@ -4,6 +4,7 @@ from datetime import timedelta
 import anvil.server
 from anvil.tables import app_tables
 
+from . import quotes, signoff, signoff_data
 from .common import require_admin, now, next_ref
 
 CLIENTS = [
@@ -17,7 +18,7 @@ CLIENTS = [
 REQUESTS = [
   (0, 'Deposits for large-party reservations', 'integration', 'high', 'in_progress', 72, 3800, 9,
    "Parties of 8+ should pay a 20% deposit when booking online. Deposits must be refundable up to 48h before the reservation.",
-   "- Deposit required for 8+ guests\n- Stripe checkout on the booking page\n- Automatic refund if cancelled 48h+ before\n- Deposit shown in the manager's day view",
+   "\n".join("- " + c for c in signoff_data.SAMPLE['criteria']),
    [(8, 'admin', 'status', '', False),
     (7, 'admin', 'update', "Scoped with 6 acceptance criteria. Stripe Checkout with a webhook for refunds is the simplest robust option.", False),
     (5, 'admin', 'validated', "AI drafted the Stripe flow, webhooks and 38 tests. I reviewed every change: fixed two edge cases (partial refunds, timezone on the 48h cutoff) and ran the security checklist.", False),
@@ -89,8 +90,48 @@ def admin_seed_demo():
     if status not in ('new',) and not any(n[2] == 'status' for n in notes):
       app_tables.notes.add_row(request=r, author=me, kind='status', body='', status_from='scoping', status_to=status,
                                internal=False, created=last + timedelta(minutes=5))
+    if quote and status in ('in_progress', 'review', 'delivered'):
+      # the client approved the quote (it's locked now): the approval note records the amount and ETA
+      app_tables.notes.add_row(request=r, author=users[ci], kind='status', body=quotes.approval_line(users[ci]['name'], r),
+                               status_from='quoted', status_to='in_progress', internal=False, created=created + timedelta(hours=20))
+    if status in ('review', 'delivered'):
+      _demo_signoff(r, me, users[ci], status, last)
+    if title == DEMO_CHANGE[0]:
+      _demo_change(r, me, t)
     r['last_activity'] = last
   return "Demo data loaded: 3 clients and %d requests." % len(REQUESTS)
+
+
+# A pending change order on the deposits request (the client sees an amber "approve the change" banner)
+DEMO_CHANGE = ('Deposits for large-party reservations', 4400, 4,
+               "Your team asked for a manager override to waive deposits for regulars. That's new scope: one more screen, "
+               "a permission and its tests.")
+
+
+def _demo_change(r, me, t):
+  tab = quotes.table()
+  if tab is None:
+    return
+  _title, amount, days, reason = DEMO_CHANGE
+  eta_after = (r['eta'] + timedelta(days=days)) if r['eta'] else None
+  co = tab.add_row(request=r, by=me, amount_before=r['quote_amount'], amount_after=amount, eta_before=r['eta'],
+                   eta_after=eta_after, reason=reason, status='pending', created=t - timedelta(hours=6), decided=None,
+                   decided_by=None)
+  app_tables.notes.add_row(request=r, author=me, kind='change', body=quotes.sent_line(co), internal=False,
+                           created=t - timedelta(hours=6))
+
+
+def _demo_signoff(r, me, client, status, when):
+  tab = signoff.table()
+  if tab is None:
+    return
+  crit = [{'text': c, 'ok': True} for c in signoff_data.criteria_of(r['acceptance'])]
+  tests = {'Route optimisation v2': 54, 'Weekly covers report (PDF)': 22}.get(r['title'], 12)
+  notes = [n for n in app_tables.notes.search(request=r, kind='validated')]
+  note = notes[0]['body'] if notes else ''
+  tab.add_row(request=r, reviewer=me, checks={k: True for k in signoff_data.CHECK_KEYS}, criteria=crit, tests=tests,
+              note=note, created=when, client_criteria=crit if status == 'delivered' else None,
+              accepted=r['accepted_at'] if status == 'delivered' else None)
 
 
 @anvil.server.callable
@@ -101,6 +142,10 @@ def admin_clear_demo():
     for r in app_tables.requests.search(client=u):
       for note in app_tables.notes.search(request=r):
         note.delete()
+      for tab in (quotes.table(), signoff.table()):
+        if tab is not None:
+          for x in tab.search(request=r):
+            x.delete()
       r.delete()
       n += 1
     u.delete()

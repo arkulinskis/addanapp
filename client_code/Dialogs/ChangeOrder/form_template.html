@@ -1,0 +1,16 @@
+<div class="dlg co-dlg">
+  <h3 class="dlg-h" data-t>Send a change order</h3>
+  <div class="small muted dlg-sub" data-t>The approved quote stays locked. The client approves or declines this change, and nothing changes until they approve it.</div>
+  <anvil-component type="Label" name="error" prop:role='["msg-error"]' prop:visible="false"></anvil-component>
+  <div class="co-now"><anvil-component type="Label" name="now_label" prop:role='["t"]'></anvil-component></div>
+  <div class="row2">
+    <label class="f"><span class="lbl" data-t>New total ($)</span><anvil-component type="TextBox" name="amount_box" prop:type="number"></anvil-component></label>
+    <label class="f"><span class="lbl" data-t>New ETA</span><anvil-component type="TextBox" name="eta_box"></anvil-component></label>
+  </div>
+  <label class="f"><span class="lbl" data-t>Why (the client sees this)</span><anvil-component type="TextArea" name="reason_box" prop:placeholder="What changed in the scope, and what the extra work is."></anvil-component></label>
+  <div class="co-preview"><anvil-component type="Label" name="preview_label" prop:role='["t"]'></anvil-component></div>
+  <div class="dlg-acts">
+    <anvil-component type="Button" name="cancel_button" prop:text="Cancel" prop:role='["aa-btn", "ghost"]'></anvil-component>
+    <anvil-component type="Button" name="send_button" prop:text="Send change order" prop:role='["aa-btn", "accent"]'></anvil-component>
+  </div>
+</div>

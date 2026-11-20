@@ -12,7 +12,7 @@ def filter_requests(reqs, f):
     if f == 'active':
         return [r for r in reqs if r['status'] in ui.OPEN_STATUSES]
     if f == 'action':
-        return [r for r in reqs if r['status'] in ui.CLIENT_ACTION]
+        return [r for r in reqs if r['status'] in ui.CLIENT_ACTION or r.get('pending_change')]
     if f == 'progress':
         return [r for r in reqs if r['status'] == 'in_progress']
     if f == 'delivered':
@@ -53,7 +53,8 @@ class Portal(PortalTemplate):
         self.main_part.visible = bool(reqs)
         if not reqs:
             return
-        action = [r for r in reqs if r['status'] in ui.CLIENT_ACTION]
+        action = [r for r in reqs if r['status'] in ui.CLIENT_ACTION or r.get('pending_change')]
+        self.budget.budget = self.data.get('budget')
         self.attn_box.visible = bool(action)
         self.attn.items = action
         f = self.filter

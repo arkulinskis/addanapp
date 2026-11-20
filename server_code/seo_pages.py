@@ -75,7 +75,7 @@ def _inline(text):
         if href.startswith("/#") or href.startswith("#"):
             href = href.lstrip("/")
             name = href[1:].split("/")[0]
-            href = "/" + href if name in ("work", "guides", "privacy", "home") else "/#home/" + href[1:]
+            href = "/" + href if name in ("work", "guides", "privacy", "home", "estimate", "signoff") else "/#home/" + href[1:]
         return '<a href="%s">%s</a>' % (html.escape(href, quote=True), m.group(1))
     return re.sub(r"\[([^\]]+)\]\(([^)\s]+)\)", link, t)
 
