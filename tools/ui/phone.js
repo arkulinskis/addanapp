@@ -23,7 +23,7 @@
     await sleep(600);
     if (window.LegalKit && window.LegalKit.isOpen()) { window.LegalKit.close(); await sleep(300); }
     const vw = Math.min(window.innerWidth, screen.width), w = document.documentElement.scrollWidth;
-    const wide = $$('body *').filter((e) => { const r = e.getBoundingClientRect(); return r.width && r.right > vw + 1 && !e.closest('.marquee, .board, .lp-filter, .tabs-line, .aa-nav, #lk-root'); })
+    const wide = $$('body *').filter((e) => { const r = e.getBoundingClientRect(); return r.width && r.right > vw + 1 && !e.closest('.marquee, .board, .lp-filter, .sp-grid, .tabs-line, .aa-nav, #lk-root'); })
       .slice(0, 3).map((e) => e.tagName.toLowerCase() + '.' + String(e.className).split(' ').slice(0, 2).join('.'));
     const sideways = w > vw + 1 || wide.length;
     if (sideways) bad.push(hash + ' scrolls sideways (' + w + ' > ' + vw + ') ' + wide.join(' '));

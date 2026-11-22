@@ -1369,5 +1369,15 @@
 "Only the client can approve or decline a change order.": "Seul le client peut approuver ou refuser un avenant.",
 "Tick every acceptance criterion to accept the delivery, or request changes.": "Cochez chaque critère d'acceptation pour accepter la livraison, ou demandez des modifications.",
 "The client accepted this delivery: its sign-off record is final.": "Le client a accepté cette livraison : son registre de validation est définitif.",
-"Tests: enter how many automated tests pass (a whole number).": "Tests : indiquez combien de tests automatisés réussissent (un nombre entier)."
+"Tests: enter how many automated tests pass (a whole number).": "Tests : indiquez combien de tests automatisés réussissent (un nombre entier).",
+"Three at a time": "Trois à la fois",
+"A random mix of our live products. Step through them all, or refresh for a new mix.": "Une sélection au hasard de nos produits en ligne. Parcourez-les tous, ou actualisez pour un nouveau mélange.",
+"Refresh": "Actualiser",
+"Shuffle into a new random order": "Mélanger dans un nouvel ordre au hasard",
+"Next": "Suivants",
+"Show the next three products": "Montrer les trois produits suivants",
+"Set {a} of {n}": "Série {a} sur {n}",
+"Show {name} in the full index": "Voir {name} dans l’index complet",
+"Film": "Film",
+"Try it live": "Essayer en ligne"
 }

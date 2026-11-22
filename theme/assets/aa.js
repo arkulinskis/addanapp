@@ -113,6 +113,18 @@ window.aa = (function () {
     });
   }
 
+  /* Work page spotlight "Details": open a project's index row (its toggle event builds the detail) and bring it into view. */
+  function openWork(root, key) {
+    if (!root) return;
+    var row = root.querySelector('details[data-key="' + key + '"]');
+    if (!row) return;
+    row.open = true;
+    var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    row.scrollIntoView({ behavior: still ? 'auto' : 'smooth', block: 'start' });
+    var sum = row.querySelector('summary');
+    if (sum) sum.focus({ preventScroll: true });
+  }
+
   return { reveal: reveal, scrollTo: scrollTo, setMeta: setMeta, copy: copy, spy: spy, markNav: markNav,
-           playFilm: playFilm, filterWork: filterWork };
+           playFilm: playFilm, filterWork: filterWork, openWork: openWork };
 })();

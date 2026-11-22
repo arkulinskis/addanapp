@@ -674,7 +674,7 @@ html[lang="fr"] h1, html[lang="lv"] h1 { font-size: clamp(2.4rem, 5.8vw, 4.6rem)
 
 /* the index */
 .pf-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 16px; }
-.pf-head h3 { font-family: var(--font-d); font-weight: 400; font-size: 2rem; line-height: 1.1; color: var(--ink); margin: 0; }
+.pf-head :is(h2, h3) { font-family: var(--font-d); font-weight: 400; font-size: 2rem; line-height: 1.1; color: var(--ink); margin: 0; }
 .pf-count { font-family: var(--font-m); font-size: .74rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); }
 .pf-index .lp-filter { margin-bottom: 26px; }
 .pf-list { border-top: 1px solid var(--line-2); min-width: 0; }
@@ -1345,3 +1345,50 @@ input:not([type=checkbox]):not([type=radio]):focus-visible, textarea:focus-visib
 .mode-public .aa-header :is(a, button):focus-visible, .on-dark :is(a, button):focus-visible, .lp-hero :is(a, button):focus-visible { outline-color: #9DB2FF; }
 /* links inside running text are underlined, not told apart by colour alone */
 :is(p, .check, .tiny, .small, .fine, .empty-p) a:not(.aa-btn):not(.aa-link) { text-decoration: underline; text-underline-offset: 2px; }
+
+/* ============================================================ Work page spotlight (2026-11-22)
+   Three live projects side by side (Pages/Work + Items/SpotTile); Refresh reshuffles, Next steps three at a time.
+   Under 1020px the cards become a swipeable row (scroll snap), so phones see one card and a peek of the next. */
+.sp-sec { padding-top: 56px; padding-bottom: 24px; }
+.sp-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 18px 32px; flex-wrap: wrap; margin-bottom: 26px; }
+.sp-head h2 { font-family: var(--font-d); font-weight: 400; font-size: 2.3rem; line-height: 1.08; color: var(--ink); margin: 0 0 8px; }
+.sp-lead { color: var(--muted); font-size: 1rem; line-height: 1.55; margin: 0; max-width: 560px; }
+.sp-ctrl { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+.sp-pos { font-family: var(--font-m); font-size: .78rem; color: var(--muted); margin-right: 6px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.anvil-role-sp-next > button { flex-direction: row-reverse; }
+.sp-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 22px; }
+.sp-tile { display: flex; flex-direction: column; height: 100%; background: #fff; border: 1px solid var(--line); border-radius: 20px; overflow: hidden; box-shadow: var(--shadow-sm);
+  animation: sp-in var(--dur-slow) var(--ease-out) both; animation-delay: calc(var(--n, 0) * 60ms);
+  transition: box-shadow var(--dur-base) var(--ease-out), border-color var(--dur-fast) ease, transform var(--dur-base) var(--ease-out); }
+@keyframes sp-in { from { opacity: 0; transform: translateY(10px); } }
+@media (hover: hover) and (pointer: fine) { .sp-tile:hover { box-shadow: var(--shadow); border-color: var(--line-2); transform: translateY(-2px); } }
+.sp-tile .shot { aspect-ratio: 16 / 10; display: flex; align-items: center; justify-content: center; border-bottom: 1px solid var(--line); }
+.sp-tile .shot :is(svg, .ic) { width: 100%; height: 100%; display: block; }
+.sp-tile .shot .pf-screen { flex: none; }
+.sp-body { padding: 20px 22px 18px; display: flex; flex-direction: column; flex: 1; min-width: 0; }
+.sp-cat { font-family: var(--font-m); font-size: .74rem; text-transform: uppercase; letter-spacing: .1em; color: var(--muted); display: flex; gap: 10px; margin-bottom: 10px; }
+.sp-num { color: var(--accent-d); font-variant-numeric: tabular-nums; }
+.sp-tile h3 { font-size: 1rem; font-weight: 600; color: var(--text-2); margin: 0 0 4px; }
+.sp-hook { font-family: var(--font-d); font-size: 1.5rem; line-height: 1.15; color: var(--ink); margin: 0 0 14px; text-wrap: pretty; }
+.sp-tile .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
+.sp-tile .tags span { font-size: .74rem; font-weight: 600; color: var(--text-2); background: var(--paper-2); padding: 4px 9px; border-radius: 999px; }
+.sp-foot { margin-top: auto; padding-top: 14px; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+.sp-acts { display: flex; align-items: center; gap: 12px; }
+.sp-details > button { min-height: 24px; }
+@media (max-width: 1020px) {
+  .sp-grid { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: min(80%, 380px); overflow-x: auto; scroll-snap-type: x mandatory;
+    overscroll-behavior-x: contain; padding: 4px 2px 14px; margin: -4px -2px 0; scrollbar-width: thin; }
+  .sp-tile { scroll-snap-align: start; }
+}
+@media (max-width: 640px) {
+  .sp-sec { padding-top: 40px; }
+  .sp-head h2 { font-size: 1.85rem; }
+  .sp-ctrl { width: 100%; }
+  .sp-pos { margin-right: auto; }
+  .sp-grid { grid-auto-columns: 86%; gap: 14px; }
+  .sp-hook { font-size: 1.35rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .sp-tile { animation-name: kit-fade; animation-delay: 0ms; }
+  .sp-tile:hover { transform: none; }
+}

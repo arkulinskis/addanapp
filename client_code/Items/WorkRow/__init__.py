@@ -16,6 +16,7 @@ class WorkRow(WorkRowTemplate):
         p = BY_KEY[self.item["key"]]
         self.p = p
         self.dom_nodes["item"].setAttribute("data-cat", self.item["cat"])
+        self.dom_nodes["item"].setAttribute("data-key", p["key"])
         pic = self.dom_nodes["pic"]
         pic.textContent = p['name'][0]
         pic.style.background = p['color']

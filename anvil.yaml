@@ -469,7 +469,7 @@ native_deps:
       if (q) { l = q[1]; try { localStorage.setItem('aa.lang', l); } catch (e) {} }
       if (l === 'fr' || l === 'ru' || l === 'lv') {
         document.documentElement.lang = l;
-        window.aaLangPack = fetch('_/theme/lang-' + l + '.json?v=23').then(function (r) {
+        window.aaLangPack = fetch('_/theme/lang-' + l + '.json?v=24').then(function (r) {
           if (!r.ok) throw new Error('lang ' + r.status);
           return r.text();
         }).then(function (t) {
@@ -493,9 +493,9 @@ native_deps:
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="_/theme/icons.css?v=e87dbe5761">
-    <link rel="stylesheet" href="_/theme/app.css?v=def0f496ec">
+    <link rel="stylesheet" href="_/theme/app.css?v=d8d3344590">
     <script src="_/theme/app-kit.js?v=47e15a3b50"></script>
-    <script src="_/theme/aa.js?v=4606a6b288"></script>
+    <script src="_/theme/aa.js?v=6bd8383c5f"></script>
     <link rel="stylesheet" href="_/theme/apps.css?v=c47f5a6f22">
     <link rel="stylesheet" href="_/theme/trust.css?v=fcf96dccca">
     <script src="_/theme/apps.js?v=affbcee05d" defer></script>

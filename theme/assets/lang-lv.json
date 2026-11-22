@@ -1367,5 +1367,15 @@
 "Only the client can approve or decline a change order.": "Izmaiņas apstiprināt vai noraidīt var tikai klients.",
 "Tick every acceptance criterion to accept the delivery, or request changes.": "Atzīmējiet katru pieņemšanas kritēriju, lai pieņemtu piegādi, vai pieprasiet izmaiņas.",
 "The client accepted this delivery: its sign-off record is final.": "Klients pieņēma šo piegādi: tās apstiprinājuma ieraksts ir galīgs.",
-"Tests: enter how many automated tests pass (a whole number).": "Testi: ievadiet, cik automātisko testu izpildās (vesels skaitlis)."
+"Tests: enter how many automated tests pass (a whole number).": "Testi: ievadiet, cik automātisko testu izpildās (vesels skaitlis).",
+"Three at a time": "Pa trim vienlaikus",
+"A random mix of our live products. Step through them all, or refresh for a new mix.": "Nejauša mūsu darbojošos produktu izlase. Apskatiet tos visus vai atsvaidziniet, lai iegūtu jaunu izlasi.",
+"Refresh": "Atsvaidzināt",
+"Shuffle into a new random order": "Sajaukt jaunā nejaušā secībā",
+"Next": "Tālāk",
+"Show the next three products": "Rādīt nākamos trīs produktus",
+"Set {a} of {n}": "{a}. izlase no {n}",
+"Show {name} in the full index": "Rādīt {name} pilnajā sarakstā",
+"Film": "Filma",
+"Try it live": "Izmēģināt"
 }

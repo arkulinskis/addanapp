@@ -77,6 +77,23 @@
     const all = +txt($('.lp-filter button .n'));
     ok($$('.pf-item').length === all && $$('.pf-group').length >= 6, 'work: every product (' + all + ') in category groups');
     ok(/\d+ products/.test(txt($('.pf-count'))), 'work: the count line');
+    // spotlight: three live projects side by side, Next steps through the shuffled deck, Refresh reshuffles
+    const spotKeys = () => $$('.sp-tile').map((e) => e.getAttribute('data-pf'));
+    await until(() => spotKeys().length === 3 && $$('.sp-tile .shot svg, .sp-tile .shot img').length === 3, 'three spotlight cards');
+    const first = spotKeys();
+    ok(new Set(first).size === 3 && /Set 1 of \d+/.test(txt($('.sp-pos'))), 'work: three different spotlight cards, set 1');
+    await click('Next', '.sp-ctrl');
+    await until(() => spotKeys().length === 3 && spotKeys().every((k) => first.indexOf(k) < 0), 'the next three');
+    ok(/Set 2 of/.test(txt($('.sp-pos'))), 'work: Next shows three others (set 2)');
+    const second = spotKeys();
+    await click('Refresh', '.sp-ctrl');
+    await until(() => spotKeys().length === 3 && spotKeys().every((k) => second.indexOf(k) < 0), 'a fresh mix');
+    ok(/Set 1 of/.test(txt($('.sp-pos'))), 'work: Refresh reshuffles and starts again at set 1');
+    const pick = spotKeys()[1];
+    await click('Details', '.sp-tile[data-pf="' + pick + '"]');
+    await until(() => { const r = $('details.pf-item[data-key="' + pick + '"]'); return r && r.open && r.querySelector('.pf-body'); }, 'Details opens the index row');
+    ok(true, "work: a spotlight card's Details opens its row in the index");
+    $('details.pf-item[data-key="' + pick + '"]').open = false;
     await click('Engaging games', '.lp-filter');
     const shown = $$('.pf-item').filter(vis);
     ok(shown.length > 0 && shown.length < all && shown.every((e) => e.getAttribute('data-cat') === 'games'), 'work: the games filter');

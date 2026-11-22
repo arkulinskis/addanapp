@@ -1372,5 +1372,15 @@
 "Only the client can approve or decline a change order.": "Утвердить или отклонить изменение может только клиент.",
 "Tick every acceptance criterion to accept the delivery, or request changes.": "Отметьте каждый критерий приёмки, чтобы принять работу, или запросите доработки.",
 "The client accepted this delivery: its sign-off record is final.": "Клиент принял эту работу: её акт проверки окончательный.",
-"Tests: enter how many automated tests pass (a whole number).": "Тесты: укажите, сколько автотестов проходит (целое число)."
+"Tests: enter how many automated tests pass (a whole number).": "Тесты: укажите, сколько автотестов проходит (целое число).",
+"Three at a time": "По три за раз",
+"A random mix of our live products. Step through them all, or refresh for a new mix.": "Случайная подборка наших работающих продуктов. Пролистайте их все или обновите, чтобы получить новую подборку.",
+"Refresh": "Обновить",
+"Shuffle into a new random order": "Перемешать в новом случайном порядке",
+"Next": "Дальше",
+"Show the next three products": "Показать следующие три продукта",
+"Set {a} of {n}": "Подборка {a} из {n}",
+"Show {name} in the full index": "Показать {name} в полном списке",
+"Film": "Фильм",
+"Try it live": "Попробовать"
 }

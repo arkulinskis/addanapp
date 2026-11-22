@@ -1,0 +1,16 @@
+<span class="ct"><article class="sp-tile" anvil:name="card">
+  <anvil-component type="Addanapp.Components.Shot" name="shot"></anvil-component>
+  <div class="sp-body">
+    <div class="sp-cat"><span class="sp-num" anvil:dom-node="num"></span><span anvil:dom-node="cat"></span></div>
+    <h3 anvil:dom-node="name"></h3>
+    <p class="sp-hook" anvil:dom-node="hook"></p>
+    <div class="tags"><anvil-component type="RepeatingPanel" name="tags" prop:item_template="Addanapp.Items.Tag" prop:role='["contents"]'></anvil-component></div>
+    <div class="sp-foot">
+      <anvil-component type="Button" name="details_button" prop:text="Details" prop:role='["aa-link","sp-details"]'></anvil-component>
+      <span class="sp-acts">
+        <a class="pf-watch" target="_blank" rel="noopener" anvil:name="watch"><svg viewBox="0 0 20 20" width="16" height="16" aria-hidden="true"><circle cx="10" cy="10" r="10" fill="currentColor"/><path d="M8 6.2v7.6l6-3.8z" fill="#fff"/></svg><span data-t>Film</span></a>
+        <a class="aa-btn ghost sm" target="_blank" rel="noopener" anvil:name="visit"><x-t data-t>Try it live</x-t> <span class="arr">&#8599;</span></a>
+      </span>
+    </div>
+  </div>
+</article></span>
