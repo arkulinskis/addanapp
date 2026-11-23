@@ -36,7 +36,7 @@
       {
         "h2": "How a SaaS project works with Addanapp",
         "bullets": [
-          "**Discovery workshop:** who pays, who uses the product, what differs between customers, and how you will charge.",
+          "**Free call and prototype:** a free exploratory call on who pays, who uses the product, what differs between customers and how you will charge, then a quick prototype you see before paying anything.",
           "**Fixed quote and ETA:** approved by you in your private workspace before work starts.",
           "**Build and review:** built with AI acceleration; a senior engineer reviews the code, tests tenant isolation and signs off.",
           "**Acceptance:** you try the delivery with real accounts, guided by the engineer's progress notes, and are invoiced once you accept.",
@@ -46,13 +46,13 @@
       {
         "h2": "How fixed-price milestones apply to a SaaS build",
         "paragraphs": [
-          "Addanapp projects run from $30,000 to $300,000 CAD in fixed-price milestones, each quoted before it starts and invoiced only on acceptance. You can stop after any milestone and keep the code, data and documentation. For SaaS, a typical sequence is:"
+          "Addanapp projects run from a first milestone of $10,000 to $30,000 CAD up to $300,000 for an all-inclusive build, in fixed-price milestones, each quoted before it starts and invoiced only on acceptance. The code is delivered to you at every milestone, so you can stop after any of them and keep the code, data and documentation. For SaaS, a typical sequence is:"
         ],
         "bullets": [
-          "**Launch ($30,000, about 6–8 weeks):** the core workflow end to end, accounts and roles, a tenant-aware data model and a basic admin, live and ready for pilot customers.",
-          "**Operate (+$45,000, total $75,000):** Stripe billing, email notifications, the integrations customers ask for (accounting, CRM) and first reports.",
-          "**Scale (+$75,000, total $150,000):** a second user group (your customers' own clients through a portal, or a staff app), dashboards, automation, performance work, a security review, a Law 25 privacy file and WCAG 2.2 AA accessibility.",
-          "**Complete (+$150,000, total $300,000):** the remaining roadmap, an installable mobile app, data migration from old systems, training, documentation, monitoring and 12 months of support. Hosting and payment fees are billed at cost."
+          "**Launch ($10,000–$30,000 depending on complexity, about 6–8 weeks):** the core workflow end to end, accounts and roles, a tenant-aware data model and a basic admin, live and ready for pilot customers.",
+          "**Operate (typically +$45,000, total up to $75,000):** Stripe billing, email notifications, the integrations customers ask for (accounting, CRM) and first reports.",
+          "**Scale (typically +$75,000, total up to $150,000):** a second user group (your customers' own clients through a portal, or a staff app), dashboards, automation, performance work, a security review, a Law 25 privacy file and WCAG 2.2 AA accessibility.",
+          "**Complete (typically +$150,000, total up to $300,000):** the remaining roadmap, an installable mobile app, data migration from old systems, training, documentation, monitoring and 12 months of support. Hosting and payment fees are billed at cost."
         ]
       },
       {
@@ -81,7 +81,7 @@
     "faq": [
       [
         "How much does it cost to build a SaaS product?",
-        "With Addanapp, a SaaS build starts with the Launch milestone at $30,000 CAD: the core workflow, accounts, a tenant-aware data model and a basic admin, live in about 6–8 weeks. Products grow through fixed-price milestones up to $300,000 CAD. Each milestone is quoted before it starts and invoiced only once you accept it."
+        "With Addanapp, a SaaS build starts with a free call and a free prototype, then the Launch milestone at $10,000 to $30,000 CAD depending on complexity: the core workflow, accounts, a tenant-aware data model and a basic admin, live in about 6–8 weeks. Products grow through fixed-price milestones up to $300,000 CAD. Each milestone is quoted before it starts and invoiced only once you accept it."
       ],
       [
         "Can you build subscription and usage-based billing?",
@@ -137,7 +137,7 @@
       {
         "h2": "Le déroulement d'un projet SaaS",
         "bullets": [
-          "**Atelier de découverte :** qui paie, qui utilise, ce qui change d'un client à l'autre, comment facturer.",
+          "**Appel et prototype gratuits :** un appel exploratoire (qui paie, qui utilise, ce qui change d'un client à l'autre, comment facturer), puis un prototype rapide que vous voyez avant de payer quoi que ce soit.",
           "**Soumission à prix fixe et échéancier :** approuvés dans votre espace client privé avant le début des travaux.",
           "**Développement et révision :** développé avec l'aide de l'IA; un ingénieur senior révise le code, teste l'isolation des données et approuve.",
           "**Acceptation :** vous essayez la livraison avec de vrais comptes, guidé par les notes de l'ingénieur. La facture suit votre acceptation.",
@@ -147,13 +147,13 @@
       {
         "h2": "Les étapes à prix fixe appliquées à un projet SaaS",
         "paragraphs": [
-          "Les projets d'Addanapp vont de 30 000 $ à 300 000 $ (CAD), en étapes à prix fixe, chacune soumissionnée d'avance et facturée à l'acceptation. Vous pouvez arrêter après n'importe quelle étape et tout garder. Pour un SaaS, la séquence type :"
+          "Les projets d'Addanapp vont d'une première étape de 10 000 $ à 30 000 $ (CAD) jusqu'à 300 000 $ pour un projet clé en main, en étapes à prix fixe, chacune soumissionnée d'avance et facturée à l'acceptation. Le code vous est remis à chaque étape : vous pouvez arrêter après n'importe laquelle et tout garder. Pour un SaaS, la séquence type :"
         ],
         "bullets": [
-          "**Lancement (30 000 $, environ 6 à 8 semaines) :** le flux principal de bout en bout, les comptes et les rôles, un modèle de données multi-clients et une administration de base, en ligne pour vos clients pilotes.",
-          "**Exploitation (+45 000 $, total 75 000 $) :** facturation Stripe, notifications par courriel, intégrations demandées par vos clients (comptabilité, CRM) et premiers rapports.",
-          "**Croissance (+75 000 $, total 150 000 $) :** un deuxième groupe d'utilisateurs (portail pour les clients de vos clients, ou application pour le personnel), tableaux de bord, automatisation, performance, revue de sécurité, dossier de confidentialité Loi 25 et accessibilité WCAG 2.2 AA.",
-          "**Complet (+150 000 $, total 300 000 $) :** le reste de la feuille de route, une application mobile installable, la migration des anciens systèmes, la formation, la documentation, la surveillance et 12 mois de soutien. Frais de tiers au coûtant."
+          "**Lancement (10 000 $ à 30 000 $ selon la complexité, environ 6 à 8 semaines) :** le flux principal de bout en bout, les comptes et les rôles, un modèle de données multi-clients et une administration de base, en ligne pour vos clients pilotes.",
+          "**Exploitation (généralement +45 000 $, total jusqu'à 75 000 $) :** facturation Stripe, notifications par courriel, intégrations demandées par vos clients (comptabilité, CRM) et premiers rapports.",
+          "**Croissance (généralement +75 000 $, total jusqu'à 150 000 $) :** un deuxième groupe d'utilisateurs (portail pour les clients de vos clients, ou application pour le personnel), tableaux de bord, automatisation, performance, revue de sécurité, dossier de confidentialité Loi 25 et accessibilité WCAG 2.2 AA.",
+          "**Complet (généralement +150 000 $, total jusqu'à 300 000 $) :** le reste de la feuille de route, une application mobile installable, la migration des anciens systèmes, la formation, la documentation, la surveillance et 12 mois de soutien. Frais de tiers au coûtant."
         ]
       },
       {
@@ -182,7 +182,7 @@
     "faq": [
       [
         "Combien coûte le développement d'un produit SaaS ?",
-        "Chez Addanapp, un SaaS commence par l'étape Lancement à 30 000 $ (CAD) : le flux principal, les comptes, un modèle de données multi-clients et une administration de base, en ligne en 6 à 8 semaines environ. Le produit grandit ensuite par étapes à prix fixe jusqu'à 300 000 $, facturées à l'acceptation."
+        "Chez Addanapp, un SaaS commence par un appel et un prototype gratuits, puis l'étape Lancement, de 10 000 $ à 30 000 $ (CAD) selon la complexité : le flux principal, les comptes, un modèle de données multi-clients et une administration de base, en ligne en 6 à 8 semaines environ. Le produit grandit ensuite par étapes à prix fixe jusqu'à 300 000 $, facturées à l'acceptation."
       ],
       [
         "Pouvez-vous mettre en place une facturation par abonnement ou à l'usage ?",

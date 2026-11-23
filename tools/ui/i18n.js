@@ -2,7 +2,7 @@
    template text found its translation (app-kit.js UI.trMissing stays empty, apart from tech words that were never
    translated), the headings are not English, and the sign-up box is translated too. Resolves to {ok, log}. */
 (async function () {
-  const ALLOWED = ['CMS', 'CSV / PDF', 'Canvas', 'ETL', 'LLMs', 'PWA', 'RAG', 'RBAC', 'REST', 'SEO', 'Stripe', 'Send brief →'];
+  const ALLOWED = ['CMS', 'CSV / PDF', 'Canvas', 'ETL', 'LLMs', 'PWA', 'RAG', 'RBAC', 'REST', 'SEO', 'Stripe', 'Send brief →', 'Request my call →'];
   const log = [], bad = [];
   const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
   async function until(fn, what, ms) {
@@ -29,10 +29,10 @@
     if (!window.AA_PACK || lang === 'en') throw new Error('the page is not in another language (lang=' + lang + ')');
     await page('#home', () => $$('.pf-spot').length === 3);
     const h1 = $('.lp-hero h1').textContent;
-    if (/Apps built at AI speed/.test(h1)) bad.push('the landing headline is in English');
+    if (/You keep the code/.test(h1)) bad.push('the landing headline is in English');
     log.push('ok   headline: ' + ascii(h1).slice(0, 60));
     const shuffle = $('.pf-more .anvil-role-aa-btn button'), send = $('#lead-form .anvil-role-aa-btn button');
-    if (!shuffle || /^Shuffle/.test(shuffle.textContent.trim()) || /^Send brief/.test(send.textContent.trim())) bad.push('buttons are in English');
+    if (!shuffle || /^Shuffle/.test(shuffle.textContent.trim()) || /^Request my call/.test(send.textContent.trim())) bad.push('buttons are in English');
     else log.push('ok   buttons translated: ' + ascii(shuffle.textContent.trim()) + ' / ' + ascii(send.textContent.trim()));
     missing('#home');
     await page('#work', () => $$('.pf-item').length > 40);

@@ -33,7 +33,10 @@
   try {
     // ---------------------------------------------------------------- landing
     await page('#home', () => $$('.pf-spot').length === 3, 'landing');
-    ok(/Apps built at AI speed/.test(txt($('.lp-hero h1'))), 'landing: hero headline');
+    ok(/You keep the code/.test(txt($('.lp-hero h1'))), 'landing: hero headline');
+    ok($$('#process .lp-path .pp').length === 5 && /\$10k.\$30k/.test(txt($('#process .pp.key'))), 'landing: the 5-step delivery path with the $10k-$30k first payment');
+    ok($$('#process .pp.free').length === 2 && /every milestone/.test(txt($('#process .pp-code'))), 'landing: call + prototype free, code at every milestone');
+    ok($('#process .lp-control a[href="#home/contact"]') && $$('#own .lp-own .o').length === 3, 'landing: budget-control CTA and the ownership cards');
     ok(!$('[data-t]') && !$('[data-tv]'), 'landing: every template text went through the translator');
     ok(/Three of our \d+ products/.test(txt($('#work .lead'))), 'landing: the product count is filled in');
     const n = $$('.lp-proof .track a').length;
@@ -58,17 +61,17 @@
     ok($('#faq a[href*="FW-j_xL_DWo"]'), 'FAQ: the rebuild film link is filled in');
     // project brief
     const form = $('#lead-form');
-    await click('Send brief', '#lead-form');
+    await click('Request my call', '#lead-form');
     await until(() => vis(form.querySelector('.anvil-role-msg-error')), 'brief error');
     ok(/name/i.test(txt(form.querySelector('.anvil-role-msg-error'))), 'brief: asks for a name first');
     const boxes = $$('#lead-form input.anvil-text-box');
     type(boxes[0], 'Flow Tester'); type(boxes[1], 'flow' + Date.now() + '@example.com'); type(boxes[2], 'Flow Inc');
     type($('#lead-form textarea'), 'We need a dashboard with roles, approvals and a weekly PDF.');
-    await click('Send brief', '#lead-form');
+    await click('Request my call', '#lead-form');
     await until(() => /confirm/i.test(txt(form.querySelector('.anvil-role-msg-error'))), 'consent error');
     ok(true, 'brief: the consent tick is required');
     $('#lead-form input[type=checkbox]:not(.hp)').click();
-    await click('Send brief', '#lead-form');
+    await click('Request my call', '#lead-form');
     await until(() => vis($('#lead-form .ok')), 'brief received', 30000);
     ok(true, 'brief: sent, thank-you shown');
 

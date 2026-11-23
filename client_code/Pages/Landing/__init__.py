@@ -45,7 +45,7 @@ class Landing(LandingTemplate):
         faq_link = ('<a href="%s" target="_blank" rel="noopener">%s <span class="arr">&#8599;</span></a>'
                     % (FAQ_FILM, i18n.t("Parapeet’s before-and-after film")))
         i18n.apply(self, products=len(portfolio.PROJECTS), faq_link=faq_link)
-        self.lead_send.text = tp('Send brief') + ' →'
+        self.lead_send.text = tp('Request my call') + ' →'
         for box, auto in ((self.lead_name, "name"), (self.lead_email, "email"), (self.lead_company, "organization")):
             state.set_control_attr(box, "autocomplete", auto)
         state.set_control_attr(self.lead_budget, "aria-label", tp("Budget"))
@@ -113,7 +113,7 @@ class Landing(LandingTemplate):
         self.lead_send.text = tp('Sending…')
         res = ui.call('submit_lead', v)
         self.lead_send.enabled = True
-        self.lead_send.text = tp('Send brief') + ' →'
+        self.lead_send.text = tp('Request my call') + ' →'
         if res is ui.FAIL:
             return
         self.lead_body.visible = False

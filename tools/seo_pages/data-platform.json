@@ -36,7 +36,7 @@
           "Reporting problems are usually definition problems before they are technical ones, so Addanapp runs data projects in a fixed order. You follow each step in a private workspace: approve quotes, read the engineer's progress notes, accept deliveries."
         ],
         "bullets": [
-          "**Discovery workshop:** the decisions the data must support, every source and its owner, and how fresh each number must be.",
+          "**Free call and prototype:** a free exploratory call on the decisions the data must support, every source and its owner, and how fresh each number must be, then a quick prototype you see before paying anything.",
           "**Metric definitions:** each key figure (for example, what counts as an active customer) is defined in writing before any chart is drawn.",
           "**Fixed quote and ETA**, approved by you before work begins.",
           "**Build and review:** a senior engineer reviews the code, runs the tests and checks totals against your source systems.",
@@ -46,13 +46,13 @@
       {
         "h2": "How fixed-price milestones apply to a data platform",
         "paragraphs": [
-          "Addanapp projects run from $30,000 to $300,000 CAD in fixed-price milestones. Each is quoted before it starts and invoiced only on acceptance. You can stop after any milestone and keep the code, data and documentation, with no exit fee."
+          "Addanapp projects run from a first milestone of $10,000 to $30,000 CAD up to $300,000 for an all-inclusive build, in fixed-price milestones. Each is quoted before it starts and invoiced only on acceptance. The code is delivered to you at every milestone, so you can stop after any of them and keep the code, data and documentation, with no exit fee."
         ],
         "bullets": [
-          "**Launch ($30,000, about 6–8 weeks):** the most important data flow end to end, with a first dashboard, accounts and roles, and a basic admin, live in production.",
-          "**Operate (+$45,000, total $75,000):** more sources and integrations, notifications, the first scheduled reports.",
-          "**Scale (+$75,000, total $150,000):** the full data platform and dashboards for several teams, automation, performance work, a security review, a Law 25 privacy file and WCAG 2.2 AA accessibility.",
-          "**Complete (+$150,000, total $300,000):** the remaining roadmap, historical data migration, training, documentation, monitoring and 12 months of support. Third-party fees are billed at cost."
+          "**Launch ($10,000–$30,000 depending on complexity, about 6–8 weeks):** the most important data flow end to end, with a first dashboard, accounts and roles, and a basic admin, live in production.",
+          "**Operate (typically +$45,000, total up to $75,000):** more sources and integrations, notifications, the first scheduled reports.",
+          "**Scale (typically +$75,000, total up to $150,000):** the full data platform and dashboards for several teams, automation, performance work, a security review, a Law 25 privacy file and WCAG 2.2 AA accessibility.",
+          "**Complete (typically +$150,000, total up to $300,000):** the remaining roadmap, historical data migration, training, documentation, monitoring and 12 months of support. Third-party fees are billed at cost."
         ]
       },
       {
@@ -76,11 +76,11 @@
     "faq": [
       [
         "How much does a custom dashboard or data platform cost?",
-        "At Addanapp, a data project starts with the Launch milestone at $30,000 CAD: one data flow end to end and a first live dashboard in about 6–8 weeks. Larger platforms grow through fixed-price milestones up to $300,000 CAD, each quoted before it starts and invoiced only when you accept it."
+        "At Addanapp, a data project starts with a free call and a free prototype, then the Launch milestone at $10,000 to $30,000 CAD depending on complexity: one data flow end to end and a first live dashboard in about 6–8 weeks. Larger platforms grow through fixed-price milestones up to $300,000 CAD, each quoted before it starts and invoiced only when you accept it."
       ],
       [
         "Can a data platform connect to QuickBooks, Stripe or our CRM?",
-        "Yes. Addanapp builds pipelines that read from QuickBooks, Stripe, Google services, CRMs, your own databases and spreadsheets. During discovery we check what each system's API allows and how often data can refresh, and the fixed quote lists exactly which sources are included."
+        "Yes. Addanapp builds pipelines that read from QuickBooks, Stripe, Google services, CRMs, your own databases and spreadsheets. During the free exploratory call and prototype we check what each system's API allows and how often data can refresh, and the fixed quote lists exactly which sources are included."
       ],
       [
         "Do we need a data warehouse for our dashboards?",
@@ -132,7 +132,7 @@
           "Un problème de reporting est presque toujours un problème de définition avant d'être technique. Vous suivez chaque étape dans votre espace client privé : soumissions, notes d'avancement de l'ingénieur, acceptation des livraisons."
         ],
         "bullets": [
-          "**Atelier de découverte :** les décisions à appuyer, les sources et leurs responsables, la fraîcheur requise de chaque chiffre.",
+          "**Appel et prototype gratuits :** un appel exploratoire sur les décisions à appuyer, les sources et leurs responsables et la fraîcheur requise de chaque chiffre, puis un prototype rapide que vous voyez avant de payer quoi que ce soit.",
           "**Définition des indicateurs :** chaque chiffre clé (par exemple, ce qu'est un client actif) est défini par écrit avant le premier graphique.",
           "**Soumission à prix fixe et échéancier**, approuvés par vous avant le début des travaux.",
           "**Développement et révision :** un ingénieur senior révise le code, exécute les tests et compare les totaux avec vos systèmes sources.",
@@ -142,13 +142,13 @@
       {
         "h2": "Les étapes à prix fixe appliquées à une plateforme de données",
         "paragraphs": [
-          "Les projets d'Addanapp vont de 30 000 $ à 300 000 $ (CAD), en étapes à prix fixe, chacune soumissionnée d'avance et facturée à l'acceptation. Vous pouvez arrêter après n'importe quelle étape et garder le code, les données et la documentation, sans frais de sortie."
+          "Les projets d'Addanapp vont d'une première étape de 10 000 $ à 30 000 $ (CAD) jusqu'à 300 000 $ pour un projet clé en main, en étapes à prix fixe, chacune soumissionnée d'avance et facturée à l'acceptation. Le code vous est remis à chaque étape : vous pouvez arrêter après n'importe laquelle et garder le code, les données et la documentation, sans frais de sortie."
         ],
         "bullets": [
-          "**Lancement (30 000 $, environ 6 à 8 semaines) :** le flux de données le plus important de bout en bout, avec un premier tableau de bord, les comptes et les rôles et un panneau d'administration de base, en production.",
-          "**Exploitation (+45 000 $, total 75 000 $) :** d'autres sources et intégrations, des notifications, des rapports planifiés.",
-          "**Croissance (+75 000 $, total 150 000 $) :** la plateforme complète et des tableaux de bord pour plusieurs équipes, l'automatisation, l'optimisation, une revue de sécurité, un dossier de confidentialité Loi 25 et l'accessibilité WCAG 2.2 AA.",
-          "**Complet (+150 000 $, total 300 000 $) :** le reste de la feuille de route, la migration des données historiques, la formation, la documentation, la surveillance et 12 mois de soutien. Les frais de tiers sont facturés au coûtant."
+          "**Lancement (10 000 $ à 30 000 $ selon la complexité, environ 6 à 8 semaines) :** le flux de données le plus important de bout en bout, avec un premier tableau de bord, les comptes et les rôles et un panneau d'administration de base, en production.",
+          "**Exploitation (généralement +45 000 $, total jusqu'à 75 000 $) :** d'autres sources et intégrations, des notifications, des rapports planifiés.",
+          "**Croissance (généralement +75 000 $, total jusqu'à 150 000 $) :** la plateforme complète et des tableaux de bord pour plusieurs équipes, l'automatisation, l'optimisation, une revue de sécurité, un dossier de confidentialité Loi 25 et l'accessibilité WCAG 2.2 AA.",
+          "**Complet (généralement +150 000 $, total jusqu'à 300 000 $) :** le reste de la feuille de route, la migration des données historiques, la formation, la documentation, la surveillance et 12 mois de soutien. Les frais de tiers sont facturés au coûtant."
         ]
       },
       {
@@ -172,11 +172,11 @@
     "faq": [
       [
         "Combien coûte un tableau de bord ou une plateforme de données sur mesure ?",
-        "Chez Addanapp, un projet de données commence par l'étape Lancement à 30 000 $ (CAD) : un flux de données de bout en bout et un premier tableau de bord en production en 6 à 8 semaines environ. Les plateformes plus vastes grandissent par étapes à prix fixe, jusqu'à 300 000 $."
+        "Chez Addanapp, un projet de données commence par un appel et un prototype gratuits, puis l'étape Lancement, de 10 000 $ à 30 000 $ (CAD) selon la complexité : un flux de données de bout en bout et un premier tableau de bord en production en 6 à 8 semaines environ. Les plateformes plus vastes grandissent par étapes à prix fixe, jusqu'à 300 000 $."
       ],
       [
         "Une plateforme de données peut-elle se brancher sur QuickBooks, Stripe ou notre CRM ?",
-        "Oui. Addanapp construit des pipelines qui lisent les données de QuickBooks, de Stripe, des services Google, des CRM, de vos bases de données et de vos fichiers Excel. À la découverte, nous vérifions ce que permet l'API de chaque système, et la soumission précise les sources incluses."
+        "Oui. Addanapp construit des pipelines qui lisent les données de QuickBooks, de Stripe, des services Google, des CRM, de vos bases de données et de vos fichiers Excel. Lors de l'appel exploratoire et du prototype, nous vérifions ce que permet l'API de chaque système, et la soumission précise les sources incluses."
       ],
       [
         "Faut-il un entrepôt de données pour avoir des tableaux de bord ?",

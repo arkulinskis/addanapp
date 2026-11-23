@@ -27,7 +27,7 @@
         "bullets": [
           "**[Portail client](/fr/developpement-portail-client)** : un espace sécurisé où vos clients ou partenaires se connectent, font des demandes, déposent des documents et suivent l'avancement",
           "**[Panneau d'administration](/fr/developpement-panneau-administration)** : un back-office pour gérer utilisateurs, commandes, réservations et contenu, avec accès par rôle et rapports",
-          "**[MVP à prix fixe](/fr/developpement-mvp)** : votre produit en production en 6 à 8 semaines environ, pour 30 000 $",
+          "**[MVP à prix fixe](/fr/developpement-mvp)** : votre produit en production en 6 à 8 semaines environ, de 10 000 $ à 30 000 $ selon la complexité",
           "**[Plateforme de données](/fr/developpement-plateforme-donnees)** : pipelines, tâches planifiées, recherche et tableaux de bord fiables",
           "**[Développement SaaS](/fr/developpement-saas)** : SaaS multilocataire avec paramètres par client, drapeaux de fonctionnalités, marque blanche et facturation à l'usage",
           "**[Intégration API](/fr/integration-api)** : connexions avec Stripe, Google, QuickBooks, les CRM et le courriel",
@@ -39,19 +39,20 @@
         "h2": "Notre méthode : l'IA accélère, les ingénieurs seniors approuvent",
         "paragraphs": [
           "Chez Addanapp, l'IA sert à rédiger plus vite le code, les tests et la documentation. Les ingénieurs seniors, eux, conçoivent l'architecture, révisent chaque changement, vérifient la sécurité et approuvent chaque livraison. L'IA ne décide de rien et n'approuve jamais son propre travail.",
+          "Le déroulement : un appel exploratoire gratuit, un prototype rapide que vous voyez avant de payer, puis un développement en production par étapes à prix fixe, avec revue de code, tests automatisés, vérifications de sécurité, surveillance et documentation. Le code vous est remis à chaque étape. Après le lancement, nous formons votre équipe pour qu'elle assure le soutien, ou nous signons un contrat de soutien plus léger. Nous nous occupons de l'hébergement, des connexions, des paiements, des sauvegardes et de la surveillance : une mise en place sans casse-tête.",
           "Chaque client dispose d'un espace de travail privé pour soumettre ses demandes, approuver les soumissions, lire les notes d'avancement rédigées par l'ingénieur et accepter les livraisons. Pour une fonction simple, la soumission arrive en 2 jours ouvrables. La revue de code et les tests sont toujours inclus. Tous les détails sont dans [notre méthode](/fr/notre-methode)."
         ]
       },
       {
         "h2": "Des tarifs à prix fixe, par étapes",
         "paragraphs": [
-          "Un projet Addanapp coûte de 30 000 $ à 300 000 $ et se découpe en quatre étapes à prix fixe. Chaque étape a sa propre soumission, approuvée avant le début des travaux, et n'est facturée qu'une fois acceptée. Vous pouvez arrêter après n'importe quelle étape et garder le code, les données et la documentation : aucun engagement forcé, aucuns frais de sortie."
+          "Un projet Addanapp commence par un appel exploratoire gratuit et un prototype rapide, que vous voyez avant de payer quoi que ce soit. Il se découpe ensuite en quatre étapes à prix fixe, d'une première étape de 10 000 $ à 30 000 $ jusqu'à 300 000 $ pour un projet clé en main. Chaque étape a sa propre soumission, approuvée avant le début des travaux, et n'est facturée qu'une fois acceptée. Le code vous est remis à chaque étape : vous pouvez arrêter après n'importe laquelle et garder le code, les données et la documentation, sans engagement forcé ni frais de sortie."
         ],
         "bullets": [
-          "**Lancement — 30 000 $** : atelier de découverte, le processus le plus important construit de bout en bout, comptes et rôles, administration de base, mise en production. Beaucoup de clients s'arrêtent ici.",
-          "**Exploitation — +45 000 $ (total 75 000 $)** : processus suivants, intégrations (paiements, comptabilité, CRM, courriel), notifications, premiers rapports.",
-          "**Croissance — +75 000 $ (total 150 000 $)** : deuxième groupe d'utilisateurs, plateforme de données, automatisation, performance, revue de sécurité, dossier Loi 25, accessibilité WCAG 2.2 AA.",
-          "**Complet — +150 000 $ (total 300 000 $)** : le reste de la feuille de route, application installable, migration des données, formation, documentation, surveillance et 12 mois de soutien.",
+          "**Lancement — 10 000 $ à 30 000 $ selon la complexité** : le premier paiement, après le prototype gratuit. Le processus le plus important construit de bout en bout, comptes et rôles, administration de base, mise en production. Beaucoup de clients s'arrêtent ici.",
+          "**Exploitation — généralement +45 000 $ (total jusqu'à 75 000 $)** : processus suivants, intégrations (paiements, comptabilité, CRM, courriel), notifications, premiers rapports.",
+          "**Croissance — généralement +75 000 $ (total jusqu'à 150 000 $)** : deuxième groupe d'utilisateurs, plateforme de données, automatisation, performance, revue de sécurité, dossier Loi 25, accessibilité WCAG 2.2 AA.",
+          "**Complet — généralement +150 000 $ (total jusqu'à 300 000 $)** : le reste de la feuille de route, application installable, migration des données, formation, documentation, surveillance et 12 mois de soutien.",
           "**Petites modifications** : une soumission à prix fixe par demande, par exemple 2 400 $ pour 6 jours de travail. Voyez tous les [tarifs](/fr/tarifs)."
         ]
       },
@@ -83,7 +84,7 @@
     "faq": [
       [
         "Combien coûte le développement d'une application web à Montréal avec Addanapp ?",
-        "Chez Addanapp, un projet coûte de 30 000 $ à 300 000 $, découpé en quatre étapes à prix fixe : Lancement (30 000 $), Exploitation (+45 000 $), Croissance (+75 000 $) et Complet (+150 000 $). Chaque étape a sa propre soumission et n'est facturée qu'à l'acceptation. Les petites modifications d'une application existante reçoivent une soumission fixe par demande."
+        "Chez Addanapp, un projet commence par un appel exploratoire et un prototype gratuits. Il se découpe ensuite en quatre étapes à prix fixe : Lancement (de 10 000 $ à 30 000 $ selon la complexité), Exploitation (généralement +45 000 $), Croissance (généralement +75 000 $) et Complet (généralement +150 000 $), jusqu'à 300 000 $ pour un projet clé en main. Chaque étape a sa propre soumission et n'est facturée qu'à l'acceptation. Les petites modifications d'une application existante reçoivent une soumission fixe par demande."
       ],
       [
         "Addanapp travaille-t-elle en français ?",
@@ -95,11 +96,11 @@
       ],
       [
         "Quand est-ce que je paie ?",
-        "Vous payez seulement quand vous acceptez une livraison. Avant chaque étape ou demande, vous recevez une soumission à prix fixe et un délai ; rien ne commence sans votre approbation. Une fois la livraison testée et acceptée dans votre espace client, elle est facturée. Les frais de tiers, comme l'hébergement, sont facturés au coûtant."
+        "Vous payez seulement quand vous acceptez une livraison. L'appel exploratoire et le premier prototype sont gratuits ; le premier paiement est l'étape Lancement, de 10 000 $ à 30 000 $ selon la complexité. Avant chaque étape ou demande, vous recevez une soumission à prix fixe et un délai ; rien ne commence sans votre approbation. Une fois la livraison testée et acceptée dans votre espace client, elle est facturée. Les frais de tiers, comme l'hébergement, sont facturés au coûtant."
       ],
       [
         "Puis-je arrêter un projet en cours de route ?",
-        "Oui. Vous pouvez arrêter après n'importe quelle étape et garder tout ce qui a été construit : le code, les données et la documentation. Il n'y a aucun engagement forcé ni frais de sortie. Beaucoup de clients s'arrêtent après l'étape Lancement, avec un logiciel en production qui répond à leur besoin principal."
+        "Oui. Le code vous est remis à chaque étape : vous pouvez arrêter après n'importe laquelle et garder tout ce qui a été construit : le code, les données et la documentation. Il n'y a aucun engagement forcé ni frais de sortie. Beaucoup de clients s'arrêtent après l'étape Lancement, avec un logiciel en production qui répond à leur besoin principal."
       ],
       [
         "Addanapp peut-elle reprendre une application existante ?",

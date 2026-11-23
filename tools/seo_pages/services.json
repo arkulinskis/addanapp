@@ -8,7 +8,7 @@
     "h1": "Custom software development services in Montréal",
     "intro": [
       "Addanapp is a Montréal software consultancy that builds the software a business actually runs on: web apps, client portals, admin panels, APIs and integrations, data platforms and multi-tenant SaaS. Every service follows the same promise. You get a **fixed quote and an ETA before work starts**, and you are invoiced only when you accept the delivery.",
-      "Addanapp builds with AI to move faster, and senior engineers review, test and sign off every delivery. Code review and tests are included in every quote. Service is in English and French, in person in Montréal or remotely, for clients in Canada, the US and Europe. Larger projects are split into fixed-price milestones from $30,000 to $300,000; see [pricing](/pricing) for the full model."
+      "Addanapp builds with AI to move faster, and senior engineers review, test and sign off every delivery. Code review and tests are included in every quote. Service is in English and French, in person in Montréal or remotely, for clients in Canada, the US and Europe. Larger projects start with a free exploratory call and a quick prototype you see before paying anything, then run in fixed-price milestones, from a first milestone of $10,000 to $30,000 up to $300,000 for an all-inclusive build. You keep the code: it is delivered to you at every milestone. See [pricing](/pricing) and [how we work](/how-we-work) for the full model."
     ],
     "sections": [
       {
@@ -28,7 +28,7 @@
       {
         "h2": "Fixed-price MVP development",
         "paragraphs": [
-          "An MVP is the smallest version of your product that real users can use. Addanapp's MVP is the **Launch milestone at $30,000**, about 6–8 weeks: a discovery workshop, the one workflow that matters most built end to end, accounts and roles, a basic admin, and a live production release.",
+          "An MVP is the smallest version of your product that real users can use. Addanapp's MVP is the **Launch milestone, $10,000 to $30,000 depending on complexity**, about 6–8 weeks: after a free call and a free prototype, the one workflow that matters most built end to end, accounts and roles, a basic admin, and a live production release.",
           "Read more about [fixed-price MVP development](/mvp-development)."
         ]
       },
@@ -73,7 +73,11 @@
       ],
       [
         "How much does custom software development cost with Addanapp?",
-        "Projects run from $30,000 to $300,000 CAD, split into four fixed-price milestones: Launch ($30,000), Operate (+$45,000), Scale (+$75,000) and Complete (+$150,000). Each milestone has its own fixed quote and is invoiced only when you accept it. Small changes to an existing app get a fixed quote per request."
+        "Projects start with a free exploratory call and a free prototype. The first milestone, Launch, costs $10,000 to $30,000 CAD depending on complexity; Operate typically adds $45,000, Scale $75,000 and Complete $150,000, up to $300,000 for an all-inclusive build. Each milestone has its own fixed quote and is invoiced only when you accept it, and the code is delivered to you at every milestone. Small changes to an existing app get a fixed quote per request."
+      ],
+      [
+        "Do we keep the code?",
+        "Yes. The code is delivered to you at every milestone, with the data and documentation, so you can continue with your own team at any point. After launch, Addanapp can train your team to support the product, or offer a lighter long-term support contract."
       ],
       [
         "Does Addanapp use AI to write code?",
@@ -101,7 +105,7 @@
     "h1": "Services de développement de logiciel sur mesure à Montréal",
     "intro": [
       "Addanapp est une firme montréalaise de développement logiciel. Nous concevons les outils sur lesquels une entreprise roule au quotidien : applications web, portails clients, panneaux d'administration, intégrations API, plateformes de données et SaaS multilocataires. Chaque service repose sur la même promesse : une **soumission à prix fixe et un délai avant le début des travaux**, et une facture seulement quand vous acceptez la livraison.",
-      "Nous utilisons l'IA pour avancer plus vite, et des ingénieurs seniors révisent, testent et approuvent chaque livraison. La revue de code et les tests sont inclus dans chaque soumission. Le service se fait en français et en anglais, en personne à Montréal ou à distance, pour des PME et des organisations au Canada, aux États-Unis et en Europe. Les projets de plus grande taille sont découpés en étapes à prix fixe, de 30 000 $ à 300 000 $ ; tous les détails sont sur la page [tarifs](/fr/tarifs)."
+      "Nous utilisons l'IA pour avancer plus vite, et des ingénieurs seniors révisent, testent et approuvent chaque livraison. La revue de code et les tests sont inclus dans chaque soumission. Le service se fait en français et en anglais, en personne à Montréal ou à distance, pour des PME et des organisations au Canada, aux États-Unis et en Europe. Les projets de plus grande taille commencent par un appel exploratoire gratuit et un prototype rapide, que vous voyez avant de payer quoi que ce soit, puis se découpent en étapes à prix fixe : de 10 000 $ à 30 000 $ pour la première, jusqu'à 300 000 $ pour un projet clé en main. Le code vous appartient : il vous est remis à chaque étape. Tous les détails sont dans nos [tarifs](/fr/tarifs) et [notre méthode](/fr/notre-methode)."
     ],
     "sections": [
       {
@@ -121,7 +125,7 @@
       {
         "h2": "Développement de MVP à prix fixe",
         "paragraphs": [
-          "Un MVP, c'est la plus petite version de votre produit que de vrais utilisateurs peuvent utiliser. Chez Addanapp, le MVP correspond à l'**étape Lancement, à 30 000 $**, sur environ 6 à 8 semaines : atelier de découverte, le processus le plus important construit de bout en bout, comptes et rôles, administration de base et mise en production.",
+          "Un MVP, c'est la plus petite version de votre produit que de vrais utilisateurs peuvent utiliser. Chez Addanapp, le MVP correspond à l'**étape Lancement, de 10 000 $ à 30 000 $ selon la complexité**, sur environ 6 à 8 semaines : après un appel et un prototype gratuits, le processus le plus important construit de bout en bout, comptes et rôles, administration de base et mise en production.",
           "En savoir plus sur le [développement de MVP](/fr/developpement-mvp)."
         ]
       },
@@ -166,7 +170,11 @@
       ],
       [
         "Combien coûte un logiciel sur mesure avec Addanapp ?",
-        "Les projets vont de 30 000 $ à 300 000 $, découpés en quatre étapes à prix fixe : Lancement (30 000 $), Exploitation (+45 000 $), Croissance (+75 000 $) et Complet (+150 000 $). Chaque étape a sa propre soumission et n'est facturée qu'une fois acceptée. Les petites modifications d'une application existante reçoivent une soumission fixe par demande."
+        "Chaque projet commence par un appel exploratoire et un prototype gratuits. La première étape, Lancement, coûte de 10 000 $ à 30 000 $ selon la complexité ; Exploitation ajoute généralement 45 000 $, Croissance 75 000 $ et Complet 150 000 $, jusqu'à 300 000 $ pour un projet clé en main. Chaque étape a sa propre soumission et n'est facturée qu'une fois acceptée, et le code vous est remis à chaque étape. Les petites modifications d'une application existante reçoivent une soumission fixe par demande."
+      ],
+      [
+        "Le code nous appartient-il ?",
+        "Oui. Le code vous est remis à chaque étape, avec les données et la documentation, pour que vous puissiez poursuivre avec votre propre équipe à tout moment. Après le lancement, Addanapp peut former votre équipe pour assurer le soutien, ou vous offrir un contrat de soutien à long terme plus léger."
       ],
       [
         "Addanapp utilise-t-elle l'IA pour écrire du code ?",

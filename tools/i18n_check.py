@@ -18,7 +18,7 @@ import sys
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PACKS = {c: json.loads((ROOT / "theme" / "assets" / ("lang-%s.json" % c)).read_text(encoding="utf-8")) for c in ("fr", "ru", "lv")}
 KNOWN_UNTRANSLATED = {'CMS', 'CSV / PDF', 'Canvas', 'ETL', 'LLMs', 'PWA', 'RAG', 'RBAC', 'REST', 'SEO', 'Stripe',
-                      'Send brief →'}  # tech words; the Send button's text is set in Python
+                      'Send brief →', 'Request my call →'}  # tech words; the Send button's text is set in Python
 VOID = {"area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "source", "track", "wbr"}
 
 

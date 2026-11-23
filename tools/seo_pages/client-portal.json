@@ -28,21 +28,21 @@
       {
         "h2": "How client portal development works, step by step",
         "paragraphs": [
-          "Addanapp runs client portal projects through a private workspace where you submit requests, approve quotes, read progress notes written by the engineer and accept deliveries. The steps are the same for every milestone:"
+          "Addanapp runs client portal projects through a private workspace where you submit requests, approve quotes, read progress notes written by the engineer and accept deliveries. The steps:"
         ],
         "bullets": [
-          "**1. Discovery workshop**: we map who uses the portal, what they need to do and which workflow matters most.",
+          "**1. Free call and prototype**: a free exploratory call maps who uses the portal, what they need to do and which workflow matters most, then you see a quick prototype before paying anything.",
           "**2. Fixed quote and ETA**: you approve a fixed price and date before any work starts.",
           "**3. Build**: AI-accelerated development, with progress notes in your workspace as the portal takes shape.",
           "**4. Senior review**: a senior engineer reviews the code, runs the tests and signs off the delivery.",
-          "**5. Acceptance**: you try the portal yourself. You are invoiced only when you accept it."
+          "**5. Acceptance**: you try the portal yourself. You are invoiced only when you accept it, and the code is delivered to you at every milestone."
         ]
       },
       {
         "h2": "How fixed-price milestones apply to a client portal",
         "paragraphs": [
-          "Client portal projects run from $30,000 to $300,000 CAD, split into fixed-price milestones. Each milestone has its own quote, agreed before it starts, and you can stop after any milestone and keep the code, data and documentation. Full details are on the [pricing page](/pricing).",
-          "**Launch ($30,000, about 6 to 8 weeks)** suits a portal-first project: the one client workflow that matters most, built end to end, with accounts, roles, a basic admin and a live portal. **Operate (+$45,000)** adds the next workflows, payments, accounting, CRM and email [integrations](/api-integration-development), notifications and first reports. **Scale (+$75,000)** is where a portal is often added to an existing staff app as a second user group, along with dashboards, automation, a security review, the Law 25 privacy file and WCAG 2.2 AA work. **Complete (+$150,000)** covers the remaining roadmap, an installable mobile app, data migration, training, documentation, monitoring and 12 months of support."
+          "Client portal projects run from a first milestone of $10,000 to $30,000 CAD up to $300,000 for an all-inclusive build, split into fixed-price milestones. Each milestone has its own quote, agreed before it starts. The code is delivered to you at every milestone, so you can stop after any of them and keep the code, data and documentation. Full details are on the [pricing page](/pricing).",
+          "**Launch ($10,000–$30,000 depending on complexity, about 6 to 8 weeks)** suits a portal-first project: the one client workflow that matters most, built end to end, with accounts, roles, a basic admin and a live portal. **Operate (typically +$45,000)** adds the next workflows, payments, accounting, CRM and email [integrations](/api-integration-development), notifications and first reports. **Scale (typically +$75,000)** is where a portal is often added to an existing staff app as a second user group, along with dashboards, automation, a security review, the Law 25 privacy file and WCAG 2.2 AA work. **Complete (typically +$150,000)** covers the remaining roadmap, an installable mobile app, data migration, training, documentation, monitoring and 12 months of support."
         ]
       },
       {
@@ -73,7 +73,7 @@
     "faq": [
       [
         "How much does a client portal cost?",
-        "A client portal from Addanapp starts with the Launch milestone at $30,000 CAD, which delivers the most important client workflow, accounts and roles, a basic admin and a live portal in about 6 to 8 weeks. Larger portals grow through fixed-price milestones up to $300,000 CAD. Each milestone is quoted before it starts and invoiced only when you accept it."
+        "A client portal from Addanapp starts with a free call and a free prototype, then the Launch milestone at $10,000 to $30,000 CAD depending on complexity, which delivers the most important client workflow, accounts and roles, a basic admin and a live portal in about 6 to 8 weeks. Larger portals grow through fixed-price milestones up to $300,000 CAD. Each milestone is quoted before it starts and invoiced only when you accept it."
       ],
       [
         "Can a client portal connect to the systems we already use?",
@@ -121,21 +121,21 @@
       {
         "h2": "Le développement d'un portail client, étape par étape",
         "paragraphs": [
-          "Chaque projet se déroule dans un espace de travail privé où vous soumettez vos demandes, approuvez les soumissions, lisez les notes de l'ingénieur et acceptez les livraisons. Les étapes, à chaque jalon :"
+          "Chaque projet se déroule dans un espace de travail privé où vous soumettez vos demandes, approuvez les soumissions, lisez les notes de l'ingénieur et acceptez les livraisons. Les étapes :"
         ],
         "bullets": [
-          "**1. Atelier de découverte** : qui utilise le portail, pour quoi faire, et quel processus compte le plus.",
+          "**1. Appel et prototype gratuits** : un appel exploratoire pour cerner qui utilise le portail, pour quoi faire et quel processus compte le plus, puis un prototype rapide que vous voyez avant de payer quoi que ce soit.",
           "**2. Soumission à prix fixe** : vous approuvez un prix et une date avant que le travail commence.",
           "**3. Développement** : accéléré par l'IA, avec des notes d'avancement.",
           "**4. Révision senior** : un ingénieur senior révise le code, roule les tests et approuve la livraison.",
-          "**5. Acceptation** : vous essayez le portail ; la facture suit votre acceptation."
+          "**5. Acceptation** : vous essayez le portail ; la facture suit votre acceptation, et le code vous est remis à chaque jalon."
         ]
       },
       {
         "h2": "Les jalons à prix fixe appliqués à un portail client",
         "paragraphs": [
-          "Un projet de portail client va de 30 000 $ à 300 000 $ (CAD), en jalons à prix fixe soumis d'avance. Vous pouvez arrêter après n'importe quel jalon en gardant le code, les données et la documentation. Détails sur la page [tarifs](/fr/tarifs).",
-          "**Lancement (30 000 $, environ 6 à 8 semaines)** convient à un projet centré sur le portail : le processus client principal livré de bout en bout, avec comptes, rôles, administration de base et mise en ligne. **Exploitation (+45 000 $)** ajoute d'autres processus, les [intégrations](/fr/integration-api) (paiement, comptabilité, CRM, courriel), les notifications et les premiers rapports. **Croissance (+75 000 $)** est souvent le moment d'ajouter un portail à une application interne existante, avec tableaux de bord, automatisation, revue de sécurité, dossier Loi 25 et accessibilité WCAG 2.2 AA. **Complet (+150 000 $)** couvre le reste de la feuille de route, l'application mobile installable, la migration des données, la formation, la documentation, la surveillance et 12 mois de soutien."
+          "Un projet de portail client va d'un premier jalon de 10 000 $ à 30 000 $ (CAD) jusqu'à 300 000 $ pour un projet clé en main, en jalons à prix fixe soumis d'avance. Le code vous est remis à chaque jalon : vous pouvez arrêter après n'importe lequel en gardant le code, les données et la documentation. Détails sur la page [tarifs](/fr/tarifs).",
+          "**Lancement (10 000 $ à 30 000 $ selon la complexité, environ 6 à 8 semaines)** convient à un projet centré sur le portail : le processus client principal livré de bout en bout, avec comptes, rôles, administration de base et mise en ligne. **Exploitation (généralement +45 000 $)** ajoute d'autres processus, les [intégrations](/fr/integration-api) (paiement, comptabilité, CRM, courriel), les notifications et les premiers rapports. **Croissance (généralement +75 000 $)** est souvent le moment d'ajouter un portail à une application interne existante, avec tableaux de bord, automatisation, revue de sécurité, dossier Loi 25 et accessibilité WCAG 2.2 AA. **Complet (généralement +150 000 $)** couvre le reste de la feuille de route, l'application mobile installable, la migration des données, la formation, la documentation, la surveillance et 12 mois de soutien."
         ]
       },
       {
@@ -166,7 +166,7 @@
     "faq": [
       [
         "Combien coûte un portail client ?",
-        "Un portail client chez Addanapp commence par le jalon Lancement à 30 000 $ (CAD) : en environ 6 à 8 semaines, le processus client principal, les comptes et les rôles, une administration de base et la mise en production. Les portails plus importants progressent par jalons à prix fixe jusqu'à 300 000 $. Chaque jalon fait l'objet d'une soumission préalable et n'est facturé qu'après votre acceptation."
+        "Un portail client chez Addanapp commence par un appel et un prototype gratuits, puis le jalon Lancement, de 10 000 $ à 30 000 $ (CAD) selon la complexité : en environ 6 à 8 semaines, le processus client principal, les comptes et les rôles, une administration de base et la mise en production. Les portails plus importants progressent par jalons à prix fixe jusqu'à 300 000 $. Chaque jalon fait l'objet d'une soumission préalable et n'est facturé qu'après votre acceptation."
       ],
       [
         "Le portail client peut-il se connecter à nos systèmes actuels ?",

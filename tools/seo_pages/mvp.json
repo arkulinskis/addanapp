@@ -4,15 +4,15 @@
   "en": {
     "slug": "/mvp-development",
     "title": "Fixed-Price MVP Development in Montréal | Addanapp",
-    "description": "Launch your MVP for a fixed $30,000 in about 6 to 8 weeks: one core workflow, accounts, admin, live in production. Invoiced only when you accept it.",
-    "h1": "Fixed-price MVP development: your first product live for $30,000",
+    "description": "A fixed-price MVP from $10,000 to $30,000, live in about 6 to 8 weeks, after a free call and prototype. You keep the code. Invoiced only on acceptance.",
+    "h1": "Fixed-price MVP development: your first product live for $10,000 to $30,000",
     "intro": [
-      "An MVP (minimum viable product) is the smallest version of your software that real users can use for real work. Addanapp builds fixed-price MVPs for founders, product teams and business owners in Montréal, across Canada, in the US and in Europe. The MVP is the Launch milestone: $30,000 CAD, about 6 to 8 weeks, live in production.",
+      "An MVP (minimum viable product) is the smallest version of your software that real users can use for real work. Addanapp builds fixed-price MVPs for founders, product teams and business owners in Montréal, across Canada, in the US and in Europe. The MVP is the Launch milestone: a fixed price from $10,000 to $30,000 CAD depending on complexity, about 6 to 8 weeks, live in production. A free exploratory call and a quick prototype come first, before you pay anything, and the code is yours at every milestone.",
       "Your MVP is built with AI-accelerated development and reviewed, tested and signed off by senior engineers. The price is agreed before work starts, and you are invoiced only when you accept the delivery. If the MVP is all you need, you stop there and keep everything."
     ],
     "sections": [
       {
-        "h2": "What the $30,000 fixed-price MVP includes",
+        "h2": "What the fixed-price MVP includes",
         "paragraphs": [
           "The Launch milestone is a complete, working product, not a mockup. A fixed-price MVP from Addanapp includes:"
         ],
@@ -36,7 +36,7 @@
         "h2": "How to scope an MVP that fits in 6 to 8 weeks",
         "paragraphs": [
           "Good MVP scoping comes down to three choices: one main user, one job that user needs done, and one signal that tells you the product works, such as a first booking, a first paid order or a first request handled without email. Everything else goes on a later list.",
-          "Write it down before the workshop. The free one-page app brief in our [guides](https://addanapp.com/#guides) walks you through it, and the build vs buy worksheet helps check that custom software is the right call."
+          "Write it down before the free exploratory call. The free one-page app brief in our [guides](https://addanapp.com/#guides) walks you through it, and the build vs buy worksheet helps check that custom software is the right call."
         ]
       },
       {
@@ -45,17 +45,17 @@
           "Everything happens in a private workspace where you submit requests, approve quotes, read progress notes written by the engineer and accept deliveries."
         ],
         "bullets": [
-          "**Workshop**: we agree on the scope and the one workflow.",
+          "**Free call and prototype**: we agree on the scope and the one workflow, and you see a quick prototype before paying anything.",
           "**Fixed quote and ETA**: you approve the price and date before any work starts.",
           "**Build**: AI-accelerated development, with progress notes you can follow.",
           "**Senior review**: code review, tests and sign-off by a senior engineer.",
-          "**Acceptance**: you test the MVP; the invoice follows only your acceptance."
+          "**Acceptance**: you test the MVP; the invoice follows only your acceptance, and the code is delivered to you."
         ]
       },
       {
         "h2": "From MVP to full product: the milestone path",
         "paragraphs": [
-          "Many clients stop after Launch, satisfied. When users ask for more, the product grows in fixed-price milestones, each quoted before it starts. **Operate (+$45,000, total $75,000)** adds the next workflows, integrations, notifications and first reports. **Scale (+$75,000, total $150,000)** adds a second user group such as a [client portal](/client-portal-development), dashboards, automation, a security review, the Law 25 privacy file and WCAG 2.2 AA accessibility. **Complete (+$150,000, total $300,000)** covers the rest of the roadmap, an installable mobile app, data migration, training, documentation, monitoring and 12 months of support. Full details on the [pricing page](/pricing); for a product sold to many customers, see [SaaS development](/saas-development)."
+          "Many clients stop after Launch, satisfied. When users ask for more, the product grows in fixed-price milestones, each quoted before it starts. **Operate (typically +$45,000, total up to $75,000)** adds the next workflows, integrations, notifications and first reports. **Scale (typically +$75,000, total up to $150,000)** adds a second user group such as a [client portal](/client-portal-development), dashboards, automation, a security review, the Law 25 privacy file and WCAG 2.2 AA accessibility. **Complete (typically +$150,000, total up to $300,000)** covers the rest of the roadmap, an installable mobile app, data migration, training, documentation, monitoring and 12 months of support. Full details on the [pricing page](/pricing); for a product sold to many customers, see [SaaS development](/saas-development)."
         ]
       },
       {
@@ -71,16 +71,16 @@
     ],
     "faq": [
       [
-        "Can you really build an MVP for a fixed $30,000?",
-        "Yes, when the MVP is scoped to one core workflow. The Launch milestone covers a discovery workshop, that workflow built end to end, accounts and roles, a basic admin and a live product in about 6 to 8 weeks. AI-accelerated development keeps the build fast, and senior engineers review and sign off every delivery."
+        "Can you really build an MVP for a fixed price of $10,000 to $30,000?",
+        "Yes, when the MVP is scoped to one core workflow. The Launch milestone, priced by complexity, covers that workflow built end to end, accounts and roles, a basic admin and a live product in about 6 to 8 weeks. A free call and a free prototype come first. AI-accelerated development keeps the build fast, and senior engineers review and sign off every delivery."
       ],
       [
         "What happens if our MVP needs more than one workflow?",
-        "Addanapp agrees on the single most important workflow for the MVP and plans the rest as later milestones. The Operate milestone adds the next workflows, integrations, notifications and reports for $45,000 CAD. Each milestone has its own fixed quote agreed before it starts, so the budget never grows without your approval."
+        "Addanapp agrees on the single most important workflow for the MVP and plans the rest as later milestones. The Operate milestone, typically $45,000 CAD, adds the next workflows, integrations, notifications and reports. Each milestone has its own fixed quote agreed before it starts, so the budget never grows without your approval."
       ],
       [
         "Do we own the MVP code?",
-        "Yes. You can stop after the Launch milestone, or any later one, and keep everything built so far: code, data and documentation. There is no lock-in and no exit fee. Third-party costs such as the hosting plan, payment processing or paid APIs are billed at cost."
+        "Yes. The code is delivered to you at every milestone. You can stop after the Launch milestone, or any later one, and keep everything built so far: code, data and documentation. There is no lock-in and no exit fee. Third-party costs such as the hosting plan, payment processing or paid APIs are billed at cost."
       ],
       [
         "We already have a prototype or an older app. Can you use it?",
@@ -96,15 +96,15 @@
   "fr": {
     "slug": "/fr/developpement-mvp",
     "title": "Développement de MVP à prix fixe à Montréal | Addanapp",
-    "description": "Lancez votre MVP pour 30 000 $ à prix fixe en 6 à 8 semaines environ : un processus clé, comptes, administration, en ligne. Facturé à l'acceptation.",
-    "h1": "Développement de MVP à prix fixe : votre premier produit en ligne pour 30 000 $",
+    "description": "Un MVP à prix fixe de 10 000 $ à 30 000 $, en ligne en 6 à 8 semaines environ, après un appel et un prototype gratuits. Le code vous appartient.",
+    "h1": "Développement de MVP à prix fixe : votre premier produit en ligne, de 10 000 $ à 30 000 $",
     "intro": [
-      "Un MVP (produit minimum viable) est la plus petite version de votre logiciel que de vrais utilisateurs peuvent utiliser pour du vrai travail. Addanapp, firme de développement logiciel à Montréal, réalise des MVP à prix fixe pour des fondateurs et des PME au Canada, aux États-Unis et en Europe. Le MVP correspond au jalon Lancement : 30 000 $ (CAD), environ 6 à 8 semaines, en production.",
+      "Un MVP (produit minimum viable) est la plus petite version de votre logiciel que de vrais utilisateurs peuvent utiliser pour du vrai travail. Addanapp, firme de développement logiciel à Montréal, réalise des MVP à prix fixe pour des fondateurs et des PME au Canada, aux États-Unis et en Europe. Le MVP correspond au jalon Lancement : un prix fixe de 10 000 $ à 30 000 $ (CAD) selon la complexité, environ 6 à 8 semaines, en production. Un appel exploratoire et un prototype rapide viennent d'abord, sans frais, et le code vous est remis à chaque jalon.",
       "Votre MVP est développé avec l'aide de l'IA et approuvé par des ingénieurs seniors. Le prix est convenu avant le début des travaux, et la facture ne vient qu'après votre acceptation. Si le MVP suffit, vous arrêtez là et gardez tout."
     ],
     "sections": [
       {
-        "h2": "Ce que comprend le MVP à prix fixe de 30 000 $",
+        "h2": "Ce que comprend le MVP à prix fixe",
         "paragraphs": [
           "Le jalon Lancement livre un produit qui fonctionne, pas une maquette. Il comprend :"
         ],
@@ -128,7 +128,7 @@
         "h2": "Comment cadrer un MVP qui tient en 6 à 8 semaines",
         "paragraphs": [
           "Bien cadrer un MVP revient à faire trois choix : un utilisateur principal, une tâche à accomplir, et un signal qui prouve que le produit fonctionne, comme une première réservation ou une première commande payée. Tout le reste va sur une liste pour plus tard.",
-          "Mettez-le par écrit avant l'atelier. Le résumé d'application d'une page, gratuit dans nos [guides](https://addanapp.com/#guides), vous y aide ; la grille construire ou acheter sur 3 ans confirme si le logiciel sur mesure est le bon choix."
+          "Mettez-le par écrit avant l'appel exploratoire. Le résumé d'application d'une page, gratuit dans nos [guides](https://addanapp.com/#guides), vous y aide ; la grille construire ou acheter sur 3 ans confirme si le logiciel sur mesure est le bon choix."
         ]
       },
       {
@@ -137,17 +137,17 @@
           "Tout se passe dans un espace de travail privé où vous soumettez vos demandes, approuvez les soumissions, lisez les notes de l'ingénieur et acceptez les livraisons."
         ],
         "bullets": [
-          "**Atelier** : on s'entend sur la portée et sur le processus principal.",
+          "**Appel et prototype gratuits** : on s'entend sur la portée et le processus principal, et vous voyez un prototype rapide avant de payer quoi que ce soit.",
           "**Soumission à prix fixe et délai** : vous approuvez le prix et la date avant tout travail.",
           "**Développement** : accéléré par l'IA, avec des notes d'avancement à suivre.",
           "**Révision senior** : révision de code, tests et approbation par un ingénieur senior.",
-          "**Acceptation** : vous testez le MVP ; la facture suit votre acceptation."
+          "**Acceptation** : vous testez le MVP ; la facture suit votre acceptation, et le code vous est remis."
         ]
       },
       {
         "h2": "Du MVP au produit complet : le parcours par jalons",
         "paragraphs": [
-          "Bien des clients s'arrêtent après le Lancement, satisfaits. Sinon, le produit grandit par jalons à prix fixe, chacun soumis d'avance. **Exploitation (+45 000 $, total 75 000 $)** ajoute les processus suivants, les intégrations, les notifications et les premiers rapports. **Croissance (+75 000 $, total 150 000 $)** ajoute un second groupe d'utilisateurs, par exemple un [portail client](/fr/developpement-portail-client), des tableaux de bord, de l'automatisation, une revue de sécurité, le dossier Loi 25 et l'accessibilité WCAG 2.2 AA. **Complet (+150 000 $, total 300 000 $)** couvre le reste de la feuille de route, une application mobile installable, la migration des données, la formation, la documentation, la surveillance et 12 mois de soutien. Détails sur la page [tarifs](/fr/tarifs) ; pour un produit vendu à plusieurs clients, voir le [développement SaaS](/fr/developpement-saas)."
+          "Bien des clients s'arrêtent après le Lancement, satisfaits. Sinon, le produit grandit par jalons à prix fixe, chacun soumis d'avance. **Exploitation (généralement +45 000 $, total jusqu'à 75 000 $)** ajoute les processus suivants, les intégrations, les notifications et les premiers rapports. **Croissance (généralement +75 000 $, total jusqu'à 150 000 $)** ajoute un second groupe d'utilisateurs, par exemple un [portail client](/fr/developpement-portail-client), des tableaux de bord, de l'automatisation, une revue de sécurité, le dossier Loi 25 et l'accessibilité WCAG 2.2 AA. **Complet (généralement +150 000 $, total jusqu'à 300 000 $)** couvre le reste de la feuille de route, une application mobile installable, la migration des données, la formation, la documentation, la surveillance et 12 mois de soutien. Détails sur la page [tarifs](/fr/tarifs) ; pour un produit vendu à plusieurs clients, voir le [développement SaaS](/fr/developpement-saas)."
         ]
       },
       {
@@ -163,16 +163,16 @@
     ],
     "faq": [
       [
-        "Peut-on vraiment bâtir un MVP pour 30 000 $ à prix fixe ?",
-        "Oui, quand le MVP est limité à un processus principal. Le jalon Lancement comprend un atelier de découverte, ce processus livré de bout en bout, les comptes et les rôles, une administration de base et un produit en ligne en environ 6 à 8 semaines. Des ingénieurs seniors révisent et approuvent chaque livraison."
+        "Peut-on vraiment bâtir un MVP à prix fixe pour 10 000 $ à 30 000 $ ?",
+        "Oui, quand le MVP est limité à un processus principal. Le jalon Lancement, dont le prix dépend de la complexité, comprend ce processus livré de bout en bout, les comptes et les rôles, une administration de base et un produit en ligne en environ 6 à 8 semaines. Un appel et un prototype gratuits viennent d'abord. Des ingénieurs seniors révisent et approuvent chaque livraison."
       ],
       [
         "Et si notre MVP a besoin de plus d'un processus ?",
-        "Addanapp choisit avec vous le processus principal du MVP et planifie le reste en jalons suivants. Le jalon Exploitation ajoute les processus suivants, les intégrations, les notifications et les rapports pour 45 000 $ (CAD). Chaque jalon a sa propre soumission à prix fixe, convenue avant de commencer : le budget n'augmente jamais sans votre accord."
+        "Addanapp choisit avec vous le processus principal du MVP et planifie le reste en jalons suivants. Le jalon Exploitation, généralement 45 000 $ (CAD), ajoute les processus suivants, les intégrations, les notifications et les rapports. Chaque jalon a sa propre soumission à prix fixe, convenue avant de commencer : le budget n'augmente jamais sans votre accord."
       ],
       [
         "Le code du MVP nous appartient-il ?",
-        "Oui. Vous pouvez arrêter après le jalon Lancement, ou n'importe quel jalon suivant, et garder tout ce qui a été construit : le code, les données et la documentation. Il n'y a ni dépendance ni frais de sortie. Les frais de tiers, comme l'hébergement, le traitement des paiements ou les API payantes, sont facturés au coût réel."
+        "Oui. Le code vous est remis à chaque jalon. Vous pouvez arrêter après le jalon Lancement, ou n'importe quel jalon suivant, et garder tout ce qui a été construit : le code, les données et la documentation. Il n'y a ni dépendance ni frais de sortie. Les frais de tiers, comme l'hébergement, le traitement des paiements ou les API payantes, sont facturés au coût réel."
       ],
       [
         "Nous avons déjà un prototype ou une vieille application. Pouvez-vous partir de là ?",

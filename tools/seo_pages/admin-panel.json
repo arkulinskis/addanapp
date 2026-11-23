@@ -41,14 +41,14 @@
       {
         "h2": "How admin panel development works",
         "paragraphs": [
-          "Addanapp starts by listing your team's tasks and ranking them by how often they happen. The screens used every hour get the most care; the ones used once a quarter stay simple. You then approve a fixed quote and an ETA. The engineer builds with AI acceleration and writes progress notes in your private workspace. A senior engineer reviews the code, runs the tests and signs off. You try the admin panel with your own team, and you are invoiced only when you accept it. See [how we work](/how-we-work) for the full method."
+          "After a free exploratory call and a quick prototype you see before paying anything, Addanapp lists your team's tasks and ranking them by how often they happen. The screens used every hour get the most care; the ones used once a quarter stay simple. You then approve a fixed quote and an ETA. The engineer builds with AI acceleration and writes progress notes in your private workspace. A senior engineer reviews the code, runs the tests and signs off. You try the admin panel with your own team, and you are invoiced only when you accept it. See [how we work](/how-we-work) for the full method."
         ]
       },
       {
         "h2": "How fixed-price milestones apply to an admin panel",
         "paragraphs": [
-          "Projects run from $30,000 to $300,000 CAD in fixed-price milestones, each quoted before it starts and invoiced on acceptance. You can stop after any milestone and keep the code, data and documentation. See the [pricing page](/pricing).",
-          "**Launch ($30,000)** already includes accounts, roles and a basic admin next to the main workflow. **Operate (+$45,000)** grows the admin panel with more workflows, notifications, first reports and [integrations](/api-integration-development) with payments, accounting, CRM and email. **Scale (+$75,000)** adds dashboards and a [data platform](/data-platform-development), automation, performance work, a security review, the Law 25 privacy file and WCAG 2.2 AA accessibility. **Complete (+$150,000)** covers migration from old systems, staff training, documentation, monitoring and 12 months of support. For an admin panel added to an existing app, a small change gets a fixed quote per request."
+          "Projects start with a free exploratory call and a quick prototype you see before paying anything. The first milestone costs $10,000 to $30,000 CAD depending on complexity, and an all-inclusive build tops out around $300,000. Each milestone is quoted before it starts and invoiced on acceptance. The code is delivered to you at every milestone, so you can stop after any of them and keep the code, data and documentation. See the [pricing page](/pricing).",
+          "**Launch ($10,000–$30,000, depending on complexity)** already includes accounts, roles and a basic admin next to the main workflow. **Operate (typically +$45,000)** grows the admin panel with more workflows, notifications, first reports and [integrations](/api-integration-development) with payments, accounting, CRM and email. **Scale (typically +$75,000)** adds dashboards and a [data platform](/data-platform-development), automation, performance work, a security review, the Law 25 privacy file and WCAG 2.2 AA accessibility. **Complete (typically +$150,000)** covers migration from old systems, staff training, documentation, monitoring and 12 months of support. For an admin panel added to an existing app, a small change gets a fixed quote per request."
         ]
       },
       {
@@ -71,7 +71,7 @@
     "faq": [
       [
         "How much does a custom admin panel cost?",
-        "A basic admin panel is part of the Launch milestone at $30,000 CAD, alongside the main workflow, accounts and roles. Richer admin panels with reports, integrations, dashboards and automation grow through the Operate and Scale milestones. Every milestone has a fixed quote agreed before work starts and is invoiced only when you accept the delivery."
+        "A basic admin panel is part of the Launch milestone, $10,000 to $30,000 CAD depending on complexity, alongside the main workflow, accounts and roles. Richer admin panels with reports, integrations, dashboards and automation grow through the Operate and Scale milestones. Every milestone has a fixed quote agreed before work starts and is invoiced only when you accept the delivery."
       ],
       [
         "Can you build an admin panel for an app we already have?",
@@ -112,7 +112,7 @@
           "**Recherche et filtres** sur les clients, commandes ou dossiers, rapides même sur de grands volumes.",
           "**Modification des fiches avec validation et historique**, pour bloquer les données erronées dès la saisie.",
           "**Files d'approbation** : demandes, remboursements, inscriptions ou suggestions de l'IA en attente d'une décision humaine.",
-                    "**Rapports et tableaux de bord** pour les questions hebdomadaires de la direction.",
+          "**Rapports et tableaux de bord** pour les questions hebdomadaires de la direction.",
           "**Un journal d'audit** qui indique qui a modifié quoi, et quand."
         ]
       },
@@ -131,14 +131,14 @@
       {
         "h2": "Le développement d'un panneau d'administration, en pratique",
         "paragraphs": [
-          "Addanapp dresse d'abord la liste des tâches de votre équipe, classées selon leur fréquence. Les écrans utilisés toutes les heures reçoivent le plus de soin ; ceux qui servent une fois par trimestre restent simples. Vous approuvez ensuite une soumission à prix fixe et un délai. L'ingénieur développe avec l'aide de l'IA et rédige des notes d'avancement dans votre espace privé. Un ingénieur senior révise le code, roule les tests et approuve la livraison. Vous essayez le panneau avec votre équipe et n'êtes facturé qu'à l'acceptation. Voir [notre méthode](/fr/notre-methode)."
+          "Après un appel exploratoire gratuit et un prototype rapide, que vous voyez avant de payer quoi que ce soit, Addanapp dresse la liste des tâches de votre équipe, classées selon leur fréquence. Les écrans utilisés toutes les heures reçoivent le plus de soin ; ceux qui servent une fois par trimestre restent simples. Vous approuvez ensuite une soumission à prix fixe et un délai. L'ingénieur développe avec l'aide de l'IA et rédige des notes d'avancement dans votre espace privé. Un ingénieur senior révise le code, roule les tests et approuve la livraison. Vous essayez le panneau avec votre équipe et n'êtes facturé qu'à l'acceptation. Voir [notre méthode](/fr/notre-methode)."
         ]
       },
       {
         "h2": "Les jalons à prix fixe appliqués à un panneau d'administration",
         "paragraphs": [
-          "Les projets vont de 30 000 $ à 300 000 $ (CAD) en jalons à prix fixe, chacun soumis avant de commencer et facturé à l'acceptation. Vous pouvez arrêter après n'importe quel jalon en gardant le code, les données et la documentation. Voir les [tarifs](/fr/tarifs).",
-          "**Lancement (30 000 $)** comprend déjà les comptes, les rôles et une administration de base à côté du processus principal. **Exploitation (+45 000 $)** enrichit le panneau avec d'autres processus, des notifications, les premiers rapports et des [intégrations](/fr/integration-api) (paiement, comptabilité, CRM, courriel). **Croissance (+75 000 $)** ajoute tableaux de bord et [plateforme de données](/fr/developpement-plateforme-donnees), automatisation, optimisation des performances, revue de sécurité, dossier Loi 25 et accessibilité WCAG 2.2 AA. **Complet (+150 000 $)** couvre la migration des anciens systèmes, la formation, la documentation, la surveillance et 12 mois de soutien. Pour une application existante, une petite modification reçoit une soumission à prix fixe par demande."
+          "Chaque projet commence par un appel exploratoire gratuit et un prototype rapide, que vous voyez avant de payer quoi que ce soit. Le premier jalon coûte de 10 000 $ à 30 000 $ (CAD) selon la complexité, et un projet clé en main plafonne autour de 300 000 $. Chaque jalon est soumis avant de commencer et facturé à l'acceptation. Le code vous est remis à chaque jalon : vous pouvez arrêter après n'importe lequel en gardant le code, les données et la documentation. Voir les [tarifs](/fr/tarifs).",
+          "**Lancement (10 000 $ à 30 000 $ selon la complexité)** comprend déjà les comptes, les rôles et une administration de base à côté du processus principal. **Exploitation (généralement +45 000 $)** enrichit le panneau avec d'autres processus, des notifications, les premiers rapports et des [intégrations](/fr/integration-api) (paiement, comptabilité, CRM, courriel). **Croissance (généralement +75 000 $)** ajoute tableaux de bord et [plateforme de données](/fr/developpement-plateforme-donnees), automatisation, optimisation des performances, revue de sécurité, dossier Loi 25 et accessibilité WCAG 2.2 AA. **Complet (généralement +150 000 $)** couvre la migration des anciens systèmes, la formation, la documentation, la surveillance et 12 mois de soutien. Pour une application existante, une petite modification reçoit une soumission à prix fixe par demande."
         ]
       },
       {
@@ -161,7 +161,7 @@
     "faq": [
       [
         "Combien coûte un panneau d'administration sur mesure ?",
-        "Une administration de base fait partie du jalon Lancement à 30 000 $ (CAD), avec le processus principal, les comptes et les rôles. Un panneau plus complet, avec rapports, intégrations, tableaux de bord et automatisation, se construit dans les jalons Exploitation et Croissance. Chaque jalon est soumis à prix fixe d'avance et facturé après votre acceptation."
+        "Une administration de base fait partie du jalon Lancement, de 10 000 $ à 30 000 $ (CAD) selon la complexité, avec le processus principal, les comptes et les rôles. Un panneau plus complet, avec rapports, intégrations, tableaux de bord et automatisation, se construit dans les jalons Exploitation et Croissance. Chaque jalon est soumis à prix fixe d'avance et facturé après votre acceptation."
       ],
       [
         "Pouvez-vous ajouter un panneau d'administration à une application existante ?",

@@ -4,17 +4,36 @@
   "en": {
     "slug": "/how-we-work",
     "title": "AI-Accelerated Development, Senior-Reviewed | Addanapp",
-    "description": "How Addanapp works: AI speeds up drafting, senior engineers design, review and sign off. Fixed quote first, invoiced only when you accept the delivery.",
-    "h1": "How we work: AI-accelerated development, signed off by senior engineers",
+    "description": "How Addanapp works: free call and prototype, then fixed-price milestones reviewed by senior engineers. You get the code at every milestone and pay on acceptance.",
+    "h1": "How we work: from a free call to software you own, signed off by senior engineers",
     "intro": [
-      "Addanapp builds custom software with AI to move faster, and senior engineers review, test and sign off every delivery before it reaches you. You get a **fixed quote and an ETA before work starts**, you follow progress in a private workspace, and you are invoiced only when you accept what was delivered.",
-      "This page explains each step, from the first request to acceptance, and draws a clear line between what AI does in Addanapp's process and what senior engineers do. The same method applies to a $2,400 change and to a full project priced in [fixed milestones](/pricing)."
+      "Addanapp builds custom software with AI to move faster, and senior engineers review, test and sign off every delivery before it reaches you. Every project starts with a **free exploratory call and a quick prototype** you see before paying anything. After that you get a **fixed quote and an ETA before work starts**, you follow progress in a private workspace, and you are invoiced only when you accept what was delivered. You keep the code: it is sent to you at every milestone.",
+      "This page explains the five steps of a project, what happens inside each milestone, and where AI stops and senior engineers take over. The same method applies to a $2,400 change and to a full project priced in [fixed milestones](/pricing)."
     ],
     "sections": [
       {
-        "h2": "Step by step: quote, build, review, acceptance",
+        "h2": "From first call to launch: five steps",
         "paragraphs": [
-          "Every piece of work at Addanapp, large or small, moves through the same four steps."
+          "Every Addanapp project follows the same five steps. You keep the code: it is sent to you at every milestone, so you can choose to continue with your own team at any point."
+        ],
+        "bullets": [
+          "**1. Free exploratory call.** We look at what you need and at what recent advances in AI have made possible for a business like yours.",
+          "**2. Quick prototype, free.** Within days you see a working prototype of the workflow that matters most. You pay nothing at this stage.",
+          "**3. First payment: $10,000 to $30,000 CAD, depending on complexity.** After seeing the prototype, you approve a written scope and a fixed price for the first milestone, Launch. It is invoiced when you accept the delivery.",
+          "**4. Production build, in fixed-price milestones.** Senior engineers build for long-term support, reliability and security: code review, automated tests, security checks, monitoring and documentation. Each milestone is priced on agreed deliverables and invoiced when you accept it. The code is sent to you at every milestone.",
+          "**5. After launch, your choice.** We can teach your team to support the product themselves, or you can sign a lighter long-term support contract with even stronger quality guarantees. Support is not expensive, because the software is built to be resilient from the start."
+        ]
+      },
+      {
+        "h2": "Fast iteration and a set-up with no headaches",
+        "paragraphs": [
+          "What Addanapp offers above all is fast iteration and a set-up with no headaches. You see working software within days, and changes move quickly from request to delivery. Addanapp handles hosting, logins, payments, backups and monitoring. You control the whole process and see the cost of each step before you commit, so spending stays under close watch."
+        ]
+      },
+      {
+        "h2": "Inside each milestone: quote, build, review, acceptance",
+        "paragraphs": [
+          "Inside every milestone, and for every small change, work moves through the same four steps."
         ],
         "bullets": [
           "**1. Quote.** You describe what you need in your workspace. An engineer turns it into a written scope with a fixed price and an ETA, within 2 business days for single features. Work starts only when you approve the quote.",
@@ -62,7 +81,7 @@
       {
         "h2": "Code review, tests and accessibility included",
         "paragraphs": [
-          "Code review and tests are part of every Addanapp quote, not an add-on. Interfaces are built toward WCAG 2.2 AA accessibility, and privacy is handled with Québec Law 25, PIPEDA and GDPR in mind. At the end of any milestone you keep the code, the data and the documentation, so another team could pick up the work if you ever chose to. See [all services](/services) for what this method is used to build."
+          "Code review and tests are part of every Addanapp quote, not an add-on. Interfaces are built toward WCAG 2.2 AA accessibility, and privacy is handled with Québec Law 25, PIPEDA and GDPR in mind. The code is sent to you at every milestone, with the data and the documentation, so your own team or another firm could pick up the work if you ever chose to. See [all services](/services) for what this method is used to build."
         ]
       }
     ],
@@ -77,7 +96,11 @@
       ],
       [
         "How fast do I get a quote?",
-        "For a single feature or change, Addanapp sends a fixed quote and an ETA within 2 business days of your request. Larger projects start with a discovery workshop as part of the Launch milestone, which sets the scope and fixed price for that milestone. No work starts until you approve the quote."
+        "For a single feature or change, Addanapp sends a fixed quote and an ETA within 2 business days of your request. Larger projects start with a free exploratory call and a quick prototype. After you see the prototype, you get the scope and fixed price for the Launch milestone, $10,000 to $30,000 CAD depending on complexity. No work starts until you approve the quote."
+      ],
+      [
+        "Do I keep the code?",
+        "Yes. The code is sent to you at every milestone, together with the data and documentation. You can continue with your own team or another firm at any point, with no exit fee."
       ],
       [
         "Will I know what is happening while the work is in progress?",
@@ -86,28 +109,51 @@
       [
         "What happens if I do not accept a delivery?",
         "Addanapp invoices only accepted deliveries. If a delivery does not match the agreed scope, you explain what is wrong in your workspace and the engineer fixes it. Once the delivery matches the scope and you accept it, it is invoiced. You never pay for work you have not accepted."
+      ],
+      [
+        "What happens after launch?",
+        "You choose. Addanapp can teach your team to support the product themselves, or you can sign a lighter long-term support contract with even stronger quality guarantees. Support stays affordable because the software is built with code review, automated tests, monitoring and documentation from the start."
       ]
     ],
     "cta": {
-      "heading": "Start with a fixed quote",
-      "text": "Send your first request and get a written scope, a fixed price and an ETA. You pay only when you accept the delivery. See the full [milestone pricing](/pricing) or browse [60 live products](https://addanapp.com/#work).",
+      "heading": "Start with a free exploratory call",
+      "text": "Tell us what you need. You see a quick prototype before paying anything, then get a written scope, a fixed price and an ETA. You pay only when you accept the delivery, and the code is yours at every milestone. See the full [milestone pricing](/pricing) or browse [60 live products](https://addanapp.com/#work).",
       "button": "Get a fixed quote"
     }
   },
   "fr": {
     "slug": "/fr/notre-methode",
     "title": "Notre méthode : développement accéléré par l'IA | Addanapp",
-    "description": "L'IA accélère la rédaction du code ; des ingénieurs seniors conçoivent, révisent et approuvent. Soumission à prix fixe, facture seulement à l'acceptation.",
-    "h1": "Notre méthode : un développement accéléré par l'IA, approuvé par des ingénieurs seniors",
+    "description": "Appel et prototype gratuits, puis des étapes à prix fixe révisées par des ingénieurs seniors. Le code vous est remis à chaque étape, payé à l'acceptation.",
+    "h1": "Notre méthode : d'un appel gratuit à un logiciel qui vous appartient, approuvé par des ingénieurs seniors",
     "intro": [
-      "Addanapp développe des logiciels sur mesure avec l'IA pour aller plus vite, et des ingénieurs seniors révisent, testent et approuvent chaque livraison avant qu'elle vous parvienne. Vous recevez une **soumission à prix fixe et un délai avant le début des travaux**, vous suivez l'avancement dans un espace client privé, et vous n'êtes facturé qu'une fois la livraison acceptée.",
-      "Cette page décrit chaque étape, de la première demande à l'acceptation, et trace une ligne claire entre ce que fait l'IA et ce que font les ingénieurs seniors. La même méthode s'applique à une modification de 2 400 $ comme à un projet complet découpé en [étapes à prix fixe](/fr/tarifs)."
+      "Addanapp développe des logiciels sur mesure avec l'IA pour aller plus vite, et des ingénieurs seniors révisent, testent et approuvent chaque livraison avant qu'elle vous parvienne. Chaque projet commence par un **appel exploratoire gratuit et un prototype rapide**, que vous voyez avant de payer quoi que ce soit. Ensuite, vous recevez une **soumission à prix fixe et un délai avant le début des travaux**, vous suivez l'avancement dans un espace client privé, et vous n'êtes facturé qu'une fois la livraison acceptée. Le code vous appartient : il vous est remis à chaque étape.",
+      "Cette page décrit le déroulement d'un projet en cinq temps, ce qui se passe à l'intérieur de chaque étape, et la ligne claire entre ce que fait l'IA et ce que font les ingénieurs seniors. La même méthode s'applique à une modification de 2 400 $ comme à un projet complet découpé en [étapes à prix fixe](/fr/tarifs)."
     ],
     "sections": [
       {
-        "h2": "Étape par étape : soumission, développement, révision, acceptation",
+        "h2": "Du premier appel au lancement, en cinq temps",
         "paragraphs": [
-          "Chez Addanapp, chaque mandat, petit ou grand, suit les mêmes quatre étapes."
+          "Chaque projet Addanapp suit le même déroulement en cinq temps. Le code vous appartient : il vous est remis à chaque étape, pour que vous puissiez poursuivre avec votre propre équipe à tout moment."
+        ],
+        "bullets": [
+          "**1. Appel exploratoire gratuit.** On regarde ensemble ce dont vous avez besoin et ce que les progrès récents de l'IA rendent maintenant possible pour une entreprise comme la vôtre.",
+          "**2. Prototype rapide, gratuit.** En quelques jours, vous voyez un prototype fonctionnel du processus qui compte le plus. Vous ne payez rien à ce stade.",
+          "**3. Premier paiement : de 10 000 $ à 30 000 $, selon la complexité.** Après avoir vu le prototype, vous approuvez la portée écrite et le prix fixe de la première étape, le Lancement. Elle est facturée quand vous acceptez la livraison.",
+          "**4. Développement en production, par étapes à prix fixe.** Des ingénieurs seniors construisent pour la durée, la fiabilité et la sécurité : revue de code, tests automatisés, vérifications de sécurité, surveillance et documentation. Chaque étape est chiffrée selon des livrables convenus et facturée à votre acceptation. Le code vous est remis à chaque étape.",
+          "**5. Après le lancement, à vous de choisir.** Nous pouvons former votre équipe pour qu'elle assure elle-même le soutien du produit, ou vous offrir un contrat de soutien à long terme plus léger, avec des garanties de qualité encore plus fortes. Ce soutien coûte peu, parce que le logiciel est conçu dès le départ pour être robuste."
+        ]
+      },
+      {
+        "h2": "Des itérations rapides et une mise en place sans casse-tête",
+        "paragraphs": [
+          "Ce qu'Addanapp offre avant tout : des itérations rapides et une mise en place sans casse-tête. Vous voyez un logiciel qui fonctionne en quelques jours, et chaque changement passe vite de la demande à la livraison. Addanapp s'occupe de l'hébergement, des connexions des utilisateurs, des paiements, des sauvegardes et de la surveillance. Vous gardez le contrôle de tout le processus et vous connaissez le coût de chaque étape avant de vous engager, pour garder les dépenses bien en main."
+        ]
+      },
+      {
+        "h2": "À l'intérieur de chaque étape : soumission, développement, révision, acceptation",
+        "paragraphs": [
+          "À l'intérieur de chaque étape, comme pour chaque petite modification, le travail suit les mêmes quatre temps."
         ],
         "bullets": [
           "**1. Soumission.** Vous décrivez votre besoin dans votre espace client. Un ingénieur le transforme en portée écrite avec un prix fixe et un délai, en 2 jours ouvrables pour une fonction simple. Les travaux commencent seulement après votre approbation.",
@@ -155,7 +201,7 @@
       {
         "h2": "Revue de code, tests et accessibilité inclus",
         "paragraphs": [
-          "La revue de code et les tests font partie de chaque soumission d'Addanapp ; ce ne sont pas des options. Les interfaces visent l'accessibilité WCAG 2.2 AA, et la protection des renseignements personnels tient compte de la Loi 25, de la LPRPDE et du RGPD. À la fin de chaque étape, vous gardez le code, les données et la documentation, si bien qu'une autre équipe pourrait reprendre le travail si vous le souhaitiez. Voyez [tous nos services](/fr/services) pour savoir ce que nous construisons avec cette méthode."
+          "La revue de code et les tests font partie de chaque soumission d'Addanapp ; ce ne sont pas des options. Les interfaces visent l'accessibilité WCAG 2.2 AA, et la protection des renseignements personnels tient compte de la Loi 25, de la LPRPDE et du RGPD. Le code vous est remis à chaque étape, avec les données et la documentation, si bien que votre équipe ou une autre firme pourrait reprendre le travail si vous le souhaitiez. Voyez [tous nos services](/fr/services) pour savoir ce que nous construisons avec cette méthode."
         ]
       }
     ],
@@ -170,7 +216,11 @@
       ],
       [
         "En combien de temps reçoit-on une soumission ?",
-        "Pour une fonction ou une modification simple, Addanapp envoie une soumission à prix fixe avec un délai en 2 jours ouvrables. Les projets plus importants commencent par un atelier de découverte inclus dans l'étape Lancement, qui fixe la portée et le prix de cette étape. Aucun travail ne commence sans votre approbation de la soumission."
+        "Pour une fonction ou une modification simple, Addanapp envoie une soumission à prix fixe avec un délai en 2 jours ouvrables. Les projets plus importants commencent par un appel exploratoire gratuit et un prototype rapide. Après avoir vu le prototype, vous recevez la portée et le prix fixe de l'étape Lancement, de 10 000 $ à 30 000 $ selon la complexité. Aucun travail ne commence sans votre approbation de la soumission."
+      ],
+      [
+        "Le code m'appartient-il ?",
+        "Oui. Le code vous est remis à chaque étape, avec les données et la documentation. Vous pouvez poursuivre avec votre propre équipe ou une autre firme à tout moment, sans frais de sortie."
       ],
       [
         "Vais-je savoir où en est le travail ?",
@@ -179,11 +229,15 @@
       [
         "Que se passe-t-il si je n'accepte pas une livraison ?",
         "Addanapp ne facture que les livraisons acceptées. Si une livraison ne correspond pas à la portée convenue, vous expliquez le problème dans votre espace client et l'ingénieur le corrige. Une fois la livraison conforme et acceptée, elle est facturée. Vous ne payez jamais pour un travail que vous n'avez pas accepté."
+      ],
+      [
+        "Que se passe-t-il après le lancement ?",
+        "C'est vous qui choisissez. Addanapp peut former votre équipe pour qu'elle assure elle-même le soutien du produit, ou vous offrir un contrat de soutien à long terme plus léger, avec des garanties de qualité encore plus fortes. Le soutien reste abordable parce que le logiciel est construit dès le départ avec revue de code, tests automatisés, surveillance et documentation."
       ]
     ],
     "cta": {
-      "heading": "Commencez par une soumission à prix fixe",
-      "text": "Envoyez votre première demande et recevez une portée écrite, un prix fixe et un délai. Vous ne payez qu'à l'acceptation de la livraison. Consultez nos [tarifs par étapes](/fr/tarifs) ou nos [60 produits en ligne](https://addanapp.com/#work).",
+      "heading": "Commencez par un appel exploratoire gratuit",
+      "text": "Dites-nous ce dont vous avez besoin. Vous voyez un prototype rapide avant de payer quoi que ce soit, puis vous recevez une portée écrite, un prix fixe et un délai. Vous ne payez qu'à l'acceptation de la livraison, et le code vous est remis à chaque étape. Consultez nos [tarifs par étapes](/fr/tarifs) ou nos [60 produits en ligne](https://addanapp.com/#work).",
       "button": "Obtenir une soumission"
     }
   }

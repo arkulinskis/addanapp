@@ -22,10 +22,10 @@ from . import state, ui
 from .i18n import tp
 
 SEO_TITLE = tp("Custom Web App Development in Montréal | Addanapp")
-SEO_DESC = tp("Montréal software consultancy for web apps, admin panels, client portals and data platforms. "
-              "AI-accelerated, human-validated, fixed quotes. Pay for results.")
+SEO_DESC = tp("Custom web apps, admin panels and client portals from Montréal. Free call and prototype, "
+              "fixed-price milestones, and you keep the code at every step.")
 # Home-page sections that belong to a header link (the "chapter" lit up in the header).
-CHAPTER = {'method': 'approach', 'youtube': 'work', 'partners': 'engage', 'guides': 'engage'}
+CHAPTER = {'method': 'approach', 'process': 'approach', 'own': 'approach', 'youtube': 'work', 'partners': 'engage', 'guides': 'engage'}
 ADMIN_TABS = ('requests', 'clients', 'leads', 'tools')
 _r: dict = {"listening": False, "page": None, "name": "", "shell": None}
 
@@ -135,8 +135,8 @@ def show():
         from .Pages.Estimate import Estimate
         _open('estimate', Estimate(code=arg), nav='engage', public=True)
         ui.set_meta(tp("Software cost estimator: a ballpark in 60 seconds | Addanapp"),
-                    tp("Seven one-tap questions give a ballpark from Addanapp's published fixed-price milestones: Launch $30,000, "
-                       "Operate $75,000, Scale $150,000, Complete $300,000. Share it, or send it as a brief."))
+                    tp("Seven one-tap questions give a ballpark from Addanapp's published fixed-price milestones: a $10,000 to "
+                       "$30,000 first milestone after a free prototype, then Operate, Scale and Complete up to $300,000."))
     elif head == 'signoff':
         from .Pages.SignoffSample import SignoffSample
         _open('signoff', SignoffSample(), nav='approach', public=True)

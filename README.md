@@ -6,7 +6,7 @@ Addanapp is the website and client platform for a Montréal software consultancy
 
 | Area | What it does |
 | --- | --- |
-| **Landing page** (`#home`) | The marketing site: hero with a live request mock, "hours vs outcomes" comparison, the 5-step AI + human method, capabilities, portfolio (three projects picked at random, a Shuffle button and a link to the full index), the YouTube channel with the Addanapp film, client workspace preview, engagement models, a partner-deck download for agencies, commitments, a bilingual Montréal section, FAQ and a project-brief form. |
+| **Landing page** (`#home`) | The marketing site, built to turn business owners into calls (2026-11-23): hero ("You keep the code. You control the spend.") with a live request mock, the 5-step delivery path (free call, free prototype, $10k-$30k first payment, milestones with the code delivered each time, training or light support) with what you pay at each step, three promises (speed of iteration, zero-headache set-up, control) + agency comparison, ownership and after-launch options, the 5-step AI + human method, capabilities, portfolio (three projects picked at random, a Shuffle button and a link to the full index), the YouTube channel with the Addanapp film, client workspace preview, engagement models, a partner-deck download for agencies, free guides, a bilingual Montréal section, FAQ and a "book your free call" form. |
 | **Client workspace** (`#portal`) | Clients sign up and submit requests (feature, fix, integration, new app…), approve fixed quotes, follow progress notes, accept deliveries or request changes. |
 | **Consultant console** (`#admin`) | Every request across clients as a list or Kanban board. Post progress notes (update, milestone, human-validated, question, internal), set status, progress %, fixed quote, scope summary and ETA. Also manage clients, website leads and demo data. |
 | **Apps** (`#apps`, `#app/<key>`) | A client's app portfolio board (the user's App Board, moved here from their PC on 2026-11-11; the apps are spread over six made-up test clients by category). Views: Board (a lane per stage), Checklist grid, Posts, Biz dev, Money, YouTube, Dossiers, Notifications; one page per app with its checklist, "Changes for Claude" (they become requests), a Prepsto idea box, notes and links. Only that client and consultants see it. |
@@ -17,7 +17,7 @@ Other routes: `#work` (full portfolio: a spotlight of three projects side by sid
 
 - **Ballpark estimator** (`#estimate`, Engagements menu, a button under the engagements, a line on `/pricing` + `/fr/tarifs`):
   seven one-tap questions (`client_code/estimate.py`, pure Python shared with the server) map to the published milestone
-  prices only (Launch $30,000 / Operate $75,000 / Scale $150,000 / Complete $300,000; a change = per-request quote, sample
+  prices only (Launch $10,000-$30,000 / Operate up to $75,000 / Scale up to $150,000 / Complete up to $300,000; a change = per-request quote, sample
   $2,400 in 6 days; a takeover = audit first). The result updates live (milestone, price, path, why, what's included,
   "ballpark, not a quote"); the address follows the answers (`#estimate/a0110000`), so **Copy link** reopens it in any
   language. **Send as a brief** = a lead with source `estimate`; the server recomputes the estimate from the code and

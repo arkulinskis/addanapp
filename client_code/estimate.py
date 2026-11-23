@@ -4,7 +4,8 @@ Pure Python (no anvil imports): the Estimate page uses it in the browser, and th
 the estimate into a lead (api_public.submit_lead), so both always agree and the browser can't send its own price.
 
 Prices come ONLY from the published pricing page (tools/seo_pages/pricing.json, addanapp.com/pricing):
-  Launch $30,000 · Operate +$45,000 = $75,000 · Scale +$75,000 = $150,000 · Complete +$150,000 = $300,000
+  Launch $10,000–$30,000 (the first payment, after a free call + prototype; LAUNCH_FROM is the low end)
+  · Operate typically +$45,000 = up to $75,000 · Scale +$75,000 = up to $150,000 · Complete +$150,000 = up to $300,000
   A change to an app we run: a fixed quote per request, usually within 2 business days (sample: $2,400, 6 days).
   Taking over an app: a short fixed-price audit first (no published price, so none is shown).
 Change a price there first, then here. Texts are English: the page translates them (tp), the lead keeps English.
@@ -36,7 +37,7 @@ KEYS = [q[0] for q in QUESTIONS]
 # (key, name, cumulative price, this milestone's own price, what it adds): from pricing.json, word for word in spirit
 MILESTONES = [
   ('launch', 'Launch', 30000, 30000,
-   ['A discovery workshop on scope, users and the workflow that matters most', 'That workflow built end to end',
+   ['A free exploratory call and a working prototype before you pay', 'That workflow built end to end',
     'Accounts and roles', 'A basic admin panel', 'Live in production, with code review and tests']),
   ('operate', 'Operate', 75000, 45000,
    ['The next workflows on your roadmap', 'Integrations with payments, accounting, CRM and email',
@@ -49,6 +50,8 @@ MILESTONES = [
    ['The remaining roadmap', 'A mobile-first installable app', 'Migration of data from old systems',
     'Staff training and documentation', 'Monitoring', '12 months of support and maintenance']),
 ]
+
+LAUNCH_FROM = 10000  # Launch is $10,000-$30,000 depending on complexity (MILESTONES keeps the top of the range)
 
 # (question, value): (the milestone it needs, why in a few words)
 TRIGGERS = {
@@ -74,8 +77,8 @@ AUDIT_NOTES = ['A short fixed-price audit of the code comes first',
 
 # What goes into the lead (api_public): the brief form's English choices
 LEAD_KIND = {'new': 'A new app or product', 'change': 'A feature for an existing app', 'takeover': 'Taking over an existing app'}
-LEAD_BUDGET = {'launch': '$30k – $75k', 'operate': '$75k – $150k', 'scale': '$150k – $300k', 'complete': '$300k+',
-               'request': 'Under $30k', 'audit': 'Not sure yet'}
+LEAD_BUDGET = {'launch': '$10k – $30k', 'operate': '$75k – $150k', 'scale': '$150k – $300k', 'complete': '$300k+',
+               'request': 'Under $10k', 'audit': 'Not sure yet'}
 
 
 def defaults():
@@ -151,8 +154,8 @@ def result(answers):
     p['on'] = i <= level
   key, name, price, _step, _inc = MILESTONES[level]
   included = [{'milestone': MILESTONES[i][1], 'items': list(MILESTONES[i][4])} for i in range(level + 1)]
-  return {'key': key, 'name': name, 'price': price, 'level': level, 'path': path, 'included': included, 'why': why,
-          'notes': []}
+  return {'key': key, 'name': name, 'price': price, 'price_from': LAUNCH_FROM if level == 0 else None, 'level': level,
+          'path': path, 'included': included, 'why': why, 'notes': []}
 
 
 def summary(answers):
@@ -163,7 +166,9 @@ def summary(answers):
 
 
 def headline(res):
-  """'Operate (~$75,000)' / 'Per request' / 'Audit first' in English, for the lead."""
+  """'Launch (~$10,000–$30,000)' / 'Operate (~$75,000)' / 'Per request' / 'Audit first' in English, for the lead."""
+  if res.get('price_from'):
+    return '%s (~%s–%s)' % (res['name'], money_en(res['price_from']), money_en(res['price']))
   if res.get('price'):
     return '%s (~%s)' % (res['name'], money_en(res['price']))
   return res['name']

@@ -47,11 +47,11 @@ class Estimate(EstimateTemplate):
         milestone = res["price"] is not None
         self.res_name.text = tp(res["name"])
         if milestone:
-            self.res_price.text = ui.money(res["price"])
+            self.res_price.text = (ui.money(res["price_from"]) + "–" + ui.money(res["price"])) if res.get("price_from")                 else ui.money(res["price"])
             steps = [tp(m["name"]) for m in res["path"] if m["on"]]
             self.res_sub.text = (tp("{milestones}, in fixed-price milestones", milestones=" + ".join(steps))
-                                 if len(steps) > 1 else tp("One fixed-price milestone, about 6 to 8 weeks"))
-            peek = tp(res["name"]) + " · " + ui.money(res["price"])
+                                 if len(steps) > 1 else tp("Your first payment, after a free prototype. About 6 to 8 weeks"))
+            peek = tp(res["name"]) + " · " + self.res_price.text
         elif res["key"] == "request":
             self.res_price.text = tp("Quoted per request")
             self.res_sub.text = tp("A change to an app we run gets its own fixed quote.")
@@ -74,7 +74,7 @@ class Estimate(EstimateTemplate):
             else:
                 node.classList.remove("cur")
             self.dom_nodes["p%dn" % i].textContent = tp(m["name"])
-            self.dom_nodes["p%dp" % i].textContent = ui.money(m["price"])
+            self.dom_nodes["p%dp" % i].textContent = (ui.money(estimate.LAUNCH_FROM) + "–" + ui.money(m["price"])) if i == 0                 else ui.money(m["price"])
         self.why_part.visible = milestone
         self.why.items = [{"text": tp("{why} → {milestone}", why=tp(w["text"]), milestone=tp(w["milestone"]))}
                           for w in res["why"]]

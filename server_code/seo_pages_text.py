@@ -29,7 +29,7 @@ PAGES = {
      "bullets": [
       "**[Portail client](/fr/developpement-portail-client)** : un espace sécurisé où vos clients ou partenaires se connectent, font des demandes, déposent des documents et suivent l'avancement",
       "**[Panneau d'administration](/fr/developpement-panneau-administration)** : un back-office pour gérer utilisateurs, commandes, réservations et contenu, avec accès par rôle et rapports",
-      "**[MVP à prix fixe](/fr/developpement-mvp)** : votre produit en production en 6 à 8 semaines environ, pour 30 000 $",
+      "**[MVP à prix fixe](/fr/developpement-mvp)** : votre produit en production en 6 à 8 semaines environ, de 10 000 $ à 30 000 $ selon la complexité",
       "**[Plateforme de données](/fr/developpement-plateforme-donnees)** : pipelines, tâches planifiées, recherche et tableaux de bord fiables",
       "**[Développement SaaS](/fr/developpement-saas)** : SaaS multilocataire avec paramètres par client, drapeaux de fonctionnalités, marque blanche et facturation à l'usage",
       "**[Intégration API](/fr/integration-api)** : connexions avec Stripe, Google, QuickBooks, les CRM et le courriel",
@@ -41,19 +41,20 @@ PAGES = {
      "h2": "Notre méthode : l'IA accélère, les ingénieurs seniors approuvent",
      "paragraphs": [
       "Chez Addanapp, l'IA sert à rédiger plus vite le code, les tests et la documentation. Les ingénieurs seniors, eux, conçoivent l'architecture, révisent chaque changement, vérifient la sécurité et approuvent chaque livraison. L'IA ne décide de rien et n'approuve jamais son propre travail.",
+      "Le déroulement : un appel exploratoire gratuit, un prototype rapide que vous voyez avant de payer, puis un développement en production par étapes à prix fixe, avec revue de code, tests automatisés, vérifications de sécurité, surveillance et documentation. Le code vous est remis à chaque étape. Après le lancement, nous formons votre équipe pour qu'elle assure le soutien, ou nous signons un contrat de soutien plus léger. Nous nous occupons de l'hébergement, des connexions, des paiements, des sauvegardes et de la surveillance : une mise en place sans casse-tête.",
       "Chaque client dispose d'un espace de travail privé pour soumettre ses demandes, approuver les soumissions, lire les notes d'avancement rédigées par l'ingénieur et accepter les livraisons. Pour une fonction simple, la soumission arrive en 2 jours ouvrables. La revue de code et les tests sont toujours inclus. Tous les détails sont dans [notre méthode](/fr/notre-methode)."
      ]
     },
     {
      "h2": "Des tarifs à prix fixe, par étapes",
      "paragraphs": [
-      "Un projet Addanapp coûte de 30 000 $ à 300 000 $ et se découpe en quatre étapes à prix fixe. Chaque étape a sa propre soumission, approuvée avant le début des travaux, et n'est facturée qu'une fois acceptée. Vous pouvez arrêter après n'importe quelle étape et garder le code, les données et la documentation : aucun engagement forcé, aucuns frais de sortie."
+      "Un projet Addanapp commence par un appel exploratoire gratuit et un prototype rapide, que vous voyez avant de payer quoi que ce soit. Il se découpe ensuite en quatre étapes à prix fixe, d'une première étape de 10 000 $ à 30 000 $ jusqu'à 300 000 $ pour un projet clé en main. Chaque étape a sa propre soumission, approuvée avant le début des travaux, et n'est facturée qu'une fois acceptée. Le code vous est remis à chaque étape : vous pouvez arrêter après n'importe laquelle et garder le code, les données et la documentation, sans engagement forcé ni frais de sortie."
      ],
      "bullets": [
-      "**Lancement — 30 000 $** : atelier de découverte, le processus le plus important construit de bout en bout, comptes et rôles, administration de base, mise en production. Beaucoup de clients s'arrêtent ici.",
-      "**Exploitation — +45 000 $ (total 75 000 $)** : processus suivants, intégrations (paiements, comptabilité, CRM, courriel), notifications, premiers rapports.",
-      "**Croissance — +75 000 $ (total 150 000 $)** : deuxième groupe d'utilisateurs, plateforme de données, automatisation, performance, revue de sécurité, dossier Loi 25, accessibilité WCAG 2.2 AA.",
-      "**Complet — +150 000 $ (total 300 000 $)** : le reste de la feuille de route, application installable, migration des données, formation, documentation, surveillance et 12 mois de soutien.",
+      "**Lancement — 10 000 $ à 30 000 $ selon la complexité** : le premier paiement, après le prototype gratuit. Le processus le plus important construit de bout en bout, comptes et rôles, administration de base, mise en production. Beaucoup de clients s'arrêtent ici.",
+      "**Exploitation — généralement +45 000 $ (total jusqu'à 75 000 $)** : processus suivants, intégrations (paiements, comptabilité, CRM, courriel), notifications, premiers rapports.",
+      "**Croissance — généralement +75 000 $ (total jusqu'à 150 000 $)** : deuxième groupe d'utilisateurs, plateforme de données, automatisation, performance, revue de sécurité, dossier Loi 25, accessibilité WCAG 2.2 AA.",
+      "**Complet — généralement +150 000 $ (total jusqu'à 300 000 $)** : le reste de la feuille de route, application installable, migration des données, formation, documentation, surveillance et 12 mois de soutien.",
       "**Petites modifications** : une soumission à prix fixe par demande, par exemple 2 400 $ pour 6 jours de travail. Voyez tous les [tarifs](/fr/tarifs)."
      ]
     },
@@ -85,7 +86,7 @@ PAGES = {
    "faq": [
     [
      "Combien coûte le développement d'une application web à Montréal avec Addanapp ?",
-     "Chez Addanapp, un projet coûte de 30 000 $ à 300 000 $, découpé en quatre étapes à prix fixe : Lancement (30 000 $), Exploitation (+45 000 $), Croissance (+75 000 $) et Complet (+150 000 $). Chaque étape a sa propre soumission et n'est facturée qu'à l'acceptation. Les petites modifications d'une application existante reçoivent une soumission fixe par demande."
+     "Chez Addanapp, un projet commence par un appel exploratoire et un prototype gratuits. Il se découpe ensuite en quatre étapes à prix fixe : Lancement (de 10 000 $ à 30 000 $ selon la complexité), Exploitation (généralement +45 000 $), Croissance (généralement +75 000 $) et Complet (généralement +150 000 $), jusqu'à 300 000 $ pour un projet clé en main. Chaque étape a sa propre soumission et n'est facturée qu'à l'acceptation. Les petites modifications d'une application existante reçoivent une soumission fixe par demande."
     ],
     [
      "Addanapp travaille-t-elle en français ?",
@@ -97,11 +98,11 @@ PAGES = {
     ],
     [
      "Quand est-ce que je paie ?",
-     "Vous payez seulement quand vous acceptez une livraison. Avant chaque étape ou demande, vous recevez une soumission à prix fixe et un délai ; rien ne commence sans votre approbation. Une fois la livraison testée et acceptée dans votre espace client, elle est facturée. Les frais de tiers, comme l'hébergement, sont facturés au coûtant."
+     "Vous payez seulement quand vous acceptez une livraison. L'appel exploratoire et le premier prototype sont gratuits ; le premier paiement est l'étape Lancement, de 10 000 $ à 30 000 $ selon la complexité. Avant chaque étape ou demande, vous recevez une soumission à prix fixe et un délai ; rien ne commence sans votre approbation. Une fois la livraison testée et acceptée dans votre espace client, elle est facturée. Les frais de tiers, comme l'hébergement, sont facturés au coûtant."
     ],
     [
      "Puis-je arrêter un projet en cours de route ?",
-     "Oui. Vous pouvez arrêter après n'importe quelle étape et garder tout ce qui a été construit : le code, les données et la documentation. Il n'y a aucun engagement forcé ni frais de sortie. Beaucoup de clients s'arrêtent après l'étape Lancement, avec un logiciel en production qui répond à leur besoin principal."
+     "Oui. Le code vous est remis à chaque étape : vous pouvez arrêter après n'importe laquelle et garder tout ce qui a été construit : le code, les données et la documentation. Il n'y a aucun engagement forcé ni frais de sortie. Beaucoup de clients s'arrêtent après l'étape Lancement, avec un logiciel en production qui répond à leur besoin principal."
     ],
     [
      "Addanapp peut-elle reprendre une application existante ?",
@@ -124,7 +125,7 @@ PAGES = {
    "h1": "Custom software development services in Montréal",
    "intro": [
     "Addanapp is a Montréal software consultancy that builds the software a business actually runs on: web apps, client portals, admin panels, APIs and integrations, data platforms and multi-tenant SaaS. Every service follows the same promise. You get a **fixed quote and an ETA before work starts**, and you are invoiced only when you accept the delivery.",
-    "Addanapp builds with AI to move faster, and senior engineers review, test and sign off every delivery. Code review and tests are included in every quote. Service is in English and French, in person in Montréal or remotely, for clients in Canada, the US and Europe. Larger projects are split into fixed-price milestones from $30,000 to $300,000; see [pricing](/pricing) for the full model."
+    "Addanapp builds with AI to move faster, and senior engineers review, test and sign off every delivery. Code review and tests are included in every quote. Service is in English and French, in person in Montréal or remotely, for clients in Canada, the US and Europe. Larger projects start with a free exploratory call and a quick prototype you see before paying anything, then run in fixed-price milestones, from a first milestone of $10,000 to $30,000 up to $300,000 for an all-inclusive build. You keep the code: it is delivered to you at every milestone. See [pricing](/pricing) and [how we work](/how-we-work) for the full model."
    ],
    "sections": [
     {
@@ -144,7 +145,7 @@ PAGES = {
     {
      "h2": "Fixed-price MVP development",
      "paragraphs": [
-      "An MVP is the smallest version of your product that real users can use. Addanapp's MVP is the **Launch milestone at $30,000**, about 6–8 weeks: a discovery workshop, the one workflow that matters most built end to end, accounts and roles, a basic admin, and a live production release.",
+      "An MVP is the smallest version of your product that real users can use. Addanapp's MVP is the **Launch milestone, $10,000 to $30,000 depending on complexity**, about 6–8 weeks: after a free call and a free prototype, the one workflow that matters most built end to end, accounts and roles, a basic admin, and a live production release.",
       "Read more about [fixed-price MVP development](/mvp-development)."
      ]
     },
@@ -189,7 +190,11 @@ PAGES = {
     ],
     [
      "How much does custom software development cost with Addanapp?",
-     "Projects run from $30,000 to $300,000 CAD, split into four fixed-price milestones: Launch ($30,000), Operate (+$45,000), Scale (+$75,000) and Complete (+$150,000). Each milestone has its own fixed quote and is invoiced only when you accept it. Small changes to an existing app get a fixed quote per request."
+     "Projects start with a free exploratory call and a free prototype. The first milestone, Launch, costs $10,000 to $30,000 CAD depending on complexity; Operate typically adds $45,000, Scale $75,000 and Complete $150,000, up to $300,000 for an all-inclusive build. Each milestone has its own fixed quote and is invoiced only when you accept it, and the code is delivered to you at every milestone. Small changes to an existing app get a fixed quote per request."
+    ],
+    [
+     "Do we keep the code?",
+     "Yes. The code is delivered to you at every milestone, with the data and documentation, so you can continue with your own team at any point. After launch, Addanapp can train your team to support the product, or offer a lighter long-term support contract."
     ],
     [
      "Does Addanapp use AI to write code?",
@@ -217,7 +222,7 @@ PAGES = {
    "h1": "Services de développement de logiciel sur mesure à Montréal",
    "intro": [
     "Addanapp est une firme montréalaise de développement logiciel. Nous concevons les outils sur lesquels une entreprise roule au quotidien : applications web, portails clients, panneaux d'administration, intégrations API, plateformes de données et SaaS multilocataires. Chaque service repose sur la même promesse : une **soumission à prix fixe et un délai avant le début des travaux**, et une facture seulement quand vous acceptez la livraison.",
-    "Nous utilisons l'IA pour avancer plus vite, et des ingénieurs seniors révisent, testent et approuvent chaque livraison. La revue de code et les tests sont inclus dans chaque soumission. Le service se fait en français et en anglais, en personne à Montréal ou à distance, pour des PME et des organisations au Canada, aux États-Unis et en Europe. Les projets de plus grande taille sont découpés en étapes à prix fixe, de 30 000 $ à 300 000 $ ; tous les détails sont sur la page [tarifs](/fr/tarifs)."
+    "Nous utilisons l'IA pour avancer plus vite, et des ingénieurs seniors révisent, testent et approuvent chaque livraison. La revue de code et les tests sont inclus dans chaque soumission. Le service se fait en français et en anglais, en personne à Montréal ou à distance, pour des PME et des organisations au Canada, aux États-Unis et en Europe. Les projets de plus grande taille commencent par un appel exploratoire gratuit et un prototype rapide, que vous voyez avant de payer quoi que ce soit, puis se découpent en étapes à prix fixe : de 10 000 $ à 30 000 $ pour la première, jusqu'à 300 000 $ pour un projet clé en main. Le code vous appartient : il vous est remis à chaque étape. Tous les détails sont dans nos [tarifs](/fr/tarifs) et [notre méthode](/fr/notre-methode)."
    ],
    "sections": [
     {
@@ -237,7 +242,7 @@ PAGES = {
     {
      "h2": "Développement de MVP à prix fixe",
      "paragraphs": [
-      "Un MVP, c'est la plus petite version de votre produit que de vrais utilisateurs peuvent utiliser. Chez Addanapp, le MVP correspond à l'**étape Lancement, à 30 000 $**, sur environ 6 à 8 semaines : atelier de découverte, le processus le plus important construit de bout en bout, comptes et rôles, administration de base et mise en production.",
+      "Un MVP, c'est la plus petite version de votre produit que de vrais utilisateurs peuvent utiliser. Chez Addanapp, le MVP correspond à l'**étape Lancement, de 10 000 $ à 30 000 $ selon la complexité**, sur environ 6 à 8 semaines : après un appel et un prototype gratuits, le processus le plus important construit de bout en bout, comptes et rôles, administration de base et mise en production.",
       "En savoir plus sur le [développement de MVP](/fr/developpement-mvp)."
      ]
     },
@@ -282,7 +287,11 @@ PAGES = {
     ],
     [
      "Combien coûte un logiciel sur mesure avec Addanapp ?",
-     "Les projets vont de 30 000 $ à 300 000 $, découpés en quatre étapes à prix fixe : Lancement (30 000 $), Exploitation (+45 000 $), Croissance (+75 000 $) et Complet (+150 000 $). Chaque étape a sa propre soumission et n'est facturée qu'une fois acceptée. Les petites modifications d'une application existante reçoivent une soumission fixe par demande."
+     "Chaque projet commence par un appel exploratoire et un prototype gratuits. La première étape, Lancement, coûte de 10 000 $ à 30 000 $ selon la complexité ; Exploitation ajoute généralement 45 000 $, Croissance 75 000 $ et Complet 150 000 $, jusqu'à 300 000 $ pour un projet clé en main. Chaque étape a sa propre soumission et n'est facturée qu'une fois acceptée, et le code vous est remis à chaque étape. Les petites modifications d'une application existante reçoivent une soumission fixe par demande."
+    ],
+    [
+     "Le code nous appartient-il ?",
+     "Oui. Le code vous est remis à chaque étape, avec les données et la documentation, pour que vous puissiez poursuivre avec votre propre équipe à tout moment. Après le lancement, Addanapp peut former votre équipe pour assurer le soutien, ou vous offrir un contrat de soutien à long terme plus léger."
     ],
     [
      "Addanapp utilise-t-elle l'IA pour écrire du code ?",
@@ -333,21 +342,21 @@ PAGES = {
     {
      "h2": "How client portal development works, step by step",
      "paragraphs": [
-      "Addanapp runs client portal projects through a private workspace where you submit requests, approve quotes, read progress notes written by the engineer and accept deliveries. The steps are the same for every milestone:"
+      "Addanapp runs client portal projects through a private workspace where you submit requests, approve quotes, read progress notes written by the engineer and accept deliveries. The steps:"
      ],
      "bullets": [
-      "**1. Discovery workshop**: we map who uses the portal, what they need to do and which workflow matters most.",
+      "**1. Free call and prototype**: a free exploratory call maps who uses the portal, what they need to do and which workflow matters most, then you see a quick prototype before paying anything.",
       "**2. Fixed quote and ETA**: you approve a fixed price and date before any work starts.",
       "**3. Build**: AI-accelerated development, with progress notes in your workspace as the portal takes shape.",
       "**4. Senior review**: a senior engineer reviews the code, runs the tests and signs off the delivery.",
-      "**5. Acceptance**: you try the portal yourself. You are invoiced only when you accept it."
+      "**5. Acceptance**: you try the portal yourself. You are invoiced only when you accept it, and the code is delivered to you at every milestone."
      ]
     },
     {
      "h2": "How fixed-price milestones apply to a client portal",
      "paragraphs": [
-      "Client portal projects run from $30,000 to $300,000 CAD, split into fixed-price milestones. Each milestone has its own quote, agreed before it starts, and you can stop after any milestone and keep the code, data and documentation. Full details are on the [pricing page](/pricing).",
-      "**Launch ($30,000, about 6 to 8 weeks)** suits a portal-first project: the one client workflow that matters most, built end to end, with accounts, roles, a basic admin and a live portal. **Operate (+$45,000)** adds the next workflows, payments, accounting, CRM and email [integrations](/api-integration-development), notifications and first reports. **Scale (+$75,000)** is where a portal is often added to an existing staff app as a second user group, along with dashboards, automation, a security review, the Law 25 privacy file and WCAG 2.2 AA work. **Complete (+$150,000)** covers the remaining roadmap, an installable mobile app, data migration, training, documentation, monitoring and 12 months of support."
+      "Client portal projects run from a first milestone of $10,000 to $30,000 CAD up to $300,000 for an all-inclusive build, split into fixed-price milestones. Each milestone has its own quote, agreed before it starts. The code is delivered to you at every milestone, so you can stop after any of them and keep the code, data and documentation. Full details are on the [pricing page](/pricing).",
+      "**Launch ($10,000–$30,000 depending on complexity, about 6 to 8 weeks)** suits a portal-first project: the one client workflow that matters most, built end to end, with accounts, roles, a basic admin and a live portal. **Operate (typically +$45,000)** adds the next workflows, payments, accounting, CRM and email [integrations](/api-integration-development), notifications and first reports. **Scale (typically +$75,000)** is where a portal is often added to an existing staff app as a second user group, along with dashboards, automation, a security review, the Law 25 privacy file and WCAG 2.2 AA work. **Complete (typically +$150,000)** covers the remaining roadmap, an installable mobile app, data migration, training, documentation, monitoring and 12 months of support."
      ]
     },
     {
@@ -378,7 +387,7 @@ PAGES = {
    "faq": [
     [
      "How much does a client portal cost?",
-     "A client portal from Addanapp starts with the Launch milestone at $30,000 CAD, which delivers the most important client workflow, accounts and roles, a basic admin and a live portal in about 6 to 8 weeks. Larger portals grow through fixed-price milestones up to $300,000 CAD. Each milestone is quoted before it starts and invoiced only when you accept it."
+     "A client portal from Addanapp starts with a free call and a free prototype, then the Launch milestone at $10,000 to $30,000 CAD depending on complexity, which delivers the most important client workflow, accounts and roles, a basic admin and a live portal in about 6 to 8 weeks. Larger portals grow through fixed-price milestones up to $300,000 CAD. Each milestone is quoted before it starts and invoiced only when you accept it."
     ],
     [
      "Can a client portal connect to the systems we already use?",
@@ -426,21 +435,21 @@ PAGES = {
     {
      "h2": "Le développement d'un portail client, étape par étape",
      "paragraphs": [
-      "Chaque projet se déroule dans un espace de travail privé où vous soumettez vos demandes, approuvez les soumissions, lisez les notes de l'ingénieur et acceptez les livraisons. Les étapes, à chaque jalon :"
+      "Chaque projet se déroule dans un espace de travail privé où vous soumettez vos demandes, approuvez les soumissions, lisez les notes de l'ingénieur et acceptez les livraisons. Les étapes :"
      ],
      "bullets": [
-      "**1. Atelier de découverte** : qui utilise le portail, pour quoi faire, et quel processus compte le plus.",
+      "**1. Appel et prototype gratuits** : un appel exploratoire pour cerner qui utilise le portail, pour quoi faire et quel processus compte le plus, puis un prototype rapide que vous voyez avant de payer quoi que ce soit.",
       "**2. Soumission à prix fixe** : vous approuvez un prix et une date avant que le travail commence.",
       "**3. Développement** : accéléré par l'IA, avec des notes d'avancement.",
       "**4. Révision senior** : un ingénieur senior révise le code, roule les tests et approuve la livraison.",
-      "**5. Acceptation** : vous essayez le portail ; la facture suit votre acceptation."
+      "**5. Acceptation** : vous essayez le portail ; la facture suit votre acceptation, et le code vous est remis à chaque jalon."
      ]
     },
     {
      "h2": "Les jalons à prix fixe appliqués à un portail client",
      "paragraphs": [
-      "Un projet de portail client va de 30 000 $ à 300 000 $ (CAD), en jalons à prix fixe soumis d'avance. Vous pouvez arrêter après n'importe quel jalon en gardant le code, les données et la documentation. Détails sur la page [tarifs](/fr/tarifs).",
-      "**Lancement (30 000 $, environ 6 à 8 semaines)** convient à un projet centré sur le portail : le processus client principal livré de bout en bout, avec comptes, rôles, administration de base et mise en ligne. **Exploitation (+45 000 $)** ajoute d'autres processus, les [intégrations](/fr/integration-api) (paiement, comptabilité, CRM, courriel), les notifications et les premiers rapports. **Croissance (+75 000 $)** est souvent le moment d'ajouter un portail à une application interne existante, avec tableaux de bord, automatisation, revue de sécurité, dossier Loi 25 et accessibilité WCAG 2.2 AA. **Complet (+150 000 $)** couvre le reste de la feuille de route, l'application mobile installable, la migration des données, la formation, la documentation, la surveillance et 12 mois de soutien."
+      "Un projet de portail client va d'un premier jalon de 10 000 $ à 30 000 $ (CAD) jusqu'à 300 000 $ pour un projet clé en main, en jalons à prix fixe soumis d'avance. Le code vous est remis à chaque jalon : vous pouvez arrêter après n'importe lequel en gardant le code, les données et la documentation. Détails sur la page [tarifs](/fr/tarifs).",
+      "**Lancement (10 000 $ à 30 000 $ selon la complexité, environ 6 à 8 semaines)** convient à un projet centré sur le portail : le processus client principal livré de bout en bout, avec comptes, rôles, administration de base et mise en ligne. **Exploitation (généralement +45 000 $)** ajoute d'autres processus, les [intégrations](/fr/integration-api) (paiement, comptabilité, CRM, courriel), les notifications et les premiers rapports. **Croissance (généralement +75 000 $)** est souvent le moment d'ajouter un portail à une application interne existante, avec tableaux de bord, automatisation, revue de sécurité, dossier Loi 25 et accessibilité WCAG 2.2 AA. **Complet (généralement +150 000 $)** couvre le reste de la feuille de route, l'application mobile installable, la migration des données, la formation, la documentation, la surveillance et 12 mois de soutien."
      ]
     },
     {
@@ -471,7 +480,7 @@ PAGES = {
    "faq": [
     [
      "Combien coûte un portail client ?",
-     "Un portail client chez Addanapp commence par le jalon Lancement à 30 000 $ (CAD) : en environ 6 à 8 semaines, le processus client principal, les comptes et les rôles, une administration de base et la mise en production. Les portails plus importants progressent par jalons à prix fixe jusqu'à 300 000 $. Chaque jalon fait l'objet d'une soumission préalable et n'est facturé qu'après votre acceptation."
+     "Un portail client chez Addanapp commence par un appel et un prototype gratuits, puis le jalon Lancement, de 10 000 $ à 30 000 $ (CAD) selon la complexité : en environ 6 à 8 semaines, le processus client principal, les comptes et les rôles, une administration de base et la mise en production. Les portails plus importants progressent par jalons à prix fixe jusqu'à 300 000 $. Chaque jalon fait l'objet d'une soumission préalable et n'est facturé qu'après votre acceptation."
     ],
     [
      "Le portail client peut-il se connecter à nos systèmes actuels ?",
@@ -535,14 +544,14 @@ PAGES = {
     {
      "h2": "How admin panel development works",
      "paragraphs": [
-      "Addanapp starts by listing your team's tasks and ranking them by how often they happen. The screens used every hour get the most care; the ones used once a quarter stay simple. You then approve a fixed quote and an ETA. The engineer builds with AI acceleration and writes progress notes in your private workspace. A senior engineer reviews the code, runs the tests and signs off. You try the admin panel with your own team, and you are invoiced only when you accept it. See [how we work](/how-we-work) for the full method."
+      "After a free exploratory call and a quick prototype you see before paying anything, Addanapp lists your team's tasks and ranking them by how often they happen. The screens used every hour get the most care; the ones used once a quarter stay simple. You then approve a fixed quote and an ETA. The engineer builds with AI acceleration and writes progress notes in your private workspace. A senior engineer reviews the code, runs the tests and signs off. You try the admin panel with your own team, and you are invoiced only when you accept it. See [how we work](/how-we-work) for the full method."
      ]
     },
     {
      "h2": "How fixed-price milestones apply to an admin panel",
      "paragraphs": [
-      "Projects run from $30,000 to $300,000 CAD in fixed-price milestones, each quoted before it starts and invoiced on acceptance. You can stop after any milestone and keep the code, data and documentation. See the [pricing page](/pricing).",
-      "**Launch ($30,000)** already includes accounts, roles and a basic admin next to the main workflow. **Operate (+$45,000)** grows the admin panel with more workflows, notifications, first reports and [integrations](/api-integration-development) with payments, accounting, CRM and email. **Scale (+$75,000)** adds dashboards and a [data platform](/data-platform-development), automation, performance work, a security review, the Law 25 privacy file and WCAG 2.2 AA accessibility. **Complete (+$150,000)** covers migration from old systems, staff training, documentation, monitoring and 12 months of support. For an admin panel added to an existing app, a small change gets a fixed quote per request."
+      "Projects start with a free exploratory call and a quick prototype you see before paying anything. The first milestone costs $10,000 to $30,000 CAD depending on complexity, and an all-inclusive build tops out around $300,000. Each milestone is quoted before it starts and invoiced on acceptance. The code is delivered to you at every milestone, so you can stop after any of them and keep the code, data and documentation. See the [pricing page](/pricing).",
+      "**Launch ($10,000–$30,000, depending on complexity)** already includes accounts, roles and a basic admin next to the main workflow. **Operate (typically +$45,000)** grows the admin panel with more workflows, notifications, first reports and [integrations](/api-integration-development) with payments, accounting, CRM and email. **Scale (typically +$75,000)** adds dashboards and a [data platform](/data-platform-development), automation, performance work, a security review, the Law 25 privacy file and WCAG 2.2 AA accessibility. **Complete (typically +$150,000)** covers migration from old systems, staff training, documentation, monitoring and 12 months of support. For an admin panel added to an existing app, a small change gets a fixed quote per request."
      ]
     },
     {
@@ -565,7 +574,7 @@ PAGES = {
    "faq": [
     [
      "How much does a custom admin panel cost?",
-     "A basic admin panel is part of the Launch milestone at $30,000 CAD, alongside the main workflow, accounts and roles. Richer admin panels with reports, integrations, dashboards and automation grow through the Operate and Scale milestones. Every milestone has a fixed quote agreed before work starts and is invoiced only when you accept the delivery."
+     "A basic admin panel is part of the Launch milestone, $10,000 to $30,000 CAD depending on complexity, alongside the main workflow, accounts and roles. Richer admin panels with reports, integrations, dashboards and automation grow through the Operate and Scale milestones. Every milestone has a fixed quote agreed before work starts and is invoiced only when you accept the delivery."
     ],
     [
      "Can you build an admin panel for an app we already have?",
@@ -625,14 +634,14 @@ PAGES = {
     {
      "h2": "Le développement d'un panneau d'administration, en pratique",
      "paragraphs": [
-      "Addanapp dresse d'abord la liste des tâches de votre équipe, classées selon leur fréquence. Les écrans utilisés toutes les heures reçoivent le plus de soin ; ceux qui servent une fois par trimestre restent simples. Vous approuvez ensuite une soumission à prix fixe et un délai. L'ingénieur développe avec l'aide de l'IA et rédige des notes d'avancement dans votre espace privé. Un ingénieur senior révise le code, roule les tests et approuve la livraison. Vous essayez le panneau avec votre équipe et n'êtes facturé qu'à l'acceptation. Voir [notre méthode](/fr/notre-methode)."
+      "Après un appel exploratoire gratuit et un prototype rapide, que vous voyez avant de payer quoi que ce soit, Addanapp dresse la liste des tâches de votre équipe, classées selon leur fréquence. Les écrans utilisés toutes les heures reçoivent le plus de soin ; ceux qui servent une fois par trimestre restent simples. Vous approuvez ensuite une soumission à prix fixe et un délai. L'ingénieur développe avec l'aide de l'IA et rédige des notes d'avancement dans votre espace privé. Un ingénieur senior révise le code, roule les tests et approuve la livraison. Vous essayez le panneau avec votre équipe et n'êtes facturé qu'à l'acceptation. Voir [notre méthode](/fr/notre-methode)."
      ]
     },
     {
      "h2": "Les jalons à prix fixe appliqués à un panneau d'administration",
      "paragraphs": [
-      "Les projets vont de 30 000 $ à 300 000 $ (CAD) en jalons à prix fixe, chacun soumis avant de commencer et facturé à l'acceptation. Vous pouvez arrêter après n'importe quel jalon en gardant le code, les données et la documentation. Voir les [tarifs](/fr/tarifs).",
-      "**Lancement (30 000 $)** comprend déjà les comptes, les rôles et une administration de base à côté du processus principal. **Exploitation (+45 000 $)** enrichit le panneau avec d'autres processus, des notifications, les premiers rapports et des [intégrations](/fr/integration-api) (paiement, comptabilité, CRM, courriel). **Croissance (+75 000 $)** ajoute tableaux de bord et [plateforme de données](/fr/developpement-plateforme-donnees), automatisation, optimisation des performances, revue de sécurité, dossier Loi 25 et accessibilité WCAG 2.2 AA. **Complet (+150 000 $)** couvre la migration des anciens systèmes, la formation, la documentation, la surveillance et 12 mois de soutien. Pour une application existante, une petite modification reçoit une soumission à prix fixe par demande."
+      "Chaque projet commence par un appel exploratoire gratuit et un prototype rapide, que vous voyez avant de payer quoi que ce soit. Le premier jalon coûte de 10 000 $ à 30 000 $ (CAD) selon la complexité, et un projet clé en main plafonne autour de 300 000 $. Chaque jalon est soumis avant de commencer et facturé à l'acceptation. Le code vous est remis à chaque jalon : vous pouvez arrêter après n'importe lequel en gardant le code, les données et la documentation. Voir les [tarifs](/fr/tarifs).",
+      "**Lancement (10 000 $ à 30 000 $ selon la complexité)** comprend déjà les comptes, les rôles et une administration de base à côté du processus principal. **Exploitation (généralement +45 000 $)** enrichit le panneau avec d'autres processus, des notifications, les premiers rapports et des [intégrations](/fr/integration-api) (paiement, comptabilité, CRM, courriel). **Croissance (généralement +75 000 $)** ajoute tableaux de bord et [plateforme de données](/fr/developpement-plateforme-donnees), automatisation, optimisation des performances, revue de sécurité, dossier Loi 25 et accessibilité WCAG 2.2 AA. **Complet (généralement +150 000 $)** couvre la migration des anciens systèmes, la formation, la documentation, la surveillance et 12 mois de soutien. Pour une application existante, une petite modification reçoit une soumission à prix fixe par demande."
      ]
     },
     {
@@ -655,7 +664,7 @@ PAGES = {
    "faq": [
     [
      "Combien coûte un panneau d'administration sur mesure ?",
-     "Une administration de base fait partie du jalon Lancement à 30 000 $ (CAD), avec le processus principal, les comptes et les rôles. Un panneau plus complet, avec rapports, intégrations, tableaux de bord et automatisation, se construit dans les jalons Exploitation et Croissance. Chaque jalon est soumis à prix fixe d'avance et facturé après votre acceptation."
+     "Une administration de base fait partie du jalon Lancement, de 10 000 $ à 30 000 $ (CAD) selon la complexité, avec le processus principal, les comptes et les rôles. Un panneau plus complet, avec rapports, intégrations, tableaux de bord et automatisation, se construit dans les jalons Exploitation et Croissance. Chaque jalon est soumis à prix fixe d'avance et facturé après votre acceptation."
     ],
     [
      "Pouvez-vous ajouter un panneau d'administration à une application existante ?",
@@ -682,15 +691,15 @@ PAGES = {
   "en": {
    "slug": "/mvp-development",
    "title": "Fixed-Price MVP Development in Montréal | Addanapp",
-   "description": "Launch your MVP for a fixed $30,000 in about 6 to 8 weeks: one core workflow, accounts, admin, live in production. Invoiced only when you accept it.",
-   "h1": "Fixed-price MVP development: your first product live for $30,000",
+   "description": "A fixed-price MVP from $10,000 to $30,000, live in about 6 to 8 weeks, after a free call and prototype. You keep the code. Invoiced only on acceptance.",
+   "h1": "Fixed-price MVP development: your first product live for $10,000 to $30,000",
    "intro": [
-    "An MVP (minimum viable product) is the smallest version of your software that real users can use for real work. Addanapp builds fixed-price MVPs for founders, product teams and business owners in Montréal, across Canada, in the US and in Europe. The MVP is the Launch milestone: $30,000 CAD, about 6 to 8 weeks, live in production.",
+    "An MVP (minimum viable product) is the smallest version of your software that real users can use for real work. Addanapp builds fixed-price MVPs for founders, product teams and business owners in Montréal, across Canada, in the US and in Europe. The MVP is the Launch milestone: a fixed price from $10,000 to $30,000 CAD depending on complexity, about 6 to 8 weeks, live in production. A free exploratory call and a quick prototype come first, before you pay anything, and the code is yours at every milestone.",
     "Your MVP is built with AI-accelerated development and reviewed, tested and signed off by senior engineers. The price is agreed before work starts, and you are invoiced only when you accept the delivery. If the MVP is all you need, you stop there and keep everything."
    ],
    "sections": [
     {
-     "h2": "What the $30,000 fixed-price MVP includes",
+     "h2": "What the fixed-price MVP includes",
      "paragraphs": [
       "The Launch milestone is a complete, working product, not a mockup. A fixed-price MVP from Addanapp includes:"
      ],
@@ -714,7 +723,7 @@ PAGES = {
      "h2": "How to scope an MVP that fits in 6 to 8 weeks",
      "paragraphs": [
       "Good MVP scoping comes down to three choices: one main user, one job that user needs done, and one signal that tells you the product works, such as a first booking, a first paid order or a first request handled without email. Everything else goes on a later list.",
-      "Write it down before the workshop. The free one-page app brief in our [guides](https://addanapp.com/#guides) walks you through it, and the build vs buy worksheet helps check that custom software is the right call."
+      "Write it down before the free exploratory call. The free one-page app brief in our [guides](https://addanapp.com/#guides) walks you through it, and the build vs buy worksheet helps check that custom software is the right call."
      ]
     },
     {
@@ -723,17 +732,17 @@ PAGES = {
       "Everything happens in a private workspace where you submit requests, approve quotes, read progress notes written by the engineer and accept deliveries."
      ],
      "bullets": [
-      "**Workshop**: we agree on the scope and the one workflow.",
+      "**Free call and prototype**: we agree on the scope and the one workflow, and you see a quick prototype before paying anything.",
       "**Fixed quote and ETA**: you approve the price and date before any work starts.",
       "**Build**: AI-accelerated development, with progress notes you can follow.",
       "**Senior review**: code review, tests and sign-off by a senior engineer.",
-      "**Acceptance**: you test the MVP; the invoice follows only your acceptance."
+      "**Acceptance**: you test the MVP; the invoice follows only your acceptance, and the code is delivered to you."
      ]
     },
     {
      "h2": "From MVP to full product: the milestone path",
      "paragraphs": [
-      "Many clients stop after Launch, satisfied. When users ask for more, the product grows in fixed-price milestones, each quoted before it starts. **Operate (+$45,000, total $75,000)** adds the next workflows, integrations, notifications and first reports. **Scale (+$75,000, total $150,000)** adds a second user group such as a [client portal](/client-portal-development), dashboards, automation, a security review, the Law 25 privacy file and WCAG 2.2 AA accessibility. **Complete (+$150,000, total $300,000)** covers the rest of the roadmap, an installable mobile app, data migration, training, documentation, monitoring and 12 months of support. Full details on the [pricing page](/pricing); for a product sold to many customers, see [SaaS development](/saas-development)."
+      "Many clients stop after Launch, satisfied. When users ask for more, the product grows in fixed-price milestones, each quoted before it starts. **Operate (typically +$45,000, total up to $75,000)** adds the next workflows, integrations, notifications and first reports. **Scale (typically +$75,000, total up to $150,000)** adds a second user group such as a [client portal](/client-portal-development), dashboards, automation, a security review, the Law 25 privacy file and WCAG 2.2 AA accessibility. **Complete (typically +$150,000, total up to $300,000)** covers the rest of the roadmap, an installable mobile app, data migration, training, documentation, monitoring and 12 months of support. Full details on the [pricing page](/pricing); for a product sold to many customers, see [SaaS development](/saas-development)."
      ]
     },
     {
@@ -749,16 +758,16 @@ PAGES = {
    ],
    "faq": [
     [
-     "Can you really build an MVP for a fixed $30,000?",
-     "Yes, when the MVP is scoped to one core workflow. The Launch milestone covers a discovery workshop, that workflow built end to end, accounts and roles, a basic admin and a live product in about 6 to 8 weeks. AI-accelerated development keeps the build fast, and senior engineers review and sign off every delivery."
+     "Can you really build an MVP for a fixed price of $10,000 to $30,000?",
+     "Yes, when the MVP is scoped to one core workflow. The Launch milestone, priced by complexity, covers that workflow built end to end, accounts and roles, a basic admin and a live product in about 6 to 8 weeks. A free call and a free prototype come first. AI-accelerated development keeps the build fast, and senior engineers review and sign off every delivery."
     ],
     [
      "What happens if our MVP needs more than one workflow?",
-     "Addanapp agrees on the single most important workflow for the MVP and plans the rest as later milestones. The Operate milestone adds the next workflows, integrations, notifications and reports for $45,000 CAD. Each milestone has its own fixed quote agreed before it starts, so the budget never grows without your approval."
+     "Addanapp agrees on the single most important workflow for the MVP and plans the rest as later milestones. The Operate milestone, typically $45,000 CAD, adds the next workflows, integrations, notifications and reports. Each milestone has its own fixed quote agreed before it starts, so the budget never grows without your approval."
     ],
     [
      "Do we own the MVP code?",
-     "Yes. You can stop after the Launch milestone, or any later one, and keep everything built so far: code, data and documentation. There is no lock-in and no exit fee. Third-party costs such as the hosting plan, payment processing or paid APIs are billed at cost."
+     "Yes. The code is delivered to you at every milestone. You can stop after the Launch milestone, or any later one, and keep everything built so far: code, data and documentation. There is no lock-in and no exit fee. Third-party costs such as the hosting plan, payment processing or paid APIs are billed at cost."
     ],
     [
      "We already have a prototype or an older app. Can you use it?",
@@ -774,15 +783,15 @@ PAGES = {
   "fr": {
    "slug": "/fr/developpement-mvp",
    "title": "Développement de MVP à prix fixe à Montréal | Addanapp",
-   "description": "Lancez votre MVP pour 30 000 $ à prix fixe en 6 à 8 semaines environ : un processus clé, comptes, administration, en ligne. Facturé à l'acceptation.",
-   "h1": "Développement de MVP à prix fixe : votre premier produit en ligne pour 30 000 $",
+   "description": "Un MVP à prix fixe de 10 000 $ à 30 000 $, en ligne en 6 à 8 semaines environ, après un appel et un prototype gratuits. Le code vous appartient.",
+   "h1": "Développement de MVP à prix fixe : votre premier produit en ligne, de 10 000 $ à 30 000 $",
    "intro": [
-    "Un MVP (produit minimum viable) est la plus petite version de votre logiciel que de vrais utilisateurs peuvent utiliser pour du vrai travail. Addanapp, firme de développement logiciel à Montréal, réalise des MVP à prix fixe pour des fondateurs et des PME au Canada, aux États-Unis et en Europe. Le MVP correspond au jalon Lancement : 30 000 $ (CAD), environ 6 à 8 semaines, en production.",
+    "Un MVP (produit minimum viable) est la plus petite version de votre logiciel que de vrais utilisateurs peuvent utiliser pour du vrai travail. Addanapp, firme de développement logiciel à Montréal, réalise des MVP à prix fixe pour des fondateurs et des PME au Canada, aux États-Unis et en Europe. Le MVP correspond au jalon Lancement : un prix fixe de 10 000 $ à 30 000 $ (CAD) selon la complexité, environ 6 à 8 semaines, en production. Un appel exploratoire et un prototype rapide viennent d'abord, sans frais, et le code vous est remis à chaque jalon.",
     "Votre MVP est développé avec l'aide de l'IA et approuvé par des ingénieurs seniors. Le prix est convenu avant le début des travaux, et la facture ne vient qu'après votre acceptation. Si le MVP suffit, vous arrêtez là et gardez tout."
    ],
    "sections": [
     {
-     "h2": "Ce que comprend le MVP à prix fixe de 30 000 $",
+     "h2": "Ce que comprend le MVP à prix fixe",
      "paragraphs": [
       "Le jalon Lancement livre un produit qui fonctionne, pas une maquette. Il comprend :"
      ],
@@ -806,7 +815,7 @@ PAGES = {
      "h2": "Comment cadrer un MVP qui tient en 6 à 8 semaines",
      "paragraphs": [
       "Bien cadrer un MVP revient à faire trois choix : un utilisateur principal, une tâche à accomplir, et un signal qui prouve que le produit fonctionne, comme une première réservation ou une première commande payée. Tout le reste va sur une liste pour plus tard.",
-      "Mettez-le par écrit avant l'atelier. Le résumé d'application d'une page, gratuit dans nos [guides](https://addanapp.com/#guides), vous y aide ; la grille construire ou acheter sur 3 ans confirme si le logiciel sur mesure est le bon choix."
+      "Mettez-le par écrit avant l'appel exploratoire. Le résumé d'application d'une page, gratuit dans nos [guides](https://addanapp.com/#guides), vous y aide ; la grille construire ou acheter sur 3 ans confirme si le logiciel sur mesure est le bon choix."
      ]
     },
     {
@@ -815,17 +824,17 @@ PAGES = {
       "Tout se passe dans un espace de travail privé où vous soumettez vos demandes, approuvez les soumissions, lisez les notes de l'ingénieur et acceptez les livraisons."
      ],
      "bullets": [
-      "**Atelier** : on s'entend sur la portée et sur le processus principal.",
+      "**Appel et prototype gratuits** : on s'entend sur la portée et le processus principal, et vous voyez un prototype rapide avant de payer quoi que ce soit.",
       "**Soumission à prix fixe et délai** : vous approuvez le prix et la date avant tout travail.",
       "**Développement** : accéléré par l'IA, avec des notes d'avancement à suivre.",
       "**Révision senior** : révision de code, tests et approbation par un ingénieur senior.",
-      "**Acceptation** : vous testez le MVP ; la facture suit votre acceptation."
+      "**Acceptation** : vous testez le MVP ; la facture suit votre acceptation, et le code vous est remis."
      ]
     },
     {
      "h2": "Du MVP au produit complet : le parcours par jalons",
      "paragraphs": [
-      "Bien des clients s'arrêtent après le Lancement, satisfaits. Sinon, le produit grandit par jalons à prix fixe, chacun soumis d'avance. **Exploitation (+45 000 $, total 75 000 $)** ajoute les processus suivants, les intégrations, les notifications et les premiers rapports. **Croissance (+75 000 $, total 150 000 $)** ajoute un second groupe d'utilisateurs, par exemple un [portail client](/fr/developpement-portail-client), des tableaux de bord, de l'automatisation, une revue de sécurité, le dossier Loi 25 et l'accessibilité WCAG 2.2 AA. **Complet (+150 000 $, total 300 000 $)** couvre le reste de la feuille de route, une application mobile installable, la migration des données, la formation, la documentation, la surveillance et 12 mois de soutien. Détails sur la page [tarifs](/fr/tarifs) ; pour un produit vendu à plusieurs clients, voir le [développement SaaS](/fr/developpement-saas)."
+      "Bien des clients s'arrêtent après le Lancement, satisfaits. Sinon, le produit grandit par jalons à prix fixe, chacun soumis d'avance. **Exploitation (généralement +45 000 $, total jusqu'à 75 000 $)** ajoute les processus suivants, les intégrations, les notifications et les premiers rapports. **Croissance (généralement +75 000 $, total jusqu'à 150 000 $)** ajoute un second groupe d'utilisateurs, par exemple un [portail client](/fr/developpement-portail-client), des tableaux de bord, de l'automatisation, une revue de sécurité, le dossier Loi 25 et l'accessibilité WCAG 2.2 AA. **Complet (généralement +150 000 $, total jusqu'à 300 000 $)** couvre le reste de la feuille de route, une application mobile installable, la migration des données, la formation, la documentation, la surveillance et 12 mois de soutien. Détails sur la page [tarifs](/fr/tarifs) ; pour un produit vendu à plusieurs clients, voir le [développement SaaS](/fr/developpement-saas)."
      ]
     },
     {
@@ -841,16 +850,16 @@ PAGES = {
    ],
    "faq": [
     [
-     "Peut-on vraiment bâtir un MVP pour 30 000 $ à prix fixe ?",
-     "Oui, quand le MVP est limité à un processus principal. Le jalon Lancement comprend un atelier de découverte, ce processus livré de bout en bout, les comptes et les rôles, une administration de base et un produit en ligne en environ 6 à 8 semaines. Des ingénieurs seniors révisent et approuvent chaque livraison."
+     "Peut-on vraiment bâtir un MVP à prix fixe pour 10 000 $ à 30 000 $ ?",
+     "Oui, quand le MVP est limité à un processus principal. Le jalon Lancement, dont le prix dépend de la complexité, comprend ce processus livré de bout en bout, les comptes et les rôles, une administration de base et un produit en ligne en environ 6 à 8 semaines. Un appel et un prototype gratuits viennent d'abord. Des ingénieurs seniors révisent et approuvent chaque livraison."
     ],
     [
      "Et si notre MVP a besoin de plus d'un processus ?",
-     "Addanapp choisit avec vous le processus principal du MVP et planifie le reste en jalons suivants. Le jalon Exploitation ajoute les processus suivants, les intégrations, les notifications et les rapports pour 45 000 $ (CAD). Chaque jalon a sa propre soumission à prix fixe, convenue avant de commencer : le budget n'augmente jamais sans votre accord."
+     "Addanapp choisit avec vous le processus principal du MVP et planifie le reste en jalons suivants. Le jalon Exploitation, généralement 45 000 $ (CAD), ajoute les processus suivants, les intégrations, les notifications et les rapports. Chaque jalon a sa propre soumission à prix fixe, convenue avant de commencer : le budget n'augmente jamais sans votre accord."
     ],
     [
      "Le code du MVP nous appartient-il ?",
-     "Oui. Vous pouvez arrêter après le jalon Lancement, ou n'importe quel jalon suivant, et garder tout ce qui a été construit : le code, les données et la documentation. Il n'y a ni dépendance ni frais de sortie. Les frais de tiers, comme l'hébergement, le traitement des paiements ou les API payantes, sont facturés au coût réel."
+     "Oui. Le code vous est remis à chaque jalon. Vous pouvez arrêter après le jalon Lancement, ou n'importe quel jalon suivant, et garder tout ce qui a été construit : le code, les données et la documentation. Il n'y a ni dépendance ni frais de sortie. Les frais de tiers, comme l'hébergement, le traitement des paiements ou les API payantes, sont facturés au coût réel."
     ],
     [
      "Nous avons déjà un prototype ou une vieille application. Pouvez-vous partir de là ?",
@@ -901,7 +910,7 @@ PAGES = {
       "Reporting problems are usually definition problems before they are technical ones, so Addanapp runs data projects in a fixed order. You follow each step in a private workspace: approve quotes, read the engineer's progress notes, accept deliveries."
      ],
      "bullets": [
-      "**Discovery workshop:** the decisions the data must support, every source and its owner, and how fresh each number must be.",
+      "**Free call and prototype:** a free exploratory call on the decisions the data must support, every source and its owner, and how fresh each number must be, then a quick prototype you see before paying anything.",
       "**Metric definitions:** each key figure (for example, what counts as an active customer) is defined in writing before any chart is drawn.",
       "**Fixed quote and ETA**, approved by you before work begins.",
       "**Build and review:** a senior engineer reviews the code, runs the tests and checks totals against your source systems.",
@@ -911,13 +920,13 @@ PAGES = {
     {
      "h2": "How fixed-price milestones apply to a data platform",
      "paragraphs": [
-      "Addanapp projects run from $30,000 to $300,000 CAD in fixed-price milestones. Each is quoted before it starts and invoiced only on acceptance. You can stop after any milestone and keep the code, data and documentation, with no exit fee."
+      "Addanapp projects run from a first milestone of $10,000 to $30,000 CAD up to $300,000 for an all-inclusive build, in fixed-price milestones. Each is quoted before it starts and invoiced only on acceptance. The code is delivered to you at every milestone, so you can stop after any of them and keep the code, data and documentation, with no exit fee."
      ],
      "bullets": [
-      "**Launch ($30,000, about 6–8 weeks):** the most important data flow end to end, with a first dashboard, accounts and roles, and a basic admin, live in production.",
-      "**Operate (+$45,000, total $75,000):** more sources and integrations, notifications, the first scheduled reports.",
-      "**Scale (+$75,000, total $150,000):** the full data platform and dashboards for several teams, automation, performance work, a security review, a Law 25 privacy file and WCAG 2.2 AA accessibility.",
-      "**Complete (+$150,000, total $300,000):** the remaining roadmap, historical data migration, training, documentation, monitoring and 12 months of support. Third-party fees are billed at cost."
+      "**Launch ($10,000–$30,000 depending on complexity, about 6–8 weeks):** the most important data flow end to end, with a first dashboard, accounts and roles, and a basic admin, live in production.",
+      "**Operate (typically +$45,000, total up to $75,000):** more sources and integrations, notifications, the first scheduled reports.",
+      "**Scale (typically +$75,000, total up to $150,000):** the full data platform and dashboards for several teams, automation, performance work, a security review, a Law 25 privacy file and WCAG 2.2 AA accessibility.",
+      "**Complete (typically +$150,000, total up to $300,000):** the remaining roadmap, historical data migration, training, documentation, monitoring and 12 months of support. Third-party fees are billed at cost."
      ]
     },
     {
@@ -941,11 +950,11 @@ PAGES = {
    "faq": [
     [
      "How much does a custom dashboard or data platform cost?",
-     "At Addanapp, a data project starts with the Launch milestone at $30,000 CAD: one data flow end to end and a first live dashboard in about 6–8 weeks. Larger platforms grow through fixed-price milestones up to $300,000 CAD, each quoted before it starts and invoiced only when you accept it."
+     "At Addanapp, a data project starts with a free call and a free prototype, then the Launch milestone at $10,000 to $30,000 CAD depending on complexity: one data flow end to end and a first live dashboard in about 6–8 weeks. Larger platforms grow through fixed-price milestones up to $300,000 CAD, each quoted before it starts and invoiced only when you accept it."
     ],
     [
      "Can a data platform connect to QuickBooks, Stripe or our CRM?",
-     "Yes. Addanapp builds pipelines that read from QuickBooks, Stripe, Google services, CRMs, your own databases and spreadsheets. During discovery we check what each system's API allows and how often data can refresh, and the fixed quote lists exactly which sources are included."
+     "Yes. Addanapp builds pipelines that read from QuickBooks, Stripe, Google services, CRMs, your own databases and spreadsheets. During the free exploratory call and prototype we check what each system's API allows and how often data can refresh, and the fixed quote lists exactly which sources are included."
     ],
     [
      "Do we need a data warehouse for our dashboards?",
@@ -997,7 +1006,7 @@ PAGES = {
       "Un problème de reporting est presque toujours un problème de définition avant d'être technique. Vous suivez chaque étape dans votre espace client privé : soumissions, notes d'avancement de l'ingénieur, acceptation des livraisons."
      ],
      "bullets": [
-      "**Atelier de découverte :** les décisions à appuyer, les sources et leurs responsables, la fraîcheur requise de chaque chiffre.",
+      "**Appel et prototype gratuits :** un appel exploratoire sur les décisions à appuyer, les sources et leurs responsables et la fraîcheur requise de chaque chiffre, puis un prototype rapide que vous voyez avant de payer quoi que ce soit.",
       "**Définition des indicateurs :** chaque chiffre clé (par exemple, ce qu'est un client actif) est défini par écrit avant le premier graphique.",
       "**Soumission à prix fixe et échéancier**, approuvés par vous avant le début des travaux.",
       "**Développement et révision :** un ingénieur senior révise le code, exécute les tests et compare les totaux avec vos systèmes sources.",
@@ -1007,13 +1016,13 @@ PAGES = {
     {
      "h2": "Les étapes à prix fixe appliquées à une plateforme de données",
      "paragraphs": [
-      "Les projets d'Addanapp vont de 30 000 $ à 300 000 $ (CAD), en étapes à prix fixe, chacune soumissionnée d'avance et facturée à l'acceptation. Vous pouvez arrêter après n'importe quelle étape et garder le code, les données et la documentation, sans frais de sortie."
+      "Les projets d'Addanapp vont d'une première étape de 10 000 $ à 30 000 $ (CAD) jusqu'à 300 000 $ pour un projet clé en main, en étapes à prix fixe, chacune soumissionnée d'avance et facturée à l'acceptation. Le code vous est remis à chaque étape : vous pouvez arrêter après n'importe laquelle et garder le code, les données et la documentation, sans frais de sortie."
      ],
      "bullets": [
-      "**Lancement (30 000 $, environ 6 à 8 semaines) :** le flux de données le plus important de bout en bout, avec un premier tableau de bord, les comptes et les rôles et un panneau d'administration de base, en production.",
-      "**Exploitation (+45 000 $, total 75 000 $) :** d'autres sources et intégrations, des notifications, des rapports planifiés.",
-      "**Croissance (+75 000 $, total 150 000 $) :** la plateforme complète et des tableaux de bord pour plusieurs équipes, l'automatisation, l'optimisation, une revue de sécurité, un dossier de confidentialité Loi 25 et l'accessibilité WCAG 2.2 AA.",
-      "**Complet (+150 000 $, total 300 000 $) :** le reste de la feuille de route, la migration des données historiques, la formation, la documentation, la surveillance et 12 mois de soutien. Les frais de tiers sont facturés au coûtant."
+      "**Lancement (10 000 $ à 30 000 $ selon la complexité, environ 6 à 8 semaines) :** le flux de données le plus important de bout en bout, avec un premier tableau de bord, les comptes et les rôles et un panneau d'administration de base, en production.",
+      "**Exploitation (généralement +45 000 $, total jusqu'à 75 000 $) :** d'autres sources et intégrations, des notifications, des rapports planifiés.",
+      "**Croissance (généralement +75 000 $, total jusqu'à 150 000 $) :** la plateforme complète et des tableaux de bord pour plusieurs équipes, l'automatisation, l'optimisation, une revue de sécurité, un dossier de confidentialité Loi 25 et l'accessibilité WCAG 2.2 AA.",
+      "**Complet (généralement +150 000 $, total jusqu'à 300 000 $) :** le reste de la feuille de route, la migration des données historiques, la formation, la documentation, la surveillance et 12 mois de soutien. Les frais de tiers sont facturés au coûtant."
      ]
     },
     {
@@ -1037,11 +1046,11 @@ PAGES = {
    "faq": [
     [
      "Combien coûte un tableau de bord ou une plateforme de données sur mesure ?",
-     "Chez Addanapp, un projet de données commence par l'étape Lancement à 30 000 $ (CAD) : un flux de données de bout en bout et un premier tableau de bord en production en 6 à 8 semaines environ. Les plateformes plus vastes grandissent par étapes à prix fixe, jusqu'à 300 000 $."
+     "Chez Addanapp, un projet de données commence par un appel et un prototype gratuits, puis l'étape Lancement, de 10 000 $ à 30 000 $ (CAD) selon la complexité : un flux de données de bout en bout et un premier tableau de bord en production en 6 à 8 semaines environ. Les plateformes plus vastes grandissent par étapes à prix fixe, jusqu'à 300 000 $."
     ],
     [
      "Une plateforme de données peut-elle se brancher sur QuickBooks, Stripe ou notre CRM ?",
-     "Oui. Addanapp construit des pipelines qui lisent les données de QuickBooks, de Stripe, des services Google, des CRM, de vos bases de données et de vos fichiers Excel. À la découverte, nous vérifions ce que permet l'API de chaque système, et la soumission précise les sources incluses."
+     "Oui. Addanapp construit des pipelines qui lisent les données de QuickBooks, de Stripe, des services Google, des CRM, de vos bases de données et de vos fichiers Excel. Lors de l'appel exploratoire et du prototype, nous vérifions ce que permet l'API de chaque système, et la soumission précise les sources incluses."
     ],
     [
      "Faut-il un entrepôt de données pour avoir des tableaux de bord ?",
@@ -1096,7 +1105,7 @@ PAGES = {
     {
      "h2": "How a SaaS project works with Addanapp",
      "bullets": [
-      "**Discovery workshop:** who pays, who uses the product, what differs between customers, and how you will charge.",
+      "**Free call and prototype:** a free exploratory call on who pays, who uses the product, what differs between customers and how you will charge, then a quick prototype you see before paying anything.",
       "**Fixed quote and ETA:** approved by you in your private workspace before work starts.",
       "**Build and review:** built with AI acceleration; a senior engineer reviews the code, tests tenant isolation and signs off.",
       "**Acceptance:** you try the delivery with real accounts, guided by the engineer's progress notes, and are invoiced once you accept.",
@@ -1106,13 +1115,13 @@ PAGES = {
     {
      "h2": "How fixed-price milestones apply to a SaaS build",
      "paragraphs": [
-      "Addanapp projects run from $30,000 to $300,000 CAD in fixed-price milestones, each quoted before it starts and invoiced only on acceptance. You can stop after any milestone and keep the code, data and documentation. For SaaS, a typical sequence is:"
+      "Addanapp projects run from a first milestone of $10,000 to $30,000 CAD up to $300,000 for an all-inclusive build, in fixed-price milestones, each quoted before it starts and invoiced only on acceptance. The code is delivered to you at every milestone, so you can stop after any of them and keep the code, data and documentation. For SaaS, a typical sequence is:"
      ],
      "bullets": [
-      "**Launch ($30,000, about 6–8 weeks):** the core workflow end to end, accounts and roles, a tenant-aware data model and a basic admin, live and ready for pilot customers.",
-      "**Operate (+$45,000, total $75,000):** Stripe billing, email notifications, the integrations customers ask for (accounting, CRM) and first reports.",
-      "**Scale (+$75,000, total $150,000):** a second user group (your customers' own clients through a portal, or a staff app), dashboards, automation, performance work, a security review, a Law 25 privacy file and WCAG 2.2 AA accessibility.",
-      "**Complete (+$150,000, total $300,000):** the remaining roadmap, an installable mobile app, data migration from old systems, training, documentation, monitoring and 12 months of support. Hosting and payment fees are billed at cost."
+      "**Launch ($10,000–$30,000 depending on complexity, about 6–8 weeks):** the core workflow end to end, accounts and roles, a tenant-aware data model and a basic admin, live and ready for pilot customers.",
+      "**Operate (typically +$45,000, total up to $75,000):** Stripe billing, email notifications, the integrations customers ask for (accounting, CRM) and first reports.",
+      "**Scale (typically +$75,000, total up to $150,000):** a second user group (your customers' own clients through a portal, or a staff app), dashboards, automation, performance work, a security review, a Law 25 privacy file and WCAG 2.2 AA accessibility.",
+      "**Complete (typically +$150,000, total up to $300,000):** the remaining roadmap, an installable mobile app, data migration from old systems, training, documentation, monitoring and 12 months of support. Hosting and payment fees are billed at cost."
      ]
     },
     {
@@ -1141,7 +1150,7 @@ PAGES = {
    "faq": [
     [
      "How much does it cost to build a SaaS product?",
-     "With Addanapp, a SaaS build starts with the Launch milestone at $30,000 CAD: the core workflow, accounts, a tenant-aware data model and a basic admin, live in about 6–8 weeks. Products grow through fixed-price milestones up to $300,000 CAD. Each milestone is quoted before it starts and invoiced only once you accept it."
+     "With Addanapp, a SaaS build starts with a free call and a free prototype, then the Launch milestone at $10,000 to $30,000 CAD depending on complexity: the core workflow, accounts, a tenant-aware data model and a basic admin, live in about 6–8 weeks. Products grow through fixed-price milestones up to $300,000 CAD. Each milestone is quoted before it starts and invoiced only once you accept it."
     ],
     [
      "Can you build subscription and usage-based billing?",
@@ -1197,7 +1206,7 @@ PAGES = {
     {
      "h2": "Le déroulement d'un projet SaaS",
      "bullets": [
-      "**Atelier de découverte :** qui paie, qui utilise, ce qui change d'un client à l'autre, comment facturer.",
+      "**Appel et prototype gratuits :** un appel exploratoire (qui paie, qui utilise, ce qui change d'un client à l'autre, comment facturer), puis un prototype rapide que vous voyez avant de payer quoi que ce soit.",
       "**Soumission à prix fixe et échéancier :** approuvés dans votre espace client privé avant le début des travaux.",
       "**Développement et révision :** développé avec l'aide de l'IA; un ingénieur senior révise le code, teste l'isolation des données et approuve.",
       "**Acceptation :** vous essayez la livraison avec de vrais comptes, guidé par les notes de l'ingénieur. La facture suit votre acceptation.",
@@ -1207,13 +1216,13 @@ PAGES = {
     {
      "h2": "Les étapes à prix fixe appliquées à un projet SaaS",
      "paragraphs": [
-      "Les projets d'Addanapp vont de 30 000 $ à 300 000 $ (CAD), en étapes à prix fixe, chacune soumissionnée d'avance et facturée à l'acceptation. Vous pouvez arrêter après n'importe quelle étape et tout garder. Pour un SaaS, la séquence type :"
+      "Les projets d'Addanapp vont d'une première étape de 10 000 $ à 30 000 $ (CAD) jusqu'à 300 000 $ pour un projet clé en main, en étapes à prix fixe, chacune soumissionnée d'avance et facturée à l'acceptation. Le code vous est remis à chaque étape : vous pouvez arrêter après n'importe laquelle et tout garder. Pour un SaaS, la séquence type :"
      ],
      "bullets": [
-      "**Lancement (30 000 $, environ 6 à 8 semaines) :** le flux principal de bout en bout, les comptes et les rôles, un modèle de données multi-clients et une administration de base, en ligne pour vos clients pilotes.",
-      "**Exploitation (+45 000 $, total 75 000 $) :** facturation Stripe, notifications par courriel, intégrations demandées par vos clients (comptabilité, CRM) et premiers rapports.",
-      "**Croissance (+75 000 $, total 150 000 $) :** un deuxième groupe d'utilisateurs (portail pour les clients de vos clients, ou application pour le personnel), tableaux de bord, automatisation, performance, revue de sécurité, dossier de confidentialité Loi 25 et accessibilité WCAG 2.2 AA.",
-      "**Complet (+150 000 $, total 300 000 $) :** le reste de la feuille de route, une application mobile installable, la migration des anciens systèmes, la formation, la documentation, la surveillance et 12 mois de soutien. Frais de tiers au coûtant."
+      "**Lancement (10 000 $ à 30 000 $ selon la complexité, environ 6 à 8 semaines) :** le flux principal de bout en bout, les comptes et les rôles, un modèle de données multi-clients et une administration de base, en ligne pour vos clients pilotes.",
+      "**Exploitation (généralement +45 000 $, total jusqu'à 75 000 $) :** facturation Stripe, notifications par courriel, intégrations demandées par vos clients (comptabilité, CRM) et premiers rapports.",
+      "**Croissance (généralement +75 000 $, total jusqu'à 150 000 $) :** un deuxième groupe d'utilisateurs (portail pour les clients de vos clients, ou application pour le personnel), tableaux de bord, automatisation, performance, revue de sécurité, dossier de confidentialité Loi 25 et accessibilité WCAG 2.2 AA.",
+      "**Complet (généralement +150 000 $, total jusqu'à 300 000 $) :** le reste de la feuille de route, une application mobile installable, la migration des anciens systèmes, la formation, la documentation, la surveillance et 12 mois de soutien. Frais de tiers au coûtant."
      ]
     },
     {
@@ -1242,7 +1251,7 @@ PAGES = {
    "faq": [
     [
      "Combien coûte le développement d'un produit SaaS ?",
-     "Chez Addanapp, un SaaS commence par l'étape Lancement à 30 000 $ (CAD) : le flux principal, les comptes, un modèle de données multi-clients et une administration de base, en ligne en 6 à 8 semaines environ. Le produit grandit ensuite par étapes à prix fixe jusqu'à 300 000 $, facturées à l'acceptation."
+     "Chez Addanapp, un SaaS commence par un appel et un prototype gratuits, puis l'étape Lancement, de 10 000 $ à 30 000 $ (CAD) selon la complexité : le flux principal, les comptes, un modèle de données multi-clients et une administration de base, en ligne en 6 à 8 semaines environ. Le produit grandit ensuite par étapes à prix fixe jusqu'à 300 000 $, facturées à l'acceptation."
     ],
     [
      "Pouvez-vous mettre en place une facturation par abonnement ou à l'usage ?",
@@ -1300,23 +1309,24 @@ PAGES = {
     {
      "h2": "How an API integration project works",
      "bullets": [
+      "**Free call and prototype:** a free exploratory call, then a quick prototype you see before paying anything.",
       "**Map the data flow:** for every field, which system is the source of truth, and what happens when two systems disagree.",
       "**Check access:** API availability, rate limits, sandbox accounts and any paid API fees.",
       "**Fixed quote and ETA:** approved in your private workspace before work starts. For a single integration, Addanapp aims to quote within 2 business days.",
       "**Build and review:** built against sandbox accounts; a senior engineer reviews the code and tests failure cases, not only the happy path.",
-      "**Acceptance with real data:** you check real records flowing through, read the engineer's progress notes, and accept. Then you are invoiced."
+      "**Acceptance with real data:** you check real records flowing through, read the engineer's progress notes, and accept. Then you are invoiced, and the code is delivered to you."
      ]
     },
     {
      "h2": "How fixed pricing applies to integrations",
      "paragraphs": [
-      "One integration added to an existing app is usually a small change with its own fixed quote (a sample quote: $2,400, 6 days). Integration-heavy projects use Addanapp's milestones, from $30,000 to $300,000 CAD, each quoted before it starts and invoiced on acceptance. You can stop after any milestone and keep the code, data and documentation."
+      "One integration added to an existing app is usually a small change with its own fixed quote (a sample quote: $2,400, 6 days). Integration-heavy projects start with a free exploratory call and a quick prototype, then use Addanapp's milestones, from a first milestone of $10,000 to $30,000 CAD up to $300,000 for an all-inclusive build. Each is quoted before it starts and invoiced on acceptance. The code is delivered to you at every milestone, so you can stop after any of them and keep the code, data and documentation."
      ],
      "bullets": [
-      "**Launch ($30,000, about 6–8 weeks):** the most important workflow end to end, including the integration it depends on, with accounts, roles and a basic admin, live.",
-      "**Operate (+$45,000, total $75,000):** the core of integration work: payments, accounting, CRM and email, plus notifications and first reports.",
-      "**Scale (+$75,000, total $150,000):** a partner portal or second user group, a [data platform](/data-platform-development) and dashboards, automation, performance, a security review, a Law 25 privacy file and WCAG 2.2 AA accessibility.",
-      "**Complete (+$150,000, total $300,000):** migration from old systems, monitoring, documentation, training and 12 months of support. Paid API fees are billed at cost."
+      "**Launch ($10,000–$30,000 depending on complexity, about 6–8 weeks):** the most important workflow end to end, including the integration it depends on, with accounts, roles and a basic admin, live.",
+      "**Operate (typically +$45,000, total up to $75,000):** the core of integration work: payments, accounting, CRM and email, plus notifications and first reports.",
+      "**Scale (typically +$75,000, total up to $150,000):** a partner portal or second user group, a [data platform](/data-platform-development) and dashboards, automation, performance, a security review, a Law 25 privacy file and WCAG 2.2 AA accessibility.",
+      "**Complete (typically +$150,000, total up to $300,000):** migration from old systems, monitoring, documentation, training and 12 months of support. Paid API fees are billed at cost."
      ]
     },
     {
@@ -1339,11 +1349,11 @@ PAGES = {
    "faq": [
     [
      "How much does an API integration cost?",
-     "A single integration added to an existing app is usually quoted as a small change with a fixed price; a sample Addanapp quote was $2,400 for 6 days of work. Larger integration projects use fixed-price milestones from $30,000 CAD. Every quote is agreed before work starts, and you are invoiced only when you accept the delivery."
+     "A single integration added to an existing app is usually quoted as a small change with a fixed price; a sample Addanapp quote was $2,400 for 6 days of work. Larger integration projects start with a free call and a free prototype, then use fixed-price milestones; the first costs $10,000 to $30,000 CAD depending on complexity. Every quote is agreed before work starts, and you are invoiced only when you accept the delivery."
     ],
     [
      "Can you integrate with a system that has no API?",
-     "Often, yes, through other routes such as scheduled file exports, a direct database connection, or structured emails, depending on what the vendor allows. Addanapp checks the options during discovery and explains the trade-offs, including reliability and maintenance, in writing before quoting."
+     "Often, yes, through other routes such as scheduled file exports, a direct database connection, or structured emails, depending on what the vendor allows. Addanapp checks the options during the free exploratory call and prototype and explains the trade-offs, including reliability and maintenance, in writing before quoting."
     ],
     [
      "Can you build an API for our partners or customers?",
@@ -1394,23 +1404,24 @@ PAGES = {
     {
      "h2": "Le déroulement d'un projet d'intégration",
      "bullets": [
+      "**Appel et prototype gratuits :** un appel exploratoire, puis un prototype rapide que vous voyez avant de payer quoi que ce soit.",
       "**Cartographier les flux :** pour chaque champ, quel système fait foi, et que faire quand deux systèmes ne concordent pas.",
       "**Vérifier les accès :** disponibilité de l'API, limites d'appels, comptes de test et frais d'API payants.",
       "**Soumission à prix fixe et échéancier :** approuvés dans votre espace client privé. Pour une intégration simple, Addanapp vise une soumission en 2 jours ouvrables.",
       "**Développement et révision :** sur des comptes de test; un ingénieur senior révise le code et teste les cas d'échec, pas seulement le scénario idéal.",
-      "**Acceptation avec de vraies données :** vous vérifiez les vrais dossiers qui circulent, lisez les notes de l'ingénieur et acceptez. La facture suit."
+      "**Acceptation avec de vraies données :** vous vérifiez les vrais dossiers qui circulent, lisez les notes de l'ingénieur et acceptez. La facture suit, et le code vous est remis."
      ]
     },
     {
      "h2": "Le prix fixe appliqué aux intégrations",
      "paragraphs": [
-      "Une intégration ajoutée à une application existante est souvent une petite modification avec sa propre soumission (exemple : 2 400 $, 6 jours). Les projets plus vastes suivent les étapes d'Addanapp, de 30 000 $ à 300 000 $ (CAD), chacune soumissionnée d'avance et facturée à l'acceptation. Vous pouvez arrêter après n'importe quelle étape et tout garder."
+      "Une intégration ajoutée à une application existante est souvent une petite modification avec sa propre soumission (exemple : 2 400 $, 6 jours). Les projets plus vastes commencent par un appel exploratoire gratuit et un prototype rapide, puis suivent les étapes d'Addanapp : de 10 000 $ à 30 000 $ (CAD) pour la première, jusqu'à 300 000 $ pour un projet clé en main. Chacune est soumissionnée d'avance et facturée à l'acceptation. Le code vous est remis à chaque étape : vous pouvez arrêter après n'importe laquelle et tout garder."
      ],
      "bullets": [
-      "**Lancement (30 000 $, environ 6 à 8 semaines) :** le flux le plus important de bout en bout, avec l'intégration dont il dépend, les comptes, les rôles et une administration de base, en production.",
-      "**Exploitation (+45 000 $, total 75 000 $) :** le cœur des intégrations (paiements, comptabilité, CRM, courriel), les notifications et les premiers rapports.",
-      "**Croissance (+75 000 $, total 150 000 $) :** un portail partenaires ou un deuxième groupe d'utilisateurs, une [plateforme de données](/fr/developpement-plateforme-donnees), l'automatisation, la performance, une revue de sécurité, un dossier Loi 25 et l'accessibilité WCAG 2.2 AA.",
-      "**Complet (+150 000 $, total 300 000 $) :** la migration des anciens systèmes, la surveillance, la documentation, la formation et 12 mois de soutien. Les API payantes sont facturées au coûtant."
+      "**Lancement (10 000 $ à 30 000 $ selon la complexité, environ 6 à 8 semaines) :** le flux le plus important de bout en bout, avec l'intégration dont il dépend, les comptes, les rôles et une administration de base, en production.",
+      "**Exploitation (généralement +45 000 $, total jusqu'à 75 000 $) :** le cœur des intégrations (paiements, comptabilité, CRM, courriel), les notifications et les premiers rapports.",
+      "**Croissance (généralement +75 000 $, total jusqu'à 150 000 $) :** un portail partenaires ou un deuxième groupe d'utilisateurs, une [plateforme de données](/fr/developpement-plateforme-donnees), l'automatisation, la performance, une revue de sécurité, un dossier Loi 25 et l'accessibilité WCAG 2.2 AA.",
+      "**Complet (généralement +150 000 $, total jusqu'à 300 000 $) :** la migration des anciens systèmes, la surveillance, la documentation, la formation et 12 mois de soutien. Les API payantes sont facturées au coûtant."
      ]
     },
     {
@@ -1433,11 +1444,11 @@ PAGES = {
    "faq": [
     [
      "Combien coûte une intégration API ?",
-     "Une intégration ajoutée à une application existante est généralement soumissionnée comme une petite modification à prix fixe; un exemple de soumission Addanapp : 2 400 $ pour 6 jours de travail. Les projets d'intégration plus vastes suivent des étapes à prix fixe à partir de 30 000 $ (CAD). Le prix est convenu d'avance et facturé seulement à l'acceptation."
+     "Une intégration ajoutée à une application existante est généralement soumissionnée comme une petite modification à prix fixe; un exemple de soumission Addanapp : 2 400 $ pour 6 jours de travail. Les projets d'intégration plus vastes commencent par un appel et un prototype gratuits, puis suivent des étapes à prix fixe; la première coûte de 10 000 $ à 30 000 $ (CAD) selon la complexité. Le prix est convenu d'avance et facturé seulement à l'acceptation."
     ],
     [
      "Pouvez-vous intégrer un système qui n'a pas d'API ?",
-     "Souvent, oui, par d'autres moyens : exportations de fichiers planifiées, connexion directe à la base de données ou courriels structurés, selon ce que le fournisseur permet. Addanapp examine les options à l'étape de découverte et explique les compromis, y compris la fiabilité et l'entretien, par écrit avant de soumissionner."
+     "Souvent, oui, par d'autres moyens : exportations de fichiers planifiées, connexion directe à la base de données ou courriels structurés, selon ce que le fournisseur permet. Addanapp examine les options lors de l'appel exploratoire et du prototype et explique les compromis, y compris la fiabilité et l'entretien, par écrit avant de soumissionner."
     ],
     [
      "Pouvez-vous créer une API pour nos partenaires ou nos clients ?",
@@ -1460,31 +1471,32 @@ PAGES = {
   "en": {
    "slug": "/pricing",
    "title": "Fixed-Price Software Development Pricing | Addanapp",
-   "description": "Custom software from $30,000 to $300,000 CAD in four fixed-price milestones. Pay only when you accept each delivery, and stop after any milestone.",
+   "description": "Free call and prototype, then fixed-price milestones from $10,000–$30,000 CAD up to $300,000. You keep the code at every milestone and pay on acceptance.",
    "h1": "Fixed-price software development pricing",
    "intro": [
-    "Addanapp prices custom software in **fixed-price milestones**, not hours. A project runs from $30,000 to $300,000 CAD and is split into four milestones: Launch, Operate, Scale and Complete. Each milestone has its own fixed quote, agreed before it starts, and is invoiced only when you accept the delivery.",
-    "You can stop after any milestone and keep everything built so far: the code, the data and the documentation. There is no lock-in and no exit fee. Many clients stop after Launch with a working product in production. Below is what each milestone includes, who it suits, and how quotes, acceptance and stopping work.",
+    "Addanapp prices custom software in **fixed-price milestones**, not hours. Every project starts with a free exploratory call and a quick prototype you see before paying anything. The first milestone, Launch, costs $10,000 to $30,000 CAD depending on complexity; an all-inclusive build tops out around $300,000. There are four milestones: Launch, Operate, Scale and Complete. Each milestone is priced on agreed deliverables, with its own fixed quote agreed before it starts, and is invoiced only when you accept the delivery.",
+    "You keep the code. It is sent to you at every milestone, with the data and the documentation, so you can stop or continue with your own team at any point. There is no lock-in and no exit fee. Many clients stop after Launch with a working product in production. Below is what each milestone includes, who it suits, the five steps every project follows, and how quotes, acceptance and stopping work.",
     "Want a number before you write anything? The [60-second ballpark estimator](https://addanapp.com/#estimate) maps seven quick answers to these same milestone prices. It is a ballpark from this page, not a quote."
    ],
    "sections": [
     {
-     "h2": "Launch — $30,000",
+     "h2": "Launch — $10,000 to $30,000",
      "paragraphs": [
-      "**Total: $30,000. About 6–8 weeks.** Launch suits a business that needs one workflow out of spreadsheets and email and into a real app, or a founder who needs a fixed-price MVP in front of users. Launch ends with software live in production, not a prototype. Many clients stop here, satisfied."
+      "**$10,000 to $30,000, depending on complexity. About 6–8 weeks.** Launch is the first payment, after the free exploratory call and the free prototype. Launch suits a business that needs one workflow out of spreadsheets and email and into a real app, or a founder who needs a fixed-price MVP in front of users. Launch ends with software live in production, not a prototype. Many clients stop here, satisfied."
      ],
      "bullets": [
-      "A discovery workshop to agree on scope, users and the one workflow that matters most",
+      "A written scope, agreed after you see the prototype: users and the one workflow that matters most",
       "That workflow built end to end",
       "Accounts and roles",
       "A basic admin panel",
-      "Live in production, with code review and tests included"
+      "Live in production, with code review and tests included",
+      "The code, sent to you with the delivery"
      ]
     },
     {
-     "h2": "Operate — +$45,000 (total $75,000)",
+     "h2": "Operate — typically +$45,000 (total up to $75,000)",
      "paragraphs": [
-      "**Cumulative total: $75,000.** Operate suits a business whose Launch app is in daily use and now needs to connect to the rest of the company. Operate turns a single workflow into a system your team runs on, wired to the tools you already pay for."
+      "**Cumulative total: up to $75,000.** Operate suits a business whose Launch app is in daily use and now needs to connect to the rest of the company. Operate turns a single workflow into a system your team runs on, wired to the tools you already pay for."
      ],
      "bullets": [
       "The next workflows on your roadmap",
@@ -1494,9 +1506,9 @@ PAGES = {
      ]
     },
     {
-     "h2": "Scale — +$75,000 (total $150,000)",
+     "h2": "Scale — typically +$75,000 (total up to $150,000)",
      "paragraphs": [
-      "**Cumulative total: $150,000.** Scale suits an organization opening the system to a second group of users, such as clients, partners or field staff, and handling more data and more scrutiny. Scale is where privacy, accessibility and performance get formal attention."
+      "**Cumulative total: up to $150,000.** Scale suits an organization opening the system to a second group of users, such as clients, partners or field staff, and handling more data and more scrutiny. Scale is where privacy, accessibility and performance get formal attention."
      ],
      "bullets": [
       "A second user group: a [client or partner portal](/client-portal-development) or a staff app",
@@ -1509,9 +1521,9 @@ PAGES = {
      ]
     },
     {
-     "h2": "Complete — +$150,000 (total $300,000)",
+     "h2": "Complete — typically +$150,000 (total up to $300,000)",
      "paragraphs": [
-      "**Cumulative total: $300,000.** Complete is the all-inclusive build. Complete suits an organization replacing old systems outright and wanting one accountable team for the full roadmap, the move off legacy software and the first year in operation. Third-party fees (hosting plan, payment processing, paid APIs) are billed at cost."
+      "**Cumulative total: up to $300,000.** Complete is the all-inclusive build. Complete suits an organization replacing old systems outright and wanting one accountable team for the full roadmap, the move off legacy software and the first year in operation. Third-party fees (hosting plan, payment processing, paid APIs) are billed at cost."
      ],
      "bullets": [
       "The remaining roadmap",
@@ -1523,15 +1535,34 @@ PAGES = {
      ]
     },
     {
+     "h2": "From first call to launch: five steps",
+     "paragraphs": [
+      "Every Addanapp project follows the same five steps. You keep the code: it is sent to you at every milestone, so you can choose to continue with your own team at any point."
+     ],
+     "bullets": [
+      "**1. Free exploratory call.** We look at what you need and at what recent advances in AI have made possible for a business like yours.",
+      "**2. Quick prototype, free.** Within days you see a working prototype of the workflow that matters most. You pay nothing at this stage.",
+      "**3. First payment: $10,000 to $30,000 CAD, depending on complexity.** After seeing the prototype, you approve a written scope and a fixed price for the first milestone, Launch. It is invoiced when you accept the delivery.",
+      "**4. Production build, in fixed-price milestones.** Senior engineers build for long-term support, reliability and security: code review, automated tests, security checks, monitoring and documentation. Each milestone is priced on agreed deliverables and invoiced when you accept it. The code is sent to you at every milestone.",
+      "**5. After launch, your choice.** We can teach your team to support the product themselves, or you can sign a lighter long-term support contract with even stronger quality guarantees. Support is not expensive, because the software is built to be resilient from the start."
+     ]
+    },
+    {
+     "h2": "Fast iteration and a set-up with no headaches",
+     "paragraphs": [
+      "What Addanapp offers above all is fast iteration and a set-up with no headaches. You see working software within days, and changes move quickly from request to delivery. Addanapp handles hosting, logins, payments, backups and monitoring. You control the whole process and see the cost of each step before you commit, so spending stays under close watch."
+     ]
+    },
+    {
      "h2": "How fixed quotes, acceptance and stopping work",
      "paragraphs": [
       "Every Addanapp milestone follows the same steps, inside a private client workspace where you submit requests, approve quotes, read progress notes written by the engineer and accept deliveries."
      ],
      "bullets": [
-      "**Fixed quote first.** Before a milestone starts, you get a written scope, a fixed price and an ETA. Nothing starts until you approve the quote.",
+      "**Fixed quote first.** Each milestone is priced on agreed deliverables. Before it starts, you get a written scope, a fixed price and an ETA. Nothing starts until you approve the quote.",
       "**Build and review.** Addanapp builds with AI to move faster; senior engineers review, test and sign off the work before you see it.",
       "**Acceptance-based invoicing.** You test the delivery. The milestone is invoiced only when you accept it.",
-      "**Stop after any milestone.** You keep the code, data and documentation built so far. No lock-in, no exit fee.",
+      "**Code at every milestone, stop any time.** The code, data and documentation are sent to you with each milestone. You can stop after any milestone and continue on your own or with another team. No lock-in, no exit fee.",
       "**Small changes outside a project.** A change to an existing app gets its own fixed quote per request, usually within 2 business days. A sample quote: $2,400, 6 days."
      ]
     },
@@ -1539,18 +1570,26 @@ PAGES = {
      "h2": "Why fixed-price milestones beat hourly billing",
      "paragraphs": [
       "Hourly billing puts the risk of slow work on the client: every surprise, rework or misunderstanding adds hours to your invoice. A fixed-price milestone puts that risk on Addanapp. The price is agreed before work starts, so the incentive is to deliver the agreed result well, not to log time.",
-      "Fixed-price milestones also make budgeting simple. You know the cost of the next step before you commit, and you decide after each delivery whether the next milestone is worth it. With hourly billing you often learn the real cost only when the money is spent. With milestones you pay for accepted results and can stop with a working product at $30,000, $75,000 or $150,000. See [how we work](/how-we-work) for the review and sign-off process behind each delivery."
+      "Fixed-price milestones also make budgeting simple. You know the cost of the next step before you commit, and you decide after each delivery whether the next milestone is worth it. With hourly billing you often learn the real cost only when the money is spent. With milestones you pay for accepted results and can stop after any milestone with a working product and its code in hand. See [how we work](/how-we-work) for the review and sign-off process behind each delivery."
      ]
     }
    ],
    "faq": [
     [
      "How much does custom software cost at Addanapp?",
-     "Custom software at Addanapp costs from $30,000 to $300,000 CAD, depending on how far you go. The four milestones are Launch ($30,000), Operate (+$45,000, total $75,000), Scale (+$75,000, total $150,000) and Complete (+$150,000, total $300,000). Each milestone has its own fixed quote and is invoiced only on acceptance."
+     "Custom software at Addanapp costs from $10,000 to $300,000 CAD, depending on how far you go. The first milestone, Launch, costs $10,000 to $30,000 depending on complexity and comes after a free call and a free prototype. Operate typically adds $45,000 (total up to $75,000), Scale $75,000 (up to $150,000) and Complete $150,000 (up to $300,000). Each milestone has its own fixed quote and is invoiced only on acceptance."
+    ],
+    [
+     "Do I pay for the first call or the prototype?",
+     "No. The exploratory call and the first prototype are free. The first payment is the Launch milestone, $10,000 to $30,000 CAD depending on complexity, and you approve its fixed quote only after seeing the prototype. It is invoiced when you accept the delivery."
     ],
     [
      "Do I have to commit to all four milestones?",
      "No. Each milestone is quoted and agreed on its own, and you decide after each delivery whether to continue. You can stop after any milestone and keep everything built so far, including the code, data and documentation. There is no lock-in and no exit fee. Many clients stop after Launch."
+    ],
+    [
+     "Do I own the code?",
+     "Yes. The code is sent to you at every milestone, together with the data and documentation. You can continue with your own team or another firm at any point, with no exit fee. After launch, Addanapp can teach your team to support the product, or provide a lighter long-term support contract."
     ],
     [
      "What happens if a delivery is not right?",
@@ -1570,39 +1609,40 @@ PAGES = {
     ]
    ],
    "cta": {
-    "heading": "Get a fixed quote for your first milestone",
-    "text": "Tell us about the workflow that matters most. You get a written scope, a fixed price and an ETA before work starts, and you pay only when you accept the delivery. Browse [all services](/services) or see [60 live products](https://addanapp.com/#work).",
+    "heading": "Start with a free exploratory call",
+    "text": "Tell us about the workflow that matters most. You see a quick prototype before paying anything, then get a written scope, a fixed price and an ETA for the first milestone. You pay only when you accept the delivery, and the code is yours at every milestone. Browse [all services](/services) or see [60 live products](https://addanapp.com/#work).",
     "button": "Get a fixed quote"
    }
   },
   "fr": {
    "slug": "/fr/tarifs",
    "title": "Tarifs de développement logiciel à prix fixe | Addanapp",
-   "description": "Logiciel sur mesure de 30 000 $ à 300 000 $ en quatre étapes à prix fixe. Vous payez seulement les livraisons acceptées et arrêtez quand vous voulez.",
+   "description": "Appel et prototype gratuits, puis des étapes à prix fixe de 10 000 $ à 30 000 $ au départ, jusqu'à 300 000 $. Le code vous est remis à chaque étape.",
    "h1": "Tarifs de développement logiciel à prix fixe",
    "intro": [
-    "Addanapp facture le développement de logiciel sur mesure par **étapes à prix fixe**, jamais à l'heure. Un projet coûte de 30 000 $ à 300 000 $ et se découpe en quatre étapes : Lancement, Exploitation, Croissance et Complet. Chaque étape fait l'objet de sa propre soumission, approuvée avant le début des travaux, et n'est facturée qu'une fois la livraison acceptée.",
-    "Vous pouvez arrêter après n'importe quelle étape et garder tout ce qui a été construit : le code, les données et la documentation. Aucun engagement forcé, aucuns frais de sortie. Beaucoup de PME s'arrêtent après le Lancement, avec un logiciel en production qui fait le travail. Voici ce que comprend chaque étape, à qui elle s'adresse, et comment fonctionnent les soumissions, l'acceptation et l'arrêt.",
+    "Addanapp facture le développement de logiciel sur mesure par **étapes à prix fixe**, jamais à l'heure. Chaque projet commence par un appel exploratoire gratuit et un prototype rapide, que vous voyez avant de payer quoi que ce soit. La première étape, le Lancement, coûte de 10 000 $ à 30 000 $ selon la complexité; un projet clé en main plafonne autour de 300 000 $. Il y a quatre étapes : Lancement, Exploitation, Croissance et Complet. Chaque étape est chiffrée selon des livrables convenus, fait l'objet de sa propre soumission approuvée avant le début des travaux, et n'est facturée qu'une fois la livraison acceptée.",
+    "Le code vous appartient. Il vous est remis à chaque étape, avec les données et la documentation, pour que vous puissiez arrêter ou poursuivre avec votre propre équipe à tout moment. Aucun engagement forcé, aucuns frais de sortie. Beaucoup de PME s'arrêtent après le Lancement, avec un logiciel en production qui fait le travail. Voici ce que comprend chaque étape, à qui elle s'adresse, le déroulement de chaque projet, et comment fonctionnent les soumissions, l'acceptation et l'arrêt.",
     "Envie d'un chiffre avant d'écrire quoi que ce soit? L'[estimateur en 60 secondes](/?lang=fr#estimate) associe sept réponses rapides aux mêmes prix par étape. C'est un ordre de grandeur tiré de cette page, pas une soumission."
    ],
    "sections": [
     {
-     "h2": "Lancement — 30 000 $",
+     "h2": "Lancement — 10 000 $ à 30 000 $",
      "paragraphs": [
-      "**Total : 30 000 $. Environ 6 à 8 semaines.** Le Lancement s'adresse à l'entreprise qui veut sortir un processus d'Excel et des courriels pour le mettre dans une vraie application, ou à l'entrepreneur qui veut un MVP à prix fixe entre les mains de vrais utilisateurs. Le Lancement se termine par un logiciel en production, pas une maquette. Beaucoup de clients s'arrêtent ici, satisfaits."
+      "**De 10 000 $ à 30 000 $ selon la complexité. Environ 6 à 8 semaines.** Le Lancement est le premier paiement, après l'appel exploratoire et le prototype, tous deux gratuits. Il s'adresse à l'entreprise qui veut sortir un processus d'Excel et des courriels pour le mettre dans une vraie application, ou à l'entrepreneur qui veut un MVP à prix fixe entre les mains de vrais utilisateurs. Le Lancement se termine par un logiciel en production, pas une maquette. Beaucoup de clients s'arrêtent ici, satisfaits."
      ],
      "bullets": [
-      "Un atelier de découverte pour s'entendre sur la portée, les utilisateurs et le processus le plus important",
+      "Une portée écrite, convenue après le prototype : les utilisateurs et le processus le plus important",
       "Ce processus construit de bout en bout",
       "Comptes et rôles",
       "Un panneau d'administration de base",
-      "Mise en production, revue de code et tests inclus"
+      "Mise en production, revue de code et tests inclus",
+      "Le code, remis avec la livraison"
      ]
     },
     {
-     "h2": "Exploitation — +45 000 $ (total 75 000 $)",
+     "h2": "Exploitation — généralement +45 000 $ (total jusqu'à 75 000 $)",
      "paragraphs": [
-      "**Total cumulatif : 75 000 $.** L'étape Exploitation s'adresse à l'entreprise dont l'application est utilisée tous les jours et qui doit maintenant la relier au reste de ses opérations. L'Exploitation transforme un processus unique en système central pour votre équipe, branché aux outils que vous payez déjà."
+      "**Total cumulatif : jusqu'à 75 000 $.** L'étape Exploitation s'adresse à l'entreprise dont l'application est utilisée tous les jours et qui doit maintenant la relier au reste de ses opérations. L'Exploitation transforme un processus unique en système central pour votre équipe, branché aux outils que vous payez déjà."
      ],
      "bullets": [
       "Les prochains processus de votre feuille de route",
@@ -1612,9 +1652,9 @@ PAGES = {
      ]
     },
     {
-     "h2": "Croissance — +75 000 $ (total 150 000 $)",
+     "h2": "Croissance — généralement +75 000 $ (total jusqu'à 150 000 $)",
      "paragraphs": [
-      "**Total cumulatif : 150 000 $.** L'étape Croissance s'adresse à l'organisation qui ouvre son système à un deuxième groupe d'utilisateurs (clients, partenaires ou employés sur le terrain) et qui gère plus de données et plus d'exigences. C'est à l'étape Croissance que la protection des renseignements personnels, l'accessibilité et la performance sont traitées formellement."
+      "**Total cumulatif : jusqu'à 150 000 $.** L'étape Croissance s'adresse à l'organisation qui ouvre son système à un deuxième groupe d'utilisateurs (clients, partenaires ou employés sur le terrain) et qui gère plus de données et plus d'exigences. C'est à l'étape Croissance que la protection des renseignements personnels, l'accessibilité et la performance sont traitées formellement."
      ],
      "bullets": [
       "Un deuxième groupe d'utilisateurs : un [portail client ou partenaire](/fr/developpement-portail-client) ou une application pour le personnel",
@@ -1627,9 +1667,9 @@ PAGES = {
      ]
     },
     {
-     "h2": "Complet — +150 000 $ (total 300 000 $)",
+     "h2": "Complet — généralement +150 000 $ (total jusqu'à 300 000 $)",
      "paragraphs": [
-      "**Total cumulatif : 300 000 $.** L'étape Complet, c'est le projet clé en main. Elle s'adresse à l'organisation qui remplace ses anciens systèmes et veut une seule équipe responsable de toute la feuille de route, de la migration et de la première année d'exploitation. Les frais de tiers (forfait d'hébergement, traitement des paiements, API payantes) sont facturés au coûtant."
+      "**Total cumulatif : jusqu'à 300 000 $.** L'étape Complet, c'est le projet clé en main. Elle s'adresse à l'organisation qui remplace ses anciens systèmes et veut une seule équipe responsable de toute la feuille de route, de la migration et de la première année d'exploitation. Les frais de tiers (forfait d'hébergement, traitement des paiements, API payantes) sont facturés au coûtant."
      ],
      "bullets": [
       "Le reste de la feuille de route",
@@ -1641,15 +1681,34 @@ PAGES = {
      ]
     },
     {
+     "h2": "Du premier appel au lancement, en cinq temps",
+     "paragraphs": [
+      "Chaque projet Addanapp suit le même déroulement en cinq temps. Le code vous appartient : il vous est remis à chaque étape, pour que vous puissiez poursuivre avec votre propre équipe à tout moment."
+     ],
+     "bullets": [
+      "**1. Appel exploratoire gratuit.** On regarde ensemble ce dont vous avez besoin et ce que les progrès récents de l'IA rendent maintenant possible pour une entreprise comme la vôtre.",
+      "**2. Prototype rapide, gratuit.** En quelques jours, vous voyez un prototype fonctionnel du processus qui compte le plus. Vous ne payez rien à ce stade.",
+      "**3. Premier paiement : de 10 000 $ à 30 000 $, selon la complexité.** Après avoir vu le prototype, vous approuvez la portée écrite et le prix fixe de la première étape, le Lancement. Elle est facturée quand vous acceptez la livraison.",
+      "**4. Développement en production, par étapes à prix fixe.** Des ingénieurs seniors construisent pour la durée, la fiabilité et la sécurité : revue de code, tests automatisés, vérifications de sécurité, surveillance et documentation. Chaque étape est chiffrée selon des livrables convenus et facturée à votre acceptation. Le code vous est remis à chaque étape.",
+      "**5. Après le lancement, à vous de choisir.** Nous pouvons former votre équipe pour qu'elle assure elle-même le soutien du produit, ou vous offrir un contrat de soutien à long terme plus léger, avec des garanties de qualité encore plus fortes. Ce soutien coûte peu, parce que le logiciel est conçu dès le départ pour être robuste."
+     ]
+    },
+    {
+     "h2": "Des itérations rapides et une mise en place sans casse-tête",
+     "paragraphs": [
+      "Ce qu'Addanapp offre avant tout : des itérations rapides et une mise en place sans casse-tête. Vous voyez un logiciel qui fonctionne en quelques jours, et chaque changement passe vite de la demande à la livraison. Addanapp s'occupe de l'hébergement, des connexions des utilisateurs, des paiements, des sauvegardes et de la surveillance. Vous gardez le contrôle de tout le processus et vous connaissez le coût de chaque étape avant de vous engager, pour garder les dépenses bien en main."
+     ]
+    },
+    {
      "h2": "Comment fonctionnent la soumission, l'acceptation et l'arrêt",
      "paragraphs": [
       "Chaque étape suit le même déroulement, dans un espace client privé où vous soumettez vos demandes, approuvez les soumissions, lisez les notes d'avancement rédigées par l'ingénieur et acceptez les livraisons."
      ],
      "bullets": [
-      "**La soumission d'abord.** Avant chaque étape, vous recevez une portée écrite, un prix fixe et un délai. Rien ne commence sans votre approbation.",
+      "**La soumission d'abord.** Chaque étape est chiffrée selon des livrables convenus. Avant qu'elle commence, vous recevez une portée écrite, un prix fixe et un délai. Rien ne commence sans votre approbation.",
       "**Développement et révision.** Addanapp développe avec l'IA pour aller plus vite ; des ingénieurs seniors révisent, testent et approuvent le travail avant que vous le voyiez.",
       "**Facturation à l'acceptation.** Vous testez la livraison. L'étape n'est facturée qu'une fois acceptée.",
-      "**Arrêt possible après chaque étape.** Vous gardez le code, les données et la documentation. Aucun engagement forcé, aucuns frais de sortie.",
+      "**Le code à chaque étape, arrêt possible en tout temps.** Le code, les données et la documentation vous sont remis à chaque étape. Vous pouvez arrêter après n'importe laquelle et poursuivre vous-même ou avec une autre équipe. Aucun engagement forcé, aucuns frais de sortie.",
       "**Petites modifications hors projet.** Une modification à une application existante reçoit sa propre soumission à prix fixe, généralement en 2 jours ouvrables. Exemple de soumission : 2 400 $, 6 jours."
      ]
     },
@@ -1657,18 +1716,26 @@ PAGES = {
      "h2": "Pourquoi le prix fixe par étape vaut mieux que le taux horaire",
      "paragraphs": [
       "Avec un taux horaire, c'est le client qui porte le risque : chaque imprévu, chaque reprise, chaque malentendu ajoute des heures à la facture. Avec une étape à prix fixe, c'est Addanapp qui porte ce risque. Le prix est convenu avant le début des travaux ; l'intérêt est donc de bien livrer le résultat promis, pas d'accumuler des heures.",
-      "Le prix fixe par étape simplifie aussi le budget. Vous connaissez le coût de la prochaine étape avant de vous engager, et vous décidez après chaque livraison si la suite en vaut la peine. Au taux horaire, on découvre souvent le vrai coût une fois l'argent dépensé. Par étapes, vous payez des résultats acceptés et pouvez arrêter avec un logiciel fonctionnel à 30 000 $, 75 000 $ ou 150 000 $. Pour le processus de révision derrière chaque livraison, consultez [notre méthode](/fr/notre-methode)."
+      "Le prix fixe par étape simplifie aussi le budget. Vous connaissez le coût de la prochaine étape avant de vous engager, et vous décidez après chaque livraison si la suite en vaut la peine. Au taux horaire, on découvre souvent le vrai coût une fois l'argent dépensé. Par étapes, vous payez des résultats acceptés et pouvez arrêter après n'importe quelle étape avec un logiciel fonctionnel et son code en main. Pour le processus de révision derrière chaque livraison, consultez [notre méthode](/fr/notre-methode)."
      ]
     }
    ],
    "faq": [
     [
      "Combien coûte un logiciel sur mesure chez Addanapp ?",
-     "Un logiciel sur mesure chez Addanapp coûte de 30 000 $ à 300 000 $, selon jusqu'où vous allez. Les quatre étapes sont Lancement (30 000 $), Exploitation (+45 000 $, total 75 000 $), Croissance (+75 000 $, total 150 000 $) et Complet (+150 000 $, total 300 000 $). Chaque étape a sa propre soumission à prix fixe et n'est facturée qu'à l'acceptation."
+     "Un logiciel sur mesure chez Addanapp coûte de 10 000 $ à 300 000 $, selon jusqu'où vous allez. La première étape, le Lancement, coûte de 10 000 $ à 30 000 $ selon la complexité et vient après un appel et un prototype gratuits. Exploitation ajoute généralement 45 000 $ (total jusqu'à 75 000 $), Croissance 75 000 $ (jusqu'à 150 000 $) et Complet 150 000 $ (jusqu'à 300 000 $). Chaque étape a sa propre soumission à prix fixe et n'est facturée qu'à l'acceptation."
+    ],
+    [
+     "Dois-je payer le premier appel ou le prototype ?",
+     "Non. L'appel exploratoire et le premier prototype sont gratuits. Le premier paiement est l'étape Lancement, de 10 000 $ à 30 000 $ selon la complexité, dont vous approuvez la soumission seulement après avoir vu le prototype. Elle est facturée quand vous acceptez la livraison."
     ],
     [
      "Dois-je m'engager pour les quatre étapes ?",
      "Non. Chaque étape est soumise et approuvée séparément, et vous décidez après chaque livraison si vous continuez. Vous pouvez arrêter après n'importe quelle étape et garder tout ce qui a été construit, y compris le code, les données et la documentation. Aucun engagement forcé, aucuns frais de sortie. Beaucoup de clients s'arrêtent après le Lancement."
+    ],
+    [
+     "Le code m'appartient-il ?",
+     "Oui. Le code vous est remis à chaque étape, avec les données et la documentation. Vous pouvez poursuivre avec votre propre équipe ou une autre firme à tout moment, sans frais de sortie. Après le lancement, Addanapp peut former votre équipe pour assurer le soutien, ou vous offrir un contrat de soutien à long terme plus léger."
     ],
     [
      "Que se passe-t-il si une livraison ne convient pas ?",
@@ -1688,8 +1755,8 @@ PAGES = {
     ]
    ],
    "cta": {
-    "heading": "Obtenez une soumission pour votre première étape",
-    "text": "Parlez-nous du processus qui compte le plus pour vous. Vous recevez une portée écrite, un prix fixe et un délai avant le début des travaux, et vous ne payez qu'à l'acceptation. Voyez [tous nos services](/fr/services) ou nos [60 produits en ligne](https://addanapp.com/#work).",
+    "heading": "Commencez par un appel exploratoire gratuit",
+    "text": "Parlez-nous du processus qui compte le plus pour vous. Vous voyez un prototype rapide avant de payer quoi que ce soit, puis vous recevez une portée écrite, un prix fixe et un délai pour la première étape. Vous ne payez qu'à l'acceptation, et le code vous est remis à chaque étape. Voyez [tous nos services](/fr/services) ou nos [60 produits en ligne](https://addanapp.com/#work).",
     "button": "Obtenir une soumission"
    }
   }
@@ -1699,17 +1766,36 @@ PAGES = {
   "en": {
    "slug": "/how-we-work",
    "title": "AI-Accelerated Development, Senior-Reviewed | Addanapp",
-   "description": "How Addanapp works: AI speeds up drafting, senior engineers design, review and sign off. Fixed quote first, invoiced only when you accept the delivery.",
-   "h1": "How we work: AI-accelerated development, signed off by senior engineers",
+   "description": "How Addanapp works: free call and prototype, then fixed-price milestones reviewed by senior engineers. You get the code at every milestone and pay on acceptance.",
+   "h1": "How we work: from a free call to software you own, signed off by senior engineers",
    "intro": [
-    "Addanapp builds custom software with AI to move faster, and senior engineers review, test and sign off every delivery before it reaches you. You get a **fixed quote and an ETA before work starts**, you follow progress in a private workspace, and you are invoiced only when you accept what was delivered.",
-    "This page explains each step, from the first request to acceptance, and draws a clear line between what AI does in Addanapp's process and what senior engineers do. The same method applies to a $2,400 change and to a full project priced in [fixed milestones](/pricing)."
+    "Addanapp builds custom software with AI to move faster, and senior engineers review, test and sign off every delivery before it reaches you. Every project starts with a **free exploratory call and a quick prototype** you see before paying anything. After that you get a **fixed quote and an ETA before work starts**, you follow progress in a private workspace, and you are invoiced only when you accept what was delivered. You keep the code: it is sent to you at every milestone.",
+    "This page explains the five steps of a project, what happens inside each milestone, and where AI stops and senior engineers take over. The same method applies to a $2,400 change and to a full project priced in [fixed milestones](/pricing)."
    ],
    "sections": [
     {
-     "h2": "Step by step: quote, build, review, acceptance",
+     "h2": "From first call to launch: five steps",
      "paragraphs": [
-      "Every piece of work at Addanapp, large or small, moves through the same four steps."
+      "Every Addanapp project follows the same five steps. You keep the code: it is sent to you at every milestone, so you can choose to continue with your own team at any point."
+     ],
+     "bullets": [
+      "**1. Free exploratory call.** We look at what you need and at what recent advances in AI have made possible for a business like yours.",
+      "**2. Quick prototype, free.** Within days you see a working prototype of the workflow that matters most. You pay nothing at this stage.",
+      "**3. First payment: $10,000 to $30,000 CAD, depending on complexity.** After seeing the prototype, you approve a written scope and a fixed price for the first milestone, Launch. It is invoiced when you accept the delivery.",
+      "**4. Production build, in fixed-price milestones.** Senior engineers build for long-term support, reliability and security: code review, automated tests, security checks, monitoring and documentation. Each milestone is priced on agreed deliverables and invoiced when you accept it. The code is sent to you at every milestone.",
+      "**5. After launch, your choice.** We can teach your team to support the product themselves, or you can sign a lighter long-term support contract with even stronger quality guarantees. Support is not expensive, because the software is built to be resilient from the start."
+     ]
+    },
+    {
+     "h2": "Fast iteration and a set-up with no headaches",
+     "paragraphs": [
+      "What Addanapp offers above all is fast iteration and a set-up with no headaches. You see working software within days, and changes move quickly from request to delivery. Addanapp handles hosting, logins, payments, backups and monitoring. You control the whole process and see the cost of each step before you commit, so spending stays under close watch."
+     ]
+    },
+    {
+     "h2": "Inside each milestone: quote, build, review, acceptance",
+     "paragraphs": [
+      "Inside every milestone, and for every small change, work moves through the same four steps."
      ],
      "bullets": [
       "**1. Quote.** You describe what you need in your workspace. An engineer turns it into a written scope with a fixed price and an ETA, within 2 business days for single features. Work starts only when you approve the quote.",
@@ -1757,7 +1843,7 @@ PAGES = {
     {
      "h2": "Code review, tests and accessibility included",
      "paragraphs": [
-      "Code review and tests are part of every Addanapp quote, not an add-on. Interfaces are built toward WCAG 2.2 AA accessibility, and privacy is handled with Québec Law 25, PIPEDA and GDPR in mind. At the end of any milestone you keep the code, the data and the documentation, so another team could pick up the work if you ever chose to. See [all services](/services) for what this method is used to build."
+      "Code review and tests are part of every Addanapp quote, not an add-on. Interfaces are built toward WCAG 2.2 AA accessibility, and privacy is handled with Québec Law 25, PIPEDA and GDPR in mind. The code is sent to you at every milestone, with the data and the documentation, so your own team or another firm could pick up the work if you ever chose to. See [all services](/services) for what this method is used to build."
      ]
     }
    ],
@@ -1772,7 +1858,11 @@ PAGES = {
     ],
     [
      "How fast do I get a quote?",
-     "For a single feature or change, Addanapp sends a fixed quote and an ETA within 2 business days of your request. Larger projects start with a discovery workshop as part of the Launch milestone, which sets the scope and fixed price for that milestone. No work starts until you approve the quote."
+     "For a single feature or change, Addanapp sends a fixed quote and an ETA within 2 business days of your request. Larger projects start with a free exploratory call and a quick prototype. After you see the prototype, you get the scope and fixed price for the Launch milestone, $10,000 to $30,000 CAD depending on complexity. No work starts until you approve the quote."
+    ],
+    [
+     "Do I keep the code?",
+     "Yes. The code is sent to you at every milestone, together with the data and documentation. You can continue with your own team or another firm at any point, with no exit fee."
     ],
     [
      "Will I know what is happening while the work is in progress?",
@@ -1781,28 +1871,51 @@ PAGES = {
     [
      "What happens if I do not accept a delivery?",
      "Addanapp invoices only accepted deliveries. If a delivery does not match the agreed scope, you explain what is wrong in your workspace and the engineer fixes it. Once the delivery matches the scope and you accept it, it is invoiced. You never pay for work you have not accepted."
+    ],
+    [
+     "What happens after launch?",
+     "You choose. Addanapp can teach your team to support the product themselves, or you can sign a lighter long-term support contract with even stronger quality guarantees. Support stays affordable because the software is built with code review, automated tests, monitoring and documentation from the start."
     ]
    ],
    "cta": {
-    "heading": "Start with a fixed quote",
-    "text": "Send your first request and get a written scope, a fixed price and an ETA. You pay only when you accept the delivery. See the full [milestone pricing](/pricing) or browse [60 live products](https://addanapp.com/#work).",
+    "heading": "Start with a free exploratory call",
+    "text": "Tell us what you need. You see a quick prototype before paying anything, then get a written scope, a fixed price and an ETA. You pay only when you accept the delivery, and the code is yours at every milestone. See the full [milestone pricing](/pricing) or browse [60 live products](https://addanapp.com/#work).",
     "button": "Get a fixed quote"
    }
   },
   "fr": {
    "slug": "/fr/notre-methode",
    "title": "Notre méthode : développement accéléré par l'IA | Addanapp",
-   "description": "L'IA accélère la rédaction du code ; des ingénieurs seniors conçoivent, révisent et approuvent. Soumission à prix fixe, facture seulement à l'acceptation.",
-   "h1": "Notre méthode : un développement accéléré par l'IA, approuvé par des ingénieurs seniors",
+   "description": "Appel et prototype gratuits, puis des étapes à prix fixe révisées par des ingénieurs seniors. Le code vous est remis à chaque étape, payé à l'acceptation.",
+   "h1": "Notre méthode : d'un appel gratuit à un logiciel qui vous appartient, approuvé par des ingénieurs seniors",
    "intro": [
-    "Addanapp développe des logiciels sur mesure avec l'IA pour aller plus vite, et des ingénieurs seniors révisent, testent et approuvent chaque livraison avant qu'elle vous parvienne. Vous recevez une **soumission à prix fixe et un délai avant le début des travaux**, vous suivez l'avancement dans un espace client privé, et vous n'êtes facturé qu'une fois la livraison acceptée.",
-    "Cette page décrit chaque étape, de la première demande à l'acceptation, et trace une ligne claire entre ce que fait l'IA et ce que font les ingénieurs seniors. La même méthode s'applique à une modification de 2 400 $ comme à un projet complet découpé en [étapes à prix fixe](/fr/tarifs)."
+    "Addanapp développe des logiciels sur mesure avec l'IA pour aller plus vite, et des ingénieurs seniors révisent, testent et approuvent chaque livraison avant qu'elle vous parvienne. Chaque projet commence par un **appel exploratoire gratuit et un prototype rapide**, que vous voyez avant de payer quoi que ce soit. Ensuite, vous recevez une **soumission à prix fixe et un délai avant le début des travaux**, vous suivez l'avancement dans un espace client privé, et vous n'êtes facturé qu'une fois la livraison acceptée. Le code vous appartient : il vous est remis à chaque étape.",
+    "Cette page décrit le déroulement d'un projet en cinq temps, ce qui se passe à l'intérieur de chaque étape, et la ligne claire entre ce que fait l'IA et ce que font les ingénieurs seniors. La même méthode s'applique à une modification de 2 400 $ comme à un projet complet découpé en [étapes à prix fixe](/fr/tarifs)."
    ],
    "sections": [
     {
-     "h2": "Étape par étape : soumission, développement, révision, acceptation",
+     "h2": "Du premier appel au lancement, en cinq temps",
      "paragraphs": [
-      "Chez Addanapp, chaque mandat, petit ou grand, suit les mêmes quatre étapes."
+      "Chaque projet Addanapp suit le même déroulement en cinq temps. Le code vous appartient : il vous est remis à chaque étape, pour que vous puissiez poursuivre avec votre propre équipe à tout moment."
+     ],
+     "bullets": [
+      "**1. Appel exploratoire gratuit.** On regarde ensemble ce dont vous avez besoin et ce que les progrès récents de l'IA rendent maintenant possible pour une entreprise comme la vôtre.",
+      "**2. Prototype rapide, gratuit.** En quelques jours, vous voyez un prototype fonctionnel du processus qui compte le plus. Vous ne payez rien à ce stade.",
+      "**3. Premier paiement : de 10 000 $ à 30 000 $, selon la complexité.** Après avoir vu le prototype, vous approuvez la portée écrite et le prix fixe de la première étape, le Lancement. Elle est facturée quand vous acceptez la livraison.",
+      "**4. Développement en production, par étapes à prix fixe.** Des ingénieurs seniors construisent pour la durée, la fiabilité et la sécurité : revue de code, tests automatisés, vérifications de sécurité, surveillance et documentation. Chaque étape est chiffrée selon des livrables convenus et facturée à votre acceptation. Le code vous est remis à chaque étape.",
+      "**5. Après le lancement, à vous de choisir.** Nous pouvons former votre équipe pour qu'elle assure elle-même le soutien du produit, ou vous offrir un contrat de soutien à long terme plus léger, avec des garanties de qualité encore plus fortes. Ce soutien coûte peu, parce que le logiciel est conçu dès le départ pour être robuste."
+     ]
+    },
+    {
+     "h2": "Des itérations rapides et une mise en place sans casse-tête",
+     "paragraphs": [
+      "Ce qu'Addanapp offre avant tout : des itérations rapides et une mise en place sans casse-tête. Vous voyez un logiciel qui fonctionne en quelques jours, et chaque changement passe vite de la demande à la livraison. Addanapp s'occupe de l'hébergement, des connexions des utilisateurs, des paiements, des sauvegardes et de la surveillance. Vous gardez le contrôle de tout le processus et vous connaissez le coût de chaque étape avant de vous engager, pour garder les dépenses bien en main."
+     ]
+    },
+    {
+     "h2": "À l'intérieur de chaque étape : soumission, développement, révision, acceptation",
+     "paragraphs": [
+      "À l'intérieur de chaque étape, comme pour chaque petite modification, le travail suit les mêmes quatre temps."
      ],
      "bullets": [
       "**1. Soumission.** Vous décrivez votre besoin dans votre espace client. Un ingénieur le transforme en portée écrite avec un prix fixe et un délai, en 2 jours ouvrables pour une fonction simple. Les travaux commencent seulement après votre approbation.",
@@ -1850,7 +1963,7 @@ PAGES = {
     {
      "h2": "Revue de code, tests et accessibilité inclus",
      "paragraphs": [
-      "La revue de code et les tests font partie de chaque soumission d'Addanapp ; ce ne sont pas des options. Les interfaces visent l'accessibilité WCAG 2.2 AA, et la protection des renseignements personnels tient compte de la Loi 25, de la LPRPDE et du RGPD. À la fin de chaque étape, vous gardez le code, les données et la documentation, si bien qu'une autre équipe pourrait reprendre le travail si vous le souhaitiez. Voyez [tous nos services](/fr/services) pour savoir ce que nous construisons avec cette méthode."
+      "La revue de code et les tests font partie de chaque soumission d'Addanapp ; ce ne sont pas des options. Les interfaces visent l'accessibilité WCAG 2.2 AA, et la protection des renseignements personnels tient compte de la Loi 25, de la LPRPDE et du RGPD. Le code vous est remis à chaque étape, avec les données et la documentation, si bien que votre équipe ou une autre firme pourrait reprendre le travail si vous le souhaitiez. Voyez [tous nos services](/fr/services) pour savoir ce que nous construisons avec cette méthode."
      ]
     }
    ],
@@ -1865,7 +1978,11 @@ PAGES = {
     ],
     [
      "En combien de temps reçoit-on une soumission ?",
-     "Pour une fonction ou une modification simple, Addanapp envoie une soumission à prix fixe avec un délai en 2 jours ouvrables. Les projets plus importants commencent par un atelier de découverte inclus dans l'étape Lancement, qui fixe la portée et le prix de cette étape. Aucun travail ne commence sans votre approbation de la soumission."
+     "Pour une fonction ou une modification simple, Addanapp envoie une soumission à prix fixe avec un délai en 2 jours ouvrables. Les projets plus importants commencent par un appel exploratoire gratuit et un prototype rapide. Après avoir vu le prototype, vous recevez la portée et le prix fixe de l'étape Lancement, de 10 000 $ à 30 000 $ selon la complexité. Aucun travail ne commence sans votre approbation de la soumission."
+    ],
+    [
+     "Le code m'appartient-il ?",
+     "Oui. Le code vous est remis à chaque étape, avec les données et la documentation. Vous pouvez poursuivre avec votre propre équipe ou une autre firme à tout moment, sans frais de sortie."
     ],
     [
      "Vais-je savoir où en est le travail ?",
@@ -1874,11 +1991,15 @@ PAGES = {
     [
      "Que se passe-t-il si je n'accepte pas une livraison ?",
      "Addanapp ne facture que les livraisons acceptées. Si une livraison ne correspond pas à la portée convenue, vous expliquez le problème dans votre espace client et l'ingénieur le corrige. Une fois la livraison conforme et acceptée, elle est facturée. Vous ne payez jamais pour un travail que vous n'avez pas accepté."
+    ],
+    [
+     "Que se passe-t-il après le lancement ?",
+     "C'est vous qui choisissez. Addanapp peut former votre équipe pour qu'elle assure elle-même le soutien du produit, ou vous offrir un contrat de soutien à long terme plus léger, avec des garanties de qualité encore plus fortes. Le soutien reste abordable parce que le logiciel est construit dès le départ avec revue de code, tests automatisés, surveillance et documentation."
     ]
    ],
    "cta": {
-    "heading": "Commencez par une soumission à prix fixe",
-    "text": "Envoyez votre première demande et recevez une portée écrite, un prix fixe et un délai. Vous ne payez qu'à l'acceptation de la livraison. Consultez nos [tarifs par étapes](/fr/tarifs) ou nos [60 produits en ligne](https://addanapp.com/#work).",
+    "heading": "Commencez par un appel exploratoire gratuit",
+    "text": "Dites-nous ce dont vous avez besoin. Vous voyez un prototype rapide avant de payer quoi que ce soit, puis vous recevez une portée écrite, un prix fixe et un délai. Vous ne payez qu'à l'acceptation de la livraison, et le code vous est remis à chaque étape. Consultez nos [tarifs par étapes](/fr/tarifs) ou nos [60 produits en ligne](https://addanapp.com/#work).",
     "button": "Obtenir une soumission"
    }
   }
@@ -1944,7 +2065,7 @@ PAGES = {
     {
      "h2": "How Addanapp builds Law 25-ready software",
      "paragraphs": [
-      "Addanapp treats privacy as a design requirement, not a final checklist. Senior engineers review every delivery for access rules and data handling before it reaches you, as described in [how we work](/how-we-work). Privacy is handled with Law 25, PIPEDA and GDPR in mind, which matters for clients serving customers in Canada, the US and Europe. Addanapp also offers a free [Québec Law 25 checklist](https://addanapp.com/#guides) to help you see where you stand before a project starts."
+      "Addanapp treats privacy as a design requirement, not a final checklist. Senior engineers review every delivery for access rules and data handling before it reaches you, as described in [how we work](/how-we-work). Privacy is handled with Law 25, PIPEDA and GDPR in mind, which matters for clients serving customers in Canada, the US and Europe. Addanapp also offers a free [Québec Law 25 checklist](https://addanapp.com/#guides) to help you see where you stand before a project starts. Like every Addanapp project, it starts with a free exploratory call and a quick prototype you see before paying anything, and the code is delivered to you at every milestone."
      ]
     }
    ],
@@ -2031,7 +2152,7 @@ PAGES = {
     {
      "h2": "Comment Addanapp construit des logiciels prêts pour la Loi 25",
      "paragraphs": [
-      "Addanapp traite la protection des renseignements personnels comme une exigence de conception, pas comme une liste à cocher à la fin. Des ingénieurs seniors révisent chaque livraison, notamment les règles d'accès et le traitement des données, avant qu'elle vous parvienne, comme décrit dans [notre méthode](/fr/notre-methode). Nous tenons compte de la Loi 25, de la LPRPDE et du RGPD, ce qui compte pour les entreprises qui servent des clients au Canada, aux États-Unis et en Europe. Addanapp offre aussi une [liste de vérification Loi 25](https://addanapp.com/#guides) gratuite pour faire le point avant de lancer un projet."
+      "Addanapp traite la protection des renseignements personnels comme une exigence de conception, pas comme une liste à cocher à la fin. Des ingénieurs seniors révisent chaque livraison, notamment les règles d'accès et le traitement des données, avant qu'elle vous parvienne, comme décrit dans [notre méthode](/fr/notre-methode). Nous tenons compte de la Loi 25, de la LPRPDE et du RGPD, ce qui compte pour les entreprises qui servent des clients au Canada, aux États-Unis et en Europe. Addanapp offre aussi une [liste de vérification Loi 25](https://addanapp.com/#guides) gratuite pour faire le point avant de lancer un projet. Comme tout projet Addanapp, il commence par un appel exploratoire gratuit et un prototype rapide, que vous voyez avant de payer quoi que ce soit, et le code vous est remis à chaque étape."
      ]
     }
    ],

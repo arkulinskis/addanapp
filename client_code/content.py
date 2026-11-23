@@ -83,4 +83,4 @@ def guide_cover(slug):
 # Lead form choices are saved in English (the value) and shown translated (the label).
 LEAD_TYPES = ['A new app or product', 'A feature for an existing app', 'An admin panel or internal tool', 'A client portal',
               'API or integration work', 'Taking over an existing app', 'Something else']
-LEAD_BUDGETS = ['Not sure yet', 'Under $30k', '$30k – $75k', '$75k – $150k', '$150k – $300k', '$300k+']
+LEAD_BUDGETS = ['Not sure yet', 'Under $10k', '$10k – $30k', '$30k – $75k', '$75k – $150k', '$150k – $300k', '$300k+']
