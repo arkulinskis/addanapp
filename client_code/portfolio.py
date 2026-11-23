@@ -406,6 +406,12 @@ PROJECTS: list = [  # each project: a dict of plain values (see the first one)
     'tags': ['EdTech', 'Product leadership', 'Certification'], 'color': '#2340A8', 'bg': '#F4F5F7', 'art': 'shot',
   },
   {
+    'key': 'sayback', 'name': 'Spoken Miles', 'domain': 'sayback.anvil.app', 'cat': 'learn',
+    'blurb': 'Audio language lessons made for the car. Learners hear a phrase in English, say it out loud in Spanish, French or Italian, then hear the answer, with every phrase timed to come back just before it would be forgotten. 600 lessons in four courses, offline saving for drives with no signal, gift cards and lifetime checkout through Stripe.',
+    'built': ['600 lessons of 45 minutes in four language courses', 'Offline saving by pack, level or whole course', 'Gift codes, lifetime checkout and ad tracking'],
+    'tags': ['EdTech', 'Audio', 'E-commerce'], 'color': '#B53B18', 'bg': '#EEF2F4', 'art': 'shot',
+  },
+  {
     'key': 'masterinvestor', 'name': 'Master Investor', 'domain': 'master-investor.anvil.app', 'cat': 'learn',
     'blurb': 'Free investing lessons from a first index fund to how quants work. Nine tracks and 54 short lessons cover valuing a company, where data comes from, portfolio risk, trading and factor models, each ending with question cards whose answers stay hidden until you reveal them, plus seven calculators and a library of data sources and GitHub projects.',
     'built': ['Nine tracks, 54 lessons and 432 reveal-the-answer cards', 'Spaced-repetition practice and a placement check', 'Seven calculators, from DCF to option payoffs'],
