@@ -1558,8 +1558,8 @@ native_deps:
          "position": 29,
          "item": {
           "@type": "SoftwareApplication",
-          "name": "Robo Presence",
-          "url": "https://robo-presence.anvil.app",
+          "name": "Add a Robot",
+          "url": "https://addarobot.com",
           "description": "Build a camera robot and drive it from any browser. Use a Raspberry Pi, an Arduino or an old phone, install it with one command, and steer with live peer-to-peer video, a joystick and a pan-tilt head.",
           "creator": {
            "@id": "https://addanapp.com/#org"
@@ -1569,8 +1569,8 @@ native_deps:
           "operatingSystem": "Web",
           "subjectOf": {
            "@type": "VideoObject",
-           "name": "Robo Presence in about a minute",
-           "description": "Robo Presence turns a Raspberry Pi, a Pi plus an Arduino, or an old phone into a camera robot on wheels that you drive live from any browser. Free: you only pay for your parts.",
+           "name": "Add a Robot in about a minute",
+           "description": "Add a Robot turns a Raspberry Pi, a Pi plus an Arduino, or an old phone into a camera robot on wheels that you drive live from any browser. Free: you only pay for your parts.",
            "thumbnailUrl": "https://i.ytimg.com/vi/-c7CiXm_WjE/hqdefault.jpg",
            "uploadDate": "2026-11-02T18:08:48+00:00",
            "embedUrl": "https://www.youtube.com/embed/-c7CiXm_WjE",

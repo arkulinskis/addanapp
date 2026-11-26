@@ -297,7 +297,7 @@ PROJECTS: list = [  # each project: a dict of plain values (see the first one)
     'tags': ['3D', 'DIY', 'Simulations'], 'color': '#1F4D3A', 'bg': '#F3EEE3', 'art': 'shot',
   },
   {
-    'key': 'robopresence', 'name': 'Robo Presence', 'domain': 'robo-presence.anvil.app', 'cat': 'tools',
+    'key': 'robopresence', 'name': 'Add a Robot', 'domain': 'addarobot.com', 'cat': 'tools',
     'blurb': 'Build a camera robot and drive it from any browser. Use a Raspberry Pi, an Arduino or an old phone, install it with one command, and steer with live peer-to-peer video, a joystick and a pan-tilt head.',
     'built': ['Parts builder and one-command installer', 'WebRTC cockpit with live video and controls', 'A simulator to practise driving before you build'],
     'tags': ['Robotics', 'Live video', 'Hardware'], 'color': '#E2611E', 'bg': '#ECE6D6', 'art': 'shot',
