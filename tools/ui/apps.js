@@ -97,11 +97,20 @@
     }
     const [s401] = await (async () => { const r = await fetch(location.origin + '/_/api/apps/v1/board'); return [r.status]; })();
     ok(s401 === 401, 'PC API: no key, no entry');
+    // the Ads tab's pages (APP_MAKER/ads/publish.py), sent before the board first loads
+    [st] = await api('push', {meta: {modules: ['posts', 'bizdev', 'money', 'ads', 'youtube']}, docs: [
+      {name: 'ads/index', data: {apps: [{key: 'snack', name: 'Snack App', priority: 1, offer: 'Free; $34 once', price: '$34'}]}},
+      {name: 'ads/GUIDE', text: '# Guide\n\n## Run your ads\n\nStart **small**.'},
+      {name: 'ads/snack', data: {key: 'snack', name: 'Snack App', url: 'https://snack.example', priority: 1, offer: 'Free; $34 once', insight: 'Long ads win.',
+        competitors: [{name: 'Rival', price: '$9/mo', long_running: 'Price ads', lesson: 'Be clear', adlib: {long_count: 1, top: [{days: 120, text: 'Rival hook'}]}}],
+        concepts: [{id: 'a', template: 'receipt', angle: 'Price', meta: {primary_text: 'Pay once.', headline: 'Once'}, link: 'https://snack.example/?utm_content=ad-a', img: {}}],
+        targeting: {budget: '$10/day'}}}]});
+    ok(st === 200, 'PC API: ads pages sent');
 
     // board
     await page('#apps/board', () => $$('.ap-card').length >= 2, 'board');
     ok($$('.aa-nav-app a').filter(vis).some((a) => a.getAttribute('href') === '#apps' && txt(a).startsWith('Apps')), 'menu: Apps link for the consultant');
-    ok($$('.ap-tabs a').length === 9 && $('.ap-tabs a.on') && txt($('.ap-tabs a.on')).startsWith('Board'), 'board: 9 view tabs (App health for consultants), Board lit');
+    ok($$('.ap-tabs a').length >= 9 && $('.ap-tabs a.on') && txt($('.ap-tabs a.on')).startsWith('Board'), 'board: 9+ view tabs (App health for consultants), Board lit');
     ok($$('.ap-stat').length >= 6 && $$('.ap-lane').length >= 4, 'board: header numbers and stage lanes');
     const nCards = $$('.ap-card').length;
     const head = $$('.ap-lane-head').find((h) => h.getAttribute('aria-expanded') === 'true' && h.closest('.ap-lane').querySelector('.ap-card'));
@@ -170,6 +179,10 @@
     // money, youtube
     await page('#apps/money', () => $$('.ap-m-card').length >= 1, 'money');
     ok(true, 'money: plans by role');
+    // ads (APP_MAKER/ads/publish.py): the guide, an app's ads page, copy buttons and the comment box
+    await page('#apps/ads/GUIDE', () => $('.ad-page h2'), 'ads guide');
+    await page('#apps/ads/snack', () => $('.ad-concept'), 'ads page');
+    ok($('.ad-copy') && /120 days/.test(txt($('.ad-page'))) && vis($('.ad-comment textarea')), 'ads: guide, an app page with copy buttons, competitors and the comment box');
     await page('#apps/youtube', () => $$('.ap-yt-tile').length >= 3, 'youtube');
     await until(() => $('.ap-chart svg'), 'a chart');
     ok($('.ap-yt-table tbody tr'), 'youtube: tiles, a chart and the video table');

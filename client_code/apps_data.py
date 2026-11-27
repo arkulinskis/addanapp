@@ -18,9 +18,9 @@ from anvil.js import window
 from . import state, ui
 
 VIEWS = [('board', 'Board', 'columns'), ('grid', 'Checklist grid', 'grid'), ('posts', 'Posts', 'message'),
-         ('bizdev', 'Biz dev', 'target'), ('money', 'Money', 'receipt'), ('youtube', 'YouTube', 'play'),
+         ('bizdev', 'Biz dev', 'target'), ('money', 'Money', 'receipt'), ('ads', 'Ads', 'target'), ('youtube', 'YouTube', 'play'),
          ('dossier', 'Dossiers', 'file'), ('notes', 'Notifications', 'bell'), ('health', 'App health', 'activity')]
-MODULE_VIEWS = ('posts', 'bizdev', 'money', 'youtube')
+MODULE_VIEWS = ('posts', 'bizdev', 'money', 'ads', 'youtube')
 STAGE_COLOR = {'build': '--ap-build', 'deploy': '--ap-deploy', 'test': '--ap-test', 'promote': '--ap-promote',
                'standard': '--ap-standard', 'components': '--ap-components', 'launched': '--ap-launched', 'parked': '--ap-parked'}
 _d: dict = {"board": None, "listener": None, "q": "", "copied": set()}

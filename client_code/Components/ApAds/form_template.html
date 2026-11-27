@@ -1,0 +1,19 @@
+<div class="ap-ads">
+  <p class="ap-hint">Ready-to-run ads for every app: competitors' long-running ads, 5 ads each (feed + story pictures, copy, targeting) and Google keywords where people search. Start with the guide, then the apps marked "Run first". Comment on any ad below it; Claude changes the words and re-renders the pictures.</p>
+  <div class="ap-split">
+    <nav class="ap-list" aria-label="Ads"><anvil-component type="RepeatingPanel" name="docs" prop:item_template="Addanapp.Items.ApListBtn" prop:role='["contents"]'></anvil-component></nav>
+    <section>
+      <div class="ap-links" anvil:dom-node="links"></div>
+      <div class="ap-md ad-page" anvil:dom-node="md"></div>
+      <div class="ad-comment" anvil:name="comment_part">
+        <h3 class="ap-pane-h">Change something</h3>
+        <p class="ap-hint">Pick an ad (or "All ads") and say what to change: the words, the angle, the picture, the audience. It goes to Claude as a request on this app.</p>
+        <div class="ap-log-form">
+          <div class="f"><span class="lbl">Which ad</span><anvil-component type="DropDown" name="concept_dd"></anvil-component></div>
+          <div class="f wide"><span class="lbl">What to change</span><anvil-component type="TextArea" name="comment_box" prop:placeholder="Ad c: less salesy, talk to teachers. Use a photo of a classroom."></anvil-component></div>
+          <div class="wide"><anvil-component type="Button" name="send_button" prop:text="Send to Claude" prop:role='["aa-btn", "accent", "ic-plus"]'></anvil-component></div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

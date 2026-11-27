@@ -390,6 +390,27 @@ assert call("apps_bizdev", "apps.snack")["html"].startswith("<h2>Snack")
 assert call("apps_bizdev", "../../etc")["name"] == "README"
 assert "<script>" not in M["apps_core"].markdown("<script>alert(1)</script>"), "plans are escaped"
 assert call("apps_bizdev_plan", "snack")["html"] == "<p>Sell to cafés.</p>"
+# Ads (#apps/ads): docs pushed by APP_MAKER/ads/publish.py, pages rendered here from escaped text
+a0 = call("apps_ads")
+assert a0["name"] == "GUIDE" and a0["missing"] and a0["apps"] == []
+api("push", {"client": "pf@example.com", "meta": {"modules": ["posts", "ads"]}, "docs": [
+    {"name": "ads/index", "data": {"apps": [{"key": "snack", "name": "Snack App", "priority": 1, "offer": "$34 once"}]}},
+    {"name": "ads/GUIDE", "text": "## Run ads\n\nStart **small**."},
+    {"name": "ads/snack", "data": {"key": "snack", "name": "Snack <App>", "url": "https://snack.example", "priority": 1,
+     "offer": "Free; $34 once", "insight": "Long ads win", "competitors": [{"name": "Rival", "price": "$9/mo", "adlib": {"long_count": 2,
+     "top": [{"days": 120, "text": "Rival hook"}], "shot": "https://media.example/ads/snack/comp0.ab12cd34.jpg"}}],
+     "concepts": [{"id": "a", "template": "receipt", "angle": "Price", "meta": {"primary_text": "Pay <once>", "headline": "H"},
+                   "link": "https://snack.example?utm_content=ad-a", "check": "the price",
+                   "img": {"feed": {"thumb": "https://media.example/t.jpg", "full": "https://media.example/f.jpg"}}}],
+     "google": {"headlines": ["Snack once"], "keywords": ["snack app"]}, "targeting": {"budget": "$10/day"}}}]})
+g = call("apps_ads")
+assert "<strong>small</strong>" in g["html"] or "<b>small</b>" in g["html"], g["html"]
+assert g["apps"][0]["key"] == "snack" and not g["missing"]
+s1 = call("apps_ads", "snack")
+assert "Snack &lt;App&gt;" in s1["html"] and "Pay &lt;once&gt;" in s1["html"] and "<script" not in s1["html"], "ads pages are escaped"
+assert 'data-copy="Pay &lt;once&gt;"' in s1["html"] and "f.jpg?dl=1" in s1["html"] and "120 days" in s1["html"]
+assert "Check before running" in s1["html"] and "Google Search ad" in s1["html"] and s1["concepts"] == [["a", "A · Price"]]
+assert call("apps_ads", "../x")["name"] == "GUIDE" and call("apps_ads", "nope")["missing"]
 problem("apps_add_outreach", {"date": "2026-11-11"}, has="at least")
 problem("apps_add_outreach", {"date": "11/11", "app": "Snack"}, has="date")
 assert len(call("apps_add_outreach", {"app": "Snack App", "channel": "Email", "result": "no reply"})["rows"]) == 1

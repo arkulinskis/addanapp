@@ -341,3 +341,36 @@
 .ap-health .chip.bad { background: var(--red-soft); color: #A82E2E; }
 .ap-health .chip:not(.human):not(.warn):not(.bad) { background: var(--slate-soft); color: var(--muted); }
 .ap-health .chip .ic { font-size: .8em; }
+
+/* Ads view (#apps/ads, Components/ApAds, server_code/api_ads.py) */
+.ad-page { max-width: none; }
+.ad-head { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.ad-head h2 { margin: 0 !important; }
+.ad-pri { font-size: .75rem; font-weight: 700; padding: 3px 10px; border-radius: 999px; background: var(--surface-2, #eee); }
+.ad-pri.p1 { background: var(--ap-ok, #1a7f4b); color: #fff; } .ad-pri.p2 { background: var(--ap-deploy, #b7791f); color: #fff; }
+.ad-offer { font-size: 1rem; }
+.ad-muted { color: var(--muted); font-size: .85rem; }
+.ad-insight { border-left: 4px solid var(--accent); padding: 10px 16px; background: var(--surface-2, rgba(0,0,0,.03)); border-radius: 0 10px 10px 0; margin: 14px 0; }
+.ad-insight p { margin: 6px 0 0; }
+.ad-concept { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 22px; padding: 20px 0; border-top: 1px solid var(--line, rgba(0,0,0,.1)); }
+.ad-pics { display: flex; gap: 12px; align-items: flex-start; }
+.ad-pic { margin: 0; } .ad-pic img { display: block; width: 100%; border-radius: 10px; box-shadow: 0 6px 20px rgba(0,0,0,.15); }
+.ad-pic.ad-feed { flex: 1.25; } .ad-pic.ad-story { flex: 1; }
+.ad-pic figcaption { font-size: .75rem; color: var(--muted); margin-top: 6px; }
+.ad-ch { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; margin-bottom: 8px; }
+.ad-id { font-weight: 800; background: var(--accent); color: #fff; border-radius: 6px; padding: 1px 8px; }
+.ad-angle { font-weight: 700; } .ad-tpl { font-size: .75rem; color: var(--muted); border: 1px solid var(--line, #ddd); border-radius: 999px; padding: 1px 8px; }
+.ad-field { margin: 8px 0; } .ad-fl { display: flex; justify-content: space-between; align-items: center; font-size: .72rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); }
+.ad-fv { background: var(--surface-2, rgba(0,0,0,.035)); border-radius: 8px; padding: 8px 10px; font-size: .9rem; margin-top: 3px; word-break: break-word; }
+.ad-copy { font: inherit; font-size: .72rem; text-transform: none; letter-spacing: 0; border: 1px solid var(--line, #ccc); background: transparent; color: var(--text); border-radius: 999px; padding: 2px 10px; cursor: pointer; }
+.ad-copy:hover { border-color: var(--accent); color: var(--accent); }
+.ad-why { font-size: .85rem; margin: 6px 0; } .ad-check { font-size: .85rem; background: #fff4d6; color: #5a4300; border-radius: 8px; padding: 6px 10px; }
+.ad-ul { margin: 3px 0; padding-left: 20px; font-size: .88rem; } .ad-n { color: var(--muted); font-size: .72rem; }
+.ad-targ { border-collapse: collapse; font-size: .9rem; } .ad-targ th { text-align: left; padding: 4px 14px 4px 0; vertical-align: top; color: var(--muted); font-weight: 600; } .ad-targ td { padding: 4px 0; }
+.ad-google { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 0 20px; }
+.ad-comp { display: grid; grid-template-columns: 260px minmax(0, 1fr); gap: 18px; padding: 16px 0; border-top: 1px solid var(--line, rgba(0,0,0,.1)); }
+.ad-comp h4 { margin: 0 0 4px !important; } .ad-price { font-weight: 500; color: var(--muted); font-size: .85rem; }
+.ad-shot img { width: 100%; border-radius: 8px; border: 1px solid var(--line, #ddd); max-height: 340px; object-fit: cover; object-position: top; }
+.ad-tops { font-size: .85rem; } .ad-days { font-weight: 700; color: var(--accent); margin-right: 4px; }
+.ad-comment { margin-top: 24px; }
+@media (max-width: 900px) { .ad-concept, .ad-comp { grid-template-columns: 1fr; } }

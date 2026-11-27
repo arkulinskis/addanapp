@@ -21,6 +21,9 @@ def make_view(view, arg):
     if view == 'money':
         from ...Components.ApMoney import ApMoney
         return ApMoney()
+    if view == 'ads':
+        from ...Components.ApAds import ApAds
+        return ApAds(arg=arg)
     if view == 'youtube':
         from ...Components.ApYoutube import ApYoutube
         return ApYoutube()
@@ -39,7 +42,7 @@ def make_view(view, arg):
 
 class Apps(AppsTemplate):
     """#apps[/view[/arg]]: a client's app portfolio board (the App Board that ran on the user's PC until 2026-11-11).
-    Views: board (a lane per stage), grid (every step as a tick square), posts, bizdev, money, youtube, dossier (one app
+    Views: board (a lane per stage), grid (every step as a tick square), posts, bizdev, money, ads, youtube, dossier (one app
     per page), notes (what needs the user or Claude), health (every app's status report; consultants only). The data loads once (apps_data) and is shared by the views; the
     router calls show_view() to switch without reloading. Refresh all checks every app from here, a few per call,
     with a progress line; nothing polls."""
