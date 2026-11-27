@@ -74,10 +74,16 @@ def app_html(d):
     shot = ('<a class="ad-shot" href="%s" target="_blank" rel="noopener"><img loading="lazy" src="%s" alt="%s ads in the Meta Ad Library"></a>' % (
       e(a['shot']), e(a['shot']), e(c.get('name')))) if a.get('shot') else ''
     lib = '<a href="%s" target="_blank" rel="noopener">Their ads in the Meta Ad Library ↗</a>' % e(a['link']) if a.get('link') else ''
+    if a.get('long_count'):
+      found = '%s ads running 90+ days (the ones that earn their keep)' % e(a['long_count'])
+    elif a.get('kind') == 'active' and tops:
+      found = '%s Their most-seen ads right now:' % e(a.get('note') or 'No ads running 90+ days.')
+    else:
+      found = e(a.get('note') or 'No long-running ads found.')
     comps += ('<div class="ad-comp">%s<div><h4>%s <span class="ad-price">%s</span></h4><p>%s</p><p><b>Lesson:</b> %s</p>'
-              '<p class="ad-muted">%s long-running ads found%s</p><ul class="ad-tops">%s</ul>%s</div></div>') % (
+              '<p class="ad-muted">%s%s</p><ul class="ad-tops">%s</ul>%s</div></div>') % (
       shot, e(c.get('name')), e(c.get('price')), e(c.get('long_running')), e(c.get('lesson')),
-      e(a.get('long_count', 0)), (' · price checked: ' + e(c['price_source'])) if c.get('price_source') else '', tops, lib)
+      found, (' · price checked: ' + e(c['price_source'])) if c.get('price_source') else '', tops, lib)
   concepts = ''.join(_concept(c) for c in d.get('concepts') or [])
   t = d.get('targeting') or {}
   targ = ''.join('<tr><th>%s</th><td>%s</td></tr>' % (e(k.capitalize()), e(v)) for k, v in t.items() if v)
