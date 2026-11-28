@@ -412,6 +412,12 @@ PROJECTS: list = [  # each project: a dict of plain values (see the first one)
     'tags': ['EdTech', 'Software testing', 'Certification'], 'color': '#14794A', 'bg': '#F1F6F1', 'art': 'shot',
   },
   {
+    'key': 'salesobjections', 'name': 'Sales Objections Trainer', 'domain': 'salesobjections.anvil.app', 'cat': 'learn',
+    'blurb': 'A practice gym for people who sell software, SaaS, engineering services and contracts. 1,000 researched buyer objections, each with a model answer written for its situation and medium, from a phone call to RFP redlines. Users hear the buyer in a natural AI voice made locally, answer out loud and record it, hear what works, rate themselves and keep notes, while spaced repetition brings back the ones they miss. Ten objections are free; the other 990 are a paid pack.',
+    'built': ['1,000 B2B objections with model answers for six mediums', 'Record, compare and rate, with spaced repetition and notes', 'Every line voiced by a local AI model picked in a listening test'],
+    'tags': ['EdTech', 'Sales training', 'Audio'], 'color': '#D0142C', 'bg': '#FAF2F3', 'art': 'shot',
+  },
+  {
     'key': 'sayback', 'name': 'Spoken Miles', 'domain': 'spokenmiles.com', 'cat': 'learn',
     'blurb': 'Audio language lessons made for the car. Learners hear a phrase in English, say it out loud in Spanish, French or Italian, then hear the answer, with every phrase timed to come back just before it would be forgotten. 600 lessons in four courses, offline saving for drives with no signal, gift cards and lifetime checkout through Stripe.',
     'built': ['600 lessons of 45 minutes in four language courses', 'Offline saving by pack, level or whole course', 'Gift codes, lifetime checkout and ad tracking'],
