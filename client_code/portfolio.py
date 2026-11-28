@@ -406,6 +406,12 @@ PROJECTS: list = [  # each project: a dict of plain values (see the first one)
     'tags': ['EdTech', 'Product leadership', 'Certification'], 'color': '#2340A8', 'bg': '#F4F5F7', 'art': 'shot',
   },
   {
+    'key': 'qamastery', 'name': 'QA Mastery', 'domain': 'qa-mastery.anvil.app', 'cat': 'learn',
+    'blurb': 'Free training for software testers and quality engineers in the AI era. Eight programs go from bug reports and test automation to testing LLM products, prompt injection, accessibility and leading quality, with 288 drills, five in-browser labs, 24 real case files, a bug report clinic and certificates anyone can verify.',
+    'built': ['Eight programs, 32 modules and 288 drills', 'Labs for flaky tests, mutation testing and eval sizes', '24 sourced case files on software and AI failures'],
+    'tags': ['EdTech', 'Software testing', 'Certification'], 'color': '#14794A', 'bg': '#F1F6F1', 'art': 'shot',
+  },
+  {
     'key': 'sayback', 'name': 'Spoken Miles', 'domain': 'spokenmiles.com', 'cat': 'learn',
     'blurb': 'Audio language lessons made for the car. Learners hear a phrase in English, say it out loud in Spanish, French or Italian, then hear the answer, with every phrase timed to come back just before it would be forgotten. 600 lessons in four courses, offline saving for drives with no signal, gift cards and lifetime checkout through Stripe.',
     'built': ['600 lessons of 45 minutes in four language courses', 'Offline saving by pack, level or whole course', 'Gift codes, lifetime checkout and ad tracking'],

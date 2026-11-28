@@ -1480,5 +1480,9 @@
 "Offline saving by pack, level or whole course": "Saglabāšana bezsaistē pa paketēm, līmeņiem vai visu kursu",
 "Gift codes, lifetime checkout and ad tracking": "Dāvanu kodi, pirkums uz mūžu un reklāmu uzskaite",
 "Audio": "Audio",
-"E-commerce": "E-komercija"
+"E-commerce": "E-komercija",
+"Free training for software testers and quality engineers in the AI era. Eight programs go from bug reports and test automation to testing LLM products, prompt injection, accessibility and leading quality, with 288 drills, five in-browser labs, 24 real case files, a bug report clinic and certificates anyone can verify.": "Bezmaksas apmācība programmatūras testētājiem un kvalitātes inženieriem mākslīgā intelekta laikmetā. Astoņas programmas no kļūdu ziņojumiem un testu automatizācijas līdz lielo valodas modeļu produktu testēšanai, uzvedņu injekcijām, piekļūstamībai un kvalitātes vadībai: 288 vingrinājumi, piecas laboratorijas pārlūkā, 24 reāli gadījumu apraksti, kļūdu ziņojumu klīnika un sertifikāti, ko var pārbaudīt ikviens.",
+"Labs for flaky tests, mutation testing and eval sizes": "Laboratorijas par nestabiliem testiem, mutāciju testēšanu un novērtējumu kopas lielumu",
+"24 sourced case files on software and AI failures": "24 gadījumu apraksti par programmatūras un mākslīgā intelekta kļūmēm ar avotiem",
+"Software testing": "Programmatūras testēšana"
 }

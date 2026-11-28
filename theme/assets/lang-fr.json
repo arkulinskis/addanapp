@@ -1482,5 +1482,9 @@
 "Offline saving by pack, level or whole course": "Enregistrement hors ligne par lot, par niveau ou cours entier",
 "Gift codes, lifetime checkout and ad tracking": "Codes cadeaux, achat à vie et suivi des publicités",
 "Audio": "Audio",
-"E-commerce": "Commerce en ligne"
+"E-commerce": "Commerce en ligne",
+"Free training for software testers and quality engineers in the AI era. Eight programs go from bug reports and test automation to testing LLM products, prompt injection, accessibility and leading quality, with 288 drills, five in-browser labs, 24 real case files, a bug report clinic and certificates anyone can verify.": "Une formation gratuite pour les testeurs de logiciels et les ingénieurs qualité à l'ère de l'IA. Huit programmes vont des rapports de bogue et de l'automatisation des tests jusqu'aux tests de produits à base de grands modèles de langage, à l'injection de requêtes, à l'accessibilité et au leadership qualité, avec 288 exercices, cinq laboratoires dans le navigateur, 24 études de cas réelles, une clinique des rapports de bogue et des certificats vérifiables par tous.",
+"Labs for flaky tests, mutation testing and eval sizes": "Laboratoires sur les tests instables, les tests de mutation et la taille des évaluations",
+"24 sourced case files on software and AI failures": "24 études de cas sourcées sur des défaillances de logiciels et d'IA",
+"Software testing": "Test logiciel"
 }

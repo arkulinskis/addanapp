@@ -1485,5 +1485,9 @@
 "Offline saving by pack, level or whole course": "Сохранение офлайн: пакетом, уровнем или курсом целиком",
 "Gift codes, lifetime checkout and ad tracking": "Подарочные коды, покупка навсегда и учёт рекламы",
 "Audio": "Аудио",
-"E-commerce": "Электронная коммерция"
+"E-commerce": "Электронная коммерция",
+"Free training for software testers and quality engineers in the AI era. Eight programs go from bug reports and test automation to testing LLM products, prompt injection, accessibility and leading quality, with 288 drills, five in-browser labs, 24 real case files, a bug report clinic and certificates anyone can verify.": "Бесплатное обучение для тестировщиков и инженеров по качеству в эпоху ИИ. Восемь программ: от баг-репортов и автоматизации тестов до тестирования продуктов на больших языковых моделях, prompt injection, доступности и руководства качеством. 288 упражнений, пять лабораторий прямо в браузере, 24 реальных разбора случаев, клиника баг-репортов и сертификаты, которые может проверить любой.",
+"Labs for flaky tests, mutation testing and eval sizes": "Лаборатории о нестабильных тестах, мутационном тестировании и размере набора оценок",
+"24 sourced case files on software and AI failures": "24 разбора реальных сбоев программ и ИИ с источниками",
+"Software testing": "Тестирование ПО"
 }
