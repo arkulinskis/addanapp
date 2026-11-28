@@ -249,7 +249,7 @@
   "duration": "PT1M13S",
   "privacy": "public",
   "title": "Robo Presence: Build a Robot and Drive It From Anywhere (Free App)",
-  "description": "Robo Presence turns a Raspberry Pi, a Pi plus an Arduino, or an old phone into a camera robot on wheels that you drive live from any browser. Free: you only pay for your parts."
+  "description": "Add a Robot turns a Raspberry Pi, a Pi plus an Arduino, or an old phone into a camera robot on wheels that you drive live from any browser. Free: you only pay for your parts."
  },
  "_Qj7nniw9cw": {
   "publishedAt": "2026-11-02T18:08:41Z",
@@ -439,5 +439,12 @@
   "privacy": "public",
   "title": "Product Expert: From Senior PM to Director of Product (Free App)",
   "description": "Product Expert is free, senior-level training and certification for product managers preparing to become a Director of Product: eight programs, sourced briefings, \"Director's call?\" drills, browser labs, real case files and exams with certificates anyone can verify."
+ },
+ "IpJGW0sR5jI": {
+  "publishedAt": "2026-11-28T04:40:23Z",
+  "duration": "PT1M25S",
+  "privacy": "public",
+  "title": "QA Mastery: Software Testing Training for the AI Era (Free App)",
+  "description": "QA Mastery is free training and certification for software testers and quality engineers in the AI era: eight programs, sourced briefings, green-or-red drills, browser labs, real case files, a bug report clinic and exams with certificates anyone can verify."
  }
 }

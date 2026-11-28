@@ -488,6 +488,7 @@ VIDEOS = {
   'vrtotoon': 'wXfPmsZW_tA',
   'aiexpert': 'bZcM4sIz4kQ',
   'productexpert': 'wPLbvs9qoKU',
+  'qamastery': 'IpJGW0sR5jI',
 }
 
 # ------------------------------------------------------------------ illustrations

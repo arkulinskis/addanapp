@@ -1876,6 +1876,64 @@ native_deps:
          "position": 42,
          "item": {
           "@type": "SoftwareApplication",
+          "name": "QA Mastery",
+          "url": "https://qa-mastery.anvil.app",
+          "description": "Free training for software testers and quality engineers in the AI era. Eight programs go from bug reports and test automation to testing LLM products, prompt injection, accessibility and leading quality, with 288 drills, five in-browser labs, 24 real case files, a bug report clinic and certificates anyone can verify.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "EdTech, Software testing, Certification, Learning & guides",
+          "applicationCategory": "EducationalApplication",
+          "operatingSystem": "Web",
+          "subjectOf": {
+           "@type": "VideoObject",
+           "name": "QA Mastery in about a minute",
+           "description": "QA Mastery is free training and certification for software testers and quality engineers in the AI era: eight programs, sourced briefings, green-or-red drills, browser labs, real case files, a bug report clinic and exams with certificates anyone can verify.",
+           "thumbnailUrl": "https://i.ytimg.com/vi/IpJGW0sR5jI/hqdefault.jpg",
+           "uploadDate": "2026-11-28T04:40:23+00:00",
+           "embedUrl": "https://www.youtube.com/embed/IpJGW0sR5jI",
+           "url": "https://www.youtube.com/watch?v=IpJGW0sR5jI",
+           "duration": "PT1M25S"
+          }
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 43,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "Sales Objections Trainer",
+          "url": "https://salesobjections.anvil.app",
+          "description": "A practice gym for people who sell software, SaaS, engineering services and contracts. 1,000 researched buyer objections, each with a model answer written for its situation and medium, from a phone call to RFP redlines. Users hear the buyer in a natural AI voice made locally, answer out loud and record it, hear what works, rate themselves and keep notes, while spaced repetition brings back the ones they miss. Ten objections are free; the other 990 are a paid pack.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "EdTech, Sales training, Audio, Learning & guides",
+          "applicationCategory": "EducationalApplication",
+          "operatingSystem": "Web"
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 44,
+         "item": {
+          "@type": "SoftwareApplication",
+          "name": "Spoken Miles",
+          "url": "https://spokenmiles.com",
+          "description": "Audio language lessons made for the car. Learners hear a phrase in English, say it out loud in Spanish, French or Italian, then hear the answer, with every phrase timed to come back just before it would be forgotten. 600 lessons in four courses, offline saving for drives with no signal, gift cards and lifetime checkout through Stripe.",
+          "creator": {
+           "@id": "https://addanapp.com/#org"
+          },
+          "keywords": "EdTech, Audio, E-commerce, Learning & guides",
+          "applicationCategory": "EducationalApplication",
+          "operatingSystem": "Web"
+         }
+        },
+        {
+         "@type": "ListItem",
+         "position": 45,
+         "item": {
+          "@type": "SoftwareApplication",
           "name": "Master Investor",
           "url": "https://master-investor.anvil.app",
           "description": "Free investing lessons from a first index fund to how quants work. Nine tracks and 54 short lessons cover valuing a company, where data comes from, portfolio risk, trading and factor models, each ending with question cards whose answers stay hidden until you reveal them, plus seven calculators and a library of data sources and GitHub projects.",
@@ -1889,7 +1947,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 43,
+         "position": 46,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Subsudo",
@@ -1915,7 +1973,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 44,
+         "position": 47,
          "item": {
           "@type": "SoftwareApplication",
           "name": "QuickyBricks",
@@ -1941,7 +1999,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 45,
+         "position": 48,
          "item": {
           "@type": "SoftwareApplication",
           "name": "ToonyLoony",
@@ -1967,7 +2025,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 46,
+         "position": 49,
          "item": {
           "@type": "SoftwareApplication",
           "name": "BusyBun",
@@ -1993,7 +2051,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 47,
+         "position": 50,
          "item": {
           "@type": "SoftwareApplication",
           "name": "DoremiRoad",
@@ -2019,7 +2077,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 48,
+         "position": 51,
          "item": {
           "@type": "SoftwareApplication",
           "name": "City Fun Time",
@@ -2045,7 +2103,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 49,
+         "position": 52,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Mafia Camp",
@@ -2071,7 +2129,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 50,
+         "position": 53,
          "item": {
           "@type": "SoftwareApplication",
           "name": "PhotoHunt",
@@ -2097,7 +2155,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 51,
+         "position": 54,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Campfire",
@@ -2113,7 +2171,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 52,
+         "position": 55,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Snackpuncher",
@@ -2139,7 +2197,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 53,
+         "position": 56,
          "item": {
           "@type": "SoftwareApplication",
           "name": "WallTracer",
@@ -2165,7 +2223,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 54,
+         "position": 57,
          "item": {
           "@type": "SoftwareApplication",
           "name": "MrBigStage",
@@ -2191,7 +2249,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 55,
+         "position": 58,
          "item": {
           "@type": "SoftwareApplication",
           "name": "VRtoToon",
@@ -2217,7 +2275,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 56,
+         "position": 59,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Topameal",
@@ -2243,7 +2301,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 57,
+         "position": 60,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Logsteps",
@@ -2269,7 +2327,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 58,
+         "position": 61,
          "item": {
           "@type": "SoftwareApplication",
           "name": "PoundFighter",
@@ -2295,7 +2353,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 59,
+         "position": 62,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Parapeet",
@@ -2321,7 +2379,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 60,
+         "position": 63,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Dilettante",
@@ -2337,7 +2395,7 @@ native_deps:
         },
         {
          "@type": "ListItem",
-         "position": 61,
+         "position": 64,
          "item": {
           "@type": "SoftwareApplication",
           "name": "Arkvital",
